@@ -1,0 +1,900 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MongoDB,Database," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="插入文档insert()语法格式 insert() 方法的基本格式为:&amp;gt;db.COLLECTION_NAME.insert(document) 范例1 1234567891011&amp;gt;db.mycol.insert(  &amp;#123;    &amp;quot;_id&amp;quot;: ObjectId(7df78ad8902c),    &amp;quot;title&amp;quot;: &amp;quot;MongoDB">
+<meta name="keywords" content="MongoDB,Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" MongoDB 文档操作 ">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="插入文档insert()语法格式 insert() 方法的基本格式为:&amp;gt;db.COLLECTION_NAME.insert(document) 范例1 1234567891011&amp;gt;db.mycol.insert(  &amp;#123;    &amp;quot;_id&amp;quot;: ObjectId(7df78ad8902c),    &amp;quot;title&amp;quot;: &amp;quot;MongoDB">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" MongoDB 文档操作 ">
+<meta name="twitter:description" content="插入文档insert()语法格式 insert() 方法的基本格式为:&amp;gt;db.COLLECTION_NAME.insert(document) 范例1 1234567891011&amp;gt;db.mycol.insert(  &amp;#123;    &amp;quot;_id&amp;quot;: ObjectId(7df78ad8902c),    &amp;quot;title&amp;quot;: &amp;quot;MongoDB">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/"/>
+
+
+
+
+
+  <title> MongoDB 文档操作  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> MongoDB 文档操作 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-28T00:00:00+08:00">
+                2017-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><p><em>语法格式</em></p>
+<p><code>insert()</code> 方法的基本格式为:<br><code>&gt;db.COLLECTION_NAME.insert(document)</code></p>
+<p><em>范例1</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.insert(</div><div class="line">  &#123;</div><div class="line">    &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">    &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">    &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">    &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">    &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">    &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">    &quot;likes&quot;: &quot;100&quot;</div><div class="line">  &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>mycol 是上一节所创建的集合的名称。如果数据库中不存在该集合，那么MongoDB会创建该集合，并向其中插入文档。</p>
+<p>在插入的文档中，如果我们没有指定<code>_id</code>参数，那么MongoDB会自动为文档指定一个唯一的 ID。<br><code>_id</code>是一个 12 字节长的 16 进制数，这 12 个字节的分配如下:</p>
+<p><code>_id: ObjectId(4 bytes timestamp, 3 bytes machine id, 2 bytes process id, 3 bytes incrementer)</code></p>
+<p>你还可以将用 <code>insert()</code> 方法传入一个文档数组，范例如下:</p>
+<p><em>范例2</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt;db.post.insert([</div><div class="line">  &#123;</div><div class="line">    title: &apos;MongoDB Overview&apos;,</div><div class="line">    description: &apos;MongoDB is no sql database&apos;,</div><div class="line">    by: &apos;tutorials point&apos;,</div><div class="line">    url: &apos;http://www.tutorialspoint.com&apos;,</div><div class="line">    tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</div><div class="line">    likes: 100</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    title: &apos;NoSQL Database&apos;,</div><div class="line">    description: &apos;NoSQL database doesn&apos;t have tables&apos;,</div><div class="line">    by: &apos;tutorials point&apos;,</div><div class="line">    url: &apos;http://www.tutorialspoint.com&apos;,</div><div class="line">    tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</div><div class="line">    likes: 20,</div><div class="line">    comments: [</div><div class="line">      &#123;</div><div class="line">        user:&apos;user1&apos;,</div><div class="line">        message: &apos;My first comment&apos;,</div><div class="line">        dateCreated: new Date(2013,11,10,2,35),</div><div class="line">        like: 0</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">])</div></pre></td></tr></table></figure>
+<h4 id="save"><a href="#save" class="headerlink" title="save()"></a>save()</h4><p>如果没有指定文档的_id，那么<code>save()</code>和<code>insert()</code>完全一样。</p>
+<p>如果指定了_id，那么它就会覆盖掉<code>save()</code>方法中指定_id的文档的全部数据。</p>
+<h3 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h3><h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p>查询 MongoDB 集合中的数据，使用 <code>find()</code> 方法。</p>
+<p><em>语法格式</em></p>
+<p><code>find()</code> 方法基本格式为：</p>
+<p><code>&gt;db.COLLECTION_NAME.find()</code></p>
+<p><code>find()</code> 会以非结构化的方式来显示所有文档</p>
+<h4 id="pretty"><a href="#pretty" class="headerlink" title="pretty()"></a>pretty()</h4><p>以结构化方式显示结果，使用 <code>pretty()</code>方法。</p>
+<p><em>语法格式</em></p>
+<p><code>&gt;db.COLLECTION_NAME.find().pretty()</code></p>
+<p><em>范例</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find().pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>find()</code>还有一个扩展方法<code>findOne()</code>，只返回一个文档。</p>
+</blockquote>
+<h4 id="MongoDB-中类似WHERE子句的语句"><a href="#MongoDB-中类似WHERE子句的语句" class="headerlink" title="MongoDB 中类似WHERE子句的语句"></a>MongoDB 中类似WHERE子句的语句</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">范例</th>
+<th style="text-align:center">RDBMS中的类似语句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">等于</td>
+<td style="text-align:center"><code>{&lt;key&gt;:&lt;value&gt;}</code></td>
+<td style="text-align:center"><code>db.mycol.find({&quot;by&quot;:&quot;Shock&quot;}).pretty()</code></td>
+<td style="text-align:center"><code>where by = &#39;Shock&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">小于</td>
+<td style="text-align:center"><code>{&lt;key&gt;:{$lt:&lt;value&gt;}}</code></td>
+<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$lt:50}}).pretty()</code></td>
+<td style="text-align:center"><code>where likes &lt; 50</code></td>
+</tr>
+<tr>
+<td style="text-align:center">小于或等于</td>
+<td style="text-align:center"><code>{&lt;key&gt;:{$lte:&lt;value&gt;}}</code></td>
+<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$lte:50}}).pretty()</code></td>
+<td style="text-align:center"><code>where likes &lt;= 50</code></td>
+</tr>
+<tr>
+<td style="text-align:center">大于</td>
+<td style="text-align:center"><code>{&lt;key&gt;:{$gt:&lt;value&gt;}}</code></td>
+<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$gt:50}}).pretty()</code></td>
+<td style="text-align:center"><code>where likes &gt; 50</code></td>
+</tr>
+<tr>
+<td style="text-align:center">大于或等于</td>
+<td style="text-align:center"><code>{&lt;key&gt;:{$gte:&lt;value&gt;}}</code></td>
+<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$gte:50}}).pretty()</code></td>
+<td style="text-align:center"><code>where likes &gt;= 50</code></td>
+</tr>
+<tr>
+<td style="text-align:center">不等于</td>
+<td style="text-align:center"><code>{&lt;key&gt;:{$ne:&lt;value&gt;}}</code></td>
+<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$ne:50}}).pretty()</code></td>
+<td style="text-align:center"><code>where likes != 50</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="MongoDB中的AND条件"><a href="#MongoDB中的AND条件" class="headerlink" title="MongoDB中的AND条件"></a>MongoDB中的AND条件</h4><p><em>语法格式</em></p>
+<p>在 <code>find()</code> 方法中，如果传入多个键，并用逗号( , )分隔它们，那么 MongoDB 会把它看成是 AND 条件。AND 条件的基本语法格式为:</p>
+<p><code>&gt;db.mycol.find({key1:value1, key2:value2}).pretty()</code></p>
+<p><em>范例</em></p>
+<p>下例将展示所有由 “Shock” 发表的标题为 “MongoDB Overview” 的教程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;by&quot;:&quot;tutorials point&quot;,&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>对于上例这种情况，RDBMS 采用的 WHERE 子句将会是:</p>
+<p><code>where by=&#39;tutorials point&#39; AND title=&#39;MongoDB Overview&#39;</code></p>
+<p>你可以在 find 子句中传入任意的键值对。</p>
+<h4 id="MongoDB中的OR条件"><a href="#MongoDB中的OR条件" class="headerlink" title="MongoDB中的OR条件"></a>MongoDB中的OR条件</h4><p><em>语法格式</em></p>
+<p>若基于OR条件来查询文档，可以使用关键字 <code>$or</code>。OR条件的基本语法格式为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(</div><div class="line">  &#123;</div><div class="line">    $or: [</div><div class="line">      &#123;key1: value1&#125;, &#123;key2:value2&#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">).pretty()</div></pre></td></tr></table></figure>
+<p><em>范例</em></p>
+<p>下例将展示所有由 “Shock” 发表的或标题为 “MongoDB Overview” 的教程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;$or:[&#123;&quot;by&quot;:&quot;tutorials point&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<h4 id="结合使用AND与OR条件"><a href="#结合使用AND与OR条件" class="headerlink" title="结合使用AND与OR条件"></a>结合使用AND与OR条件</h4><p><em>范例</em></p>
+<p>下例所展示文档的条件为:喜欢数大于100，标题是“MongoDB Overview”，或者是由“Shock” 所发表的。相应的SQL WHERE子句为:<code>where likes&gt;10 AND (by = &#39;tutorials point&#39; OR title = &#39;MongoDB Overview&#39;)</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;likes&quot;: &#123;$gt:10&#125;, $or: [&#123;&quot;by&quot;: &quot;Shock&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><p>MongoDB 中的 <code>update()</code> 与 <code>save()</code> 方法都能用于更新集合中的文档。 <code>update()</code> 方法更新已有文档中的值，而 <code>save()</code> 方法则是用传入该方法的文档来替换已有文档。</p>
+<h4 id="update-方法"><a href="#update-方法" class="headerlink" title="update()方法"></a>update()方法</h4><p><code>update()</code>方法更新已有文档中的值。</p>
+<p><em>语法格式</em></p>
+<p><code>update()</code> 方法基本格式如下:</p>
+<p><code>&gt;db.COLLECTION_NAME.update(SELECTIOIN_CRITERIA, UPDATED_DATA)</code></p>
+<p><em>范例</em></p>
+<p>假如mycol集合中有下列数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;MongoDB Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div></pre></td></tr></table></figure>
+<p>下面的例子将把文档原标题 ‘MongoDB Overview’ 替换为新的标题 ‘New MongoDB Tutorial’。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.update(&#123;&apos;title&apos;:&apos;MongoDB Overview&apos;&#125;,&#123;$set:&#123;&apos;title&apos;:&apos;New MongoDB Tutorial&apos;&#125;&#125;)</div><div class="line">&gt;db.mycol.find()</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;New MongoDB Tutorial&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>MongoDB默认只更新单个文档，要想更新多个文档，需要把参数<code>multi</code>设为<code>true</code>。</p>
+<p><code>&gt;db.mycol.update({&#39;title&#39;:&#39;MongoDB Overview&#39;},{$set:{&#39;title&#39;:&#39;New MongoDB Tutorial&#39;}},{multi:true})</code></p>
+<h4 id="save-方法"><a href="#save-方法" class="headerlink" title="save()方法"></a>save()方法</h4><p><code>save()</code> 方法利用传入该方法的文档来替换已有文档。</p>
+<p><em>语法格式</em></p>
+<p><code>save()</code> 方法基本语法格式如下:</p>
+<p><code>&gt;db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})</code></p>
+<p><em>范例</em></p>
+<p>下例用_id为’5983548781331adf45ec5’的文档代替原有文档。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.save(</div><div class="line">  &#123;</div><div class="line">    &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;Tutorials Point New Topic&quot;, &quot;by&quot;:&quot;Tutorials Point&quot;</div><div class="line">  &#125;</div><div class="line">)</div><div class="line">&gt;db.mycol.find()</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;Tutorials Point New Topic&quot;, &quot;by&quot;:&quot;Tutorials Point&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><h4 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove()方法"></a>remove()方法</h4><p>MongoDB利用 <code>remove()</code> 方法 清除集合中的文档。它有2个可选参数:</p>
+<ul>
+<li>deletion criteria:(可选)删除文档的标准。</li>
+<li>justOne:(可选)如果设为true或1，则只删除一个文档。</li>
+</ul>
+<p><em>语法格式</em></p>
+<p><code>remove()</code> 方法的基本语法格式如下所示:<br><code>&gt;db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)</code></p>
+<p><em>范例</em></p>
+<p>假如 mycol 集合中包含下列数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;MongoDB Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div></pre></td></tr></table></figure>
+<p>下面我们将删除其中所有标题为 ‘MongoDB Overview’ 的文档。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.remove(&#123;&apos;title&apos;:&apos;MongoDB Overview&apos;&#125;)</div><div class="line">&gt;db.mycol.find()</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<h4 id="只删除一个文档"><a href="#只删除一个文档" class="headerlink" title="只删除一个文档"></a>只删除一个文档</h4><p>如果有多个记录，而你只想删除第一条记录，那么就设置<code>remove()</code>方法中的<code>justOne</code>参数：</p>
+<p><code>&gt;db.COLLECTION_NAME.remove(DELETION_CRITERIA,1)</code></p>
+<h4 id="删除所有文档"><a href="#删除所有文档" class="headerlink" title="删除所有文档"></a>删除所有文档</h4><p>如果没有指定删除标准，则 MongoDB 会将集合中所有文档都予以删除。这等同于 SQL 中的 truncate 命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.remove()</div><div class="line">&gt;db.mycol.find()</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
+          
+            <a href="/tags/Database/" rel="tag"># Database</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/12/2017-03-12-promise-dev/" rel="next" title=" 快速将Promise运用在开发中 ">
+                <i class="fa fa-chevron-left"></i>  快速将Promise运用在开发中 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/" rel="prev" title=" You Don't Need jQuery - Query Selector ">
+                 You Don't Need jQuery - Query Selector  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入文档"><span class="nav-number">1.</span> <span class="nav-text">插入文档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#insert"><span class="nav-number">1.1.</span> <span class="nav-text">insert()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#save"><span class="nav-number">1.2.</span> <span class="nav-text">save()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询文档"><span class="nav-number">2.</span> <span class="nav-text">查询文档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">2.1.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pretty"><span class="nav-number">2.2.</span> <span class="nav-text">pretty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MongoDB-中类似WHERE子句的语句"><span class="nav-number">2.3.</span> <span class="nav-text">MongoDB 中类似WHERE子句的语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MongoDB中的AND条件"><span class="nav-number">2.4.</span> <span class="nav-text">MongoDB中的AND条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MongoDB中的OR条件"><span class="nav-number">2.5.</span> <span class="nav-text">MongoDB中的OR条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结合使用AND与OR条件"><span class="nav-number">2.6.</span> <span class="nav-text">结合使用AND与OR条件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新文档"><span class="nav-number">3.</span> <span class="nav-text">更新文档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#update-方法"><span class="nav-number">3.1.</span> <span class="nav-text">update()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#save-方法"><span class="nav-number">3.2.</span> <span class="nav-text">save()方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文档"><span class="nav-number">4.</span> <span class="nav-text">删除文档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-方法"><span class="nav-number">4.1.</span> <span class="nav-text">remove()方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#只删除一个文档"><span class="nav-number">4.2.</span> <span class="nav-text">只删除一个文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除所有文档"><span class="nav-number">4.3.</span> <span class="nav-text">删除所有文档</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

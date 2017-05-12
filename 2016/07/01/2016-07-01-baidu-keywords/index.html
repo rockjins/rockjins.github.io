@@ -1,0 +1,773 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,JSONP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="你真以为我偷东西啊！对啊，我就是偷东西。  话不多说，先上效果图。  怎么样，是不是和在用百度一下时，关键字搜索补全一样一样的。 今天下午没什么事，打开百度首页的Newwork看了一下，发现我每次输入内容后，它都会把我们输入的内容发送到后台，后台返回这些关键字的联想条目，我们只需要把这些条目放到页面中，就可以实现上图所示的demo了。 下面我们就来看看怎么获取这些内容。">
+<meta name="keywords" content="JavaScript,JSONP">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 教你把百度的关键字搜索偷过来用用 ">
+<meta property="og:url" content="http://yoursite.com/2016/07/01/2016-07-01-baidu-keywords/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="你真以为我偷东西啊！对啊，我就是偷东西。  话不多说，先上效果图。  怎么样，是不是和在用百度一下时，关键字搜索补全一样一样的。 今天下午没什么事，打开百度首页的Newwork看了一下，发现我每次输入内容后，它都会把我们输入的内容发送到后台，后台返回这些关键字的联想条目，我们只需要把这些条目放到页面中，就可以实现上图所示的demo了。 下面我们就来看看怎么获取这些内容。">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701151650890-1741841284.gif">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701154248640-1892689881.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701154606359-1163344681.png">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 教你把百度的关键字搜索偷过来用用 ">
+<meta name="twitter:description" content="你真以为我偷东西啊！对啊，我就是偷东西。  话不多说，先上效果图。  怎么样，是不是和在用百度一下时，关键字搜索补全一样一样的。 今天下午没什么事，打开百度首页的Newwork看了一下，发现我每次输入内容后，它都会把我们输入的内容发送到后台，后台返回这些关键字的联想条目，我们只需要把这些条目放到页面中，就可以实现上图所示的demo了。 下面我们就来看看怎么获取这些内容。">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701151650890-1741841284.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/01/2016-07-01-baidu-keywords/"/>
+
+
+
+
+
+  <title> 教你把百度的关键字搜索偷过来用用  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/01/2016-07-01-baidu-keywords/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 教你把百度的关键字搜索偷过来用用 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-01T00:00:00+08:00">
+                2016-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>你真以为我偷东西啊！对啊，我就是偷东西。</p>
+</blockquote>
+<p>话不多说，先上效果图。</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701151650890-1741841284.gif" alt=""></p>
+<p>怎么样，是不是和在用百度一下时，关键字搜索补全一样一样的。</p>
+<p>今天下午没什么事，打开百度首页的Newwork看了一下，发现我每次输入内容后，它都会把我们输入的内容发送到后台，后台返回这些关键字的联想条目，我们只需要把这些条目放到页面中，就可以实现上图所示的demo了。</p>
+<p>下面我们就来看看怎么获取这些内容。</p>
+<a id="more"></a>
+<p>先打开百度首页，我是用的chrome浏览器，F12，选到Network（你可能发现Network中是空的，刷新一下页面就好了）：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701154248640-1892689881.png" alt=""></p>
+<p>看到一大堆请求过来的文件，下面我们要找到关键的文件，也就是我们输入时，百度返回的文件，最快速的方法就是输入一大堆的字母，这样可以很方便的找到,我输入了一大堆的ssssss…..：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701154606359-1163344681.png" alt=""></p>
+<p>看到这些返回的文件吗，wd=ssssssssssss….，我们随便双击一条，把弹出窗口中的Request URL里的网址复制下来，这个就是我们完成关键字搜索的请求路径。</p>
+<p>我们可以把网址直接复制到浏览器地址栏，看看得到的是个什么东西:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">jQuery110204129574971066774_1467359127325(&#123;</div><div class="line"><span class="string">"q"</span>: <span class="string">"哈哈是什么yisi"</span>,</div><div class="line"><span class="string">"p"</span>: <span class="literal">true</span>,</div><div class="line"><span class="string">"bs"</span>: <span class="string">""</span>,</div><div class="line"><span class="string">"csor"</span>: <span class="string">"9"</span>,</div><div class="line"><span class="string">"g"</span>: [</div><div class="line">&#123;</div><div class="line"><span class="string">"q"</span>: <span class="string">"哈哈是什么意思"</span>,</div><div class="line"><span class="string">"t"</span>: <span class="string">"n"</span>,</div><div class="line"><span class="string">"st"</span>: &#123;</div><div class="line"><span class="string">"q"</span>: <span class="string">"哈哈是什么意思"</span>,</div><div class="line"><span class="string">"new"</span>: <span class="number">0</span></div><div class="line">&#125;</div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line"><span class="string">"q"</span>: <span class="string">"哈哈哈哈是什么意思"</span>,</div><div class="line"><span class="string">"t"</span>: <span class="string">"n"</span>,</div><div class="line"><span class="string">"st"</span>: &#123;</div><div class="line"><span class="string">"q"</span>: <span class="string">"哈哈哈哈是什么意思"</span>,</div><div class="line"><span class="string">"new"</span>: <span class="number">0</span></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">],</div><div class="line"><span class="string">"s"</span>: [</div><div class="line"><span class="string">"哈哈是什么意思"</span>,</div><div class="line"><span class="string">"哈哈哈哈是什么意思"</span></div><div class="line">]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>得到的数据是一个对象，不过对象被包裹在一个函数内，这个格式是不是很熟悉啊，对，就是jsonp！分析完这个数据格式，发现我们需要的是这个对象下的s数组里的数据，那我们就把s里的数据拿出来插入到页面中就行了，开始吧！</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/jquery-2.1.0.js"</span> &gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">onkeyup</span>=<span class="string">"require()"</span> <span class="attr">id</span>=<span class="string">"search"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"show"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">                        <span class="comment">//do something......</span></div><div class="line">                <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这段html代码很简单，引入了jQuery，一个输入框，一个承载返回内容的div，我么直接把script写在body的最下面，当我么输入时手指抬起，就去调用require函数，这个函数里就是我们的关键代码。（大家可以想想为什么要用onkeyup，这是个坑）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">require</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> search = $(<span class="string">"#search"</span>).val();</div><div class="line">    <span class="keyword">var</span> _url = <span class="string">'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='</span>+search+<span class="string">'&amp;json=1&amp;p=3&amp;sid=20144_1467_19033_20515_18240_17949_20388_20456_18133_17001_15202_11615&amp;req=2&amp;csor=2&amp;pwd=s&amp;cb=jQuery110207612423721154653_1467355506619&amp;_=1467355506623'</span>;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">type</span>:<span class="string">"get"</span>,</div><div class="line">        <span class="attr">url</span>:_url,</div><div class="line">        <span class="attr">async</span>:<span class="literal">true</span>,</div><div class="line">        <span class="attr">dataType</span>:<span class="string">'jsonp'</span>,</div><div class="line">        <span class="attr">jsonpCallback</span>:<span class="string">'jQuery110207612423721154653_1467355506619'</span>,</div><div class="line">        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(data);</div><div class="line">            <span class="keyword">var</span> list = data.s;</div><div class="line">            <span class="keyword">var</span> str =<span class="string">""</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> list)&#123;</div><div class="line">                str+=<span class="string">'&lt;p&gt;'</span>+list[i]+<span class="string">'&lt;/p&gt;'</span>;</div><div class="line">            &#125;</div><div class="line">            $(<span class="string">"#show"</span>).html(str);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当require函数被触发时，执行以上代码，我们来分析一下上面的代码。</p>
+<p>先获取到输入框的内容，再定义一个_url，把我们之前得到的url地址附给这个变量，但是注意要把关键字的值改成输入框内的值，这样才能动态获取，不然你一直都在请求一个固定的关键字（上面把_url中的search标红加粗了）。</p>
+<p>准备工作做好，可以发起ajax请求了，因为是jsonp的格式，所以要设置dataType:’jsonp’，并告诉jQuery回调函数的名称，这个名称可以在浏览器中得到（之前在浏览器地址栏输入url，得到的数据被包含在一个函数里，这里的jsonpCallback就写那个函数的名称，每个人的都不一样）。</p>
+<p>现在我们只需要把数据console.log出来，并解析到页面上，就可以实现文章开头的效果了，简单吧！(记得放在服务器环境运行哦！)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JSONP/" rel="tag"># JSONP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/28/2016-06-28-php-demo/" rel="next" title=" 一起来花5分钟写一个PHP入门Demo ">
+                <i class="fa fa-chevron-left"></i>  一起来花5分钟写一个PHP入门Demo 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/12/2016-08-12-fake-array/" rel="prev" title=" 如何伪造数组？ ">
+                 如何伪造数组？  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

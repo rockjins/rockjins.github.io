@@ -1,0 +1,787 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Vue," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="接触新事物总会让人很难受，但也会让人成长。  公司的新项目决定使用Vue.js来做，当我打印出Vue实例下的data对象里的属性时，发现了一个有趣的事情：  它的每个属性都有两个相对应的get和set方法，我觉的这是多此一举的，于是去网上查了查Vue双向绑定的实现原理，才发现它和Angular.js双向绑定的实现原理完全不同，Angular是用的数据脏检测，当Model发生变化，会检测所有视图是">
+<meta name="keywords" content="JavaScript,Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 由Vue引发的getter和setter思考 ">
+<meta property="og:url" content="http://yoursite.com/2016/10/25/2016-10-25-vue-getter-setter/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="接触新事物总会让人很难受，但也会让人成长。  公司的新项目决定使用Vue.js来做，当我打印出Vue实例下的data对象里的属性时，发现了一个有趣的事情：  它的每个属性都有两个相对应的get和set方法，我觉的这是多此一举的，于是去网上查了查Vue双向绑定的实现原理，才发现它和Angular.js双向绑定的实现原理完全不同，Angular是用的数据脏检测，当Model发生变化，会检测所有视图是">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201610/929120-20161025151218546-1679290074.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201610/929120-20161025173135343-1508869676.png">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 由Vue引发的getter和setter思考 ">
+<meta name="twitter:description" content="接触新事物总会让人很难受，但也会让人成长。  公司的新项目决定使用Vue.js来做，当我打印出Vue实例下的data对象里的属性时，发现了一个有趣的事情：  它的每个属性都有两个相对应的get和set方法，我觉的这是多此一举的，于是去网上查了查Vue双向绑定的实现原理，才发现它和Angular.js双向绑定的实现原理完全不同，Angular是用的数据脏检测，当Model发生变化，会检测所有视图是">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/929120/201610/929120-20161025151218546-1679290074.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/25/2016-10-25-vue-getter-setter/"/>
+
+
+
+
+
+  <title> 由Vue引发的getter和setter思考  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/25/2016-10-25-vue-getter-setter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 由Vue引发的getter和setter思考 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-25T00:00:00+08:00">
+                2016-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>接触新事物总会让人很难受，但也会让人成长。</p>
+</blockquote>
+<p>公司的新项目决定使用Vue.js来做，当我打印出Vue实例下的data对象里的属性时，发现了一个有趣的事情：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201610/929120-20161025151218546-1679290074.png" alt=""></p>
+<p>它的每个属性都有两个相对应的get和set方法，我觉的这是多此一举的，于是去网上查了查Vue双向绑定的实现原理，才发现它和Angular.js双向绑定的实现原理完全不同，Angular是用的数据脏检测，当Model发生变化，会检测所有视图是否绑定了相关数据，再更改视图。而Vue使用的发布订阅模式，是点对点的绑定数据。</p>
+<p>Vue的数据绑定只有两个步骤，compile=&gt;link。</p>
+<p>我一直在想，vue是通过什么去监听用户对Model的修改，直到我发现Vue的data里，每个属性都有set和get属性，我才明白过来。</p>
+<a id="more"></a>
+<p>在平时，我们创建一个对象，并修改它的属性，是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="attr">val</span>:<span class="number">99</span></div><div class="line">&#125;</div><div class="line">obj.val = <span class="number">100</span>;</div><div class="line"><span class="built_in">console</span>.log(obj.val)<span class="comment">//100</span></div></pre></td></tr></table></figure>
+<p>没有任何问题，但是如果要你去监测，当我修改了这个对象的属性时，要去做一些事，你会怎么做？</p>
+<p>这就要用到getter和setter了。</p>
+<p>假设我现在要给一个码农对象添加一个name属性，而且每次更新name属性时，我要去完成一些事，我们可以这样做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Coder = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            get name()&#123;</div><div class="line">                <span class="keyword">if</span>(that.name)&#123;</div><div class="line">                    <span class="keyword">return</span> that.name</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="string">'你还没有取名'</span></div><div class="line">            &#125;,</div><div class="line">            set name(val)&#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'你把名字修成了'</span>+val)</div><div class="line">                that.name = val</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> isMe = <span class="keyword">new</span> Coder()</div><div class="line">    <span class="built_in">console</span>.log(isMe.name)</div><div class="line">    isMe.name = <span class="string">'余震'</span></div><div class="line">    <span class="built_in">console</span>.log(isMe.name)</div><div class="line">    <span class="built_in">console</span>.log(isMe)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201610/929120-20161025173135343-1508869676.png" alt=""></p>
+<p>你会发现这个对象和最上面的Vue中的data对象，打印出来的效果是一样的，都拥有get和set属性。</p>
+<p>我们来一步步分析下上面的代码,很有趣。</p>
+<p>我们先创建一个对象字面量：</p>
+<p>var Coder = function() {…}</p>
+<p>再把this缓存一下：</p>
+<p>var that = this;</p>
+<p>接下来是最重要的，我们return了一个对象回去：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  get name()&#123;<span class="comment">/*do something*/</span>&#125;,</div><div class="line"></div><div class="line">  set name(val)&#123;<span class="comment">/*do something*/</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>顾名思义，get为取值，set为赋值，正常情况下，我们取值和赋值是用obj.prop的方式，但是这样做有一个问题，我如何知道对象的值改变了？所以就轮到set登场了。</p>
+<p>你可以把get和set理解为function，当然，只是可以这么理解，这是完全不一样的两个东西。</p>
+<p>接下来创建一个码农的实例，isMe；此时，isMe是没有name属性的，当我们调用isMe.name时，我们会进入到get name(){…}中，先判断isMe是否有name属性，答案是否定的，那麽就添加一个name属性，并给它赋值：”你还没有取名”；如果有name属性，那就返回name属性。</p>
+<p>看到这里你一定知道get怎么使用了，对，你可以把get看成一个取值的函数，函数的返回值就是它拿到的值。</p>
+<p>我感觉比较重要的是set属性，当我给实例赋值：</p>
+<p>isMe.name=”余震”</p>
+<p>此时，会进入set name(val){…}；形参val就是我赋给name属性的值，在这个函数里，我就可以做很多事了，比如双向绑定！因为这个值的每次改变都必须经过set，其他方式是改变不了它的，相当于一个万能的监听器。</p>
+<p>还有另一种方法可以实现这个功能。</p>
+<p>ES5的对象原型有两个新的属性<strong>defineGetter</strong>和<strong>defineSetter</strong>，专门用来给对象绑定get和set。可以这样书写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Coder = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    &#125;</div><div class="line">    Coder.prototype.__defineGetter__(<span class="string">'name'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.name) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="string">'你还没有取名'</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    Coder.prototype.__defineSetter__(<span class="string">'name'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = val</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">var</span> isMe = <span class="keyword">new</span> Coder()</div><div class="line">    <span class="built_in">console</span>.log(isMe.name)</div><div class="line">    isMe.name = <span class="string">'余震'</span></div><div class="line">    <span class="built_in">console</span>.log(isMe.name)</div><div class="line">    <span class="built_in">console</span>.log(isMe)</div></pre></td></tr></table></figure>
+<p>效果是一样的，建议使用下面这种方式，因为是在原型上书写，所以可以继承和重用，最近想写点小框架，才发现知识不够用，大家一起加油吧！</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/2016-09-03-parseint/" rel="next" title=" parseInt第二个参数详解 ">
+                <i class="fa fa-chevron-left"></i>  parseInt第二个参数详解 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/11/2016-11-11-memoization/" rel="prev" title=" 使用自记忆函数提高页面性能 ">
+                 使用自记忆函数提高页面性能  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

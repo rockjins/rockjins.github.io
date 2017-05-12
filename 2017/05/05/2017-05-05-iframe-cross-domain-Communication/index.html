@@ -1,0 +1,785 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,iframe,Cross-Domain," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="这周碰到一个让人头疼的需求：要在我的web项目中嵌入另一个第三方web项目。第一时间想到的就是用iframe了，但问题来了，我和第三方web项目是有交互的，这就违反同源策略了，处理跨域问题是最让人头疼的事之一。 需求是这样的，在我的页面点击一些按钮，要实时反馈到iframe子页面，子页面再进行响应。 当时脑子里第一时间想到的解决方案是：用NGINX把两个项目代理到同一域名下。但这样似乎有点小题大做">
+<meta name="keywords" content="JavaScript,iframe,Cross-Domain">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 使用postMessage解决iframe跨域通信问题 ">
+<meta property="og:url" content="http://yoursite.com/2017/05/05/2017-05-05-iframe-cross-domain-Communication/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="这周碰到一个让人头疼的需求：要在我的web项目中嵌入另一个第三方web项目。第一时间想到的就是用iframe了，但问题来了，我和第三方web项目是有交互的，这就违反同源策略了，处理跨域问题是最让人头疼的事之一。 需求是这样的，在我的页面点击一些按钮，要实时反馈到iframe子页面，子页面再进行响应。 当时脑子里第一时间想到的解决方案是：用NGINX把两个项目代理到同一域名下。但这样似乎有点小题大做">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-6ad5418cb923806c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-f7c42766d4a274de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 使用postMessage解决iframe跨域通信问题 ">
+<meta name="twitter:description" content="这周碰到一个让人头疼的需求：要在我的web项目中嵌入另一个第三方web项目。第一时间想到的就是用iframe了，但问题来了，我和第三方web项目是有交互的，这就违反同源策略了，处理跨域问题是最让人头疼的事之一。 需求是这样的，在我的页面点击一些按钮，要实时反馈到iframe子页面，子页面再进行响应。 当时脑子里第一时间想到的解决方案是：用NGINX把两个项目代理到同一域名下。但这样似乎有点小题大做">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2859850-6ad5418cb923806c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/05/2017-05-05-iframe-cross-domain-Communication/"/>
+
+
+
+
+
+  <title> 使用postMessage解决iframe跨域通信问题  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/2017-05-05-iframe-cross-domain-Communication/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 使用postMessage解决iframe跨域通信问题 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T00:00:00+08:00">
+                2017-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这周碰到一个让人头疼的需求：要在我的web项目中嵌入另一个第三方web项目。第一时间想到的就是用<code>iframe</code>了，但问题来了，我和第三方web项目是有交互的，这就违反同源策略了，处理跨域问题是最让人头疼的事之一。</p>
+<p>需求是这样的，在我的页面点击一些按钮，要实时反馈到<code>iframe</code>子页面，子页面再进行响应。</p>
+<p>当时脑子里第一时间想到的解决方案是：用<code>NGINX</code>把两个项目代理到同一域名下。但这样似乎有点小题大做了，有没有更方便快捷的方法呢？</p>
+<p>在<code>window</code>对象下有个<code>postMessage</code>方法，是专门用来解决跨域通信问题的。</p>
+<a id="more"></a>
+<p>关于<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="external">postMessage</a>的详细介绍请戳这里，不过MDN的文档太详细了，导致有些同学看完还是一脸懵逼，下面我们就来看看怎么用<code>postMessage</code>实现iframe跨域通信，当你会用了之后再回去看文档，感觉是完全不同的。</p>
+<p>首先我们模拟场景，假设有两个不同源的页面，<code>iframePage.html</code>是<code>index.html</code>的子页面：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- index.html --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"border:5px solid #333;"</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>this is index<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"./iframePage.html"</span> <span class="attr">id</span>=<span class="string">'myframe'</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- iframePage --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"border:5px solid #333;"</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>this is iframePage<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>现在这两个iframe是无法通信，因为它们是不同源的（假设存在跨域问题），这时候就要用到<code>postMessage</code>了。</p>
+<p>我们先试着从父页面向子页面发送一条消息：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// idnex.html</span></div><div class="line"></div><div class="line"><span class="comment">//获取iframe元素</span></div><div class="line">iFrame = <span class="built_in">document</span>.getElementById(<span class="string">'myframe'</span>)</div><div class="line"></div><div class="line"><span class="comment">//iframe加载完毕后再发送消息，否则子页面接收不到message</span></div><div class="line">iFrame.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//iframe加载完立即发送一条消息</span></div><div class="line">  iFrame.contentWindow.postMessage(<span class="string">'MessageFromIndex1'</span>,<span class="string">'*'</span>);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们知道<code>postMessage</code>是挂载在<code>window</code>对象上的，所以等<code>iframe</code>加载完毕后，用<code>iFrame.contentWindow</code>获取到<code>iframe</code>的<code>window</code>对象，然后调用<code>postMessage</code>方法，相当于给子页面发送了一条消息。</p>
+<p><code>postMessage</code>方法第一个参数是要发送的数据，可以是任何原始类型的数据。</p>
+<blockquote>
+<p>Gecko 6.0 (Firefox 6.0 / Thunderbird 6.0 / SeaMonkey 2.3)之前，第一个参数必须是一个字符串。</p>
+</blockquote>
+<p><code>postMessage</code>方法第二个参数可以设置要发送到哪个url，如果当前子页面的url和设置的不一致，则会发送失败，我们设置为<code>*</code>，代表所有url都允许发送。</p>
+<p><code>postMessage</code>方法还有第三个参数，属于高级用法，这里不做讨论，可以稍后去<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="external">MDN</a>了解。</p>
+<p>消息发送到<code>iframePage.html</code>，我们来接收message：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// iframePage.html</span></div><div class="line"></div><div class="line"><span class="comment">//回调函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">receiveMessageFromIndex</span> (<span class="params"> event </span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log( <span class="string">'receiveMessageFromIndex'</span>, event )</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//监听message事件</span></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"message"</span>, receiveMessageFromIndex, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p>我们只需要在子页面监听<code>message</code>事件，并且设置好回调函数即可，来看看打印出来的<code>event</code>：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-6ad5418cb923806c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><code>event</code>对象中的<code>data</code>属性存放着我们从父页面传过来的数据，就这么简单！</p>
+<p>让我们再试试从子页面发送数据给父页面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// iframePage.html</span></div><div class="line"></div><div class="line"><span class="comment">//给父页面发送消息，data为对象</span></div><div class="line">parent.postMessage( &#123;<span class="attr">msg</span>: <span class="string">'MessageFromIframePage'</span>&#125;, <span class="string">'*'</span>);</div></pre></td></tr></table></figure>
+<p>父页面接收数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//index.html</span></div><div class="line"></div><div class="line"><span class="comment">//回调函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">receiveMessageFromIframePage</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'receiveMessageFromIframePage'</span>, event)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//监听message事件</span></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"message"</span>, receiveMessageFromIframePage, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p>我看看到，的确可以传输不同的数据，此时<code>data</code>为一个对象：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-f7c42766d4a274de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>大家可以到<a href="https://github.com/rockjins/postMessage-demo" target="_blank" rel="external">postMessage-demo</a>把代码clone下来运行试试看。</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/iframe/" rel="tag"># iframe</a>
+          
+            <a href="/tags/Cross-Domain/" rel="tag"># Cross-Domain</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/12/2017-04-12-meteor-unknow-package/" rel="next" title=" Meteor: Error: Depending on unknown package xxx ">
+                <i class="fa fa-chevron-left"></i>  Meteor: Error: Depending on unknown package xxx 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/09/2017-05-09-compatible-module/" rel="prev" title=" 如何兼容多种模块规范 ">
+                 如何兼容多种模块规范  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

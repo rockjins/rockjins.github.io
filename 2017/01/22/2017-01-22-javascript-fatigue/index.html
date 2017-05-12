@@ -1,0 +1,796 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="原文链接：https://medium.freecodecamp.com/javascript-fatigue-fatigue-66ffb619f6ce#.khis636n3    宇宙没有义务让你觉得它对你有意义。 – Neil deGrasse Tyson  是的，JavaScript的开发越来越复杂了。 是的，JavaScript将会继续变得越来越复杂。 互联网是一个复杂的领域。我们最终">
+<meta name="keywords" content="JavaScript,Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 『翻译』JavaScript疲劳症 ">
+<meta property="og:url" content="http://yoursite.com/2017/01/22/2017-01-22-javascript-fatigue/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="原文链接：https://medium.freecodecamp.com/javascript-fatigue-fatigue-66ffb619f6ce#.khis636n3    宇宙没有义务让你觉得它对你有意义。 – Neil deGrasse Tyson  是的，JavaScript的开发越来越复杂了。 是的，JavaScript将会继续变得越来越复杂。 互联网是一个复杂的领域。我们最终">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-09edccfb538365e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-9406f49c178d188d.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-2227e5cb3ab703f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-da3286bc3b83f5bf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 『翻译』JavaScript疲劳症 ">
+<meta name="twitter:description" content="原文链接：https://medium.freecodecamp.com/javascript-fatigue-fatigue-66ffb619f6ce#.khis636n3    宇宙没有义务让你觉得它对你有意义。 – Neil deGrasse Tyson  是的，JavaScript的开发越来越复杂了。 是的，JavaScript将会继续变得越来越复杂。 互联网是一个复杂的领域。我们最终">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2859850-09edccfb538365e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/22/2017-01-22-javascript-fatigue/"/>
+
+
+
+
+
+  <title> 『翻译』JavaScript疲劳症  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/22/2017-01-22-javascript-fatigue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 『翻译』JavaScript疲劳症 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-22T00:00:00+08:00">
+                2017-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p> 原文链接：<a href="https://medium.freecodecamp.com/javascript-fatigue-fatigue-66ffb619f6ce#.khis636n3" target="_blank" rel="external">https://medium.freecodecamp.com/javascript-fatigue-fatigue-66ffb619f6ce#.khis636n3</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>宇宙没有义务让你觉得它对你有意义。 – Neil deGrasse Tyson</p>
+</blockquote>
+<p>是的，JavaScript的开发越来越复杂了。</p>
+<p>是的，JavaScript将会继续变得越来越复杂。</p>
+<p>互联网是一个复杂的领域。我们最终没有去做我们本应该去做的那些事情。</p>
+<p>结果就是，JavaScript工具和许多和它有关的，都在迅速的发展。</p>
+<a id="more"></a>
+<p>如果它的发展过程让你感到压力倍增，阅读下面这篇文章让你放松一下吧：</p>
+<p><a href="https://kknews.cc/tech/zl9q93.html" target="_blank" rel="external">在 2016 年学 JavaScript 是一种什么样的体验</a></p>
+<p>下面这篇文章模仿上面的文章的风格，讲述开发环境配置是一件多么复杂的事：</p>
+<p><a href="https://linux.cn/article-5896-1.html" target="_blank" rel="external">容器时代，难道这就是我们想要的未来？</a></p>
+<p>但是不要忽略一个显而易见的问题，为什么JavaScript开发会如此复杂？因为web开发其本身就是复杂的。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-09edccfb538365e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><em>(上图为：CSS滤镜效果浏览器兼容性 来自<a href="caniuse.com">caniuse.com</a>)</em></p>
+<p>我们尝试去构建一个web应用，让它在不同的浏览器上都能正确的运行，在上千个不同的设备上看上去还不错，为了满足那些缺乏耐心的乘地铁的上班族，它加载必须足够快，它还要尽可能的让盲人能使用它。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-9406f49c178d188d.gif?imageMogr2/auto-orient/strip" alt=""></p>
+<p>与此同时，web开发者在处理无处不在的安全漏洞。</p>
+<p>我们在游说管理人员放弃糟糕的实现方式。(<a href="https://www.wired.com/2016/04/average-webpage-now-size-original-doom/" target="_blank" rel="external">现在常见的网页体积大小都大于1993年的游戏DOOM。</a>)</p>
+<p>我们去适应基于浏览器的广告屏蔽插件，因为它很多时候阻拦的并不是广告。</p>
+<p>这里有很多可行的方案去达成我们所有的目的。这时，巨大的生态圈工具开始出现，它从不同的方面去解决不同的问题。</p>
+<p>Extreme Programming（极限编程）的作者早在1983年说过：</p>
+<blockquote>
+<p>让它工作，让它正确，让它快速。 – Kent Beck</p>
+</blockquote>
+<p>好吧，在过去的20多年里，我们关注web开发中遇到各种问题的解决办法。</p>
+<p>最后，JavaScript开发者终于有了自己的生态圈，还不止于此，对此我们感到高兴。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-2227e5cb3ab703f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><em>上图来自：<a href="http://stateofjs.com/2016/features/" target="_blank" rel="external">2016年优秀的javascript站点截图</a></em></p>
+<p>开发工具还一个快速的发展就是，它不再受控于Apple或Microsoft操作系统。</p>
+<p>大家共同的努力让它突然之间变得正确和迅速。</p>
+<p>这个漫画完美的诠释了存在于我们身上的”JavaScript疲劳症”,Dr. Axel Rauschmayer(Speaking JavaScript的作者) <a href="http://www.2ality.com/2016/02/js-fatigue-fatigue.html" target="_blank" rel="external">让”JavaScript疲劳症”更早的到来了</a>。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-da3286bc3b83f5bf.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>当在各种各样的工具中进行选择时，我们尽可能的提出建设性的意见。我们告诉新人远离那些未经验证的工具。我们告诫他们，<a href="https://medium.freecodecamp.com/one-does-not-simply-learn-to-code-f25bacdc5b62#.8bdmlejfu" target="_blank" rel="external">成为一个开发人员很难，</a>而且工作很大部分时间是在学习使用新的工具。</p>
+<p>如果你是个JavaScript新手，记住，所有这些新工具都是好的东西。开源的npm生态圈也是一个非常好的东西。</p>
+<p>他们会让你更幸福，成为一个更强大的开发者。</p>
+<p>他们会帮助你更好的服务你的终端用户。</p>
+<p>如果你也是许多”JavaScript疲劳症”患者中的一员，你担心自己可能会坚持不下去，那么就想想下面这句话：</p>
+<blockquote>
+<p>如果你正在走向地狱，那就继续前进。 – Winston Churchill</p>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Translation/" rel="tag"># Translation</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/19/2017-01-19-trigonometric-function/" rel="next" title=" 三角函数学习历程记录 ">
+                <i class="fa fa-chevron-left"></i>  三角函数学习历程记录 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/26/2017-01-26-interviews-javascript/" rel="prev" title=" 『翻译』JavaScript技术面试时要小心的三个问题 ">
+                 『翻译』JavaScript技术面试时要小心的三个问题  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

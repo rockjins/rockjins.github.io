@@ -1,0 +1,821 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Promise," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。  什么是Promise？简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。 在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this: 12345getAsync(&quot;fileA.txt">
+<meta name="keywords" content="JavaScript,Promise">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 快速将Promise运用在开发中 ">
+<meta property="og:url" content="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。  什么是Promise？简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。 在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this: 12345getAsync(&quot;fileA.txt">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 快速将Promise运用在开发中 ">
+<meta name="twitter:description" content="这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。  什么是Promise？简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。 在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this: 12345getAsync(&quot;fileA.txt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/"/>
+
+
+
+
+
+  <title> 快速将Promise运用在开发中  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 快速将Promise运用在开发中 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T00:00:00+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。</p>
+</blockquote>
+<h3 id="什么是Promise？"><a href="#什么是Promise？" class="headerlink" title="什么是Promise？"></a>什么是Promise？</h3><p>简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。</p>
+<p>在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getAsync(<span class="string">"fileA.txt"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, result</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(error)&#123;<span class="comment">// 取得失败时的处理 throw error;</span></div><div class="line">    <span class="keyword">throw</span> error;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>上面遵循<code>Node.js</code>的规定，回调的第一个参数是<code>error</code>。如果所有的回调函数都像<code>Node.js</code>一样，统一参数使用规则的话，那写法会很明了，但也仅仅是编码规范而已，使用不同的写法也不会出错。</p>
+<p>而Promise则是把异步处理对象和处理规则进行规范化，并采用统一的接口来编写，使用规定方法之外的写法都会出错。</p>
+<p>我们可以先看一个简单的使用Promise进行异步处理的例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = getAsyncPromise(<span class="string">"fileA.txt"</span>);</div><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">  <span class="comment">// 获取文件内容成功时的处理</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">  <span class="comment">// 获取文件内容失败时的处理</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>看上去和回调函数有些不一样，在使用Promise进行异步处理的时候，我们必须按照接口规定的方法编写处理代码。</p>
+<p>也即是说，除了使用Promise规定的方法(上面的<code>then</code>和<code>catch</code>),其他的方法都是不能使用的，而回调函数可以自定义回调的参数。</p>
+<p>所以，Promise可以将复杂的异步处理轻松的进行模式化，没有理由让你不使用它。</p>
+<p>接下来，我们看看怎么把Promise运用到开发中，这个才是大家想了解的。</p>
+<h3 id="学习Promise"><a href="#学习Promise" class="headerlink" title="学习Promise"></a>学习Promise</h3><p>在运用到开发之前，我们有必要先学习一些Promise的基本API(暂时看的有点糊涂没关系，等会的例子实践会和大家讲清楚的)。</p>
+<p>目前大致有下面三种类型:</p>
+<h4 id="1-Constructor-构造器"><a href="#1-Constructor-构造器" class="headerlink" title="1.Constructor(构造器)"></a>1.Constructor(构造器)</h4><p>我们从构造函数<code>Promise</code>来创建一个新<code>promise</code>对象作为接口。</p>
+<p>要创建一个<code>promise</code>对象，可以使用<code>new</code>来调用<code>Promise</code>构造器来进行实例化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; <span class="comment">// 异步处理</span></div><div class="line">  <span class="comment">// 处理结束后、调用resolve 或 reject</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="2-Instance-Method-实例方法"><a href="#2-Instance-Method-实例方法" class="headerlink" title="2.Instance Method(实例方法)"></a>2.Instance Method(实例方法)</h4><p>在通过<code>new</code>生成的<code>promise</code>对象时，我们设置了在resolve(成功)和reject(失败)时调用的回调函数，我们可以使用<code>promise.then()</code>实例方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then(onFulfilled,onReject);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>resolve(成功)时：<code>onFulfilled</code>会被调用</p>
+</li>
+<li><p>reject(失败)时：<code>onReject</code>会被调用</p>
+</li>
+</ul>
+<p><code>onFulfilled</code>和<code>onReject</code>都为可选参数</p>
+<p><code>promise.then</code>成功和失败时都可以使用，另外在异常处理时，可以使用<code>promise.then(undefined, onReject)</code>这种方式，只指定<code>reject</code>时的回调函数即可。不过这种情况下，使用<code>promise.catch()</code>是个明智之选。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.catch(onReject);</div></pre></td></tr></table></figure>
+<h4 id="3-Static-Method-静态方法"><a href="#3-Static-Method-静态方法" class="headerlink" title="3.Static Method(静态方法)"></a>3.Static Method(静态方法)</h4><p>像<code>promise.all()</code>和<code>Promise.resolve()</code>等在内，主要都是一些辅助方法(可以理解为一些语法糖)，这里不作深入探讨。</p>
+<h3 id="运用在开发中"><a href="#运用在开发中" class="headerlink" title="运用在开发中"></a>运用在开发中</h3><p>我们先来看一段Promise使用流程代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFunction</span>(<span class="params"></span>) </span>&#123;  <span class="comment">//(1)</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      resolve(<span class="string">'Async Hello World'</span>);</div><div class="line">    &#125;, <span class="number">300</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">asyncFunction().then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;  <span class="comment">//(2)</span></div><div class="line">  <span class="built_in">console</span>.log(value); <span class="comment">//300ms后打印 "Async Hello World"</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;  <span class="comment">//(3)</span></div><div class="line">  <span class="built_in">console</span>.log(error);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>分析一下上面代码。</p>
+<p>执行<code>(1)</code>处函数，会返回一个Promise对象，Promise对象内部在300ms后执行<code>resolve()</code>方法，这个方法调用<code>(2)</code>处的<code>then()</code>方法，并传入参数，如果Promise对象内部出现任何错误(比如平台不支持setTimeout方法)，就会执行<code>(3)</code>处的<code>catch()</code>发放，并把错误作为参数传入。</p>
+<blockquote>
+<p>这里提一下，我看到很多朋友把Promise理解为Ajax的一种扩展，其实并不是这样的，Ajax只是一种请求数据的方式，因为Ajax是异步的，所以我们可以用Promise去管理Ajax请求，但这并不意味这Promise只服务于Ajax，只要是异步处理，我们都可以使用Promise去处理，就比如上面的<code>setTimeout</code>。</p>
+</blockquote>
+<p>看到这里大家对Promise应该有一个大概的认识了，实际开发中Promise大部分时间还是搭配Ajax使用，我们来看看应该怎么做，下面用原生的方式请求Ajax，大家也温习一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getURL</span>(<span class="params">URL</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"></div><div class="line">    req.open(<span class="string">'GET'</span>, URL, <span class="literal">true</span>);</div><div class="line"></div><div class="line">    req.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (req.status === <span class="number">200</span>) &#123;</div><div class="line">        resolve(req.responseText);</div><div class="line">      &#125;<span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    req.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      reject.(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    req.send();</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 运行示例</span></div><div class="line"><span class="keyword">var</span> URL = <span class="string">"https://rockjins.js.org"</span>;</div><div class="line">getURL(URL).then(<span class="function"><span class="keyword">function</span> <span class="title">onFulfilled</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span> <span class="title">onRejected</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>getURL</code>只有在XHR取得状态为200时才会调用<code>resolve</code>，也就是数据取得成功时，而其他情况(数据取得失败)则会调用<code>reject</code>。</p>
+<p>当调用<code>resolve(req.responseText)</code>时，<code>then</code>方法也会被调用，并接收到<code>req.responseText</code>参数。</p>
+<p>熟悉Node.js的朋友在写回调时会会将<code>callback(error,response)</code>的第一个参数设为<code>error</code>对象，在Promise中，resolve(成功)/reject(失败)担当了这个职责。</p>
+<p>XHR中<code>onerror</code>触发时，就是发生错误时，理所当然要调用<code>reject</code>，我们重点来看下传给<code>reject</code>的值。</p>
+<p>发生错误时要像这样<code>reject(new Error(req.statusText))</code>，创建一个Error对象再讲具体的值传入进去。传给<code>reject</code>的值也没有什么特殊限制，一般只要是Error对象(或继承自Error对象)即可。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>其实你理解了Promise的运作流程，使用它十分方便和简单，它就是一个异步管理器，帮助我们更好地去进行异步处理。</p>
+<p>试想，如果Promise真的很复杂，那它出现的意义是什么？本末倒置了，哈哈。</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Promise/" rel="tag"># Promise</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/08/2017-03-08-you-might-not-need-a-build-tool/" rel="next" title="『翻译』你也许并不需要构建工具 ">
+                <i class="fa fa-chevron-left"></i> 『翻译』你也许并不需要构建工具 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/28/2017-03-28-mongodb-document-query/" rel="prev" title=" MongoDB 文档操作 ">
+                 MongoDB 文档操作  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Promise？"><span class="nav-number">1.</span> <span class="nav-text">什么是Promise？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习Promise"><span class="nav-number">2.</span> <span class="nav-text">学习Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Constructor-构造器"><span class="nav-number">2.1.</span> <span class="nav-text">1.Constructor(构造器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Instance-Method-实例方法"><span class="nav-number">2.2.</span> <span class="nav-text">2.Instance Method(实例方法)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Static-Method-静态方法"><span class="nav-number">2.3.</span> <span class="nav-text">3.Static Method(静态方法)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用在开发中"><span class="nav-number">3.</span> <span class="nav-text">运用在开发中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

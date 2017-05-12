@@ -1,0 +1,815 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Math," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="是时候捡起来了 别那么在乎别人的眼光  素材来自：LZRspace 1.已知斜边为20，邻边为10，求角x. 答：Math.acos(10/20)/(Math.PI/180);  2.已知C是45°，斜边为20，求其邻边x. 答：Math.cos(45*Math.PI/180)*20;">
+<meta name="keywords" content="JavaScript,Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 三角函数学习历程记录 ">
+<meta property="og:url" content="http://yoursite.com/2017/01/19/2017-01-19-trigonometric-function/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="是时候捡起来了 别那么在乎别人的眼光  素材来自：LZRspace 1.已知斜边为20，邻边为10，求角x. 答：Math.acos(10/20)/(Math.PI/180);  2.已知C是45°，斜边为20，求其邻边x. 答：Math.cos(45*Math.PI/180)*20;">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-d8ba565406f20742.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-13de06296d5a1fc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-d51b786e69a9e791.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-4f1e642f69ad1d8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-52b7cc219653f989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-2b54e1a28ac19b84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-0ab1ee7e8cec9b21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-e2a1a7ae297353c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-1831f6002ad1b20a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 三角函数学习历程记录 ">
+<meta name="twitter:description" content="是时候捡起来了 别那么在乎别人的眼光  素材来自：LZRspace 1.已知斜边为20，邻边为10，求角x. 答：Math.acos(10/20)/(Math.PI/180);  2.已知C是45°，斜边为20，求其邻边x. 答：Math.cos(45*Math.PI/180)*20;">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2859850-d8ba565406f20742.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/19/2017-01-19-trigonometric-function/"/>
+
+
+
+
+
+  <title> 三角函数学习历程记录  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/19/2017-01-19-trigonometric-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 三角函数学习历程记录 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-19T00:00:00+08:00">
+                2017-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p> 是时候捡起来了 别那么在乎别人的眼光</p>
+</blockquote>
+<p>素材来自：<a href="http://liuzirui1122.coreanimation.cn/" target="_blank" rel="external">LZRspace</a></p>
+<h3 id="1-已知斜边为20，邻边为10，求角x"><a href="#1-已知斜边为20，邻边为10，求角x" class="headerlink" title="1.已知斜边为20，邻边为10，求角x."></a>1.已知斜边为20，邻边为10，求角x.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-d8ba565406f20742.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>Math.acos(10/20)/(Math.PI/180);</code></p>
+<hr>
+<h3 id="2-已知C是45°，斜边为20，求其邻边x"><a href="#2-已知C是45°，斜边为20，求其邻边x" class="headerlink" title="2.已知C是45°，斜边为20，求其邻边x."></a>2.已知C是45°，斜边为20，求其邻边x.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-13de06296d5a1fc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>Math.cos(45*Math.PI/180)*20;</code></p>
+<hr>
+<a id="more"></a>
+<h3 id="3-已知A是55°，对边为20，求其邻边x"><a href="#3-已知A是55°，对边为20，求其邻边x" class="headerlink" title="3.已知A是55°，对边为20，求其邻边x."></a>3.已知A是55°，对边为20，求其邻边x.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-d51b786e69a9e791.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>20/Math.tan(55*(Math.PI/180));</code></p>
+<hr>
+<h3 id="4-已知角B为60°，AC长为8，AB长为5，求角C的正弦"><a href="#4-已知角B为60°，AC长为8，AB长为5，求角C的正弦" class="headerlink" title="4.已知角B为60°，AC长为8，AB长为5，求角C的正弦."></a>4.已知角B为60°，AC长为8，AB长为5，求角C的正弦.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-4f1e642f69ad1d8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>5/(8/Math.sin(60*(Math.PI/180)));</code></p>
+<hr>
+<h3 id="5-已知C大小为120°-B大小为30°-AC-6-求AB长x"><a href="#5-已知C大小为120°-B大小为30°-AC-6-求AB长x" class="headerlink" title="5.已知C大小为120°,B大小为30°,AC=6,求AB长x."></a>5.已知C大小为120°,B大小为30°,AC=6,求AB长x.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-52b7cc219653f989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>(6/Math.sin(30*(Math.PI/180)))*Math.sin((180-120)*(Math.PI/180));</code></p>
+<hr>
+<h3 id="6-△ABC中，A-B-C所对的边为a-b-c。角B-30°，AB-9，AC-3√3，求角C的大小"><a href="#6-△ABC中，A-B-C所对的边为a-b-c。角B-30°，AB-9，AC-3√3，求角C的大小" class="headerlink" title="6.△ABC中，A,B,C所对的边为a,b,c。角B=30°，AB=9，AC=3√3，求角C的大小."></a>6.△ABC中，A,B,C所对的边为a,b,c。角B=30°，AB=9，AC=3√3，求角C的大小.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-2b54e1a28ac19b84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>Math.asin(9/((3*Math.sqrt(3))/Math.sin(30*(Math.PI/180))))/(Math.PI/180);</code></p>
+<p>Tips :因为sin(C) = sin(180° - C)，所以有两个解，60°和120°。</p>
+<p>当然也不是一定就有两个解，如果B+C&gt;180°那肯定是不行的，就像这种题：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-0ab1ee7e8cec9b21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>学生时代考试就经常忘记有多个解，有木有！！！</p>
+<hr>
+<h3 id="7-已知AB-5-BC-8-角B-60°，求x"><a href="#7-已知AB-5-BC-8-角B-60°，求x" class="headerlink" title="7.已知AB=5,BC=8,角B=60°，求x."></a>7.已知AB=5,BC=8,角B=60°，求x.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-e2a1a7ae297353c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>Math.sqrt(Math.pow(5,2)+Math.pow(8,2)-(2*5*8*Math.cos(60*(Math.PI/180))));</code></p>
+<hr>
+<h3 id="8-已知三边长为3-7-8，求边长为7的AC边所对的角B大小"><a href="#8-已知三边长为3-7-8，求边长为7的AC边所对的角B大小" class="headerlink" title="8.已知三边长为3,7,8，求边长为7的AC边所对的角B大小."></a>8.已知三边长为3,7,8，求边长为7的AC边所对的角B大小.</h3><p><img src="http://upload-images.jianshu.io/upload_images/2859850-1831f6002ad1b20a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>答：<code>Math.acos((Math.pow(3,2)+Math.pow(8,2)-Math.pow(7,2))/(2*3*8))/(Math.PI/180);</code></p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Math/" rel="tag"># Math</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/18/2017-01-18-new-object/" rel="next" title=" 带你切身体验实例被new出来的过程 ">
+                <i class="fa fa-chevron-left"></i>  带你切身体验实例被new出来的过程 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/22/2017-01-22-javascript-fatigue/" rel="prev" title=" 『翻译』JavaScript疲劳症 ">
+                 『翻译』JavaScript疲劳症  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-已知斜边为20，邻边为10，求角x"><span class="nav-number">1.</span> <span class="nav-text">1.已知斜边为20，邻边为10，求角x.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-已知C是45°，斜边为20，求其邻边x"><span class="nav-number">2.</span> <span class="nav-text">2.已知C是45°，斜边为20，求其邻边x.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-已知A是55°，对边为20，求其邻边x"><span class="nav-number">3.</span> <span class="nav-text">3.已知A是55°，对边为20，求其邻边x.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-已知角B为60°，AC长为8，AB长为5，求角C的正弦"><span class="nav-number">4.</span> <span class="nav-text">4.已知角B为60°，AC长为8，AB长为5，求角C的正弦.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-已知C大小为120°-B大小为30°-AC-6-求AB长x"><span class="nav-number">5.</span> <span class="nav-text">5.已知C大小为120°,B大小为30°,AC=6,求AB长x.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-△ABC中，A-B-C所对的边为a-b-c。角B-30°，AB-9，AC-3√3，求角C的大小"><span class="nav-number">6.</span> <span class="nav-text">6.△ABC中，A,B,C所对的边为a,b,c。角B=30°，AB=9，AC=3√3，求角C的大小.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-已知AB-5-BC-8-角B-60°，求x"><span class="nav-number">7.</span> <span class="nav-text">7.已知AB=5,BC=8,角B=60°，求x.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-已知三边长为3-7-8，求边长为7的AC边所对的角B大小"><span class="nav-number">8.</span> <span class="nav-text">8.已知三边长为3,7,8，求边长为7的AC边所对的角B大小.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

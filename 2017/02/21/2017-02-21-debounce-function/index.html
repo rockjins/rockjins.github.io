@@ -1,0 +1,799 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="之前翻译了一篇博客，里面有讲到这个，今天单独拎出来聊聊。  前言事件的触发权很多时候都属于用户，有些情况下会产生问题：  向后台发送数据，用户频繁触发，对服务器造成压力  一些浏览器事件:window.onresize、mousemove等，触发的频率非常高，会造成浏览器性能问题   如果你碰到这些问题，那就需要用到这些技术了。 我们先来解释一下函数节流(Throttling)和函数防抖(Deb">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 函数节流、函数防抖实现原理分析 ">
+<meta property="og:url" content="http://yoursite.com/2017/02/21/2017-02-21-debounce-function/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="之前翻译了一篇博客，里面有讲到这个，今天单独拎出来聊聊。  前言事件的触发权很多时候都属于用户，有些情况下会产生问题：  向后台发送数据，用户频繁触发，对服务器造成压力  一些浏览器事件:window.onresize、mousemove等，触发的频率非常高，会造成浏览器性能问题   如果你碰到这些问题，那就需要用到这些技术了。 我们先来解释一下函数节流(Throttling)和函数防抖(Deb">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 函数节流、函数防抖实现原理分析 ">
+<meta name="twitter:description" content="之前翻译了一篇博客，里面有讲到这个，今天单独拎出来聊聊。  前言事件的触发权很多时候都属于用户，有些情况下会产生问题：  向后台发送数据，用户频繁触发，对服务器造成压力  一些浏览器事件:window.onresize、mousemove等，触发的频率非常高，会造成浏览器性能问题   如果你碰到这些问题，那就需要用到这些技术了。 我们先来解释一下函数节流(Throttling)和函数防抖(Deb">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/21/2017-02-21-debounce-function/"/>
+
+
+
+
+
+  <title> 函数节流、函数防抖实现原理分析  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/21/2017-02-21-debounce-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 函数节流、函数防抖实现原理分析 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-21T00:00:00+08:00">
+                2017-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>之前<a href="https://rockjins.js.org/2017/01/26/interviews-javascript/" target="_blank" rel="external">翻译了一篇博客</a>，里面有讲到这个，今天单独拎出来聊聊。</p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>事件的触发权很多时候都属于用户，有些情况下会产生问题：</p>
+<ul>
+<li><p>向后台发送数据，用户频繁触发，对服务器造成压力</p>
+</li>
+<li><p>一些浏览器事件:<code>window.onresize</code>、<code>mousemove</code>等，触发的频率非常高，会造成浏览器性能问题</p>
+</li>
+</ul>
+<p>如果你碰到这些问题，那就需要用到这些技术了。</p>
+<p>我们先来解释一下函数节流(Throttling)和函数防抖(Debouncing)的区别:</p>
+<blockquote>
+<p>我们上班、生活每天都需要坐电梯，用这个比喻再恰当不过了：</p>
+<p>函数防抖和我们平时坐电梯差不多，如果有人进电梯（用户触发事件），那将在10秒钟后出发（执行程序），这时如果又有人进电梯了（用户在10秒内再次触发事件），我们又得等10秒再出发（重新计时）。</p>
+<p>函数节流就比较直观了，有人进电梯，就开始计时，每10秒运送一次，如果没有人，则待机。</p>
+</blockquote>
+<p>这两种策略具体使用场景还得看你的实际需求了，但是，只要理解了这个思想，接下来的就好办了。</p>
+<a id="more"></a>
+<h3 id="函数节流-Throttling"><a href="#函数节流-Throttling" class="headerlink" title="函数节流(Throttling)"></a>函数节流(Throttling)</h3><p>函数节流的作用上面讲的很清晰了，接下来我们分析一下如何实现它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params">fn, interval</span>) </span>&#123; <span class="comment">//fn为要执行的函数，interval为延迟时间</span></div><div class="line">  <span class="keyword">var</span> _self = fn,  <span class="comment">//保存需要被延迟执行的函数引用</span></div><div class="line">      timer,  <span class="comment">//定时器</span></div><div class="line">      firstTime = <span class="literal">true</span>;  <span class="comment">//是否第一次调用</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//返回一个函数，形成闭包，持久化变量</span></div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">arguments</span>, <span class="comment">//缓存变量</span></div><div class="line">        _me = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(firstTime) &#123; <span class="comment">//如果是第一次调用，不用延迟执行</span></div><div class="line">      _self.apply(_me, args);</div><div class="line">      <span class="keyword">return</span> firstTime = <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(timer) &#123; <span class="comment">//如果定时器还在，说明上一次延迟执行还没有完成</span></div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//延迟一段时间执行</span></div><div class="line">      clearTimeout(timer);</div><div class="line">      timer = <span class="literal">null</span>;</div><div class="line">      _self.apply(_me, args);</div><div class="line">    &#125;, interval || <span class="number">500</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//使用</span></div><div class="line"><span class="built_in">window</span>.onresize = throttle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//你要执行的代码</span></div><div class="line">&#125;, <span class="number">500</span>);</div></pre></td></tr></table></figure>
+<p>其实函数节流和函数防抖的关键就是对<code>setTimeout</code>的运用，说个题外话，当你对<code>setTimeout</code>和<code>setInterval</code>内部的运作原理彻底了解后，你就是一名JS大神了。😝</p>
+<h3 id="函数防抖-Debouncing"><a href="#函数防抖-Debouncing" class="headerlink" title="函数防抖(Debouncing)"></a>函数防抖(Debouncing)</h3><p>我个人在开发中比较喜欢使用函数防抖策略，其实也说不上谁好，适应的场景不同。</p>
+<p>我把注解也写在代码中了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, interval, immediate</span>) </span>&#123;</div><div class="line">  <span class="comment">//fn为要执行的函数</span></div><div class="line">  <span class="comment">//interval为等待的时间</span></div><div class="line">  <span class="comment">//immediate判断是否立即执行</span></div><div class="line">  <span class="keyword">var</span> timeout;  <span class="comment">//定时器</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//返回一个闭包</span></div><div class="line">    <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>; <span class="comment">//先把变量缓存</span></div><div class="line">    <span class="keyword">var</span> later = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  <span class="comment">//把稍后要执行的代码封装起来</span></div><div class="line">      timeout = <span class="literal">null</span>; <span class="comment">//成功调用后清除定时器</span></div><div class="line">      <span class="keyword">if</span>(!immediate) fn.apply(context, args); <span class="comment">//不立即执行时才可以调用</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> callNow = immediate &amp;&amp; !timeout;  <span class="comment">//判断是否立即调用，并且如果定时器存在，则不立即调用</span></div><div class="line">    clearTimeout(timeout);  <span class="comment">//不管什么情况，先清除定时器，这是最稳妥的</span></div><div class="line">    timeout = setTimeout(later, interval);  <span class="comment">//延迟执行</span></div><div class="line">    <span class="keyword">if</span>(callNow) fn.apply(context, args);  <span class="comment">//如果是第一次触发，并且immediate为true，则立即执行</span></div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//使用</span></div><div class="line"><span class="keyword">var</span> myEfficientFn = debounce(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//你要做的事</span></div><div class="line">&#125;, <span class="number">250</span>);</div><div class="line"></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, myEfficientFn);</div></pre></td></tr></table></figure>
+<p>上面代码有一个巧妙的设计：<code>var callNow = immediate &amp;&amp; !timeout;</code>，判断了timeout，如果存在，说明有定时器在运行，那就不是第一次执行，则不执行<code>if(callNow)</code>里的代码了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这两个代码块是在开发中经常使用的，无论是为了适应需求还是优化性能，我们都没有理由不适用它们。</p>
+<p>另外在jQuery的源码中也使用了这种技巧，即便在这个框架横行的时代，还是只有底层的知识能让我感到踏实。</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/15/2017-02-15-javascript-skill/" rel="next" title=" 不定期更新 JavaScript技巧 ">
+                <i class="fa fa-chevron-left"></i>  不定期更新 JavaScript技巧 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/22/2017-02-22-javascript-types/" rel="prev" title=" 『翻译』"typeof null是什么?"以及其它让我们感到困惑的JavaScript类型">
+                 『翻译』"typeof null是什么?"以及其它让我们感到困惑的JavaScript类型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数节流-Throttling"><span class="nav-number">2.</span> <span class="nav-text">函数节流(Throttling)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数防抖-Debouncing"><span class="nav-number">3.</span> <span class="nav-text">函数防抖(Debouncing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

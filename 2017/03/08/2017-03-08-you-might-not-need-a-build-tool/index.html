@@ -1,0 +1,881 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Read the original 我们最好了解”原生”的构建方式   译者注：这篇文章旨在告诉大家，构建的过程是怎样的。因为现在太多的脚手架工具了，大家确实很方便就搭建了环境，但内部的过程却让人迷糊。 前言构建工具变得越来越丰富多彩了，但是你真的需要它们吗？有没有更简单的方式去搭建Rollup、Stylus或者其它的环境，而不用花上一整天时间。 现在我要向你展示用“原生”的方式构建项目，使用N">
+<meta name="keywords" content="JavaScript,Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『翻译』你也许并不需要构建工具 ">
+<meta property="og:url" content="http://yoursite.com/2017/03/08/2017-03-08-you-might-not-need-a-build-tool/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="Read the original 我们最好了解”原生”的构建方式   译者注：这篇文章旨在告诉大家，构建的过程是怎样的。因为现在太多的脚手架工具了，大家确实很方便就搭建了环境，但内部的过程却让人迷糊。 前言构建工具变得越来越丰富多彩了，但是你真的需要它们吗？有没有更简单的方式去搭建Rollup、Stylus或者其它的环境，而不用花上一整天时间。 现在我要向你展示用“原生”的方式构建项目，使用N">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『翻译』你也许并不需要构建工具 ">
+<meta name="twitter:description" content="Read the original 我们最好了解”原生”的构建方式   译者注：这篇文章旨在告诉大家，构建的过程是怎样的。因为现在太多的脚手架工具了，大家确实很方便就搭建了环境，但内部的过程却让人迷糊。 前言构建工具变得越来越丰富多彩了，但是你真的需要它们吗？有没有更简单的方式去搭建Rollup、Stylus或者其它的环境，而不用花上一整天时间。 现在我要向你展示用“原生”的方式构建项目，使用N">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/08/2017-03-08-you-might-not-need-a-build-tool/"/>
+
+
+
+
+
+  <title>『翻译』你也许并不需要构建工具  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/2017-03-08-you-might-not-need-a-build-tool/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">『翻译』你也许并不需要构建工具 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T00:00:00+08:00">
+                2017-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://medium.com/@pakastin/you-might-not-need-a-build-tool-ac3c1a8cfaac#.ybnfasayu" target="_blank" rel="external">Read the original</a></p>
+<p>我们最好了解”原生”的构建方式</p>
+</blockquote>
+<hr>
+<p><em>译者注：这篇文章旨在告诉大家，构建的过程是怎样的。因为现在太多的脚手架工具了，大家确实很方便就搭建了环境，但内部的过程却让人迷糊。</em></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>构建工具变得越来越丰富多彩了，但是你真的需要它们吗？有没有更简单的方式去搭建Rollup、Stylus或者其它的环境，而不用花上一整天时间。</p>
+<p>现在我要向你展示用“原生”的方式构建项目，使用<code>NPM scripts</code>和<code>监听器(chokidar)</code>。</p>
+<a id="more"></a>
+<h3 id="初始化node-js项目"><a href="#初始化node-js项目" class="headerlink" title="初始化node.js项目"></a>初始化node.js项目</h3><p>我们先创建一个node.js项目。打开你的命令行输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir example</div><div class="line">$ cd example</div><div class="line">$ npm init -y</div></pre></td></tr></table></figure>
+<p>然后创建一些文件夹并安装express：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir -p css js public/js public/css</div><div class="line">$ npm i express --save</div></pre></td></tr></table></figure>
+<p>然后，我们需要一个简单的web服务器(译者注：因为我使用的atom编辑器，所以使用atom命令可以直接创建server.js并打开它)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch server.js</div><div class="line">$ atom server.js</div></pre></td></tr></table></figure>
+<p>接下来要把public文件夹对外开发，在server.js中写入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const path = require(&apos;path&apos;);</div><div class="line">const express = require(&apos;express&apos;);</div><div class="line">const app = express();</div><div class="line">const PUBLIC = path.join(__dirname, &apos;public&apos;);</div><div class="line">app.use(express.static(PUBLIC));</div><div class="line">app.listen(8080);</div></pre></td></tr></table></figure>
+<h3 id="创建一些NPM-scripts"><a href="#创建一些NPM-scripts" class="headerlink" title="创建一些NPM scripts"></a>创建一些NPM scripts</h3><p>接下来我们要安装JS和CSS工具。如果你喜欢的话，可以选择你中意的工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm i stylus nib rollup rollup-plugin-buble uglify-js --save-dev</div></pre></td></tr></table></figure>
+<p>接下来可以增加一些npm scripts，先打开package.json：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$touch package.json</div><div class="line">$atom package.json</div></pre></td></tr></table></figure>
+<p>npm scripts的美妙之处就在于，你所有的依赖关系都可以安装在本地，并按照<a href="https://github.com/rollup/rollup/wiki/Command-Line-Interface" target="_blank" rel="external">官方文档</a>去执行<a href="https://github.com/mishoo/UglifyJS2" target="_blank" rel="external">命令</a>，在package.json中写入如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"example"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</div><div class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"dev"</span>: <span class="string">"node watch"</span>,</div><div class="line">    <span class="string">"build-css"</span>: <span class="string">"stylus -u nib css/index.styl -o public/css/main.css"</span>,</div><div class="line">    <span class="string">"build-js"</span>: <span class="string">"rollup -c -f iife js/index.js -o public/js/main.js"</span>,</div><div class="line">    <span class="string">"uglify-js"</span>: <span class="string">"uglifyjs public/js/index.js -cmo public/js/main.min.js"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"keywords"</span>: [],</div><div class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</div><div class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>让我们开始编辑详情：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stylus -u nib css/index.styl -o public/css/main.css</div></pre></td></tr></table></figure>
+<p>上面这句命令执行顺序：</p>
+<ul>
+<li><p>运行stylus</p>
+</li>
+<li><p>加载nib插件</p>
+</li>
+<li><p>打开css/index.styl</p>
+</li>
+<li><p>编辑public/css/main.css</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rollup -c -f iife js/index.js -o public/js/main.js</div></pre></td></tr></table></figure>
+<p>上面这句命令执行顺序：</p>
+<ul>
+<li><p>运行rollup</p>
+</li>
+<li><p>使用配置文件（我们将在接下来创建它）</p>
+</li>
+<li><p>格式化<a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression" target="_blank" rel="external">IIFE</a></p>
+</li>
+<li><p>打开js/index.js</p>
+</li>
+<li><p>编辑public/js/main.js</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">uglifyjs public/js/main.js -cmo public/js/main.min.js</div></pre></td></tr></table></figure>
+<p>上面这句命令的执行顺序：</p>
+<ul>
+<li><p>运行uglify-js</p>
+</li>
+<li><p>打开public/js/main.js</p>
+</li>
+<li><p>压缩&amp;最小化</p>
+</li>
+<li><p>编辑public/js/main.min.js</p>
+</li>
+</ul>
+<h3 id="配置Rollup"><a href="#配置Rollup" class="headerlink" title="配置Rollup"></a>配置Rollup</h3><p>接下来我们要创建rollup的配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch rollup.config.js</div><div class="line">$ atom rollup.config.js</div></pre></td></tr></table></figure>
+<p>没有多少要配置的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> buble <span class="keyword">from</span> <span class="string">'rollup-plugin-buble'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    buble()</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这样就够了.</p>
+<h3 id="创建一个文件监听器"><a href="#创建一个文件监听器" class="headerlink" title="创建一个文件监听器"></a>创建一个文件监听器</h3><p>还有一件事。我们需要一个文件监听器，让我们来安装<a href="https://github.com/paulmillr/chokidar" target="_blank" rel="external">chokidar</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm i chokidar --save-dev</div></pre></td></tr></table></figure>
+<p>然后创建一个<code>watch.js</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch watch.js</div><div class="line">$ atom watch.js</div></pre></td></tr></table></figure>
+<p>这里是它的内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'./server'</span>); <span class="comment">// run the server</span></div><div class="line"><span class="keyword">const</span> cp = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</div><div class="line"><span class="keyword">const</span> chokidar = <span class="built_in">require</span>(<span class="string">'chokidar'</span>);</div><div class="line">run(<span class="string">'build-css'</span>);</div><div class="line">run(<span class="string">'build-js'</span>);</div><div class="line">chokidar.watch(<span class="string">'css/**/*.styl'</span>)</div><div class="line">  .on(<span class="string">'change'</span>, path =&gt; run(<span class="string">'build-css'</span>));</div><div class="line">chokidar.watch(<span class="string">'js/**/*.js'</span>)</div><div class="line">  .on(<span class="string">'change'</span>, path =&gt; run(<span class="string">'build-js'</span>));</div><div class="line">chokidar.watch(<span class="string">'public/js/main.js'</span>)</div><div class="line">  .on(<span class="string">'change'</span>, path =&gt; run(<span class="string">'uglify-js'</span>));</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params">scriptName</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> child = cp.spawn(<span class="string">'npm'</span>, [<span class="string">'run'</span>, scriptName]);</div><div class="line">  child.stdout.pipe(process.stdout);</div><div class="line">  child.stderr.pipe(process.stderr);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>好了！这是上面这段代码运行的过程：</p>
+<ul>
+<li><p>运行服务</p>
+</li>
+<li><p>加载node.js自带的<code>child_process</code>包</p>
+</li>
+<li><p>运行<code>npm run build-css</code>命令</p>
+</li>
+<li><p>运行<code>npm run build-js</code>命令</p>
+</li>
+<li><p>开始监听<code>css/**/*.styl</code>和<code>npm run build-css</code>的任何变化</p>
+</li>
+<li><p>开始监听<code>js/**/*.js</code>和<code>npm run build-js</code>的任何变化</p>
+</li>
+<li><p>开始监听<code>public/js/main.js</code>和<code>npm run uglify-js</code>的任何变化</p>
+</li>
+<li><p>定义一个简单的脚本运行错误处理机制</p>
+</li>
+</ul>
+<h3 id="我们需要一些内容"><a href="#我们需要一些内容" class="headerlink" title="我们需要一些内容"></a>我们需要一些内容</h3><p>我们需要添加一些CSS：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch css/index.styl</div><div class="line">$ atom css/index.styl</div></pre></td></tr></table></figure>
+<p>这是一个很简单的”bootstrap”：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@import &apos;nib&apos;;</div><div class="line">body &#123;</div><div class="line">  font-family: sans-serif;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>…还有JS：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch js/index.js</div><div class="line">$ atom js/index.js</div></pre></td></tr></table></figure>
+<p>这里同样也没有太多事情发生：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> hello = <span class="built_in">document</span>.createElement(<span class="string">'h1'</span>);</div><div class="line">hello.textContent = <span class="string">'Hello world!'</span>;</div><div class="line"><span class="built_in">document</span>.body.appendChild(hello);</div></pre></td></tr></table></figure>
+<p>还需要一些HTML：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ touch public/index.html</div><div class="line">$ atom public/index.html</div></pre></td></tr></table></figure>
+<p>也是最基本的…</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/main.css"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="完成"><a href="#完成" class="headerlink" title="完成!"></a>完成!</h3><p>让我们试试看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm run dev</div></pre></td></tr></table></figure>
+<p>在浏览器地址栏输入<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></p>
+<p>搞定，没问题！</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Translation/" rel="tag"># Translation</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/06/2017-03-06-performance-optimum/" rel="next" title=" 举个小栗子来聊下性能优化 ">
+                <i class="fa fa-chevron-left"></i>  举个小栗子来聊下性能优化 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/12/2017-03-12-promise-dev/" rel="prev" title=" 快速将Promise运用在开发中 ">
+                 快速将Promise运用在开发中  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化node-js项目"><span class="nav-number">1.1.</span> <span class="nav-text">初始化node.js项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一些NPM-scripts"><span class="nav-number">1.2.</span> <span class="nav-text">创建一些NPM scripts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Rollup"><span class="nav-number">1.3.</span> <span class="nav-text">配置Rollup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个文件监听器"><span class="nav-number">1.4.</span> <span class="nav-text">创建一个文件监听器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们需要一些内容"><span class="nav-number">1.5.</span> <span class="nav-text">我们需要一些内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成"><span class="nav-number">1.6.</span> <span class="nav-text">完成!</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

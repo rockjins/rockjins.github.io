@@ -1,0 +1,890 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Node.js,Socket.IO,Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="官方最新版的示例翻译 阅读原文  开始创建：聊天室程序(Get Started: Chat application)在这个教程中，我们将会创建一个基本的聊天室程序。它几乎不需要你懂得多少Node.js和Socket.IO的知识，所以，这个教程适用于各个技术水平的开发人员。 介绍(Introduction)使用LAMP（PHP）这种传统的技术栈去编写一个流行的聊天室程序是很困难的。它包括了服务器">
+<meta name="keywords" content="JavaScript,Node.js,Socket.IO,Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『翻译』Socket.IO聊天室程序（官方示例） ">
+<meta property="og:url" content="http://yoursite.com/2016/12/26/2016-12-26-socket-io/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="官方最新版的示例翻译 阅读原文  开始创建：聊天室程序(Get Started: Chat application)在这个教程中，我们将会创建一个基本的聊天室程序。它几乎不需要你懂得多少Node.js和Socket.IO的知识，所以，这个教程适用于各个技术水平的开发人员。 介绍(Introduction)使用LAMP（PHP）这种传统的技术栈去编写一个流行的聊天室程序是很困难的。它包括了服务器">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-947da750a222ceac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-52c14f95337539fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-4053a484080713ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-69655e65f31c9063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-8cbd77cd04a3e966.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-12T07:52:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『翻译』Socket.IO聊天室程序（官方示例） ">
+<meta name="twitter:description" content="官方最新版的示例翻译 阅读原文  开始创建：聊天室程序(Get Started: Chat application)在这个教程中，我们将会创建一个基本的聊天室程序。它几乎不需要你懂得多少Node.js和Socket.IO的知识，所以，这个教程适用于各个技术水平的开发人员。 介绍(Introduction)使用LAMP（PHP）这种传统的技术栈去编写一个流行的聊天室程序是很困难的。它包括了服务器">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2859850-947da750a222ceac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/26/2016-12-26-socket-io/"/>
+
+
+
+
+
+  <title>『翻译』Socket.IO聊天室程序（官方示例）  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/26/2016-12-26-socket-io/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">『翻译』Socket.IO聊天室程序（官方示例） </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-26T00:00:00+08:00">
+                2016-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p> 官方最新版的示例翻译 <a href="http://socket.io/get-started/chat/" target="_blank" rel="external">阅读原文</a></p>
+</blockquote>
+<h2 id="开始创建：聊天室程序-Get-Started-Chat-application"><a href="#开始创建：聊天室程序-Get-Started-Chat-application" class="headerlink" title="开始创建：聊天室程序(Get Started: Chat application)"></a>开始创建：聊天室程序(Get Started: Chat application)</h2><p>在这个教程中，我们将会创建一个基本的聊天室程序。它几乎不需要你懂得多少Node.js和Socket.IO的知识，所以，这个教程适用于各个技术水平的开发人员。</p>
+<h3 id="介绍-Introduction"><a href="#介绍-Introduction" class="headerlink" title="介绍(Introduction)"></a>介绍(Introduction)</h3><p>使用LAMP（PHP）这种传统的技术栈去编写一个流行的聊天室程序是很困难的。它包括了服务器的轮询，跟踪时间戳，用它们去做这些会耗费你很多时间。</p>
+<p>一直以来，sockets都是即时聊天系统的架构解决方案，它提供一个双向的通讯通道在客户端和服务器之间。</p>
+<p>这意味着服务器可以推送消息到客户端。无论你何时发送聊天信息，我们都希望服务器获取到它，并把它推送到其他连接服务器的客户端上。</p>
+<a id="more"></a>
+<h3 id="Web-框架-The-web-framework"><a href="#Web-框架-The-web-framework" class="headerlink" title="Web 框架(The web framework)"></a>Web 框架(The web framework)</h3><p>首先，我们要建立一个简单的HTML页面，负责提交表单和展示消息列表。我们将使用Node.js的web框架<code>express</code>去实现。请确保你安装了<code>Node.js</code>。</p>
+<p>我们先创建一个package.json来描述我们的项目。我建议你创建一个空文件夹（我把它叫做chat-example）。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"socket-chat-example"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">"my first socket.io app"</span>,</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在，按顺序把我们所需要的依赖填充到<code>dependencies</code>，我们使用<code>npm install --save</code>：</p>
+<blockquote>
+<p>npm install –save express@4.10.2</p>
+</blockquote>
+<p>现在，express已经安装完成，我们创建一个<code>index.js</code>文件，开始搭建我们的程序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'express'</span>)();</div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>).Server(app);</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  res.send(<span class="string">'&lt;h1&gt;Hello world&lt;/h1&gt;'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">http.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'listening on *:3000'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面这段代码的意思如下：</p>
+<blockquote>
+<ol>
+<li><p>Express把<code>app</code>初始化为函数处理器(function handler)，它提供了一个HTTP服务。</p>
+</li>
+<li><p>我们定义一个路由处理器<code>/</code>，当我们进入网站首页时，它会执行。</p>
+</li>
+<li><p>我们创建一个http服务去监听3000端口。</p>
+</li>
+</ol>
+</blockquote>
+<p>如果你运行<code>node index.js</code>，你会看到如下所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-947da750a222ceac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="node-index.js"></p>
+<p>接下来在浏览器输入<code>http://localhost:3000</code>，你会看到如下所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-52c14f95337539fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="HW"></p>
+<h3 id="创建HTML-Serving-HTML"><a href="#创建HTML-Serving-HTML" class="headerlink" title="创建HTML(Serving HTML)"></a>创建HTML(Serving HTML)</h3><p>到目前为止，<code>index.js</code>只是用<code>res.send</code>返回一个HTML字符串。如果我们把整个程序的HTML代码都放在这，那会使我们头晕眼花，我们再创建一个<code>index.html</code>并启动它。</p>
+<p>我们改写路由处理器，用<code>sendFile</code>代替<code>send</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  res.sendFile(__dirname + <span class="string">'/index.html'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>然后在<code>index.html</code>中写入以下内容：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Socket.IO chat<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">      * &#123; margin: 0; padding: 0; box-sizing: border-box; &#125;</div><div class="line">      body &#123; font: 13px Helvetica, Arial; &#125;</div><div class="line">      form &#123; background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; &#125;</div><div class="line">      form input &#123; border: 0; padding: 10px; width: 90%; margin-right: .5%; &#125;</div><div class="line">      form button &#123; width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; &#125;</div><div class="line">      #messages &#123; list-style-type: none; margin: 0; padding: 0; &#125;</div><div class="line">      #messages li &#123; padding: 5px 10px; &#125;</div><div class="line">      #messages li:nth-child(odd) &#123; background: #eee; &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"messages"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"m"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> /&gt;</span><span class="tag">&lt;<span class="name">button</span>&gt;</span>Send<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果你重启服务(按<code>Control+C</code>再运行<code>node index.js</code>)，刷新页面，你会看到如下界面：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-4053a484080713ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="homepage"></p>
+<h3 id="集成Socket-IO-Integrating-Socket-IO"><a href="#集成Socket-IO-Integrating-Socket-IO" class="headerlink" title="集成Socket.IO(Integrating Socket.IO)"></a>集成Socket.IO(Integrating Socket.IO)</h3><p>Socket.IO由两部分组成：</p>
+<ul>
+<li><p>一个集成（或安装）了Node.js HTTP服务的服务器：<code>socket.io</code></p>
+</li>
+<li><p>一个加载在浏览器上的客户端库：<code>socket.io-client</code></p>
+</li>
+</ul>
+<p>在开发时，<code>socket.io</code>为我们自动的服务客户端，就像我们看到的那样，所以现在我们只需要安装一个模块：</p>
+<blockquote>
+<p>npm install –save socket.io</p>
+</blockquote>
+<p>包管理工具会安装这个模块，并将依赖项添加到<code>package.json</code>。现在让我们在<code>index.js</code>中写入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'express'</span>)();</div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>).Server(app);</div><div class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>)(http);</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  res.sendfile(<span class="string">'index.html'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'a user connected'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">http.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'listening on *:3000'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意，我通过<code>http</code>(HTTP服务器)对象初始化了一个<code>socket.io</code>实例。然后，我监听sockets的<code>connection</code>事件，然后我使用console.log打印出它。</p>
+<p>现在我们再<code>index.html</code>中添加如下代码，在<code>&lt;/body&gt;</code>标签上方：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/socket.io/socket.io.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> socket = io();</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>我们需要加载<code>socket.io-client</code>，它暴露了一个全局函数<code>io</code>，运行它，接着去连接服务器。</p>
+<p>注意，当我调用<code>io()</code>时，不指定任何URL，因为它默认会尝试连接到这个页面的主机服务器。</p>
+<p>如果你现在重启服务并刷新网页，你将看到终端打印出”a user connected”：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-69655e65f31c9063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="terminal"></p>
+<p>每个socket同样会触发一个特殊的<code>disconnect</code>事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'a user connected'</span>);</div><div class="line">  socket.on(<span class="string">'disconnect'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'user disconnected'</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>接下来，你重启服务，刷新网页并关闭它，就可以看到事件的执行：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-8cbd77cd04a3e966.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="events"></p>
+<h3 id="发射事件-Emitting-events"><a href="#发射事件-Emitting-events" class="headerlink" title="发射事件(Emitting events)"></a>发射事件(Emitting events)</h3><p>Socket.IO最主要的思想就是你可以发送和接收任何你想的事件、任何你想要的数据。任何对象都可以使用JSON进行编码，包括二进制数据同样支持。</p>
+<p>让我们来实现，当用户发送一条信息时，服务器接收一个<code>chat message</code>事件。<code>index.html</code>的脚本部分修改成如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/socket.io/socket.io.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery-1.11.1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> socket = io();</div><div class="line">  $(<span class="string">'form'</span>).submit(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    socket.emit(<span class="string">'chat message'</span>, $(<span class="string">'#m'</span>).val());</div><div class="line">    $(<span class="string">'#m'</span>).val(<span class="string">''</span>);</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后在<code>index.js</code>中，我们打印<code>chat message</code>事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</div><div class="line">  socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'message: '</span> + msg);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>结果应该如下视频所示：</p>
+<video autoplay loop width="100%"><source src="https://i.cloudup.com/transcoded/zboNrGSsai.mp4"></video>
+
+<h3 id="广播-Broadcasting"><a href="#广播-Broadcasting" class="headerlink" title="广播(Broadcasting)"></a>广播(Broadcasting)</h3><p>下一个目标是，将发射的事件通过服务器广播给其他用户。</p>
+<p>为了发送一个事件给每个用户，Socket.IO给了我们一个<code>io.emit</code>接口：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">io.emit(<span class="string">'some event'</span>, &#123; <span class="attr">for</span>: <span class="string">'everyone'</span> &#125;);</div></pre></td></tr></table></figure>
+<p>如果你想发送一则消息给所有人，除了当前socket的拥有者，我们可以使用<code>broadcast</code>标记:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</div><div class="line">  socket.broadcast.emit(<span class="string">'hi'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这这个实例中，为了简单起见，我们把消息发送给每一个人，包括消息的发出者：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</div><div class="line">  socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">    io.emit(<span class="string">'chat message'</span>, msg);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>当客户端捕获到<code>chat message</code>事件，我们将消息插入到页面中。以下为客户端所有的JavaScript代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> socket = io();</div><div class="line">  $(<span class="string">'form'</span>).submit(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    socket.emit(<span class="string">'chat message'</span>, $(<span class="string">'#m'</span>).val());</div><div class="line">    $(<span class="string">'#m'</span>).val(<span class="string">''</span>);</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  &#125;);</div><div class="line">  socket.on(<span class="string">'chat message'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">    $(<span class="string">'#messages'</span>).append($(<span class="string">'&lt;li&gt;'</span>).text(msg));</div><div class="line">  &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>完成我们的聊天室程序，只需要20行代码左右！它看起来像这样：</p>
+<video autoplay loop width="100%"><source src="https://i.cloudup.com/transcoded/J4xwRU9DRn.mp4"></video>
+
+<h3 id="课后作业-Homework"><a href="#课后作业-Homework" class="headerlink" title="课后作业(Homework)"></a>课后作业(Homework)</h3><p>这里有一些点子来改善这个程序：</p>
+<ul>
+<li><p>当有人加入聊天室或退出聊天室时，广播一则消息给所有已连接的用户</p>
+</li>
+<li><p>支持昵称功能</p>
+</li>
+<li><p>不要向自己发送消息，而是在用户回车后立即添加消息到页面上</p>
+</li>
+<li><p>增加”某某正在输入”的功能</p>
+</li>
+<li><p>展示哪些人在线上</p>
+</li>
+<li><p>增加私人消息传输</p>
+</li>
+<li><p>展示你的改进结果！</p>
+</li>
+</ul>
+<h3 id="获取示例-Getting-this-example"><a href="#获取示例-Getting-this-example" class="headerlink" title="获取示例(Getting this example)"></a>获取示例(Getting this example)</h3><p>你可以在GitHub上找到它。</p>
+<p><a href="https://github.com/guille/chat-example" target="_blank" rel="external">点击获取示例</a></p>
+<p>如果你电脑有装git，直接在项目目录下输入以下命令：</p>
+<blockquote>
+<p>$ git clone <a href="https://github.com/guille/chat-example.git" target="_blank" rel="external">https://github.com/guille/chat-example.git</a></p>
+</blockquote>
+<p><em>完</em></p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+          
+            <a href="/tags/Socket-IO/" rel="tag"># Socket.IO</a>
+          
+            <a href="/tags/Translation/" rel="tag"># Translation</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/19/2016-12-19-inline-function/" rel="next" title=" 使用内联函数进行递归 ">
+                <i class="fa fa-chevron-left"></i>  使用内联函数进行递归 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/01/2017-01-01-book-list/" rel="prev" title=" 2016 我的书单 ">
+                 2016 我的书单  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始创建：聊天室程序-Get-Started-Chat-application"><span class="nav-number">1.</span> <span class="nav-text">开始创建：聊天室程序(Get Started: Chat application)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍-Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">介绍(Introduction)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-框架-The-web-framework"><span class="nav-number">1.2.</span> <span class="nav-text">Web 框架(The web framework)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建HTML-Serving-HTML"><span class="nav-number">1.3.</span> <span class="nav-text">创建HTML(Serving HTML)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成Socket-IO-Integrating-Socket-IO"><span class="nav-number">1.4.</span> <span class="nav-text">集成Socket.IO(Integrating Socket.IO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发射事件-Emitting-events"><span class="nav-number">1.5.</span> <span class="nav-text">发射事件(Emitting events)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广播-Broadcasting"><span class="nav-number">1.6.</span> <span class="nav-text">广播(Broadcasting)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课后作业-Homework"><span class="nav-number">1.7.</span> <span class="nav-text">课后作业(Homework)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取示例-Getting-this-example"><span class="nav-number">1.8.</span> <span class="nav-text">获取示例(Getting this example)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

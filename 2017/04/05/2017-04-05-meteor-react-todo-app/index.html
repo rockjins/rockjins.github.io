@@ -1,0 +1,951 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Translation,Full-Stack,Meteor," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Read the original 如果你有成为全栈的梦想，METEOR是个不错的平台。   1.创建你的第一个App(Creating your first app)在这个教程中，我们会创建一个简单的App去管理待办事项列表并和他人合作完成任务。在完成这个项目后，你会对Meteor和它的项目结构有个基本的了解，。我们先创建App，打开命令行，键入以下命令： 译者注：前提是你安装了meteor,">
+<meta name="keywords" content="JavaScript,Translation,Full-Stack,Meteor">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 『翻译』METEOR教程(REACT VERSION)">
+<meta property="og:url" content="http://yoursite.com/2017/04/05/2017-04-05-meteor-react-todo-app/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="Read the original 如果你有成为全栈的梦想，METEOR是个不错的平台。   1.创建你的第一个App(Creating your first app)在这个教程中，我们会创建一个简单的App去管理待办事项列表并和他人合作完成任务。在完成这个项目后，你会对Meteor和它的项目结构有个基本的了解，。我们先创建App，打开命令行，键入以下命令： 译者注：前提是你安装了meteor,">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 『翻译』METEOR教程(REACT VERSION)">
+<meta name="twitter:description" content="Read the original 如果你有成为全栈的梦想，METEOR是个不错的平台。   1.创建你的第一个App(Creating your first app)在这个教程中，我们会创建一个简单的App去管理待办事项列表并和他人合作完成任务。在完成这个项目后，你会对Meteor和它的项目结构有个基本的了解，。我们先创建App，打开命令行，键入以下命令： 译者注：前提是你安装了meteor,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/05/2017-04-05-meteor-react-todo-app/"/>
+
+
+
+
+
+  <title> 『翻译』METEOR教程(REACT VERSION) | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/2017-04-05-meteor-react-todo-app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 『翻译』METEOR教程(REACT VERSION)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T00:00:00+08:00">
+                2017-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://www.meteor.com/tutorials/react/creating-an-app" target="_blank" rel="external">Read the original</a></p>
+<p>如果你有成为全栈的梦想，METEOR是个不错的平台。</p>
+</blockquote>
+<hr>
+<h3 id="1-创建你的第一个App-Creating-your-first-app"><a href="#1-创建你的第一个App-Creating-your-first-app" class="headerlink" title="1.创建你的第一个App(Creating your first app)"></a>1.创建你的第一个App(Creating your first app)</h3><p>在这个教程中，我们会创建一个简单的App去管理待办事项列表并和他人合作完成任务。在完成这个项目后，你会对Meteor和它的项目结构有个基本的了解，。我们先创建App，打开命令行，键入以下命令：</p>
+<p><em>译者注：前提是你安装了meteor,具体安装步骤可以<a href="http://guide-zh.ourmeteor.com/index.html#quickstart" target="_blank" rel="external">参考这里</a></em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor create simple-todos</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>它会创建一个名叫<code>simple-todos</code>的文件夹，里面包含我们开发meteor App所需要的文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">client/main.js        # 在客户端的JavaScript入口文件</div><div class="line">client/main.html      # 定义视图容器</div><div class="line">client/main.css       # 定义App样式</div><div class="line">server/main.js        # 服务端的JavaScript入口文件</div><div class="line">package.json          # 用于安装和管理NPM包</div><div class="line">.meteor               # Meteor内部文件</div><div class="line">.gitignore            # git的管理文件</div></pre></td></tr></table></figure>
+<p>运行这个新创建的App：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd simple-todos</div><div class="line">meteor npm install</div><div class="line">meteor</div></pre></td></tr></table></figure>
+<p>打开你的浏览器并输入<code>http://localhost:3000</code>查看App是否运行成功。</p>
+<p>在我们教程正式开始之前，你可以看看这个App的内部组成。比如，用你惯用的编辑器修改<code>client/main.html</code>文件中的<code>&lt;h1&gt;</code>内的文字。当你修改完毕保存文件时，浏览器会自动更新并展示新的内容，我们叫它<code>热拔插(hot code push)</code>。</p>
+<h4 id="ES2015特性"><a href="#ES2015特性" class="headerlink" title="ES2015特性"></a>ES2015特性</h4><p>如果你还没有尝试过下个版本的JavaScript特性，初始App内的代码语法，还有整个教程使用的语法，都会让你感到怪异。这是因为Meteor支持大部分ES2015的特性，也就是下个版本的JavaScript。常用的特性包括：</p>
+<ol>
+<li><p>箭头函数：<code>(arg) =&gt; {return result;}</code></p>
+</li>
+<li><p>简写方法：<code>render() { ... }</code></p>
+</li>
+<li><p><code>const</code>和<code>let</code>取代<code>var</code></p>
+</li>
+</ol>
+<p>你可以在<a href="https://docs.meteor.com/packages/ecmascript.html" target="_blank" rel="external">ecmascript docs</a>查看Meteor支持的新特性。更多关于ES2015的信息可以查看下面几篇文章：</p>
+<ul>
+<li><p><a href="http://git.io/es6features" target="_blank" rel="external">Luke Hoban’s “ES6 features”</a></p>
+</li>
+<li><p><a href="https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20%26%20beyond" target="_blank" rel="external">Kyle Simpson’s “You don’t know JS: ES6 and beyond”</a></p>
+</li>
+<li><p><a href="https://github.com/nzakas/understandinges6" target="_blank" rel="external">Nikolas C. Zakas “Understanding ECMAScript 6”</a></p>
+</li>
+</ul>
+<p>现在你有一些如何开发Meteor App的经验了，让我们开始创建一个待办事项列表应用程序吧！如果你在这个教程中发现了bug或是错误，可以在<a href="https://github.com/rockjins/Meteor-Tutorials" target="_blank" rel="external">GitHub</a>上请发起<code>issue</code>或<code>PR</code>。</p>
+<h3 id="2-使用React-Components定义视图层-Defining-views-with-React-components"><a href="#2-使用React-Components定义视图层-Defining-views-with-React-components" class="headerlink" title="2.使用React Components定义视图层(Defining views with React components)"></a>2.使用React Components定义视图层(Defining views with React components)</h3><p>我们把React作为视图层，让我们增加一些NPM packages，以便使用React进行开发。打开一个新的terminal在你的App根目录下，键入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor npm install --save react react-dom</div></pre></td></tr></table></figure>
+<h4 id="替换初始化的代码"><a href="#替换初始化的代码" class="headerlink" title="替换初始化的代码"></a>替换初始化的代码</h4><p>在开始前，我们要替换App的初始代码。接下来我们讨论要做些什么。</p>
+<p>第一步，替换初始化的HTML中的内容：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Todo List<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"render-target"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>第二步，删除<code>client/main.js</code>，并创建三个新文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ./client/main.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Meteor &#125; <span class="keyword">from</span> <span class="string">'meteor/meteor'</span>;</div><div class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./imports/ui/App.jsx'</span>;</div><div class="line"></div><div class="line">Meteor.startup(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span>, document.getElementById('render-target'));</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ./imports/ui/App.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> Reacr, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> Task <span class="keyword">from</span> <span class="string">'./Task.jsx'</span>;</div><div class="line"></div><div class="line"><span class="comment">//App组件 —— 代表整个App</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span>  <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  getTasks() &#123;</div><div class="line">    <span class="keyword">return</span> [</div><div class="line">      &#123; <span class="attr">_id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">'This is task 1'</span> &#125;,</div><div class="line">      &#123; <span class="attr">_id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">'This is task 2'</span> &#125;,</div><div class="line">      &#123; <span class="attr">_id</span>: <span class="number">3</span>, <span class="attr">text</span>: <span class="string">'This is task 3'</span> &#125;,</div><div class="line">    ];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  renderTasks()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.getTasks().map.(<span class="function">(<span class="params">task</span>) =&gt;</span> &#123;</div><div class="line">      &lt;Task key=&#123;task._id&#125; task=&#123;task&#125; /&gt;</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"container"</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Todo List<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">          &#123;this.renderTasks()&#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ./imports/ui/Task.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React, &#123;Component, PropTypes&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Task组件 —— 代表一个单独的todo条目</span></div><div class="line"><span class="keyword">export</span>  <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Task</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;this.props.task.text&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Task.propTypes = &#123;</div><div class="line">  <span class="comment">//这个组件通过React prop去得到并显示任务</span></div><div class="line">  <span class="comment">//我们可以用propTypes去指明哪些是必须的</span></div><div class="line">  task:PropTypes.object.isRequired,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们仅在我们的App中做了3件事：</p>
+<ol>
+<li><p>一个<code>App</code> React component</p>
+</li>
+<li><p>一个<code>Task</code> React component</p>
+</li>
+<li><p>一些初始化代码(在<code>client/main.jsx</code>客户端JavaScript入口文件中)，在<code>Meteor.startup</code>代码块中，我们知道当页面加载完毕后会执行里面的代码。这段代码加载其他组件，并渲染<code>#render-target</code>元素。</p>
+</li>
+</ol>
+<p>你还可以在<a href="https://guide.meteor.com/structure.html" target="_blank" rel="external">Application Structure article</a>中了解import是如何工作的，还有如何组织你的代码。</p>
+<p>在接下来的教程中，我们增加或更改代码，都会涉及到这些组件。</p>
+<h4 id="检查结果"><a href="#检查结果" class="headerlink" title="检查结果"></a>检查结果</h4><p>在浏览器中，我们的app应该看起来像这个样子：</p>
+<blockquote>
+<p>Todo List</p>
+<ul>
+<li><p>This is task 1</p>
+</li>
+<li><p>This is task 2</p>
+</li>
+<li><p>This is task 3</p>
+</li>
+</ul>
+</blockquote>
+<p>如果你的app看起来不是这样，可以去<a href="https://github.com/meteor/simple-todos-react" target="_blank" rel="external">GitHub下载代码</a>，并和你自己的代码对比，找出不同的地方。</p>
+<h4 id="HTML文件定义静态内容"><a href="#HTML文件定义静态内容" class="headerlink" title="HTML文件定义静态内容"></a>HTML文件定义静态内容</h4><p>Meteor会解析你app目录下的所有HTML文件，并识别三个顶级标签<code>&lt;head&gt;</code>,<code>&lt;body&gt;</code>和<code>&lt;template&gt;</code>。<code>&lt;head&gt;</code>标签内的所有内容会发送到客户端HTML的<code>head</code>标签，<code>&lt;body&gt;</code>标签内的所有内容也会发送到客户端HTML的<code>body</code>标签内，就和正常的HTML文件一样。</p>
+<p>任何<code>&lt;template&gt;</code>标签内的内容会编译成Meteor Templates，你可以在HTML中用<code>{{>templateName}}</code>去调用，或在JavaScript中用<code>Template.templateName</code>去调用。在这个教程中，我们不会用到Meteor提供的模板特性，因为我们将用React去定义所有视图组件。</p>
+<h4 id="用React定义视图组件"><a href="#用React定义视图组件" class="headerlink" title="用React定义视图组件"></a>用React定义视图组件</h4><p>在React中，视图组件是<code>React.Component</code>的子类(当我们用<code>import { Component } from &#39;react&#39;</code>的方式引入时)。你可以自由的在组件上添加方法，但有几个特殊的方法是不行的，比如<code>render</code>方法。组件通过其父组件的<code>props</code>属性，也可以接收数据。在这个教程中，我们会重温一些React的通用特性。你也可以查看<a href="https://facebook.github.io/react/tutorial/tutorial.html" target="_blank" rel="external">React官方教程</a>。</p>
+<h4 id="重新审视JSX中的render方法"><a href="#重新审视JSX中的render方法" class="headerlink" title="重新审视JSX中的render方法"></a>重新审视JSX中的render方法</h4><p>在每个React Component中最重要的方法就是<code>render()</code>，它会访问React并得到被描述的HTML，然后把组件显示出来。这个HTML内容用JavaScript扩展语法写成，叫<code>JSX</code>,看起来就像在JavaScript中写HTML。你可以看到一些显而易见的差异：在JSX中，你要用<code>className</code>去代替<code>class</code>属性。还有一件很重要的事，它不是像Spacebars和Angular一样的模板语言，实际上它是直接编译成正常的JavaScript。<a href="https://facebook.github.io/react/docs/jsx-in-depth.html" target="_blank" rel="external">查看更多JSX的信息</a>。</p>
+<p>JSX支持<code>ecmascript</code>扩展包，所以它默认支持所有Meteor app的扩展包。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*./client/main.css*/</span></div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: sans-serif;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#315481</span>;</div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to bottom, #315481, #918e82 100%);</div><div class="line">  <span class="attribute">background-attachment</span>: fixed;</div><div class="line"></div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">max-width</span>: <span class="number">600px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">header</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#d2edf4</span>;</div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to bottom, #d0edf5, #e1e5f0 100%);</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">15px</span> <span class="number">15px</span> <span class="number">15px</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#login-buttons</span> &#123;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h1</span> &#123;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">1.5em</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">margin-right</span>: <span class="number">1em</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">form</span> &#123;</div><div class="line">  <span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">  <span class="attribute">margin-bottom</span>: -<span class="number">10px</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.new-task</span> <span class="selector-tag">input</span> &#123;</div><div class="line">  <span class="attribute">box-sizing</span>: border-box;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">background</span>: transparent;</div><div class="line">  <span class="attribute">border</span>: none;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">80px</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">1em</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.new-task</span> <span class="selector-tag">input</span><span class="selector-pseudo">:focus</span>&#123;</div><div class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">ul</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.delete</span> &#123;</div><div class="line">  <span class="attribute">float</span>: right;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">  <span class="attribute">background</span>: none;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">1em</span>;</div><div class="line">  <span class="attribute">border</span>: none;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">list-style</span>: none;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">border-bottom</span>: <span class="number">#eee</span> solid <span class="number">1px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span> <span class="selector-class">.text</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-class">.checked</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#888</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-class">.checked</span> <span class="selector-class">.text</span> &#123;</div><div class="line">  <span class="attribute">text-decoration</span>: line-through;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span><span class="selector-class">.private</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">  <span class="attribute">border-color</span>: <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">header</span> <span class="selector-class">.hide-completed</span> &#123;</div><div class="line">  <span class="attribute">float</span>: right;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.toggle-private</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">600px</span>) &#123;</div><div class="line">  <span class="selector-tag">li</span> &#123;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">15px</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="selector-class">.search</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">    <span class="attribute">clear</span>: both;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="selector-class">.new-task</span> <span class="selector-tag">input</span> &#123;</div><div class="line">    <span class="attribute">padding-bottom</span>: <span class="number">5px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>增加上面的CSS代码到你的项目中，这个首页看起来会很棒。在你的浏览器中检查样式是否加载进去了。</p>
+<h3 id="3-在集合中储存任务-Storing-tasks-in-a-collection"><a href="#3-在集合中储存任务-Storing-tasks-in-a-collection" class="headerlink" title="3.在集合中储存任务(Storing tasks in a collection)"></a>3.在集合中储存任务(Storing tasks in a collection)</h3><p>Meteor使用集合(collections)储存持久化数据。在Meteor中，集合的特殊之处在于，可以同时在服务端和客户端读取数据，这让我们很容易编写视图层逻辑，而不需要编写太多服务端代码。集合会自动更新自身，所以一个视图组件配合集合，可以自动的显示最新的数据。</p>
+<p>你可以在Meteor教程中阅读更多<a href="http://guide.meteor.com/collections.html" target="_blank" rel="external">有关集合的文章</a>。</p>
+<p>创建一个集合很简单，只需要在你的代码中调用<code>MyCollection = new Mongo.Collection(&quot;my-collection&quot;);</code>。在服务端，这会创建一个名叫<code>my-collection</code>的MongoDB集合，它会创建一个缓存去链接服务端的集合。我们将在第12章节了解更多客户端和服务端的区别，我们假设整个数据库都运行在客户端，并开始编写我们的代码。</p>
+<p>我们创建一个Mongo集合来定义新的<code>tasks</code>模块，并导出它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/api/tasks.js</span></div><div class="line"><span class="keyword">import</span> &#123; Mongo &#125; <span class="keyword">from</span> <span class="string">'meteor/mongo'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> Tasks = <span class="keyword">new</span> Mongo.Collection(<span class="string">'tasks'</span>);</div></pre></td></tr></table></figure>
+<p>注意，我们把这个文件放在了新的目录<code>imports/api</code>下。这是一个合适的位置，用于放置和API有关的文件。我们在这里抛出”collections”，之后读取它并添加一个”publications”，再用”methods”去编辑它。你可以在Meteor指南中了解更多有关如何<a href="http://guide.meteor.com/structure.html" target="_blank" rel="external">在APP中组织你的代码结构</a>。</p>
+<p>我们需要在服务端导入这个模块（这将创建MongoDB集合，并设置管道得到数据给Client）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//server/main.js</span></div><div class="line"><span class="keyword">import</span> <span class="string">'../imports/api/tasks.js'</span>;</div></pre></td></tr></table></figure>
+<h4 id="在React-component中使用集合数据"><a href="#在React-component中使用集合数据" class="headerlink" title="在React component中使用集合数据"></a>在React component中使用集合数据</h4><p>我们使用Atmosphere包:<code>react-meteor-data</code>，它会创建一个数据容器，把Meteor的响应式数据供给给React component。</p>
+<p>我们要安装一个Meteor包，以及它要使用到的NPM包，<code>react-addons-pure-render-mixin</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">meteor npm install --save react-addons-pure-render-mixin</div><div class="line">meteor add react-meteor-data</div></pre></td></tr></table></figure>
+<p>在使用<code>react-meteor-data</code>前，我们需要使用<code>createContainer</code>高阶组件把我们的组件包裹在一个容器中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"><span class="keyword">import</span> React, &#123; Component, PropTypes &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; createContainer &#125; <span class="keyword">from</span> <span class="string">'meteor/react-meteor-data'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Tasks &#125; <span class="keyword">from</span> <span class="string">'../api/tasks.js'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> Task <span class="keyword">from</span> <span class="string">'./Task.jsx'</span>;</div><div class="line"></div><div class="line"><span class="comment">//App容器 - 代表整个App</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span>  <span class="title">Component</span> </span>&#123;</div><div class="line">  renderTasks() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.tasks.map(<span class="function">(<span class="params">task</span>) =&gt;</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">Task</span> <span class="attr">key</span>=<span class="string">&#123;task._id&#125;</span> <span class="attr">task</span>=<span class="string">&#123;task&#125;</span> /&gt;</span></span></div><div class="line">    ));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Todo List<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">          &#123;this.renderTasks()&#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">App.propTypes = &#123;</div><div class="line">  tasks: PropTypes.array.isRequired,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">export default createContainer(() =&gt; &#123;</div><div class="line">  return &#123;</div><div class="line">    tasks: Tasks.find(&#123;&#125;).fetch(),</div><div class="line">  &#125;;</div><div class="line">&#125;, App);</div></pre></td></tr></table></figure>
+<p>这个被包裹的<code>App</code>组件从<code>Tasks</code>集合中提取tasks，并将它们用作App底层组件，它们被包装为<code>tasks</code> prop。它以响应的方式运行，当数据库内容改变，App会重新渲染，我们可以立刻看到！</p>
+<p>当你对代码进行以上更改时，你会发现之前在代办列表中的任务消失了。因为我们现在的数据库是空的，我们需要插入一些任务。</p>
+<h4 id="从服务端数据库控制台插入任务"><a href="#从服务端数据库控制台插入任务" class="headerlink" title="从服务端数据库控制台插入任务"></a>从服务端数据库控制台插入任务</h4><p>我们称集合中的每一项为文档。使用服务端数据库控制台插入一些文档到我们的集合中。在一个新的terminal中进入你的app项目目录，并键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor mongo</div></pre></td></tr></table></figure>
+<p>这会在你app的本地开发数据库中打开一个控制台。键入下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.tasks.insert(&#123; text: &quot;Hello world!&quot;, createdAt: new Date() &#125;);</div></pre></td></tr></table></figure>
+<p>在浏览器中，你可以立刻看到用户界面更新并展示了这个新的任务。可以看到，我们不需要编写任何代码将服务端数据库连接到前端——一切都是自动的。</p>
+<p>用同样的方法从数据库控制台添加一些不同的任务吧。在下一章节，我们将了解怎样在app用户界面增加一些功能，比如不使用数据库控制台去增加任务。</p>
+<h3 id="4-使用表单添加任务"><a href="#4-使用表单添加任务" class="headerlink" title="4.使用表单添加任务"></a>4.使用表单添加任务</h3><p>在这一章节，我们将增加一个表单字段，给用户在列表中添加任务。</p>
+<p>首先，让我们增加一个表单域到<code>App</code>组件中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line">&lt;div className=<span class="string">"container"</span>&gt;</div><div class="line">  &lt;header&gt;</div><div class="line">    &lt;h1&gt;Todo List&lt;/h1&gt;</div><div class="line"></div><div class="line">    &lt;form className="new-task" onSubmit=&#123;this.handleSubmit.bind(this)&#125; &gt;</div><div class="line">      &lt;input</div><div class="line">        type="text"</div><div class="line">        ref="textInput"</div><div class="line">        placeholder="Type to add new tasks"</div><div class="line">      /&gt;</div><div class="line">    &lt;/form&gt;</div><div class="line">  &lt;/header&gt;</div><div class="line"></div><div class="line">  &lt;ul&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>提示：JSX中添加注释的方法：{/* … */}</p>
+</blockquote>
+<p>你可以看到<code>form</code>元素有一个<code>onSubmit</code>属性，它映射到组件的<code>handleSubmit</code>方法。在React中，你可以这样监听浏览器事件，就像表单上的submit事件。<code>input</code>元素有一个<code>ref</code>属性，它能让我们稍后轻松的访问到这个元素。</p>
+<p>让我们添加<code>handleSubmit</code>放到到<code>App</code>组件里：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React, &#123; Component, PropTypes &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; createContainer &#125; <span class="keyword">from</span> <span class="string">'meteor/react-meteor-data'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Tasks &#125; <span class="keyword">from</span> <span class="string">'../api/tasks.js'</span>;</div><div class="line"><span class="comment">//...省略一些代码...</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  handleSubmit(event) &#123;</div><div class="line">    event.preventDefault();</div><div class="line"></div><div class="line">    <span class="comment">// 通过React的ref拿到文本字段</span></div><div class="line">    <span class="keyword">const</span> text = ReactDOM.findDOMNode(<span class="keyword">this</span>.refs.textInput).value.trim();</div><div class="line"></div><div class="line">    Tasks.insert(&#123;</div><div class="line">      text,</div><div class="line">      <span class="attr">createdAt</span>: <span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="comment">// 当前时间</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 清空表单</span></div><div class="line">    ReactDOM.findDOMNode(<span class="keyword">this</span>.refs.textInput).value = <span class="string">''</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//...省略一些代码...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在你的App有一个新的表单字段了。只需要在输入框输入文本，并按下回车键，就可以添加任务了。如果你打开一个新的浏览器窗口并再打开这个app，你会发现列表会自动自动在所有客户端同步。</p>
+<h4 id="在React中监听事件"><a href="#在React中监听事件" class="headerlink" title="在React中监听事件"></a>在React中监听事件</h4><p>就如你看到的，你可以通过参考组件上切确的方法来管理DOM事件。在事件管理器内部，你可以通过使用<code>React.findDOMNode</code>去拿到带有<code>ref</code>属性的元素。查看更多React支持的事件类型，以及事件系统如何运行的，请参考<a href="https://facebook.github.io/react/docs/events.html" target="_blank" rel="external">React文档</a>。</p>
+<h4 id="插入集合"><a href="#插入集合" class="headerlink" title="插入集合"></a>插入集合</h4><p>在事件管理器内部，我们通过调用<code>Tasks.insert</code>添加了一个任务到<code>tasks</code>集合，因为我们不用为集合定义一个模式，所以可以添加任何属性到任务对象，比如创建时间。</p>
+<p>客户端可以添加任何数据到数据库，这样并不安全，但目前来说一切都没问题。在第10章节，我们将学习怎样安全并有限制的将数据插入到数据库中。</p>
+<h4 id="储存我们的任务"><a href="#储存我们的任务" class="headerlink" title="储存我们的任务"></a>储存我们的任务</h4><p>目前，我们最新的任务在列表的最底下。这对任务列表来说不是很好，我们希望看到最新的任务在最前面。</p>
+<p>我们可以通过使用<code>createdAt</code>字段自动排序来解决此问题。只需在包裹<code>App</code>组件的数据容器内的<code>find</code>方法调用时添加一个排序选项：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> createContainer(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">tasks</span>: Tasks.find(&#123;&#125;, &#123; <span class="attr">sort</span>: &#123; <span class="attr">createdAt</span>: <span class="number">-1</span> &#125; &#125;).fetch(),</div><div class="line">  &#125;;</div><div class="line">&#125;, App);</div></pre></td></tr></table></figure>
+<p>回到浏览器，并确认是否如期运行：任何新添加的任务都会出现在列表的最顶端，而不是底部。</p>
+<p>在下一章节，我们会增加一些十分重要的待办事项列表特性：检查任务和删除任务。</p>
+<h3 id="5-检查任务和删除任务"><a href="#5-检查任务和删除任务" class="headerlink" title="5.检查任务和删除任务"></a>5.检查任务和删除任务</h3><p>到目前为止，我们还仅仅只能插入文档。现在，我们将学习怎么去更新和删除它们。</p>
+<p>让我们添加两个新元素到我们的组件，一个复选框和一个删除按钮，以及它们对应的时间管理器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component, PropTypes &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Tasks &#125; <span class="keyword">from</span> <span class="string">'../api/tasks.js'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Task组件 - 代表一个单独的代办事项</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Task</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  toggleChecked() &#123;</div><div class="line">    <span class="comment">// 设置checked属性和当前值相反</span></div><div class="line">    Tasks.update(<span class="keyword">this</span>.props.task._id, &#123;</div><div class="line">      <span class="attr">$set</span>: &#123; <span class="attr">checked</span>: !<span class="keyword">this</span>.props.task.checked &#125;,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  deleteThisTask() &#123;</div><div class="line">    Tasks.remove(<span class="keyword">this</span>.props.task._id);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="comment">//当修改checked后，给tasks一个不同的className</span></div><div class="line">    <span class="comment">// 以便我们更好的在CSS中修改样式</span></div><div class="line">    <span class="keyword">const</span> taskClassName = <span class="keyword">this</span>.props.task.checked ? <span class="string">'checked'</span> : <span class="string">''</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">className</span>=<span class="string">&#123;taskClassName&#125;</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">className</span>=<span class="string">"delete"</span> <span class="attr">onClick</span>=<span class="string">&#123;this.deleteThisTask.bind(this)&#125;</span>&gt;</span></div><div class="line">          &amp;times;</div><div class="line">        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">          <span class="attr">type</span>=<span class="string">"checkbox"</span></div><div class="line">          <span class="attr">readOnly</span></div><div class="line">          <span class="attr">checked</span>=<span class="string">&#123;this.props.task.checked&#125;</span></div><div class="line">          <span class="attr">onClick</span>=<span class="string">&#123;this.toggleChecked.bind(this)&#125;</span></div><div class="line">        /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"text"</span>&gt;</span>&#123;this.props.task.text&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>在上面代码中，我们调用<code>Tasks.update</code>去检查一个任务。</p>
+<p>集合上的更新功能需要两个参数。第一个参数是标识集合子集的选择器，第二个是一个update参数，用来指定要对匹配对象做什么。</p>
+<p>在这个例子中，选择器就是相对应的任务的<code>_id</code>，update参数用<code>$set</code>去切换<code>checked</code>字段，这将代表任务是否已经完成。</p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>上面代码使用<code>Tasks.remove</code>去删除任务。<code>remove</code>函数只需要一个参数，一个选择器，用于确定要在集合中删除的项目。</p>
+<h3 id="6-在Android或iOS上运行app"><a href="#6-在Android或iOS上运行app" class="headerlink" title="6.在Android或iOS上运行app"></a>6.在Android或iOS上运行app</h3><blockquote>
+<p>目前，Meteor并不支持在Windows上进行移动端打包。如果你是Windows用户，请忽略这一章节。</p>
+</blockquote>
+<p>目前为止，我们构建了我们的app，并在浏览器上对它进行测试，但是Meteor是为了跨平台而设计的——只需要几句命令，就可以把你的待办事项列表网站构建成Android或iOS应用。</p>
+<p>Meteor可以轻松的设置所有构建app所需的工具，但是下载所有程序可能需要一段时间——Android大约300M，iOS要安装Xcode大约2GB，如果你不希望下载这些工具，你可以调到下一个章节。</p>
+<h4 id="在iOS模拟器上运行"><a href="#在iOS模拟器上运行" class="headerlink" title="在iOS模拟器上运行"></a>在iOS模拟器上运行</h4><p>如果你有Mac，你可以运行在iOS模拟器上运行app。</p>
+<p>进入到app目录并键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor install-sdk ios</div></pre></td></tr></table></figure>
+<p>它会安装你构建iOS app所要用到的所有所有配置。当上面安装完成，键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">meteor add-platform ios</div><div class="line">meteor run ios</div></pre></td></tr></table></figure>
+<p>你会看到iOS模拟器弹出，并且你的app在里面运行。</p>
+<h4 id="在Android模拟器上运行"><a href="#在Android模拟器上运行" class="headerlink" title="在Android模拟器上运行"></a>在Android模拟器上运行</h4><p>在terminal中进入你的app目录并键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor install-sdk android</div></pre></td></tr></table></figure>
+<p>它会安装你构建Android app所要用到的所有所有配置。当上面安装完成，键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor add-platform android</div></pre></td></tr></table></figure>
+<p>同意协议条款，键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor run android</div></pre></td></tr></table></figure>
+<p>在一些初始化后，我们将看到一个Android模拟器弹出，你的app在原生生Android容器里运行。</p>
+<p>模拟器运行可能会有一些慢，所以如果你想看到应用真实的情况，还得到真实设备上使用。</p>
+<h4 id="在Android设备上运行"><a href="#在Android设备上运行" class="headerlink" title="在Android设备上运行"></a>在Android设备上运行</h4><p>首先，完成上述的所有Android设置步骤。然后，确定你的设备有<a href="https://developer.android.com/studio/run/device.html#developer-device-options" target="_blank" rel="external">USB调试模式</a>而且手机插进了电脑的USB插口。此外，你必须在真机运行前关闭安卓模拟器。</p>
+<p>接下来，键入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor run android-device</div></pre></td></tr></table></figure>
+<p>你的app将会构建并安装到你的设备上。</p>
+<h4 id="在iPhone或iPad上运行（只限Mac：要有苹果开发者账号）"><a href="#在iPhone或iPad上运行（只限Mac：要有苹果开发者账号）" class="headerlink" title="在iPhone或iPad上运行（只限Mac：要有苹果开发者账号）"></a>在iPhone或iPad上运行（只限Mac：要有苹果开发者账号）</h4><p>如果你有苹果开发者账号，你也可以在iOS设备上运行你的app。键入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor run ios-device</div></pre></td></tr></table></figure>
+<p>这将会为你的iOS app项目打开Xcode。你可以使用Xcode让app运行在任何Xcode支持的设备或模拟器上。</p>
+<p>现在我们看到了在移动端运行我们的app多么容易，让我们给app再添加一些特性。</p>
+<h3 id="7-在组件状态中存储临时的用户界面数据"><a href="#7-在组件状态中存储临时的用户界面数据" class="headerlink" title="7.在组件状态中存储临时的用户界面数据"></a>7.在组件状态中存储临时的用户界面数据</h3><p>在这一章节，我们将在app中添加客户端数据过滤功能，以便用户选择只查看未完成的任务。我们将学习怎样使用React的component state去存储只在客户端用到的临时数据。</p>
+<p>首先，我们需要增加一个复选框到<code>App</code>组件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"></div><div class="line">&lt;header&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Todo List<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line"><span class="comment">//新添加内容</span></div><div class="line">  &lt;label className=<span class="string">"hide-completed"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">input</span></span></span></div><div class="line">      <span class="attr">type</span>=<span class="string">"checkbox"</span></div><div class="line">      <span class="attr">readOnly</span></div><div class="line">      <span class="attr">checked</span>=<span class="string">&#123;this.state.hideCompleted&#125;</span></div><div class="line">      <span class="attr">onClick</span>=<span class="string">&#123;this.toggleHideCompleted.bind(this)&#125;</span></div><div class="line">    /&gt;</div><div class="line">    Hide Completed Tasks</div><div class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line"><span class="comment">//新添加内容</span></div></pre></td></tr></table></figure>
+<p>你可以看到它从<code>this.state.hideCompleted</code>读取数据。React有一个特殊的字段叫<code>state</code>，你可以把组件数据存储和封装在里面。我们需要在组件的构造器中初始化<code>this.state.hideCompleted</code>的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="comment">//新添加的内容</span></div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      <span class="attr">hideCompleted</span>: <span class="literal">false</span>,</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//新添加的内容</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以事件管理器中调用<code>this.setState</code>去更新<code>this.state</code>，这将异步更新state属性，并重新渲染组件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"></div><div class="line">    ReactDOM.findDOMNode(<span class="keyword">this</span>.refs.textInput).value = <span class="string">''</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//新添加的内容</span></div><div class="line">  toggleHideCompleted() &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">      <span class="attr">hideCompleted</span>: !<span class="keyword">this</span>.state.hideCompleted,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"><span class="comment">//新添加的内容</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当<code>this.state.hideCompleted</code>为true时，我们需要更新<code>renderTasks</code>方法去过滤已经完成的任务：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"></div><div class="line">renderTasks() &#123;</div><div class="line">  <span class="keyword">let</span> filteredTasks = <span class="keyword">this</span>.props.tasks;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.state.hideCompleted) &#123;</div><div class="line">    filteredTasks = filteredTasks.filter(<span class="function"><span class="params">task</span> =&gt;</span> !task.checked);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> filteredTasks.map(<span class="function">(<span class="params">task</span>) =&gt;</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">Task</span> <span class="attr">key</span>=<span class="string">&#123;task._id&#125;</span> <span class="attr">task</span>=<span class="string">&#123;task&#125;</span> /&gt;</span></span></div><div class="line">  ));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你现在选择复选框，任务列表不会再展现已经完成的任务了。</p>
+<h4 id="新的特性：显示未完成任务的数目"><a href="#新的特性：显示未完成任务的数目" class="headerlink" title="新的特性：显示未完成任务的数目"></a>新的特性：显示未完成任务的数目</h4><p>现在我们要写一个查询条件，用来过滤掉已经完成的任务。我们也可以用相同的查询来显示已完成的任务总数。为此，我们需要在我们的数据容器中拿到一个计数，并在<code>render</code>方法中添加一行代码。因为我们已经有客户端集合中的数据，增加这个额外的计数不需要向服务端发起任何请求。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> createContainer(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">tasks</span>: Tasks.find(&#123;&#125;, &#123; <span class="attr">sort</span>: &#123; <span class="attr">createdAt</span>: <span class="number">-1</span> &#125; &#125;).fetch(),</div><div class="line">    <span class="comment">//新添加的的内容</span></div><div class="line">    incompleteCount: Tasks.find(&#123; <span class="attr">checked</span>: &#123; <span class="attr">$ne</span>: <span class="literal">true</span> &#125; &#125;).count(),</div><div class="line">    <span class="comment">//新添加的的内容</span></div><div class="line">  &#125;;</div><div class="line">&#125;, App);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/App.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> (</div><div class="line">  &lt;div className="container"&gt;</div><div class="line">    &lt;header&gt;</div><div class="line">      //新添加的的内容</div><div class="line">      &lt;h1&gt;Todo List (&#123;this.props.incompleteCount&#125;)&lt;/h1&gt;</div><div class="line">      //新添加的的内容</div><div class="line">      &lt;label className="hide-completed"&gt;</div><div class="line">        &lt;input</div><div class="line">//...省略一些代码...</div><div class="line"></div><div class="line">App.propTypes = &#123;</div><div class="line">  tasks: PropTypes.array.isRequired,</div><div class="line">  //新添加的的内容</div><div class="line">  incompleteCount: PropTypes.number.isRequired,</div><div class="line">  //新添加的的内容</div><div class="line">&#125;;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="8-添加账户"><a href="#8-添加账户" class="headerlink" title="8.添加账户"></a>8.添加账户</h3><p>Meteor自带一个账户系统和用户登录接口，让你在短短几分钟就能添加多用户功能到你的app内。</p>
+<blockquote>
+<p>目前，Meteor使用Blaze UI组件作为它的默认UI引擎。在未来，也可能会有专为React定制的组件。</p>
+</blockquote>
+<p>开启账户系统和UI，我们需要增加相对应的包。在你的app目录，运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meteor add accounts-ui accounts-password</div></pre></td></tr></table></figure>
+<h4 id="在React中写Blaze组件"><a href="#在React中写Blaze组件" class="headerlink" title="在React中写Blaze组件"></a>在React中写Blaze组件</h4><p>要通过<code>accounts-ui</code>包使用Blaze UI，我们需要把它包裹在React组件中。这样让我们在新文件中创建了一个叫<code>AccountsUIWrapper</code>的新组件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/ui/AccountsUIWrapper.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Template &#125; <span class="keyword">from</span> <span class="string">'meteor/templating'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Blaze &#125; <span class="keyword">from</span> <span class="string">'meteor/blaze'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountsUIWrapper</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  componentDidMount() &#123;</div><div class="line">    <span class="comment">//使用Meteor Blaze渲染登录按钮</span></div><div class="line">    <span class="keyword">this</span>.view = Blaze.render(Template.loginButtons,</div><div class="line">      ReactDOM.findDOMNode(<span class="keyword">this</span>.refs.container));</div><div class="line">  &#125;</div><div class="line">  componentWillUnmount() &#123;</div><div class="line">    <span class="comment">//清除Blaze视图</span></div><div class="line">    Blaze.remove(<span class="keyword">this</span>.view);</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="comment">//只渲染一个占位符容器即可</span></div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">ref</span>=<span class="string">"container"</span> /&gt;</span>;</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在App中定义刚刚创建的组件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//imports/ui/App.jsx</div><div class="line"></div><div class="line">import &#123; Tasks &#125; from '../api/tasks.js';</div><div class="line"></div><div class="line">import Task from './Task.jsx';</div><div class="line">//...新添加的代码...</div><div class="line">import AccountsUIWrapper from './AccountsUIWrapper.jsx';</div><div class="line">//...新添加的代码...</div><div class="line"></div><div class="line">class App extends Component &#123;</div><div class="line">//...省略一些代码...</div><div class="line">            Hide Completed Tasks</div><div class="line">          &lt;/label&gt;</div><div class="line">          //...新添加的代码...</div><div class="line">          &lt;AccountsUIWrapper /&gt;</div><div class="line">          //...新添加的代码...</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来，增加下列代码去配置accounts UI，用username去替换email address:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//imports/startup/accounts-config.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Accounts &#125; <span class="keyword">from</span> <span class="string">'meteor/accounts-base'</span>;</div><div class="line"></div><div class="line">Accounts.ui.config(&#123;</div><div class="line">  <span class="attr">passwordSignupFields</span>: <span class="string">'USERNAME_ONLY'</span>,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>同时我们需要在客户端入口导入这个配置文件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//client/main.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Meteor &#125; <span class="keyword">from</span> <span class="string">'meteor/meteor'</span>;</div><div class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="comment">//...新添加的代码...</span></div><div class="line"><span class="keyword">import</span> <span class="string">'../imports/startup/accounts-config.js'</span>;</div><div class="line"><span class="comment">//...新添加的代码...</span></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'../imports/ui/App.jsx'</span>;</div></pre></td></tr></table></figure>
+<h4 id="添加用户相关功能"><a href="#添加用户相关功能" class="headerlink" title="添加用户相关功能"></a>添加用户相关功能</h4><blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Translation/" rel="tag"># Translation</a>
+          
+            <a href="/tags/Full-Stack/" rel="tag"># Full-Stack</a>
+          
+            <a href="/tags/Meteor/" rel="tag"># Meteor</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/" rel="next" title=" You Don't Need jQuery - Query Selector ">
+                <i class="fa fa-chevron-left"></i>  You Don't Need jQuery - Query Selector 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/12/2017-04-12-meteor-unknow-package/" rel="prev" title=" Meteor: Error: Depending on unknown package xxx ">
+                 Meteor: Error: Depending on unknown package xxx  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建你的第一个App-Creating-your-first-app"><span class="nav-number">1.</span> <span class="nav-text">1.创建你的第一个App(Creating your first app)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES2015特性"><span class="nav-number">1.1.</span> <span class="nav-text">ES2015特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用React-Components定义视图层-Defining-views-with-React-components"><span class="nav-number">2.</span> <span class="nav-text">2.使用React Components定义视图层(Defining views with React components)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#替换初始化的代码"><span class="nav-number">2.1.</span> <span class="nav-text">替换初始化的代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查结果"><span class="nav-number">2.2.</span> <span class="nav-text">检查结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML文件定义静态内容"><span class="nav-number">2.3.</span> <span class="nav-text">HTML文件定义静态内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用React定义视图组件"><span class="nav-number">2.4.</span> <span class="nav-text">用React定义视图组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重新审视JSX中的render方法"><span class="nav-number">2.5.</span> <span class="nav-text">重新审视JSX中的render方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在集合中储存任务-Storing-tasks-in-a-collection"><span class="nav-number">3.</span> <span class="nav-text">3.在集合中储存任务(Storing tasks in a collection)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在React-component中使用集合数据"><span class="nav-number">3.1.</span> <span class="nav-text">在React component中使用集合数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从服务端数据库控制台插入任务"><span class="nav-number">3.2.</span> <span class="nav-text">从服务端数据库控制台插入任务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用表单添加任务"><span class="nav-number">4.</span> <span class="nav-text">4.使用表单添加任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在React中监听事件"><span class="nav-number">4.1.</span> <span class="nav-text">在React中监听事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入集合"><span class="nav-number">4.2.</span> <span class="nav-text">插入集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#储存我们的任务"><span class="nav-number">4.3.</span> <span class="nav-text">储存我们的任务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-检查任务和删除任务"><span class="nav-number">5.</span> <span class="nav-text">5.检查任务和删除任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#更新"><span class="nav-number">5.1.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">5.2.</span> <span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-在Android或iOS上运行app"><span class="nav-number">6.</span> <span class="nav-text">6.在Android或iOS上运行app</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在iOS模拟器上运行"><span class="nav-number">6.1.</span> <span class="nav-text">在iOS模拟器上运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Android模拟器上运行"><span class="nav-number">6.2.</span> <span class="nav-text">在Android模拟器上运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在Android设备上运行"><span class="nav-number">6.3.</span> <span class="nav-text">在Android设备上运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在iPhone或iPad上运行（只限Mac：要有苹果开发者账号）"><span class="nav-number">6.4.</span> <span class="nav-text">在iPhone或iPad上运行（只限Mac：要有苹果开发者账号）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-在组件状态中存储临时的用户界面数据"><span class="nav-number">7.</span> <span class="nav-text">7.在组件状态中存储临时的用户界面数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新的特性：显示未完成任务的数目"><span class="nav-number">7.1.</span> <span class="nav-text">新的特性：显示未完成任务的数目</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-添加账户"><span class="nav-number">8.</span> <span class="nav-text">8.添加账户</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在React中写Blaze组件"><span class="nav-number">8.1.</span> <span class="nav-text">在React中写Blaze组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加用户相关功能"><span class="nav-number">8.2.</span> <span class="nav-text">添加用户相关功能</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

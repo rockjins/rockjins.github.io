@@ -1,0 +1,810 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Function,JavaScript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="当你真正想要提高页面性能，你会发现你的代码和屎没两样。  自记忆函数这个名字听起来有点奇怪，这只是人们给它取的一个名字罢了。 在JavaScript中，函数是第一型对象，所以它可以拥有自己的属性，我们就可以利用这一点来进行数据的缓存。 还是先看一个例子，isPrime函数用来判断参数是否是素数，和普通函数唯一的不同在于我们暗中创建了一个answers缓存： 1234567891011121314">
+<meta name="keywords" content="Function,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 使用自记忆函数提高页面性能 ">
+<meta property="og:url" content="http://yoursite.com/2016/11/11/2016-11-11-memoization/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="当你真正想要提高页面性能，你会发现你的代码和屎没两样。  自记忆函数这个名字听起来有点奇怪，这只是人们给它取的一个名字罢了。 在JavaScript中，函数是第一型对象，所以它可以拥有自己的属性，我们就可以利用这一点来进行数据的缓存。 还是先看一个例子，isPrime函数用来判断参数是否是素数，和普通函数唯一的不同在于我们暗中创建了一个answers缓存： 1234567891011121314">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 使用自记忆函数提高页面性能 ">
+<meta name="twitter:description" content="当你真正想要提高页面性能，你会发现你的代码和屎没两样。  自记忆函数这个名字听起来有点奇怪，这只是人们给它取的一个名字罢了。 在JavaScript中，函数是第一型对象，所以它可以拥有自己的属性，我们就可以利用这一点来进行数据的缓存。 还是先看一个例子，isPrime函数用来判断参数是否是素数，和普通函数唯一的不同在于我们暗中创建了一个answers缓存： 1234567891011121314">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/11/2016-11-11-memoization/"/>
+
+
+
+
+
+  <title> 使用自记忆函数提高页面性能  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/11/2016-11-11-memoization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 使用自记忆函数提高页面性能 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-11T00:00:00+08:00">
+                2016-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>当你真正想要提高页面性能，你会发现你的代码和屎没两样。</p>
+</blockquote>
+<p>自记忆函数这个名字听起来有点奇怪，这只是人们给它取的一个名字罢了。</p>
+<p>在JavaScript中，函数是第一型对象，所以它可以拥有自己的属性，我们就可以利用这一点来进行数据的缓存。</p>
+<p>还是先看一个例子，<code>isPrime</code>函数用来判断参数是否是素数，和普通函数唯一的不同在于我们暗中创建了一个<code>answers</code>缓存：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrime</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!isPrime.answers) isPrime.answers = &#123;&#125;;                  </div><div class="line">  <span class="keyword">if</span> (isPrime.answers[value] != <span class="literal">null</span>) &#123;                        </div><div class="line">    <span class="keyword">return</span> isPrime.answers[value];                             </div><div class="line">  &#125;                                                            </div><div class="line">  <span class="keyword">var</span> prime = value != <span class="number">1</span>; <span class="comment">// 1永远都不会是素数</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">2</span>; i &lt; value; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (value % i == <span class="number">0</span>) &#123;</div><div class="line">      prime = <span class="literal">false</span>;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> isPrime.answers[value] = prime;                       </div><div class="line">&#125;</div><div class="line"></div><div class="line">isPrime(<span class="number">5</span>)<span class="comment">//true                            </span></div><div class="line">isPrime.answers[<span class="number">5</span>]<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>我们首先判断<code>isPrime</code>函数是否有<code>answers</code>属性，没有就创建一个。</p>
+<p>接下来我们检查<code>answers</code>是否存在参数值对应的结果，在该缓存里，我们用参数值作为属性的<code>key</code>，如果发现缓存结果，则直接返回它。</p>
+<p>如果在缓存中没有找到结果，就计算该参数判断是不是素数。</p>
+<p>最后返回判断结果，并赋值给<code>answers</code>属性的<code>[value]</code>。</p>
+<p>下面的测试证明，确实可以从<code>isPrime.answers</code>中取到之前计算过的结果。</p>
+<p>当有大量数据需要计算，并且数值很大的情况下，这种性能的优化可能会大到你无法想象。</p>
+<p>在我们实际工作中可能很少去计算素数，那再举一个大家常见的例子，缓存DOM元素。</p>
+<p>通过标签查询DOM元素是我们常常做的一件事，但频繁操作性能很糟糕，我们可以利用刚刚学会的缓存记忆创建一个缓存，保存已匹配到的元素集合：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElements</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (!getElements.cache) getElements.cache = &#123;&#125;;</div><div class="line">  <span class="keyword">return</span> getElements.cache[name] =</div><div class="line">    getElements.cache[name]||</div><div class="line">    <span class="built_in">document</span>.getElementsByTagName(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其实缓存代码非常简单，并不会给你的代码逻辑增加太多复杂性，但是，上面这几行简单的缓存代码，就产生了5倍的性能提升，如表：</p>
+<p><em>所有测试都在chrome53下进行了100000次迭代的毫秒数</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">代码版本</th>
+<th style="text-align:center">平均时间</th>
+<th style="text-align:center">最小时间</th>
+<th style="text-align:center">最大时间</th>
+<th style="text-align:center">运行次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">非缓存版本</td>
+<td style="text-align:center">16.7</td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">缓存版本</td>
+<td style="text-align:center">3.2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">10</td>
+</tr>
+</tbody>
+</table>
+<p>使用自记忆函数技巧，不仅在代码组织上有好处，而且储存对象无需污染作用域，就可以获得性能提升。</p>
+<p>缓存记忆有两个主要优点：</p>
+<ul>
+<li>最终用户享有绝对性能优势。</li>
+<li>发生在幕后，完全无缝，最终用户和开发人员都无需任何特殊操作或为此做任何额外的初始化做工。</li>
+</ul>
+<p>相比优点，也要权衡一下缺点：</p>
+<ul>
+<li><p>为提高性能，任何类型的缓存都会牺牲掉内存。</p>
+</li>
+<li><p>纯粹主义认为，储存不应该和业务逻辑放在一起，函数或方法只做一件事，并把它做好。</p>
+</li>
+<li><p>很难进行算法性能的测试</p>
+</li>
+</ul>
+<p>至于，是否运用这种技巧在你项目中，那得看你的实际情况了。</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Function/" rel="tag"># Function</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/25/2016-10-25-vue-getter-setter/" rel="next" title=" 由Vue引发的getter和setter思考 ">
+                <i class="fa fa-chevron-left"></i>  由Vue引发的getter和setter思考 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/2016-12-01-vue-problem/" rel="prev" title=" Vue数据绑定隐藏的神坑.... ">
+                 Vue数据绑定隐藏的神坑....  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

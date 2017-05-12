@@ -1,0 +1,799 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="你以为很难，只是因为你没有去行动。  最近公司招了几个应届毕业生，他们对前端的了解还挺多，但是对后端的技术一无所知，我觉得，作为一个前端攻城狮，如果你有远大的抱负，就应该雨露均沾… 今天我就跟大家讲一讲PHP最基本的入门，至少别人问起你来，不会一点都不懂。 大家知道PHP搭建环境蛮麻烦的，咱们前端攻城狮就没必要去钻研环境的搭建了，网上已经有集成好的PHP环境可以直接下载，wamp和phpstud">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 一起来花5分钟写一个PHP入门Demo ">
+<meta property="og:url" content="http://yoursite.com/2016/06/28/2016-06-28-php-demo/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="你以为很难，只是因为你没有去行动。  最近公司招了几个应届毕业生，他们对前端的了解还挺多，但是对后端的技术一无所知，我觉得，作为一个前端攻城狮，如果你有远大的抱负，就应该雨露均沾… 今天我就跟大家讲一讲PHP最基本的入门，至少别人问起你来，不会一点都不懂。 大家知道PHP搭建环境蛮麻烦的，咱们前端攻城狮就没必要去钻研环境的搭建了，网上已经有集成好的PHP环境可以直接下载，wamp和phpstud">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628093309312-1402371585.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628111027265-2145567082.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628111159343-1711797668.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628111413999-225059502.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628125812593-1050524524.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628125841234-1957108871.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628125956468-852736423.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628130121765-751187831.png">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 一起来花5分钟写一个PHP入门Demo ">
+<meta name="twitter:description" content="你以为很难，只是因为你没有去行动。  最近公司招了几个应届毕业生，他们对前端的了解还挺多，但是对后端的技术一无所知，我觉得，作为一个前端攻城狮，如果你有远大的抱负，就应该雨露均沾… 今天我就跟大家讲一讲PHP最基本的入门，至少别人问起你来，不会一点都不懂。 大家知道PHP搭建环境蛮麻烦的，咱们前端攻城狮就没必要去钻研环境的搭建了，网上已经有集成好的PHP环境可以直接下载，wamp和phpstud">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628093309312-1402371585.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/28/2016-06-28-php-demo/"/>
+
+
+
+
+
+  <title> 一起来花5分钟写一个PHP入门Demo  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/28/2016-06-28-php-demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 一起来花5分钟写一个PHP入门Demo </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-28T00:00:00+08:00">
+                2016-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>你以为很难，只是因为你没有去行动。</p>
+</blockquote>
+<p>最近公司招了几个应届毕业生，他们对前端的了解还挺多，但是对后端的技术一无所知，我觉得，作为一个前端攻城狮，如果你有远大的抱负，就应该雨露均沾…</p>
+<p>今天我就跟大家讲一讲PHP最基本的入门，至少别人问起你来，不会一点都不懂。</p>
+<p>大家知道PHP搭建环境蛮麻烦的，咱们前端攻城狮就没必要去钻研环境的搭建了，网上已经有集成好的PHP环境可以直接下载，<code>wamp</code>和<code>phpstudy</code>，安装只需下一步就行。</p>
+<p>因为我一直是使用wamp，以下就以wamp为例来讲解。（我安装的是wamp5）</p>
+<a id="more"></a>
+<p>安装好wamp后，屏幕右下角会出现这个图标。</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628093309312-1402371585.png" alt=""></p>
+<p>如果你英语不是很好的话，可以右击图标，选择中文。</p>
+<p>wamp打开后会默认开启所有服务，你也可以左击图标，选择启动所有服务，并且切换到在线状态。</p>
+<p>到此，PHP运行的环境就准备好了。</p>
+<p>下面开始写demo了。</p>
+<p>点击右下角小图标，有个www目录，进入后创建一个叫PHP的项目文件夹：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628111027265-2145567082.png" alt=""></p>
+<p>在文件夹中新建这几个文件：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628111159343-1711797668.png" alt=""></p>
+<p>我们先打开<code>login.html</code>，写入一个简单的表单：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"success.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">        用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">        密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628111413999-225059502.png" alt=""></p>
+<p>我们需要实现用户点击提交时，把用户输入的用户名和密码保存在本地的<code>data.txt</code>文件里，并且在<code>success.php</code>页面提示用户登录成功。</p>
+<p>下面我们开始关键的php代码，打开<code>success.php</code>文件，敲入以下代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    <span class="meta">&lt;?php</span></div><div class="line">        $name = $_POST[<span class="string">"username"</span>];</div><div class="line">        $pwd = $_POST[<span class="string">"pwd"</span>];</div><div class="line">        $fp = fopen(<span class="string">"./data.txt"</span>, <span class="string">"a"</span>);</div><div class="line">        $str = <span class="string">"user:"</span>.$name.<span class="string">"&amp;password:"</span>.$pwd.<span class="string">"\r\n"</span>;</div><div class="line">        fwrite($fp,$str);</div><div class="line">        fclose($fp);</div><div class="line">        <span class="keyword">echo</span> <span class="string">"&lt;h1&gt;欢迎回来,"</span>.$name.<span class="string">"！&lt;/h1&gt;"</span>;</div><div class="line">    <span class="meta">?&gt;</span></div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>大家要注意，PHP代码可以和HTML代码混合使用，包裹在<code>&lt;?php doSomething ?&gt;</code>标签内的代码，服务器就会用PHP的解析器去解析，我们来分析一下上面的代码。</p>
+<p>因为表单使用post方式提交的，所以我们需要用POST方式去接收，PHP接收POST发送过来的数据使用<code>$_POST[&quot;&quot;]</code>;语句，get用法一样，把POST改成GET，在中括号内填写你需要获取表单项的name名。</p>
+<p>接下来我们要把所得到的数据写入到<code>data.txt</code>文件内，实际项目开发中，这些数据都是写入到数据库中。</p>
+<p>我们用<code>fopen</code>命令打开一个文件，<code>fopen</code>接收两个参数，第一个是要打开文件的路径；第二个是打开的方式，这里使用<code>a</code>写入方式打开，将文件指针指向文件末尾，如果文件不存在，则会尝试创建这个文件。（其他参数详情请到W3school查看）</p>
+<p>还需要注意的是，PHP中的变量声明并不是用<code>var</code>，而是<code>$</code>+变量名。</p>
+<p>接下来把用户名和密码拼接成字符串，PHP中的字符串拼接和JavaScript也有差异，PHP使用<code>.</code>来做拼接符。</p>
+<p>我们用<code>fwrite</code>命令来写入文件，它接收两个参数，第一个是要打开的文件，也就是我们前面定义的<code>$fp</code>；第二个是要写入的内容，把之前拼接好的字符串放入。</p>
+<p>最后还需要关闭文件，使用<code>fclose</code>命令，传入需要关闭的文件。如果不关闭文件的话，这个文件就会一直被占用，别人就不能读写这个文件了，所以这一步千万不能忘记。</p>
+<p>最后，我么在<code>success.php</code>页面输出一条消息，<code>JavaScript</code>中可以用<code>document.write</code>来输出内容，PHP使用<code>echo</code>语句来输出内容，支持输入HTML标签。</p>
+<p>到此，一个简单的PHP_Demo就写好了，我们来测试一下吧。</p>
+<p>在浏览器输入<code>http://localhost/php/login.html</code>进入页面，我们随便输入一些信息：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628125812593-1050524524.png" alt=""></p>
+<p>提交后，页面跳转到<code>success.php</code>，我们看到如下内容：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628125841234-1957108871.png" alt=""></p>
+<p>我们打开<code>data.txt</code>文件，看看数据是否被写入了。</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628125956468-852736423.png" alt=""></p>
+<p>的确按照我们规定的格式写入了数据，我来多登录几次试试：</p>
+<p><img src="http://images2015.cnblogs.com/blog/929120/201606/929120-20160628130121765-751187831.png" alt=""></p>
+<p>测试成功！</p>
+<p>希望大家跟着上面的代码敲一遍，你会发现挺有成就感的，至少我最初学习PHP完成这个Demo时，兴奋坏了我。</p>
+<p>当然，这只是PHP最简单的一些实例，过段时间再写篇如何用PHP操作MySQL读写数据的文章，希望大家对技术保持一颗好奇心，这样才能真正成长！</p>
+<p>最后附上项目源码:<a href="https://github.com/rockjins/firstPython/tree/gh-pages/test/easyPHP" target="_blank" rel="external">EasyPHP</a>(还是希望大家能敲一下)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/22/2016-06-22-music-cloud/" rel="next" title=" 来自网易云音乐的脑洞，带尖角的div...... ">
+                <i class="fa fa-chevron-left"></i>  来自网易云音乐的脑洞，带尖角的div...... 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/01/2016-07-01-baidu-keywords/" rel="prev" title=" 教你把百度的关键字搜索偷过来用用 ">
+                 教你把百度的关键字搜索偷过来用用  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

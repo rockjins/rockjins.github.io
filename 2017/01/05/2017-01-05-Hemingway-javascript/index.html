@@ -1,0 +1,797 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="原文链接：http://byfat.xxx/if-hemingway-wrote-javascript  在写第一行代码很久以前，我就酷爱文学。现在，我写JavaScript，不计其数。我正在写一本关于JavaScript的书。 JavaScript凭啥能吸引那么多文艺青年？说到它有限的语法所具备的表达潜能，我倒是有几点不成熟的想法，不过那是另外一个话题了。哎，如果那些大作家都喜欢上JavaSc">
+<meta name="keywords" content="Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 『翻译』如果让海明威写JavaScript ">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/2017-01-05-Hemingway-javascript/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="原文链接：http://byfat.xxx/if-hemingway-wrote-javascript  在写第一行代码很久以前，我就酷爱文学。现在，我写JavaScript，不计其数。我正在写一本关于JavaScript的书。 JavaScript凭啥能吸引那么多文艺青年？说到它有限的语法所具备的表达潜能，我倒是有几点不成熟的想法，不过那是另外一个话题了。哎，如果那些大作家都喜欢上JavaSc">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2859850-0ffb33a8d91775dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" 『翻译』如果让海明威写JavaScript ">
+<meta name="twitter:description" content="原文链接：http://byfat.xxx/if-hemingway-wrote-javascript  在写第一行代码很久以前，我就酷爱文学。现在，我写JavaScript，不计其数。我正在写一本关于JavaScript的书。 JavaScript凭啥能吸引那么多文艺青年？说到它有限的语法所具备的表达潜能，我倒是有几点不成熟的想法，不过那是另外一个话题了。哎，如果那些大作家都喜欢上JavaSc">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2859850-0ffb33a8d91775dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/05/2017-01-05-Hemingway-javascript/"/>
+
+
+
+
+
+  <title> 『翻译』如果让海明威写JavaScript  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/05/2017-01-05-Hemingway-javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 『翻译』如果让海明威写JavaScript </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-05T00:00:00+08:00">
+                2017-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>原文链接：<a href="http://byfat.xxx/if-hemingway-wrote-javascript" target="_blank" rel="external">http://byfat.xxx/if-hemingway-wrote-javascript</a></p>
+</blockquote>
+<p>在写第一行代码很久以前，我就酷爱文学。现在，我写JavaScript，不计其数。我正在写一本关于JavaScript的书。</p>
+<p>JavaScript凭啥能吸引那么多文艺青年？说到它有限的语法所具备的表达潜能，我倒是有几点不成熟的想法，不过那是另外一个话题了。哎，如果那些大作家都喜欢上JavaScript，会咋样？你说他们会用JavaScript写出点什么东西来？作为海明威的十足拥趸，我的第一反应也是这老爷子不可能喜欢编程序（包括程序员）。话虽如此，我还是愿意相信在对它的各种非议中，其实潜藏着足以打动人心的一点：它是一门很文艺的语言，你说呢？它表面上简单粗陋、平淡无奇，而实质上却引人入胜、内涵十足。</p>
+<h2 id="代码审查之母"><a href="#代码审查之母" class="headerlink" title="代码审查之母"></a>代码审查之母</h2><a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-0ffb33a8d91775dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>前些天，我做了一个梦。梦见我让海明威还有其他四位作家给我写点JavaScript，特别是得写一个能返回<em>指定长度斐波纳契数列的函数</em>。我发现这些作家解决问题的方法各有千秋，很有意思。不过确实都写得不错，至少都实现了既定的功能（连安德烈·布勒东都写出来了）。下面就是他们交给我的作业。</p>
+<h3 id="欧内斯特·海明威（美国作家）"><a href="#欧内斯特·海明威（美国作家）" class="headerlink" title="欧内斯特·海明威（美国作家）"></a>欧内斯特·海明威（美国作家）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">size</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> first = <span class="number">0</span>, second = <span class="number">1</span>, next, count = <span class="number">2</span>, result = [first, second];</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(size &lt; <span class="number">2</span>)</div><div class="line">    <span class="keyword">return</span> <span class="string">"the request was made but it was not good"</span></div><div class="line"></div><div class="line">  <span class="keyword">while</span>(count++ <span class="xml"><span class="tag">&lt; <span class="attr">size</span>) &#123;</span></span></div><div class="line">    <span class="attr">next</span> = <span class="string">first</span> + <span class="attr">second</span>;</div><div class="line">    <span class="attr">first</span> = <span class="string">second;</span></div><div class="line">    <span class="attr">second</span> = <span class="string">next;</span></div><div class="line">    <span class="attr">result.push</span>(<span class="attr">next</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="attr">return</span> <span class="attr">result</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>毫不奇怪。海明威的代码非常凝练，没有浪费一个词一个变量。代码没什么出奇之处，甚至显得有点迂腐，可这正是海明威作品的长处。没有烦琐的逻辑，也没有花里胡哨的变量名。就那么简单直白地把活儿干了，干完完事儿。</p>
+<p>海明威没心情跟傻瓜逗闷子，如果你想要的是一个长度小于2的数列，他根本不睬你：“我累啦，你的问题很白痴。”</p>
+<h3 id="威廉·莎士比亚（英国诗人、作家）"><a href="#威廉·莎士比亚（英国诗人、作家）" class="headerlink" title="威廉·莎士比亚（英国诗人、作家）"></a>威廉·莎士比亚（英国诗人、作家）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">theSeriesOfFIBONACCI</span>(<span class="params">theSize</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//a CALCKULATION in two acts.</span></div><div class="line">  <span class="comment">//employ'ng the humourous logick of JAVA-SCRIPTE</span></div><div class="line"></div><div class="line">  <span class="comment">//Dramatis Personae</span></div><div class="line">  <span class="keyword">var</span> theResult; <span class="comment">//an ARRAY to contain THE NUMBERS</span></div><div class="line">  <span class="keyword">var</span> theCounter; <span class="comment">//a NUMBER, serv'nt to the FOR LOOP</span></div><div class="line"></div><div class="line">  <span class="comment">//ACT I: in which a ZERO is added for INITIATION</span></div><div class="line"></div><div class="line">  <span class="comment">//[ENTER: theResult]</span></div><div class="line"></div><div class="line">  <span class="comment">//Upon the noble list bestow a zero</span></div><div class="line">  <span class="keyword">var</span> theResult = [<span class="number">0</span>];</div><div class="line"></div><div class="line">  <span class="comment">//ACT II: a LOOP in which the final TWO NUMBERS are QUEREED and SUMM'D</span></div><div class="line"></div><div class="line">  <span class="comment">//[ENTER: theCounter]</span></div><div class="line"></div><div class="line">  <span class="comment">//Commence at one and venture o'er the numbers</span></div><div class="line">  <span class="keyword">for</span> (theCounter = <span class="number">1</span>; theCounter &lt; theSize; theCounter++) &#123;</div><div class="line">    <span class="comment">//By divination set adjoining members</span></div><div class="line">    theResult[theCounter] = (theResult[theCounter<span class="number">-1</span>]||<span class="number">1</span>) + theResult[<span class="built_in">Math</span>.max(<span class="number">0</span>, theCounter<span class="number">-2</span>)];</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//'Tis done, and here's the answer.</span></div><div class="line">  <span class="keyword">return</span> theResult;</div><div class="line"></div><div class="line">  <span class="comment">//[Exuent]</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这位文豪啰嗦了点，可也是独树一帜了。注意他的注释（不算场名和台本），典型的英文抑扬格五音步格律——共十对音节，每音步（两个音节）的重音都落在第二个音节上。在他的戏剧中，莎士比亚经常会脱离严格的抑扬格五音步格律以示强调，比如增加一个音节，或者采用交替重音。在这个编程作业中，他好像也运用了同样的技巧。码如其文。</p>
+<h3 id="安德烈·布勒东（Andre-Breton，法国诗人和评论家，超现实主义创始人之一）"><a href="#安德烈·布勒东（Andre-Breton，法国诗人和评论家，超现实主义创始人之一）" class="headerlink" title="安德烈·布勒东（Andre Breton，法国诗人和评论家，超现实主义创始人之一）"></a>安德烈·布勒东（Andre Breton，法国诗人和评论家，超现实主义创始人之一）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Colette</span>(<span class="params">umbrella</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> staircase = <span class="number">0</span>, galleons = <span class="number">0</span>, brigantines = <span class="number">1</span>, armada = [galleons, brigantines], bassoon;</div><div class="line">  <span class="built_in">Array</span>.prototype.embrace = [].push;</div><div class="line"></div><div class="line">  <span class="keyword">while</span>(<span class="number">2</span> + staircase++ <span class="xml"><span class="tag">&lt; <span class="attr">umbrella</span>) &#123;</span></span></div><div class="line">    <span class="attr">bassoon</span> = <span class="string">galleons</span> + <span class="attr">brigantines</span>;</div><div class="line">    <span class="attr">armada.embrace</span>(<span class="attr">brigantines</span> = <span class="string">(galleons</span> = <span class="string">brigantines,</span> <span class="attr">bassoon</span>));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="attr">return</span> <span class="attr">armada</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>作为超现实主义运动的倡导者，布勒东主张梦想比现实更有趣，应该作为创作的出发点。他的变量命名颇具超现实主义色彩。尽管并非无可挑剔，但他的作品的确几近完美，真挚又美好。在他有意识的表达中，蕴含着一幅无意识的梦幻图景。可以把这个作业看成华美诗篇Facteur Cheval的再创作。</p>
+<p>布勒东在这个斐波纳契函数中总是喜欢使用老相好的名字，他把结果想象成了一个史前舰队。他的方案逻辑优雅，巧妙地采用了逗号运算符在galleons、brigantines和bassoons之间同时迁移元素。向安德烈致敬！</p>
+<h3 id="罗贝托·波拉尼奥（Roberto-Bolano，智利诗人和小说家）"><a href="#罗贝托·波拉尼奥（Roberto-Bolano，智利诗人和小说家）" class="headerlink" title="罗贝托·波拉尼奥（Roberto Bolano，智利诗人和小说家）"></a>罗贝托·波拉尼奥（Roberto Bolano，智利诗人和小说家）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">LeonardoPisanoBigollo</span>(<span class="params">l</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(l &lt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"I'd prefer not to respond. (Although several replies occur to me)"</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/**/</span></div><div class="line"></div><div class="line">  <span class="comment">//Everything is getting complicated.</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">2</span>,r=[<span class="number">0</span>,<span class="number">1</span>].slice(<span class="number">0</span>,l);i&lt;l;r.push(r[i<span class="number">-1</span>]+r[i<span class="number">-2</span>]),i++)</div><div class="line"></div><div class="line">  <span class="comment">/**/</span></div><div class="line"></div><div class="line">  <span class="comment">//Here are some other mathematicians. Mostly it's just nonsense.</span></div><div class="line"></div><div class="line">  rationalTheorists = [<span class="string">"Archimedes of Syracuse"</span>, <span class="string">"Pierre de Fermat (such margins, boys!)"</span>, <span class="string">"Srinivasa Ramanujan"</span>, <span class="string">"Rene Descartes"</span>, <span class="string">"Leonhard Euler"</span>, <span class="string">"Carl Gauss"</span>, <span class="string">"Johann Bernoulli"</span>, <span class="string">"Jacob Bernoulli"</span>, <span class="string">"Aryabhata"</span>, <span class="string">"Brahmagupta"</span>, <span class="string">"Bhaskara II"</span>, <span class="string">"Nilakantha Somayaji"</span>, <span class="string">"Omar Khayyám"</span>, <span class="string">"Muhammad ibn Mūsā al-Khwārizmī"</span>, <span class="string">"Bernhard Riemann"</span>, <span class="string">"Gottfried Leibniz"</span>, <span class="string">"Andrey Kolmogorov"</span>, <span class="string">"Euclid of Alexandria"</span>, <span class="string">"Jules Henri Poincaré"</span>, <span class="string">"Srinivasa Ramanujan"</span>, <span class="string">"Alexander Grothendieck (who could forget?)"</span>, <span class="string">"David Hilbert"</span>, <span class="string">"Alan Turing"</span>, <span class="string">"von Neumann"</span>, <span class="string">"Kurt Gödel"</span>, <span class="string">"Joseph-Louis Lagrange"</span>, <span class="string">"Georg Cantor"</span>, <span class="string">"William Rowan Hamilton"</span>, <span class="string">"Carl Jacobi"</span>, <span class="string">"Évariste Galois"</span>, <span class="string">"Nikolay Lobachevsky"</span>, <span class="string">"Rene Descartes"</span>, <span class="string">"Joseph Fourier"</span>, <span class="string">"Pierre-Simon Laplace"</span>, <span class="string">"Alonzo Church"</span>, <span class="string">"Nikolay Bogolyubov"</span>]</div><div class="line"></div><div class="line">  <span class="comment">/**/</span></div><div class="line"></div><div class="line">  <span class="comment">//I didn't understand any of this, but here it is anyway.</span></div><div class="line">  <span class="keyword">return</span> r</div><div class="line"></div><div class="line">  <span class="comment">/**/</span></div><div class="line"></div><div class="line">  <span class="comment">//Nothing happens here and if it does I'd rather not talk about it.</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果这辈子没看过波拉尼奥的著作，那你的生命是不完整的。波拉尼奥的作品忽而精于事故，忽而憨态可掬，让人叹为观止。他的叙事风格以毫无悬念的坦诚见长。人类的弱点始终存在，但温暖幽默地传达出每一个弱点，却无不令人沉醉、催人振奋。</p>
+<p>一如既往，他的编程作业也流露出了一种不安、局促和无知。他给出的解答尽管颇显才情，可总让人觉得有几分累赘。偏执依旧，跑题依旧，他好像更愿意向我们展示似乎很有意思，但其实毫无用处的天才数学家名录。</p>
+<p>以下几方面也是波拉尼奥的特点，比如长短段并列、忘记加分号（对应着他小说中缺失的引号），以及隐含地使用全局变量——暗示每个变量注定会在后续章节中再次现身。</p>
+<h3 id="查尔斯·狄更斯"><a href="#查尔斯·狄更斯" class="headerlink" title="查尔斯·狄更斯"></a>查尔斯·狄更斯</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mrFibbowicksNumbers</span>(<span class="params">enormity</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> assortment = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>], tally = <span class="number">3</span>, artfulRatio = <span class="number">1.61803</span>;</div><div class="line"></div><div class="line">  <span class="keyword">while</span>(tally++ <span class="xml"><span class="tag">&lt; <span class="attr">enormity</span>) &#123;</span></span></div><div class="line">    //<span class="attr">here</span> <span class="attr">is</span> <span class="attr">an</span> <span class="attr">exceedingly</span> <span class="attr">clever</span> <span class="attr">device</span></div><div class="line">    <span class="attr">assortment.push</span>(<span class="attr">Math.round</span>(<span class="attr">assortment</span>[<span class="attr">tally-2</span>] * <span class="attr">artfulRatio</span>));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  //<span class="attr">should</span> <span class="attr">there</span> <span class="attr">be</span> <span class="attr">an</span> <span class="attr">overabundance</span> <span class="attr">of</span> <span class="attr">elements</span>, <span class="attr">a</span> <span class="attr">remedy</span> <span class="attr">need</span> <span class="attr">be</span> <span class="attr">applied</span></div><div class="line">  <span class="attr">return</span> <span class="attr">assortment.slice</span>(<span class="attr">0</span>, <span class="attr">enormity</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我不是狄更斯的粉丝。我基本同意亨利·詹姆斯（美国著名小说家和批评家）的恶评：</p>
+<p>“要是让我们冒险评价一下他的文学成就，可以称他为最肤浅的小说家。没错，这么说等于把它归入了他所处的文学领域的低等行列，但我们愿意承认这一点。把狄更斯先生归入最伟大的小说家之列，我们是过意不去的。因为他除了人物角色，并没有创造其他任何东西。他没有对我们理解人物角色多给任何资料。”</p>
+<p>——亨利·詹姆斯谈查尔斯·狄更斯，评《我们共同的朋友》，1865年12月21日</p>
+<p>他的肤浅从他的斐波纳契作业中可见一斑。没错，变量名还算中规中矩，但却是他无法把握实质性内容和内心理解不到位的表现。他没有从实质上领会斐波纳契数列的含义，倒是一心想通过乘法解决问题。哎。</p>
+<h2 id="最终点评"><a href="#最终点评" class="headerlink" title="最终点评"></a>最终点评</h2><p>不管是老道（Crockford）的极力维护，还是干巴巴的计算机科学课，条条框框始终是JavaScript的敌人。有些开发者喜欢手册和样板，结果就是Java。JavaScript的趣味性源自它天性就不刻板，以及由此生发的无限可能。自然语言也具有相似的特点。最好的作者和最优秀的JavaScript开发者一定会对这门语言神魂颠倒，没有一天不在探索和实践它，从而塑造自己的风格、自己的习惯，还有自己的表达方式。</p>
+<p>就这些，希望你喜欢。恐怕大都是无稽之谈。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Translation/" rel="tag"># Translation</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/04/2017-01-04-zsh-git/" rel="next" title=" oh-my-zsh中git常用命令 ">
+                <i class="fa fa-chevron-left"></i>  oh-my-zsh中git常用命令 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/16/2017-01-16-polymorphism/" rel="prev" title=" 几分钟帮你理解对象的基本特性之一：多态 ">
+                 几分钟帮你理解对象的基本特性之一：多态  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码审查之母"><span class="nav-number">1.</span> <span class="nav-text">代码审查之母</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#欧内斯特·海明威（美国作家）"><span class="nav-number">1.1.</span> <span class="nav-text">欧内斯特·海明威（美国作家）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#威廉·莎士比亚（英国诗人、作家）"><span class="nav-number">1.2.</span> <span class="nav-text">威廉·莎士比亚（英国诗人、作家）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安德烈·布勒东（Andre-Breton，法国诗人和评论家，超现实主义创始人之一）"><span class="nav-number">1.3.</span> <span class="nav-text">安德烈·布勒东（Andre Breton，法国诗人和评论家，超现实主义创始人之一）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#罗贝托·波拉尼奥（Roberto-Bolano，智利诗人和小说家）"><span class="nav-number">1.4.</span> <span class="nav-text">罗贝托·波拉尼奥（Roberto Bolano，智利诗人和小说家）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查尔斯·狄更斯"><span class="nav-number">1.5.</span> <span class="nav-text">查尔斯·狄更斯</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终点评"><span class="nav-number">2.</span> <span class="nav-text">最终点评</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

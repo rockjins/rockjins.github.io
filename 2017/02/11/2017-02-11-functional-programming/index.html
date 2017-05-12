@@ -1,0 +1,860 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Translation," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Rockjins Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Read the original   前言函数式编程与我们以往的编程习惯有许多不同。这篇文章举了一些JavaScript的例子，介绍了函数式编程中重要的概念。附加的文章会让你更深入的了解JavaScript中的函数式编程。 本文源码可以在GitHub上找到，放在jsFunctionalProgramming仓库中。  我要感谢Csaba Hellinger的支持和投入，在他的帮助下我才完成这篇">
+<meta name="keywords" content="JavaScript,Translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="『翻译』JavaScript 函数式编程 ">
+<meta property="og:url" content="http://yoursite.com/2017/02/11/2017-02-11-functional-programming/index.html">
+<meta property="og:site_name" content="Rockjins Blog">
+<meta property="og:description" content="Read the original   前言函数式编程与我们以往的编程习惯有许多不同。这篇文章举了一些JavaScript的例子，介绍了函数式编程中重要的概念。附加的文章会让你更深入的了解JavaScript中的函数式编程。 本文源码可以在GitHub上找到，放在jsFunctionalProgramming仓库中。  我要感谢Csaba Hellinger的支持和投入，在他的帮助下我才完成这篇">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-5de2accbb8251a59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="『翻译』JavaScript 函数式编程 ">
+<meta name="twitter:description" content="Read the original   前言函数式编程与我们以往的编程习惯有许多不同。这篇文章举了一些JavaScript的例子，介绍了函数式编程中重要的概念。附加的文章会让你更深入的了解JavaScript中的函数式编程。 本文源码可以在GitHub上找到，放在jsFunctionalProgramming仓库中。  我要感谢Csaba Hellinger的支持和投入，在他的帮助下我才完成这篇">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2859850-5de2accbb8251a59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/11/2017-02-11-functional-programming/"/>
+
+
+
+
+
+  <title>『翻译』JavaScript 函数式编程  | Rockjins Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rockjins Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">余震的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/11/2017-02-11-functional-programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rockjins">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">『翻译』JavaScript 函数式编程 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-11T00:00:00+08:00">
+                2017-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="http://dealwithjs.io/functional-programming-in-javascript/" target="_blank" rel="external">Read the original</a></p>
+</blockquote>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>函数式编程与我们以往的编程习惯有许多不同。这篇文章举了一些JavaScript的例子，介绍了函数式编程中重要的概念。附加的文章会让你更深入的了解JavaScript中的函数式编程。</p>
+<p>本文源码可以在<a href="https://github.com/gergob" target="_blank" rel="external">GitHub</a>上找到，放在<a href="https://github.com/gergob/jsFunctionalProgramming" target="_blank" rel="external">jsFunctionalProgramming</a>仓库中。</p>
+<blockquote>
+<p>我要感谢<a href="http://dealwithjs.io/author/csaba/" target="_blank" rel="external">Csaba Hellinger</a>的支持和投入，在他的帮助下我才完成这篇文章。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="PART-1"><a href="#PART-1" class="headerlink" title="PART 1"></a>PART 1</h2><p>函数式编程由<a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="external">Lambda Calculus</a>演化而来，它是一个抽象数学的函数表述，我们将思考怎么把它运用在现实中。</p>
+<blockquote>
+<p>函数式编程是声明式编程的范式。</p>
+</blockquote>
+<h3 id="为什么要使用函数式编程？"><a href="#为什么要使用函数式编程？" class="headerlink" title="为什么要使用函数式编程？"></a>为什么要使用函数式编程？</h3><p>函数式编程有以下具体特性：</p>
+<ol>
+<li><p><em>避免状态改变（可变的数据）</em> - 函数式编程的特性之一就是：函数在应用中不会改变状态，它们(functions)宁愿从之前的状态之上创建一个新的状态。</p>
+</li>
+<li><p><em>函数声明 vs 函数表达式</em> - 在函数式编程中，我们定义和描述函数就像数学中的一个方法声明。</p>
+</li>
+<li><p><em>幂等性</em> - 这意味着我们用相同的参数调用一个函数(不管任何时刻)它都会返回相同的结果，这也可以避免状态的改变。</p>
+</li>
+</ol>
+<p>这三个特性咋一看似乎并没有什么意义，但如果我们更深入的分析，发现在以下三种情况下使用函数式编程能充分发挥这三个特性：</p>
+<ol>
+<li><p><em>并行的代码执行</em> - 因为函数式编程有<em>幂等性</em>和<em>避免状态改变</em>的特性，用函数方法编写代码会让并行更容易，因为不会出现同步问题。</p>
+</li>
+<li><p><em>简明、简洁的代码</em> - 因为函数式编程使用方法声明的方式，代码不会像面向过程编程一样，有额外的算法步骤。</p>
+</li>
+<li><p><em>不同的编程思想</em> - 一旦你真正使用了一门函数式编程语言，你会拥有一种新的编程思想，当你构建应用时也会有新的点子。</p>
+</li>
+</ol>
+<h3 id="f-x-J-s"><a href="#f-x-J-s" class="headerlink" title="f(x) === J(s)"></a>f(x) === J(s)</h3><p><em>javascript</em> 是一门真正的（纯粹的）函数式编程语言吗？</p>
+<blockquote>
+<p>不！JavaScript并不是一门纯粹的函数式编程语言…</p>
+</blockquote>
+<h3 id="第一型对象-函数"><a href="#第一型对象-函数" class="headerlink" title="第一型对象 - 函数"></a>第一型对象 - 函数</h3><p>它可以很好的运用在函数式编程中，因为函数是第一性对象。如果在一门编程语言中，函数和其他类型一样，那么这门语言中的函数就是第一型对象。举个例子，函数可以作为参数传递给其他函数，也可以赋值给变量。</p>
+<p>我们将检查一些函数是否是第一型对象，但是在这之前，我们先构建一个代码块，我们将像真正的函数式语言一样使用JavaScript。</p>
+<p>在大部分纯函数式编程语言中(Haskell, Clean, Erlang)，它们是没有<code>for</code>或者<code>while</code>循环的，所以循环一个列表需要用到递归函数。纯函数式编程语言有语言支持和最好的列表推导式和列表串联。</p>
+<p>这里有一个函数实现了<code>for</code>循环，我们将在接下来的代码中用到它，但是你也将看到它在JS中的局限性，因为<a href="http://www.2ality.com/2015/06/tail-call-optimization.html" target="_blank" rel="external">尾部调用优化</a>并没有被广泛的支持，但以后会好起来的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcFor</span>(<span class="params">first, last, step, callback</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">//递归inner函数</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>((step &gt; <span class="number">0</span> &amp;&amp; index &gt;= last) || (step &lt; <span class="number">0</span> &amp;&amp; index &lt; last)) &#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    callback(index);</div><div class="line"></div><div class="line">    <span class="comment">//</span></div><div class="line">    <span class="comment">//接下来进行尾部调用</span></div><div class="line">    <span class="comment">//</span></div><div class="line">    inner(index + step);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">//开始递归</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  inner(first);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>inner</code>函数包含了对停止递归的管理，它传入参数<code>index</code>去调用<code>callback</code>，再递归调用<code>inner(index + step)</code>确保循环传递到下一步。</p>
+<blockquote>
+<p>递归是函数式编程的一个重要方面。</p>
+</blockquote>
+<p>现在，让我们看看真正的函数式编程：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyIfAllNumbers</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(areNumbers(items)) &#123;</div><div class="line">    <span class="keyword">return</span> funcMap(items, fn);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> [];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>applyIfAllNumbers</code>函数的目的是调用<code>fn</code>函数，并把<code>items</code>中的每个数字作为参数传入，但前提是只有在<code>items</code>数组中都是数字的情况下才去调用。</p>
+<p>下面是验证器函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">areNumbers</span>(<span class="params">numbers</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(numbers.length == <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> isNumber(number[<span class="number">0</span>]) &amp;&amp; areNumbers(numbers.slice(<span class="number">1</span>));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">isFinite</span>(n) &amp;&amp; +n === n;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段代码简单明了，如果参数是一个数字，<code>isNumber</code>函数返回<code>true</code>，否则返回<code>false</code>。<code>areNumbers</code>函数使用<code>isNumber</code>函数判断<code>numbers</code>数组中是否全是数字（再提醒一次，递归常常被用来实现这种逻辑）。</p>
+<p>另一个例子是<code>applyForNumbersOnly</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyForNumbersOnly</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> numbers = filter(items, isNumber);</div><div class="line">  <span class="keyword">return</span> funcMap(numbers, fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样写甚至更简洁：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyForNumbersOnly</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> funcMap(filter(items, isNumber), fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>applyForNumbersOnly</code>调用<code>fn</code>方法仅仅是为了收集<code>items</code>中的数字。</p>
+<p><code>funcMap</code>函数在函数式编程中重现了著名的<code>map</code>函数，但是这里我借助了<code>funcForEach</code>函数来创建它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcForEach</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> funcFor(<span class="number">0</span>, items.length, <span class="number">1</span>, <span class="function"><span class="keyword">function</span>(<span class="params">idx</span>) </span>&#123;</div><div class="line">    fn(items[idx]);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcMap</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> result = [];</div><div class="line">  funcForEach(items, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">    result.push(fn(item));</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最后还剩<code>filter</code>函数，我们再一次使用递归来实现过滤的逻辑。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params">input, callback</span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params">input, callback, index, output</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (index === input.length) &#123;</div><div class="line">      <span class="keyword">return</span> output;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> inner(</div><div class="line">      input,</div><div class="line">      callback,</div><div class="line">      index + <span class="number">1</span>,</div><div class="line">      callback(input[index]) ? output.concat(input[index]) : output;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> inner(input, callback, <span class="number">0</span>, []);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="JS中的尾调用优化-TCO"><a href="#JS中的尾调用优化-TCO" class="headerlink" title="JS中的尾调用优化(TCO)"></a>JS中的尾调用优化(TCO)</h3><p>在<a href="http://www.ecma-international.org/ecma-262/6.0/#sec-tail-position-calls" target="_blank" rel="external">EcmaScript 2015 TCO</a>文档中有一些用例的定义，这门语言不久就将支持尾调用优化了。最关键的一点就是在你的代码中使用<code>use strict</code>模式，否则JS不能支持尾调用优化。</p>
+<p>由于没有内置方法来检测浏览器是否支持尾调动优化，以下代码实现了这个功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">"use static"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isTCOSupported</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> outerStackLen = <span class="keyword">new</span> <span class="built_in">Error</span>().stack.length;</div><div class="line">  <span class="comment">//inner函数的name长度一定不能超过外部函数</span></div><div class="line">  <span class="keyword">return</span> (<span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> innerStackLen = <span class="keyword">new</span> <span class="built_in">Error</span>().stack.length;</div><div class="line">    <span class="keyword">return</span> innerStackLen &lt;= outerStackLen;</div><div class="line">  &#125;());</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(isTCOSupported() ? <span class="string">"TCO Available"</span> : <span class="string">"TCO N/A"</span>);</div></pre></td></tr></table></figure>
+<p>这里有一个重现<code>Math.pow</code>函数的例子，它能从EcmaScript 2015的TCO中获益。</p>
+<blockquote>
+<p>这个pow函数的实现使用了<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters" target="_blank" rel="external">ES6默认参数</a>，让它看上去更简洁。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">powES6</span>(<span class="params">base, power, result=base</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (power === <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(power === <span class="number">1</span>) &#123;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> powES6(base, power - <span class="number">1</span>, result * base);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首先要提醒以下，<code>powES6</code>函数有三个参数而不是两个。第三个参数是计算后的值。我们随身携带<code>return</code>是为了实现让我们的递归调用变成真正的尾调用，让JS可以使用它的尾调用优化技术。</p>
+<p>万一我们不能使用ES6的特性，那么我们不推荐使用递归去实现<code>pow</code>函数，因为这门语言还没有提出有关递归的优化，这样实现起来就很复杂了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">recursivePow</span>(<span class="params">base, power, result</span>) </span>&#123;  </div><div class="line">    <span class="keyword">if</span> (power === <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(power === <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> recursivePow(base, power - <span class="number">1</span>, result * base);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">base, power</span>) </span>&#123;  </div><div class="line">    <span class="keyword">return</span> recursivePow(base, power, base);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们把递归计算放在了另一个<code>recursivePow</code>函数中，这个函数有三个参数，就像<code>powES6</code>函数一样。使用一个新函数并把<code>base</code>作为参数传递给它，以此实现ES6中的默认参数逻辑。</p>
+<p>在<a href="https://kangax.github.io/compat-table/es6/#test-proper_tail_calls_" target="_blank" rel="external">这个页面</a>你可以查看TCO在不同浏览器和平台的支持情况。</p>
+<p>目前只有<em>Safari 10</em>是完全支持TCO的浏览器(在写这篇文章时)，我将进行一些对于<code>pow</code>的测试，来看看它的表现。</p>
+<h3 id="测试递归调用"><a href="#测试递归调用" class="headerlink" title="测试递归调用"></a>测试递归调用</h3><p>我使用了<code>powES6</code>和<code>pow</code>函数来进行测试:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">stressPow</span>(<span class="params">n</span>) </span>&#123;  </div><div class="line">    <span class="keyword">var</span> result = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;n; ++i) &#123;</div><div class="line">        result.push(</div><div class="line">          pow(<span class="number">2</span>, <span class="number">0</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">1</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">2</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">3</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">4</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">5</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">10</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">20</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">30</span>),</div><div class="line">          pow(<span class="number">1</span>, <span class="number">10000</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">40</span>),</div><div class="line">          pow(<span class="number">3</span>, <span class="number">10</span>),</div><div class="line">          pow(<span class="number">4</span>, <span class="number">15</span>),</div><div class="line">          pow(<span class="number">1</span>, <span class="number">11000</span>),</div><div class="line">          pow(<span class="number">3.22</span>, <span class="number">125</span>),</div><div class="line">          pow(<span class="number">3.1415</span>, <span class="number">89</span>),</div><div class="line">          pow(<span class="number">7</span>, <span class="number">2500</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">13000</span>)</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> start = performance.now();</div><div class="line"><span class="keyword">var</span> result_standard = stressPow(<span class="number">2500</span>);  </div><div class="line"><span class="keyword">var</span> duration = performance.now() - start;  </div><div class="line"><span class="built_in">console</span>.log(result_standard);  </div><div class="line"><span class="built_in">console</span>.log(<span class="string">`Duration: <span class="subst">$&#123;duration&#125;</span> ms.`</span>);</div></pre></td></tr></table></figure>
+<p>我在Chrome v55, Firefox v50, Safari v9.2 和 Safari v10上测试了以上代码。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-5de2accbb8251a59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>根据上面的数据，我们得出Safari对递归函数的优化效率是最高的。Safari 10对尾调用的支持是最好的，速度比Chrome快了大约2.8倍。Firefox几乎和Safari 9.2 一样棒，这出乎了我的意料。</p>
+<p>如果你很喜欢这篇文章，请点个赞哦。（译者注：话说好长啊，好累啊。）</p>
+<p>让我们继续函数式!</p>
+<blockquote>
+<p>PART 2 也即将发出，关于高阶函数和例子，讲解如何编写函数式风格的代码。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Rockjins WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="Rockjins Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Translation/" rel="tag"># Translation</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/09/2017-02-09-spread-operator/" rel="next" title="『翻译』扩展运算符的6个重要用途 ">
+                <i class="fa fa-chevron-left"></i> 『翻译』扩展运算符的6个重要用途 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/13/2017-02-13-tiny-javascript-optimizations/" rel="prev" title="『翻译』一些 JavaScript 优化的细节 ">
+                『翻译』一些 JavaScript 优化的细节  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Rockjins" />
+          <p class="site-author-name" itemprop="name">Rockjins</p>
+           
+              <p class="site-description motion-element" itemprop="description">Teenager Dream Of Freedom</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rockjins" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/rockjins" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PART-1"><span class="nav-number">2.</span> <span class="nav-text">PART 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用函数式编程？"><span class="nav-number">2.1.</span> <span class="nav-text">为什么要使用函数式编程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#f-x-J-s"><span class="nav-number">2.2.</span> <span class="nav-text">f(x) === J(s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一型对象-函数"><span class="nav-number">2.3.</span> <span class="nav-text">第一型对象 - 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS中的尾调用优化-TCO"><span class="nav-number">2.4.</span> <span class="nav-text">JS中的尾调用优化(TCO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试递归调用"><span class="nav-number">2.5.</span> <span class="nav-text">测试递归调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">2.6.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rockjins</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
