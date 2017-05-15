@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JSONP,JavaScript," />
+  <meta name="keywords" content="JavaScript,JSONP," />
 
 
 
@@ -93,7 +93,7 @@
 
 
 <meta name="description" content="你真以为我偷东西啊！对啊，我就是偷东西。  话不多说，先上效果图。  怎么样，是不是和在用百度一下时，关键字搜索补全一样一样的。 今天下午没什么事，打开百度首页的Newwork看了一下，发现我每次输入内容后，它都会把我们输入的内容发送到后台，后台返回这些关键字的联想条目，我们只需要把这些条目放到页面中，就可以实现上图所示的demo了。 下面我们就来看看怎么获取这些内容。">
-<meta name="keywords" content="JSONP,JavaScript">
+<meta name="keywords" content="JavaScript,JSONP">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" 教你把百度的关键字搜索偷过来用用 ">
 <meta property="og:url" content="http://yoursite.com/2016/07/01/2016-07-01-baidu-keywords/index.html">
@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701151650890-1741841284.gif">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701154248640-1892689881.png">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/929120/201607/929120-20160701154606359-1163344681.png">
-<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta property="og:updated_time" content="2017-05-15T06:13:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" 教你把百度的关键字搜索偷过来用用 ">
 <meta name="twitter:description" content="你真以为我偷东西啊！对啊，我就是偷东西。  话不多说，先上效果图。  怎么样，是不是和在用百度一下时，关键字搜索补全一样一样的。 今天下午没什么事，打开百度首页的Newwork看了一下，发现我每次输入内容后，它都会把我们输入的内容发送到后台，后台返回这些关键字的联想条目，我们只需要把这些条目放到页面中，就可以实现上图所示的demo了。 下面我们就来看看怎么获取这些内容。">
@@ -114,7 +114,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -433,6 +433,9 @@
 <p>先获取到输入框的内容，再定义一个_url，把我们之前得到的url地址附给这个变量，但是注意要把关键字的值改成输入框内的值，这样才能动态获取，不然你一直都在请求一个固定的关键字（上面把_url中的search标红加粗了）。</p>
 <p>准备工作做好，可以发起ajax请求了，因为是jsonp的格式，所以要设置dataType:’jsonp’，并告诉jQuery回调函数的名称，这个名称可以在浏览器中得到（之前在浏览器地址栏输入url，得到的数据被包含在一个函数里，这里的jsonpCallback就写那个函数的名称，每个人的都不一样）。</p>
 <p>现在我们只需要把数据console.log出来，并解析到页面上，就可以实现文章开头的效果了，简单吧！(记得放在服务器环境运行哦！)</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
 
       
     </div>
@@ -483,9 +486,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JSONP/" rel="tag"># JSONP</a>
-          
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/JSONP/" rel="tag"># JSONP</a>
           
         </div>
       
@@ -681,7 +684,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -765,13 +768,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
