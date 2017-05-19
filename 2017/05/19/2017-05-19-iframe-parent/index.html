@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,iframe," />
 
 
 
@@ -92,15 +92,21 @@
 
 
 
-<meta name="description" content="Teenager Dream Of Freedom">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rockjins Blog">
-<meta property="og:url" content="http://yoursite.com/categories/Book/index.html">
+<meta name="description" content="轮回不止 生死不休  上礼拜用postMessage进行iframe跨域通信(使用postMessage解决iframe跨域通信问题），因为写的代码不够健壮，其实说到底还是了解的知识点不够多，这个礼拜BUG就提上来了… 我相当于开发一个中间层框架，在我外层有一个大框架用iframe包着我，我再用iframe包着另一个页面，如图（配色好评）：">
+<meta name="keywords" content="JavaScript,iframe">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" postMessage死循环与window.parent ">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/2017-05-19-iframe-parent/index.html">
 <meta property="og:site_name" content="Rockjins Blog">
-<meta property="og:description" content="Teenager Dream Of Freedom">
+<meta property="og:description" content="轮回不止 生死不休  上礼拜用postMessage进行iframe跨域通信(使用postMessage解决iframe跨域通信问题），因为写的代码不够健壮，其实说到底还是了解的知识点不够多，这个礼拜BUG就提上来了… 我相当于开发一个中间层框架，在我外层有一个大框架用iframe包着我，我再用iframe包着另一个页面，如图（配色好评）：">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-a86c9ee478da30db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-14d4a7fba0330aab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-b9ddba097441693c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-05-19T09:12:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rockjins Blog">
-<meta name="twitter:description" content="Teenager Dream Of Freedom">
+<meta name="twitter:title" content=" postMessage死循环与window.parent ">
+<meta name="twitter:description" content="轮回不止 生死不休  上礼拜用postMessage进行iframe跨域通信(使用postMessage解决iframe跨域通信问题），因为写的代码不够健壮，其实说到底还是了解的知识点不够多，这个礼拜BUG就提上来了… 我相当于开发一个中间层框架，在我外层有一个大框架用iframe包着我，我再用iframe包着另一个页面，如图（配色好评）：">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2859850-a86c9ee478da30db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -128,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Book/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/19/2017-05-19-iframe-parent/"/>
 
 
 
 
 
-  <title>分类: Book | Rockjins Blog</title>
+  <title> postMessage死循环与window.parent  | Rockjins Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,7 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,73 +302,229 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>Book<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/02/2017-01-02-tw-spaeak/" itemprop="url">
-              
-                <span itemprop="name"> 台湾和大陆不一样的术语称呼 </span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-02T00:00:00+08:00"
-              content="2017-01-02" >
-          01-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/01/2017-01-01-book-list/" itemprop="url">
-              
-                <span itemprop="name"> 2016 我的书单 </span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-01T00:00:00+08:00"
-              content="2017-01-01" >
-          01-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/2017-05-19-iframe-parent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余震">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> postMessage死循环与window.parent </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T00:00:00+08:00">
+                2017-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/19/2017-05-19-iframe-parent/" class="leancloud_visitors" data-flag-title=" postMessage死循环与window.parent ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>轮回不止 生死不休</p>
+</blockquote>
+<p>上礼拜用postMessage进行iframe跨域通信(<a href="https://rockjins.js.org/2017/05/05/2017-05-05-iframe-cross-domain-Communication/" target="_blank" rel="external">使用postMessage解决iframe跨域通信问题</a>），因为写的代码不够健壮，其实说到底还是了解的知识点不够多，这个礼拜BUG就提上来了…</p>
+<p>我相当于开发一个中间层框架，在我外层有一个大框架用<code>iframe</code>包着我，我再用<code>iframe</code>包着另一个页面，如图（配色好评）：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-a86c9ee478da30db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
+<p>按理说用<code>postMessage</code>是不会出问题的:我负责父页面和子页面之间的通信，他们把数据发送给我，我再替他们发送给对方。</p>
+<p>但是这几个框架又是相互独立的，只有在特定的情景下才会这样嵌套，BUG就是在页面独立时出现的。</p>
+<p>我们知道，获取父级<code>iframe</code>最简单的方法就是<code>window.parent</code>，这样可以拿到父级<code>iframe</code>的<code>window</code>对象，我大概就是这样发送<code>postMessage</code>给父级<code>iframe</code>的：</p>
+<p><code>parent.postMessage(&#39;someMessage&#39;, &#39;*&#39;)</code></p>
+<p>而且<code>postMessage</code>方法的调用是写在<code>onmessage</code>事件里的，也就是子页面发送消息过来，我监听到<code>onmessage</code>事件，就发送消息给父级<code>iframe</code>。</p>
+<p>问题来了，之前说过框架之前都可以独立运行，如果没有父级<code>iframe</code>，只剩下我的框架和子框架，会发生什么呢？</p>
+<p>大家来开心一下，就是这样子：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-14d4a7fba0330aab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>而且最诡异的一点是，信息发起人的<code>HOST</code>并不是子页面,而是我自己？WTF?</p>
+<p>我不信，跑去找子页面的开发负责人，问他是不是写了死循环不停发消息，对方很坦荡的把代码打开：“你自己看吧，哪来的死循环？”</p>
+<p>好吧，回去自己找BUG，经过一个小时的埋头苦读，终于发现了问题所在。</p>
+<p>我现在问大家一个问题：当你的页面处于最顶层，也就是外层没有<code>iframe</code>包裹你，求这时<code>window === window.parent</code>的返回值。</p>
+<p>呵呵，居然是<code>true</code>，也就是说，当你的页面处于最顶层，<code>window.parent</code>指向你自己！</p>
+<p>有图为证：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-b9ddba097441693c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>相当于当你处于最顶层时，你儿子就是你自己，你也可以是自己的爷爷，当然也可以是自己的曾孙，大概就是这个意思，希望大家以后不会遇到这个坑，其实也不算坑啦，说到底还是自己知识面不够广，连轮回这么简单的道理都不明白…</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="余震 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpeg" alt="余震 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/iframe/" rel="tag"># iframe</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/09/2017-05-09-compatible-module/" rel="next" title=" 如何兼容多种模块规范 ">
+                <i class="fa fa-chevron-left"></i>  如何兼容多种模块规范 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -370,6 +532,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY0My81MjE0"></div>
+    
+  </div>
+
 
         </div>
         
@@ -592,6 +760,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -626,6 +798,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
