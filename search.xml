@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常见音乐相关中英文速查表（持续更新）]]></title>
+    <url>%2F2017%2F05%2F23%2F2017-05-23-music-english-chinese%2F</url>
+    <content type="text"><![CDATA[叫你不好好学英语 A 英文 中文 备注 Analog 模拟(信号) 传输感很差 Acoustic 原生 相比处理过的音色而言 Acoustic Guitar 木吉他 AUX 辅助 AFL 推子后监听 Activity 动态 B 英文 中文 备注 Bass 低音、贝斯 Bpm 速度、拍子 Beat Per Minute(每分钟拍子数) Bar 小节 Breakdown =&gt; 歌曲中夹杂着的具有“切断感”的伴奏 Birdge Plot 桥段 用于衔接歌曲段落 Brass 铜号 泛指铜乐器 Bell 金属铃 BAL/Balance 平衡 C 英文 中文 备注 Chord 和弦 Chorus 合唱 Chime 风铃 Clip 削波 Cue 监听、选听 D 英文 中文 备注 Digital 数字(信号) 这个概念被放大化并推广，当然，这也是一场技术革命 Delay 延迟 Drums 鼓 Drumstick 鼓棒 Display 显示 Dynamic 动态 E 英文 中文 备注 EFF/Effects 效果 一般针对音频信号 Equalize 均衡 Export 导出 EP 电钢琴 Electric Piano Electric Guitar 电吉他 Echo 回声 F 英文 中文 备注 Fade 过渡(音频) 常见的有：Fade In（淡入）、Fade Out（淡出）、Cross Fade（音频交叉过渡） Flute 笛子 FX 特效 Fuse 保险 FT Switch 脚踏开关 G 英文 中文 备注 Groove =&gt; 鼓各个元素之间的搭配和切换（节奏律动，和loop有相通的地方） Gain 增益 控制输入信号的大小 Group 组 H 英文 中文 备注 Horn 号 泛指喇叭状的乐器 High 高音 I 英文 中文 备注 Instrument 乐器 Import 导入 Intro 开头 歌曲的开头 Insert 插入 J 英文 中文 备注 K 英文 中文 备注 Keys 键盘(钢琴) L 英文 中文 备注 Loop 循环 Low 低音 L/Left 左声道 Limit 限幅 Lamp 灯 Level 电平 M 英文 中文 备注 Metronome 节拍器 Melody 旋律 Mix 混音 Mixer 混音器 音频缩混中的一个重要设备（设置），Cubase里按F3，可出现Mixer面板（硬/软） Mix down 音频缩混 每个音频轨之间的关系和比例的调整 MID/Middle 中音 MON/Monitor 监听 Master 总路输出 Main 总 MONO 单声道 N 英文 中文 备注 Note 音符、音调 口语把乐谱也叫做Note O 英文 中文 备注 Outro 结尾 歌曲的结尾(Ending) Orch 交响类音色 Orchestra Organ 风琴 P 英文 中文 备注 Pitch 音高 Pan 声像定位 Pan与Phase的区别 Phase 相位 Percussion 打击乐 Piano 钢琴 Plucked 弹拨乐 Pad 插入衰减 PFL 推子前监听 Phantom 幻象 Progressor 处理器 Q 英文 中文 备注 Quantize 量化 即将手动输入的midi音符按照规定精度（1/4拍，1/8拍，1/16拍）对位到精确的拍子中，一般节奏类乐器多需要量化功能，但过于依赖此功能容易导致音乐过于死板（如钢琴，管乐，并不提倡使用此功能） R 英文 中文 备注 REV/Reverb 混响 使音频更有空间感，有的时候可以让死板的声音变得更真实，震撼 Rhythm 节奏 R/Right 右声道 RET/RTN/Return 返回 S 英文 中文 备注 Synth 合成 Synthesizer 合成器(硬/软) 一般指创造音色的软件或硬件 Sampling 采样 截取音频文件中的某部分然后把它取出来独立作成一个文件 Strings 弦乐类音色 Sub 超低音 Sax 萨克斯 Saxophone Sensitivity 敏感度 控制输入信息大小 Signal 信号 Sum 总 Stereo 立体声 T 英文 中文 备注 Tempo 速度、拍子 Tick 拍 Track 轨道 比如Audio Track(音频轨)、MIDI Track(MIDI轨)… Trim 增益 控制输入信号大小 Tremble 比High更高的高音 U 英文 中文 备注 UNBLA/Unbalance 非平衡 V 英文 中文 备注 Volumn 音量 Violin 小提琴 Voice/Vocal 人声 W 英文 中文 备注 Wave wave文件格式 最常用的原始音频文件格式，保留着音频的最棒效果和质量 Wind 笛子和单簧管 Woodwind 木笛、竹笛 Woofer 低音 X 英文 中文 备注 Y 英文 中文 备注 Z 英文 中文 备注 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+      <categories>
+        <category>Music</category>
+      </categories>
+      <tags>
+        <tag>Music</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[postMessage死循环与window.parent]]></title>
     <url>%2F2017%2F05%2F19%2F2017-05-19-iframe-parent%2F</url>
     <content type="text"><![CDATA[轮回不止 生死不休 上礼拜用postMessage进行iframe跨域通信(使用postMessage解决iframe跨域通信问题），因为写的代码不够健壮，其实说到底还是了解的知识点不够多，这个礼拜BUG就提上来了… 我相当于开发一个中间层框架，在我外层有一个大框架用iframe包着我，我再用iframe包着另一个页面，如图（配色好评）： 按理说用postMessage是不会出问题的:我负责父页面和子页面之间的通信，他们把数据发送给我，我再替他们发送给对方。 但是这几个框架又是相互独立的，只有在特定的情景下才会这样嵌套，BUG就是在页面独立时出现的。 我们知道，获取父级iframe最简单的方法就是window.parent，这样可以拿到父级iframe的window对象，我大概就是这样发送postMessage给父级iframe的： parent.postMessage(&#39;someMessage&#39;, &#39;*&#39;) 而且postMessage方法的调用是写在onmessage事件里的，也就是子页面发送消息过来，我监听到onmessage事件，就发送消息给父级iframe。 问题来了，之前说过框架之前都可以独立运行，如果没有父级iframe，只剩下我的框架和子框架，会发生什么呢？ 大家来开心一下，就是这样子： 而且最诡异的一点是，信息发起人的HOST并不是子页面,而是我自己？WTF? 我不信，跑去找子页面的开发负责人，问他是不是写了死循环不停发消息，对方很坦荡的把代码打开：“你自己看吧，哪来的死循环？” 好吧，回去自己找BUG，经过一个小时的埋头苦读，终于发现了问题所在。 我现在问大家一个问题：当你的页面处于最顶层，也就是外层没有iframe包裹你，求这时window === window.parent的返回值。 呵呵，居然是true，也就是说，当你的页面处于最顶层，window.parent指向你自己！ 有图为证： 相当于当你处于最顶层时，你儿子就是你自己，你也可以是自己的爷爷，当然也可以是自己的曾孙，大概就是这个意思，希望大家以后不会遇到这个坑，其实也不算坑啦，说到底还是自己知识面不够广，连轮回这么简单的道理都不明白… 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
@@ -61,8 +72,8 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Translation</tag>
-        <tag>Meteor</tag>
         <tag>Full-Stack</tag>
+        <tag>Meteor</tag>
       </tags>
   </entry>
   <entry>
@@ -287,8 +298,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Object</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -299,8 +310,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Object</tag>
+        <tag>JavaScript</tag>
         <tag>Polymorphism</tag>
       </tags>
   </entry>
@@ -371,8 +382,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -383,8 +394,8 @@
         <category>Mind</category>
       </categories>
       <tags>
-        <tag>信仰</tag>
         <tag>生活</tag>
+        <tag>信仰</tag>
       </tags>
   </entry>
   <entry>
@@ -419,8 +430,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -454,10 +465,10 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Array</tag>
         <tag>Object</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -468,8 +479,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JSONP</tag>
         <tag>JavaScript</tag>
+        <tag>JSONP</tag>
       </tags>
   </entry>
   <entry>
