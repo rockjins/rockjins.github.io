@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-23T12:34:21.000Z</updated>
+  <updated>2017-05-24T01:29:15.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/"/>
     <id>http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/</id>
     <published>2017-05-22T16:00:00.000Z</published>
-    <updated>2017-05-23T12:34:21.000Z</updated>
+    <updated>2017-05-24T01:29:15.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>叫你不好好学英语</p>
@@ -117,6 +117,7 @@
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><table>
 <thead>
 <tr>
@@ -856,7 +857,94 @@
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;英文&lt;/th&gt;
-&lt;
+&lt;th&gt;中文&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Analog&lt;/td&gt;
+&lt;td&gt;模拟(信号)&lt;/td&gt;
+&lt;td&gt;传输感很差&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Acoustic&lt;/td&gt;
+&lt;td&gt;原生&lt;/td&gt;
+&lt;td&gt;相比处理过的音色而言&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Acoustic Guitar&lt;/td&gt;
+&lt;td&gt;木吉他&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AUX&lt;/td&gt;
+&lt;td&gt;辅助&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AFL&lt;/td&gt;
+&lt;td&gt;推子后监听&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Activity&lt;/td&gt;
+&lt;td&gt;动态&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;B&quot;&gt;&lt;a href=&quot;#B&quot; class=&quot;headerlink&quot; title=&quot;B&quot;&gt;&lt;/a&gt;B&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;英文&lt;/th&gt;
+&lt;th&gt;中文&lt;/th&gt;
+&lt;th&gt;备注&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bass&lt;/td&gt;
+&lt;td&gt;低音、贝斯&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bpm&lt;/td&gt;
+&lt;td&gt;速度、拍子&lt;/td&gt;
+&lt;td&gt;Beat Per Minute(每分钟拍子数)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bar&lt;/td&gt;
+&lt;td&gt;小节&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Breakdown&lt;/td&gt;
+&lt;td&gt;=&amp;gt;&lt;/td&gt;
+&lt;td&gt;歌曲中夹杂着的具有“切断感”的伴奏&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Birdge Plot&lt;/td&gt;
+&lt;td&gt;桥段&lt;/td&gt;
+&lt;td&gt;用于衔接歌曲段落&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Brass&lt;/td&gt;
+&lt;td&gt;铜号&lt;/td&gt;
+&lt;td&gt;泛指铜乐器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Bell&lt;/td&gt;
+&lt;td&gt;金属铃&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BAL/Balance&lt;/td&gt;
+&lt;td&gt;平衡&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
     
     </summary>
     
