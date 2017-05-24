@@ -1367,9 +1367,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
-    
       <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
+    
+      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
     
   </entry>
   
@@ -2137,56 +2137,6 @@
   </entry>
   
   <entry>
-    <title> Some picture about Johnny Depp &amp; Marilyn Manson </title>
-    <link href="http://yoursite.com/2017/02/15/2017-02-15-depp-manson/"/>
-    <id>http://yoursite.com/2017/02/15/2017-02-15-depp-manson/</id>
-    <published>2017-02-14T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p> Two paranoid men.</p>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-d6cfef052d582cc2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-a32a1599de1d88f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-b6158465b78b7219.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-7bed21eb8d8856ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-85ebbc3e6d749c59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-4c66cc2c3bd6216e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-eb3914a49a2a5881.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-0f908ba1b4f51286.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-2ea7b9a6719f5032.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-e94916327582ec56.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-af3a8984ea173efb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-25acc40c8c08c71e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-caacfee7fa6f3e43.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-76fb722d2b66ae29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-6bde7120c729c320.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-0fa21f8e9bcd4d81.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-135a23090bc4428a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt; Two paranoid men.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/2859850-d6cfef052d582cc2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2859850-a32a1599de1d88f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Music" scheme="http://yoursite.com/categories/Music/"/>
-    
-    
-      <category term="Picture" scheme="http://yoursite.com/tags/Picture/"/>
-    
-  </entry>
-  
-  <entry>
     <title> 简单理解JavaScript中的柯里化和反柯里化 </title>
     <link href="http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/"/>
     <id>http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/</id>
@@ -2256,33 +2206,33 @@
   </entry>
   
   <entry>
-    <title>『翻译』一些 JavaScript 优化的细节 </title>
-    <link href="http://yoursite.com/2017/02/13/2017-02-13-tiny-javascript-optimizations/"/>
-    <id>http://yoursite.com/2017/02/13/2017-02-13-tiny-javascript-optimizations/</id>
-    <published>2017-02-12T16:00:00.000Z</published>
+    <title> Some picture about Johnny Depp &amp; Marilyn Manson </title>
+    <link href="http://yoursite.com/2017/02/15/2017-02-15-depp-manson/"/>
+    <id>http://yoursite.com/2017/02/15/2017-02-15-depp-manson/</id>
+    <published>2017-02-14T16:00:00.000Z</published>
     <updated>2017-05-12T07:51:08.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p><a href="http://manong.blog/post/tiny-javascript-optimizations/" target="_blank" rel="external">Read the original</a></p>
+<p> Two paranoid men.</p>
 </blockquote>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>优化客户端JavaScript代码常常是不值得的，因为这会失去代码可读性。如果你的APP运行缓慢，你可以考虑是否能优化请求，减少对DOM的操作，尽量少的操local storage，或者牺牲其它的来换取性能。几乎没有足够的数据认为客户端需要让代码同步运行速度更快。我认为接下来的代码十分具有可读性，如果你也需要，为什么不使用它呢？</p>
-<h3 id="递归尾调用-Recursive-tail-calls"><a href="#递归尾调用-Recursive-tail-calls" class="headerlink" title="递归尾调用(Recursive tail calls)"></a>递归尾调用(Recursive tail calls)</h3><p>在下面例子中，函数每次执行都会创建一个新的栈(维持新添加的环境)。所以，如果参数<code>x:5000</code>，那就会创建5000个栈。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span> + foo(x<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x, accumulated</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> foo(x<span class="number">-1</span>, accumulated + <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-d6cfef052d582cc2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-a32a1599de1d88f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <a id="more"></a>
-<h3 id="使用逻辑表达式"><a href="#使用逻辑表达式" class="headerlink" title="使用逻辑表达式"></a>使用逻辑表达式</h3><p>与C语言不同，在JavaScript中逻辑表达式可以用来做操作运算，而不只是判断真假。这意味着我们可以写出像下面一样简单的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!x) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> x.y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>优化后的版本：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x &amp;&amp; x.y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="散列法-gt-迭代"><a href="#散列法-gt-迭代" class="headerlink" title="散列法 &gt; 迭代"></a>散列法 &gt; 迭代</h3><p><code>switch</code>语句可以让返回的数据在结构中重现。但通常，我们只需要查找和比较一个文件，使用散列法会比迭代快很多。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">iterating</span>(<span class="params">action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'a'</span>:</div><div class="line">      <span class="comment">// do something with action.data</span></div><div class="line">      ...</div><div class="line">      return;</div><div class="line">    <span class="keyword">case</span> ...</div><div class="line">    case <span class="string">'z'</span>:</div><div class="line">      ...</div><div class="line">      return;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">iterating(&#123;<span class="attr">type</span>: <span class="string">'z'</span>, <span class="attr">data</span>: <span class="string">'asdf'</span>&#125;);</div></pre></td></tr></table></figure>
-<p>迭代26个元素。</p>
-<hr>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> lookupTable = &#123;</div><div class="line">  <span class="string">'a'</span>: <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;...&#125;,</div><div class="line">  ...</div><div class="line">  <span class="string">'z'</span>: <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;...&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hashing</span>(<span class="params">action</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> handler = lookupTable[action.type];</div><div class="line">  <span class="keyword">if</span> (handler) &#123;</div><div class="line">    <span class="keyword">return</span> handler(action.data);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一个比较和一个查找。</p>
-<p>当然，这适用于任何可迭代的元素(arrays,strings,etc)，但switch也有它的一些优势。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-b6158465b78b7219.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-7bed21eb8d8856ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-85ebbc3e6d749c59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-4c66cc2c3bd6216e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-eb3914a49a2a5881.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2859850-0f908ba1b4f51286.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-2ea7b9a6719f5032.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-e94916327582ec56.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-af3a8984ea173efb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-25acc40c8c08c71e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-caacfee7fa6f3e43.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-76fb722d2b66ae29.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-6bde7120c729c320.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-0fa21f8e9bcd4d81.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-135a23090bc4428a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <blockquote>
 <p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
@@ -2291,23 +2241,17 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://manong.blog/post/tiny-javascript-optimizations/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Read the original&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; Two paranoid men.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;优化客户端JavaScript代码常常是不值得的，因为这会失去代码可读性。如果你的APP运行缓慢，你可以考虑是否能优化请求，减少对DOM的操作，尽量少的操local storage，或者牺牲其它的来换取性能。几乎没有足够的数据认为客户端需要让代码同步运行速度更快。我认为接下来的代码十分具有可读性，如果你也需要，为什么不使用它呢？&lt;/p&gt;
-&lt;h3 id=&quot;递归尾调用-Recursive-tail-calls&quot;&gt;&lt;a href=&quot;#递归尾调用-Recursive-tail-calls&quot; class=&quot;headerlink&quot; title=&quot;递归尾调用(Recursive tail calls)&quot;&gt;&lt;/a&gt;递归尾调用(Recursive tail calls)&lt;/h3&gt;&lt;p&gt;在下面例子中，函数每次执行都会创建一个新的栈(维持新添加的环境)。所以，如果参数&lt;code&gt;x:5000&lt;/code&gt;，那就会创建5000个栈。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;x&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; + foo(x&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;x, accumulated&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; foo(x&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;, accumulated + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/2859850-d6cfef052d582cc2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2859850-a32a1599de1d88f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
-      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
+      <category term="Music" scheme="http://yoursite.com/categories/Music/"/>
     
     
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
+      <category term="Picture" scheme="http://yoursite.com/tags/Picture/"/>
     
   </entry>
   
@@ -2387,6 +2331,62 @@
 &lt;/blockquote&gt;
 &lt;p&gt;它们看起来有点像这个：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;function() &amp;#123; ... code ... &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;OR&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;（args） =&amp;gt; &amp;#123; ... code ... &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>『翻译』一些 JavaScript 优化的细节 </title>
+    <link href="http://yoursite.com/2017/02/13/2017-02-13-tiny-javascript-optimizations/"/>
+    <id>http://yoursite.com/2017/02/13/2017-02-13-tiny-javascript-optimizations/</id>
+    <published>2017-02-12T16:00:00.000Z</published>
+    <updated>2017-05-12T07:51:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><a href="http://manong.blog/post/tiny-javascript-optimizations/" target="_blank" rel="external">Read the original</a></p>
+</blockquote>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>优化客户端JavaScript代码常常是不值得的，因为这会失去代码可读性。如果你的APP运行缓慢，你可以考虑是否能优化请求，减少对DOM的操作，尽量少的操local storage，或者牺牲其它的来换取性能。几乎没有足够的数据认为客户端需要让代码同步运行速度更快。我认为接下来的代码十分具有可读性，如果你也需要，为什么不使用它呢？</p>
+<h3 id="递归尾调用-Recursive-tail-calls"><a href="#递归尾调用-Recursive-tail-calls" class="headerlink" title="递归尾调用(Recursive tail calls)"></a>递归尾调用(Recursive tail calls)</h3><p>在下面例子中，函数每次执行都会创建一个新的栈(维持新添加的环境)。所以，如果参数<code>x:5000</code>，那就会创建5000个栈。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span> + foo(x<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x, accumulated</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> foo(x<span class="number">-1</span>, accumulated + <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="使用逻辑表达式"><a href="#使用逻辑表达式" class="headerlink" title="使用逻辑表达式"></a>使用逻辑表达式</h3><p>与C语言不同，在JavaScript中逻辑表达式可以用来做操作运算，而不只是判断真假。这意味着我们可以写出像下面一样简单的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (!x) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> x.y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>优化后的版本：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x &amp;&amp; x.y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="散列法-gt-迭代"><a href="#散列法-gt-迭代" class="headerlink" title="散列法 &gt; 迭代"></a>散列法 &gt; 迭代</h3><p><code>switch</code>语句可以让返回的数据在结构中重现。但通常，我们只需要查找和比较一个文件，使用散列法会比迭代快很多。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">iterating</span>(<span class="params">action</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'a'</span>:</div><div class="line">      <span class="comment">// do something with action.data</span></div><div class="line">      ...</div><div class="line">      return;</div><div class="line">    <span class="keyword">case</span> ...</div><div class="line">    case <span class="string">'z'</span>:</div><div class="line">      ...</div><div class="line">      return;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">iterating(&#123;<span class="attr">type</span>: <span class="string">'z'</span>, <span class="attr">data</span>: <span class="string">'asdf'</span>&#125;);</div></pre></td></tr></table></figure>
+<p>迭代26个元素。</p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> lookupTable = &#123;</div><div class="line">  <span class="string">'a'</span>: <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;...&#125;,</div><div class="line">  ...</div><div class="line">  <span class="string">'z'</span>: <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;...&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hashing</span>(<span class="params">action</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> handler = lookupTable[action.type];</div><div class="line">  <span class="keyword">if</span> (handler) &#123;</div><div class="line">    <span class="keyword">return</span> handler(action.data);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个比较和一个查找。</p>
+<p>当然，这适用于任何可迭代的元素(arrays,strings,etc)，但switch也有它的一些优势。</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://manong.blog/post/tiny-javascript-optimizations/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Read the original&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;优化客户端JavaScript代码常常是不值得的，因为这会失去代码可读性。如果你的APP运行缓慢，你可以考虑是否能优化请求，减少对DOM的操作，尽量少的操local storage，或者牺牲其它的来换取性能。几乎没有足够的数据认为客户端需要让代码同步运行速度更快。我认为接下来的代码十分具有可读性，如果你也需要，为什么不使用它呢？&lt;/p&gt;
+&lt;h3 id=&quot;递归尾调用-Recursive-tail-calls&quot;&gt;&lt;a href=&quot;#递归尾调用-Recursive-tail-calls&quot; class=&quot;headerlink&quot; title=&quot;递归尾调用(Recursive tail calls)&quot;&gt;&lt;/a&gt;递归尾调用(Recursive tail calls)&lt;/h3&gt;&lt;p&gt;在下面例子中，函数每次执行都会创建一个新的栈(维持新添加的环境)。所以，如果参数&lt;code&gt;x:5000&lt;/code&gt;，那就会创建5000个栈。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;x&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; + foo(x&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;x, accumulated&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; foo(x&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;, accumulated + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
