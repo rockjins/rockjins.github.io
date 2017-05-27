@@ -9,6 +9,7 @@
       </categories>
       <tags>
         <tag>Service</tag>
+        <tag>SSH</tag>
       </tags>
   </entry>
   <entry>
@@ -94,8 +95,8 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Translation</tag>
-        <tag>Full-Stack</tag>
         <tag>Meteor</tag>
+        <tag>Full-Stack</tag>
       </tags>
   </entry>
   <entry>
@@ -181,6 +182,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[不定期更新 JavaScript技巧]]></title>
+    <url>%2F2017%2F02%2F15%2F2017-02-15-javascript-skill%2F</url>
+    <content type="text"><![CDATA[JavaScript技巧，偶尔更新。 计算数组的极值1234567891011function smallest(array)&#123; return Math.min.apply(Math, array); &#125; function largest(array)&#123; return Math.max.apply(Math, array); &#125; smallest([0, 1, 2.2, 3.3]); // 0largest([0, 1, 2.2, 3.3]); // 3.3 数组排序1234567[14.3, 8, 1, 64].sort(function(a, b) &#123; return a - b;&#125;);//[1, 8, 14.3, 64]//从大到小排序就是 b - a 迭代arguments1234567891011function useCall() &#123; [].forEach.call(arguments, function(val, key) &#123; console.log(key, val) &#125;);&#125;useCall('Bob Dylan', 'Bob Marley', 'Steve Vai');//0 "Bob Dylan"//1 "Bob Marley"//2 "Steve Vai" 将arguments转为数组123function transformToArray(arg)&#123; return Array.prototype.slice.call(arg);&#125; Array.prototype.forEach()第二个参数 参考：MDN 12345678910var coder = &#123; name: 'Shock', friends: ['Rocky', 'Bob'], logHiToFriends:function()&#123; 'use static' this.friends.forEach(function(friend)&#123; console.log(this.name+ ' say hi to '+ friend); &#125;,this)//注意这个this，如果不添加这个参数，你可以猜测会发生什么 &#125;&#125; 随机生成字母和数字组合的字符串1234Math.random().toString(36).substr(2);//un80usvvsgcpi0rffskf39pb9//02aoe605zgg5xqup6fdclnb3xr//ydzr1swdxjg3yolkb95p14i 使用IIFE解决循环问题unexpected: 123456789var funcs = [];for (var i = 0; i &lt; 10; i++) &#123; funcs.push(function() &#123; console.log(i); &#125;);&#125;funcs.forEach(function(func) &#123; func(); // 输出数值 "10" 十次&#125;); expected: 12345678910111213var funcs = [];for (var i = 0; i &lt; 10; i++) &#123; funcs.push((function(value) &#123; return function() &#123; console.log(value); &#125; &#125;(i)));&#125;funcs.forEach(function(func) &#123; func(); // 从 0 到 9 依次输出&#125;); 使用let解决循环问题这是let独有的特性(参考) 1234567891011var funcs = [];for (let i = 0; i &lt; 10; i++) &#123; funcs.push(function() &#123; console.log(i); &#125;);&#125;funcs.forEach(function(func) &#123; func(); // 从 0 到 9 依次输出&#125;) 判断两个小数是否相等123456789101112131415161718//因为javascript数字通常被输入为十进制的浮点数，但内部却被表示为二进制，所以计算结果会有偏差：0.1 + 0.2 //0.300000000000000040.1 + 1 - 1 //0.100000000000000090.1 + 0.2 === 0.3 //false//所以我们不应该直接比较非整数，而是取其上限，把误差计算进去//这样一个上限称为 machine epsilon，双精度的标准epsilon值是2^-53const EPSILON = Math.pow(2, -53); //1.1102230246251565e-16function epsEqu(x,y) &#123; return Math.abs(x - y) &lt; EPSILON;&#125;epsEqu(0.1+0.2, 0.3) //true Math.round函数的坑12345678Math.round(-3.2) //-3Math.round(-3.5) //-3(这个就奇怪了)Math.round(-3.8) //-4//其实，Math.round(x)等同于：Math.floor(x + 0.5) 巧用||和&amp;&amp;12345var bar = $ || 233;//如果$存在，则把$赋值给bar；如果$不存在，则把233赋值给bar$ === undefined &amp;&amp; (window.$ = jQuery); //如果$不存在,则把jQuery赋值给window.$；如果$存在，则不执行后面的表达式 使用break + labels退出循环123456789101112function findNumber(arr)&#123; loop:&#123; for (var i = 0; i &lt; arr.length; i++) &#123; if(arr[i]%2 == 0)&#123; break loop;//表示退出loop区块 &#125; &#125; console.log(arr);//这句代码是不会执行的，如果上面只是break，for循环之后的代码还是会执行 &#125;&#125;findNumber([1,3,5,6]); 简单实现合并对象123456789101112131415function merge(root)&#123; for (var i = 1; i &lt; arguments.length; i++) &#123; for (var key in arguments[i]) &#123; if (arguments[i].hasOwnProperty(key)) &#123; root[key] = arguments[i][key]; &#125; &#125; &#125; return root;&#125;var merged = merge( &#123;name:'Shock'&#125;, &#123;city:'Shenzhen'&#125;)//&#123;name:'Shock',city:'Shenzhen'&#125; 理解map和parseInt12345['1','2','3'].map(parseInt);//[1, NaN, NaN]['1','2','3'].map(function(x)&#123;return parseInt(x,10)&#125;);//[1, 2, 3] 上传图片预览功能12&lt;input type="file" name="file" onchange="showPreview(this)" /&gt;&lt;img id="portrait" src="" width="70" height="75"&gt; 12345678910function showPreview(source) &#123; var file = source.files[0]; if(window.FileReader) &#123; var fr = new FileReader(); fr.onloadend = function(e) &#123; document.getElementById("portrait").src = e.target.result; &#125;; fr.readAsDataURL(file); &#125;&#125; 微信内部修改document.title12345678910111213141516function setTitle(title) &#123; document.title = title; if (/ip(hone|od|ad)/i.test(navigator.userAgent)) &#123; var i = document.createElement('iframe'); i.src = '/favicon.ico'; i.style.display = 'none'; i.onload = function() &#123; setTimeout(function()&#123; i.remove(); &#125;, 9) &#125; document.body.appendChild(i); &#125;&#125;setTitle("要修改的标题"); 快速克隆一个对象12345678910111213141516171819202122var Rocker = function(name, age)&#123; this.name = name, this.age = age&#125;var shock = new Rocker('Shock', 24);shock.age = 99;var cloneShock = Object.create(shock);cloneShock.name // "Shock"cloneShock.age // 99//在不支持ES5的浏览器下，实现create方法如下：Object.create = Object.create || function(obj)&#123; var F = function()&#123;&#125;; F.prototype = obj; return new F();&#125; 判断一个值是否是对象123456function isObject(value)&#123; return value === Object(value);&#125;isObject(&#123;&#125;); // trueisObject(123); // false 为构造器模拟apply功能1234567891011121314if(!Function.prototype.construct)&#123; Function.prototype.construct = function(argArray)&#123; if(!Array.isArray(argArray))&#123; throw new TypeError("Arguments must be an array"); &#125; var constr = this; var nullaryFunc = Function.prototype.bind.apply( constr,[null].concat(argArray)); return new nullaryFunc(); &#125;&#125;//使用:Date.construct([2017, 02, 14]); // Tue Mar 14 2017 00:00:00 GMT+0800 (CST) 防止高频调用的debounce函数123456789101112131415161718192021222324//immediate参数判断是否立即执行function debounce(func, wait, immediate) &#123; var timeout; return function() &#123; var context = this, args = arguments; var later = function() &#123; timeout = null; if(!immediate) func.apply(context, args); &#125;; var callNow = immediate &amp;&amp; !timeout; clearTimeout(timeout); timeout = setTimeout(later, wait); if(callNow) func.apply(context, args); &#125;;&#125;;//使用var myEfficientFn = debounce(function() &#123; //你要做的事&#125;, 250);window.addEventListener('resize', myEfficientFn); 设定时间/频率循环检测函数12345678910111213function poll(fn, callback, err, timeout, interval) &#123; var startTime = (new Date()).getTime(); var pi = window.setInterval(function() &#123; if(Math.floor(((new Date()).getTime() - startTime) / 1000) &lt;= timeout) &#123; if(fn()) &#123; callback(); &#125; &#125; else &#123; window.clearInterval(pi); err(); &#125; &#125;, interval)&#125; 禁止重复调用、只允许执行一次的once 函数12345678910111213141516171819function once(fn, context) &#123; var result; return function() &#123; if(fn) &#123; result = fn.apply(context || this, arguments); fn = null; &#125; return result; &#125;&#125;//使用var canOnlyFireOnce = once(function() &#123; console.log('只触发一次！');&#125;)canOnlyFireOnce(); // "只触发一次"canOnlyFireOnce(); // undefined 获取一个链接的绝对地址12345678910111213var getAbsoluteUrl = (function() &#123; var a; return function(url) &#123; if(!a) a = document.createElement('a'); a.href = url; return a.href; &#125;;&#125;)();//使用getAbsoluteUrl("/something"); //https://rockjins.github.io/something uncurring实现方法之一123456789101112131415Function.prototype.uncurring = function() &#123; var self = this; return function() &#123; var obj = Array.prototype.shift.call(arguments); return self.apply(obj, arguments); &#125;;&#125;;//使用var push = Array.prototype.push.uncurring();(function() &#123; push(arguments, 4); console.log(arguments); //输出：[1, 2, 3, 4]&#125;)(1, 2, 3) 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[简单理解JavaScript中的柯里化和反柯里化]]></title>
     <url>%2F2017%2F02%2F15%2F2017-02-15-curring-uncurring%2F</url>
     <content type="text"><![CDATA[就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的 前言本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。 我们先来简单了解一下他们的作用。 柯里化又称部分求值，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。 反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。 柯里化(curring)我们有这样一个场景，记录程序员一个月的加班总时间，那么好，我们首先要做的是记录程序员每天加班的时间，然后把一个月中每天的加班的时间相加，就得到了一个月的加班总时间。 但问题来了，我们有很多种方法可以实现它，比如最简单的： 123456789101112var monthTime = 0;function overtime(time) &#123; return monthTime += time;&#125;overtime(3.5); // 第一天overtime(4.5); // 第二天overtime(2.1); // 第三天//...console.log(monthTime); // 10.1 每次传入加班时间都进行累加，这样当然没问题，但你知道，如果数据量很大的情况下，这样会大大牺牲性能。 那怎么办？这就是柯里化要解决的问题。 其实我们不必每天都计算加班时间，只需要保存好每天的加班时间，在月底时计算这个月总共的加班时间，所以，其实只需要在月底计算一次就行。 下面的overtime函数还不是一个柯里化函数的完整实现，但可以帮助我们了解其核心思想： 12345678910111213141516171819202122var overtime = (function() &#123; var args = []; return function() &#123; if(arguments.length === 0) &#123; var time = 0; for (var i = 0, l = args.length; i &lt; l; i++) &#123; time += args[i]; &#125; return time; &#125;else &#123; [].push.apply(args, arguments); &#125; &#125;&#125;)();overtime(3.5); // 第一天overtime(4.5); // 第二天overtime(2.1); // 第三天//...console.log( overtime() ); // 10.1 柯里化的核心思想就是这样，看到这里你肯定已经懂了，至于真正的柯里化函数，网上有很多，大家可以去Google一下。 反柯里化(uncurring)反柯里化的的作用已经在前言说过了，这里讲下它的由来。 2011年JavaScript之父Brendan Eich发表了一篇Twitter，提出了反柯里化这个思想，下面这段代码是反柯里化的实现方式之一： 1234567Function.prototype.uncurring = function() &#123; var self = this; return function() &#123; var obj = Array.prototype.shift.call(arguments); return self.apply(obj, arguments); &#125;;&#125;; 我们先来看看上面这段代码有什么作用。 我们要把Array.prototype.push方法转换成一个通用的push函数，只需要这样做： 1234567var push = Array.prototype.push.uncurring();//测试一下(function() &#123; push(arguments, 4); console.log(arguments); //[1, 2, 3, 4]&#125;)(1, 2, 3) arguments本来是没有push方法的，通常，我们都需要用Array.prototype.push.call来实现push方法，但现在，直接调用push函数，既简洁又意图明了。 就和前言写的那样，我们不用考虑对象是否拥有这个方法，只要它适用于这个方法，那就可以使用这个方法（类似于鸭子类型）。 我们来分析一下调用Array.prototype.push.uncurring()这句代码时，发生了什么事情： 12345678910111213141516171819202122232425Function.prototype.uncurring = function() &#123; var self = this; //self此时是Array.prototype.push return function() &#123; var obj = Array.prototype.shift.call(arguments); //obj 是&#123; // "length": 1, // "0": 1 //&#125; //arguments的第一个对象被截去(也就是调用push方法的对象),剩下[2] return self.apply(obj, arguments); //相当于Array.prototype.push.apply(obj, 2); &#125;;&#125;;//测试一下var push = Array.prototype.push.uncurring();var obj = &#123; "length": 1, "0" : 1&#125;;push(obj, 2);console.log( obj ); //&#123;0: 1,1: 2, length: 2 &#125; 看到这里你应该对柯里化和反柯里化有了一个初步的认识了，但要熟练的运用在开发中，还需要我们更深入的去了解它们内在的含义。 本文参考： JavaScript设计模式与开发实践 Currying in JavaScript Curried JavaScript functions 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
@@ -190,17 +202,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Curring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[不定期更新 JavaScript技巧]]></title>
-    <url>%2F2017%2F02%2F15%2F2017-02-15-javascript-skill%2F</url>
-    <content type="text"><![CDATA[JavaScript技巧，偶尔更新。 计算数组的极值1234567891011function smallest(array)&#123; return Math.min.apply(Math, array); &#125; function largest(array)&#123; return Math.max.apply(Math, array); &#125; smallest([0, 1, 2.2, 3.3]); // 0largest([0, 1, 2.2, 3.3]); // 3.3 数组排序1234567[14.3, 8, 1, 64].sort(function(a, b) &#123; return a - b;&#125;);//[1, 8, 14.3, 64]//从大到小排序就是 b - a 迭代arguments1234567891011function useCall() &#123; [].forEach.call(arguments, function(val, key) &#123; console.log(key, val) &#125;);&#125;useCall('Bob Dylan', 'Bob Marley', 'Steve Vai');//0 "Bob Dylan"//1 "Bob Marley"//2 "Steve Vai" 将arguments转为数组123function transformToArray(arg)&#123; return Array.prototype.slice.call(arg);&#125; Array.prototype.forEach()第二个参数 参考：MDN 12345678910var coder = &#123; name: 'Shock', friends: ['Rocky', 'Bob'], logHiToFriends:function()&#123; 'use static' this.friends.forEach(function(friend)&#123; console.log(this.name+ ' say hi to '+ friend); &#125;,this)//注意这个this，如果不添加这个参数，你可以猜测会发生什么 &#125;&#125; 随机生成字母和数字组合的字符串1234Math.random().toString(36).substr(2);//un80usvvsgcpi0rffskf39pb9//02aoe605zgg5xqup6fdclnb3xr//ydzr1swdxjg3yolkb95p14i 使用IIFE解决循环问题unexpected: 123456789var funcs = [];for (var i = 0; i &lt; 10; i++) &#123; funcs.push(function() &#123; console.log(i); &#125;);&#125;funcs.forEach(function(func) &#123; func(); // 输出数值 "10" 十次&#125;); expected: 12345678910111213var funcs = [];for (var i = 0; i &lt; 10; i++) &#123; funcs.push((function(value) &#123; return function() &#123; console.log(value); &#125; &#125;(i)));&#125;funcs.forEach(function(func) &#123; func(); // 从 0 到 9 依次输出&#125;); 使用let解决循环问题这是let独有的特性(参考) 1234567891011var funcs = [];for (let i = 0; i &lt; 10; i++) &#123; funcs.push(function() &#123; console.log(i); &#125;);&#125;funcs.forEach(function(func) &#123; func(); // 从 0 到 9 依次输出&#125;) 判断两个小数是否相等123456789101112131415161718//因为javascript数字通常被输入为十进制的浮点数，但内部却被表示为二进制，所以计算结果会有偏差：0.1 + 0.2 //0.300000000000000040.1 + 1 - 1 //0.100000000000000090.1 + 0.2 === 0.3 //false//所以我们不应该直接比较非整数，而是取其上限，把误差计算进去//这样一个上限称为 machine epsilon，双精度的标准epsilon值是2^-53const EPSILON = Math.pow(2, -53); //1.1102230246251565e-16function epsEqu(x,y) &#123; return Math.abs(x - y) &lt; EPSILON;&#125;epsEqu(0.1+0.2, 0.3) //true Math.round函数的坑12345678Math.round(-3.2) //-3Math.round(-3.5) //-3(这个就奇怪了)Math.round(-3.8) //-4//其实，Math.round(x)等同于：Math.floor(x + 0.5) 巧用||和&amp;&amp;12345var bar = $ || 233;//如果$存在，则把$赋值给bar；如果$不存在，则把233赋值给bar$ === undefined &amp;&amp; (window.$ = jQuery); //如果$不存在,则把jQuery赋值给window.$；如果$存在，则不执行后面的表达式 使用break + labels退出循环123456789101112function findNumber(arr)&#123; loop:&#123; for (var i = 0; i &lt; arr.length; i++) &#123; if(arr[i]%2 == 0)&#123; break loop;//表示退出loop区块 &#125; &#125; console.log(arr);//这句代码是不会执行的，如果上面只是break，for循环之后的代码还是会执行 &#125;&#125;findNumber([1,3,5,6]); 简单实现合并对象123456789101112131415function merge(root)&#123; for (var i = 1; i &lt; arguments.length; i++) &#123; for (var key in arguments[i]) &#123; if (arguments[i].hasOwnProperty(key)) &#123; root[key] = arguments[i][key]; &#125; &#125; &#125; return root;&#125;var merged = merge( &#123;name:'Shock'&#125;, &#123;city:'Shenzhen'&#125;)//&#123;name:'Shock',city:'Shenzhen'&#125; 理解map和parseInt12345['1','2','3'].map(parseInt);//[1, NaN, NaN]['1','2','3'].map(function(x)&#123;return parseInt(x,10)&#125;);//[1, 2, 3] 上传图片预览功能12&lt;input type="file" name="file" onchange="showPreview(this)" /&gt;&lt;img id="portrait" src="" width="70" height="75"&gt; 12345678910function showPreview(source) &#123; var file = source.files[0]; if(window.FileReader) &#123; var fr = new FileReader(); fr.onloadend = function(e) &#123; document.getElementById("portrait").src = e.target.result; &#125;; fr.readAsDataURL(file); &#125;&#125; 微信内部修改document.title12345678910111213141516function setTitle(title) &#123; document.title = title; if (/ip(hone|od|ad)/i.test(navigator.userAgent)) &#123; var i = document.createElement('iframe'); i.src = '/favicon.ico'; i.style.display = 'none'; i.onload = function() &#123; setTimeout(function()&#123; i.remove(); &#125;, 9) &#125; document.body.appendChild(i); &#125;&#125;setTitle("要修改的标题"); 快速克隆一个对象12345678910111213141516171819202122var Rocker = function(name, age)&#123; this.name = name, this.age = age&#125;var shock = new Rocker('Shock', 24);shock.age = 99;var cloneShock = Object.create(shock);cloneShock.name // "Shock"cloneShock.age // 99//在不支持ES5的浏览器下，实现create方法如下：Object.create = Object.create || function(obj)&#123; var F = function()&#123;&#125;; F.prototype = obj; return new F();&#125; 判断一个值是否是对象123456function isObject(value)&#123; return value === Object(value);&#125;isObject(&#123;&#125;); // trueisObject(123); // false 为构造器模拟apply功能1234567891011121314if(!Function.prototype.construct)&#123; Function.prototype.construct = function(argArray)&#123; if(!Array.isArray(argArray))&#123; throw new TypeError("Arguments must be an array"); &#125; var constr = this; var nullaryFunc = Function.prototype.bind.apply( constr,[null].concat(argArray)); return new nullaryFunc(); &#125;&#125;//使用:Date.construct([2017, 02, 14]); // Tue Mar 14 2017 00:00:00 GMT+0800 (CST) 防止高频调用的debounce函数123456789101112131415161718192021222324//immediate参数判断是否立即执行function debounce(func, wait, immediate) &#123; var timeout; return function() &#123; var context = this, args = arguments; var later = function() &#123; timeout = null; if(!immediate) func.apply(context, args); &#125;; var callNow = immediate &amp;&amp; !timeout; clearTimeout(timeout); timeout = setTimeout(later, wait); if(callNow) func.apply(context, args); &#125;;&#125;;//使用var myEfficientFn = debounce(function() &#123; //你要做的事&#125;, 250);window.addEventListener('resize', myEfficientFn); 设定时间/频率循环检测函数12345678910111213function poll(fn, callback, err, timeout, interval) &#123; var startTime = (new Date()).getTime(); var pi = window.setInterval(function() &#123; if(Math.floor(((new Date()).getTime() - startTime) / 1000) &lt;= timeout) &#123; if(fn()) &#123; callback(); &#125; &#125; else &#123; window.clearInterval(pi); err(); &#125; &#125;, interval)&#125; 禁止重复调用、只允许执行一次的once 函数12345678910111213141516171819function once(fn, context) &#123; var result; return function() &#123; if(fn) &#123; result = fn.apply(context || this, arguments); fn = null; &#125; return result; &#125;&#125;//使用var canOnlyFireOnce = once(function() &#123; console.log('只触发一次！');&#125;)canOnlyFireOnce(); // "只触发一次"canOnlyFireOnce(); // undefined 获取一个链接的绝对地址12345678910111213var getAbsoluteUrl = (function() &#123; var a; return function(url) &#123; if(!a) a = document.createElement('a'); a.href = url; return a.href; &#125;;&#125;)();//使用getAbsoluteUrl("/something"); //https://rockjins.github.io/something uncurring实现方法之一123456789101112131415Function.prototype.uncurring = function() &#123; var self = this; return function() &#123; var obj = Array.prototype.shift.call(arguments); return self.apply(obj, arguments); &#125;;&#125;;//使用var push = Array.prototype.push.uncurring();(function() &#123; push(arguments, 4); console.log(arguments); //输出：[1, 2, 3, 4]&#125;)(1, 2, 3) 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
-      <categories>
-        <category>Technology</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -320,8 +321,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>Object</tag>
         <tag>JavaScript</tag>
+        <tag>Object</tag>
       </tags>
   </entry>
   <entry>
@@ -332,8 +333,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>Object</tag>
         <tag>JavaScript</tag>
+        <tag>Object</tag>
         <tag>Polymorphism</tag>
       </tags>
   </entry>
@@ -404,8 +405,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>Function</tag>
         <tag>JavaScript</tag>
+        <tag>Function</tag>
       </tags>
   </entry>
   <entry>
@@ -452,8 +453,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>Function</tag>
         <tag>JavaScript</tag>
+        <tag>Function</tag>
       </tags>
   </entry>
   <entry>
@@ -487,10 +488,10 @@
         <category>Technology</category>
       </categories>
       <tags>
+        <tag>JavaScript</tag>
         <tag>Array</tag>
         <tag>Object</tag>
         <tag>Function</tag>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -501,8 +502,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>JSONP</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
