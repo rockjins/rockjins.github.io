@@ -311,6 +311,167 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/27/2017-05-27-service-port/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余震">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/27/2017-05-27-service-port/" itemprop="url"> ssh连接服务器 Operation timed out </a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-27T00:00:00+08:00">
+                2017-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/27/2017-05-27-service-port/" class="leancloud_visitors" data-flag-title=" ssh连接服务器 Operation timed out ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>买了个阿里云ECS云服务器，捣鼓吧…</p>
+</blockquote>
+<p>大家知道，云服务器的默认端口是<code>22</code>，为了防止服务器端口被轻易扫描到，我在<code>sshd_config</code>中把<code>Port</code>改为<code>3999</code>（这是我随意改的一个端口号）。</p>
+<p>今天再次进行ssh连接时，登了大概一分钟，报了这样一个错:</p>
+<p><code>ssh: connect to host 39.108.55.** port 3999: Operation timed out</code></p>
+<p>连接服务器超时了，第一时间我想到服务器被墙了，不过我在阿里云上买的，没道理啊，先去<code>ping</code>一下再说:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-5add0d0d45d32fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>没被墙啊，去google下，又说是本地防火墙把端口禁了，打开防火墙一看：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-2e0cc9992f28dfda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>也不是防火墙的问题啊，行吧，跑到阿里云去看看，东找西找，来到了<code>安全组规则</code>栏目下，长这个样:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-f9f3c8702e34319d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>上面有个端口范围，我发现自己随便设置的<code>3999</code>并不在配置的范围里，遂添加了一条安全组规则，把3999端口加了上去，再进行ssh连接，终于连上了…</p>
+<p>这问题弄了我一上午，菜鸟就是苦，啥都自己摸索，坚持吧！</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/24/2017-05-24-diary-tree-die/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1788,160 +1949,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="余震">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rockjins Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/12/2017-03-12-promise-dev/" itemprop="url"> 快速将Promise运用在开发中 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T00:00:00+08:00">
-                2017-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/03/12/2017-03-12-promise-dev/" class="leancloud_visitors" data-flag-title=" 快速将Promise运用在开发中 ">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。</p>
-</blockquote>
-<h3 id="什么是Promise？"><a href="#什么是Promise？" class="headerlink" title="什么是Promise？"></a>什么是Promise？</h3><p>简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。</p>
-<p>在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getAsync(<span class="string">"fileA.txt"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, result</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(error)&#123;<span class="comment">// 取得失败时的处理 throw error;</span></div><div class="line">    <span class="keyword">throw</span> error;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/12/2017-03-12-promise-dev/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1991,7 +1998,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2013,7 +2020,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-25T08:35:37.000Z</updated>
+  <updated>2017-05-27T09:42:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> ssh连接服务器 Operation timed out </title>
+    <link href="http://yoursite.com/2017/05/27/2017-05-27-service-port/"/>
+    <id>http://yoursite.com/2017/05/27/2017-05-27-service-port/</id>
+    <published>2017-05-26T16:00:00.000Z</published>
+    <updated>2017-05-27T09:42:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>买了个阿里云ECS云服务器，捣鼓吧…</p>
+</blockquote>
+<p>大家知道，云服务器的默认端口是<code>22</code>，为了防止服务器端口被轻易扫描到，我在<code>sshd_config</code>中把<code>Port</code>改为<code>3999</code>（这是我随意改的一个端口号）。</p>
+<p>今天再次进行ssh连接时，登了大概一分钟，报了这样一个错:</p>
+<p><code>ssh: connect to host 39.108.55.** port 3999: Operation timed out</code></p>
+<p>连接服务器超时了，第一时间我想到服务器被墙了，不过我在阿里云上买的，没道理啊，先去<code>ping</code>一下再说:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-5add0d0d45d32fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>没被墙啊，去google下，又说是本地防火墙把端口禁了，打开防火墙一看：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-2e0cc9992f28dfda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>也不是防火墙的问题啊，行吧，跑到阿里云去看看，东找西找，来到了<code>安全组规则</code>栏目下，长这个样:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-f9f3c8702e34319d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>上面有个端口范围，我发现自己随便设置的<code>3999</code>并不在配置的范围里，遂添加了一条安全组规则，把3999端口加了上去，再进行ssh连接，终于连上了…</p>
+<p>这问题弄了我一上午，菜鸟就是苦，啥都自己摸索，坚持吧！</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;买了个阿里云ECS云服务器，捣鼓吧…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;大家知道，云服务器的默认端口是&lt;code&gt;22&lt;/code&gt;，为了防止服务器端口被轻易扫描到，我在&lt;code&gt;sshd_config&lt;/code&gt;中把&lt;code&gt;Por
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
+    
+  </entry>
   
   <entry>
     <title> 昨夜の梦 - 树 </title>
@@ -62,7 +104,7 @@
     <link href="http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/"/>
     <id>http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/</id>
     <published>2017-05-22T16:00:00.000Z</published>
-    <updated>2017-05-24T01:29:15.000Z</updated>
+    <updated>2017-05-25T16:36:38.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>叫你不好好学英语</p>
@@ -521,6 +563,11 @@
 <td>单声道</td>
 <td></td>
 </tr>
+<tr>
+<td>Modulation</td>
+<td>移调</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <h2 id="N"><a href="#N" class="headerlink" title="N"></a>N</h2><table>
@@ -731,6 +778,11 @@
 <td>Stereo</td>
 <td>立体声</td>
 <td></td>
+</tr>
+<tr>
+<td>Sustain</td>
+<td>维持</td>
+<td>相当于延音</td>
 </tr>
 </tbody>
 </table>
@@ -1409,9 +1461,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
-    
       <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
+    
+      <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
     
   </entry>
   
@@ -2429,126 +2481,6 @@
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;x&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; + foo(x&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;x, accumulated&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (x &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; foo(x&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;, accumulated + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『翻译』JavaScript 函数式编程 </title>
-    <link href="http://yoursite.com/2017/02/11/2017-02-11-functional-programming/"/>
-    <id>http://yoursite.com/2017/02/11/2017-02-11-functional-programming/</id>
-    <published>2017-02-10T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p><a href="http://dealwithjs.io/functional-programming-in-javascript/" target="_blank" rel="external">Read the original</a></p>
-</blockquote>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>函数式编程与我们以往的编程习惯有许多不同。这篇文章举了一些JavaScript的例子，介绍了函数式编程中重要的概念。附加的文章会让你更深入的了解JavaScript中的函数式编程。</p>
-<p>本文源码可以在<a href="https://github.com/gergob" target="_blank" rel="external">GitHub</a>上找到，放在<a href="https://github.com/gergob/jsFunctionalProgramming" target="_blank" rel="external">jsFunctionalProgramming</a>仓库中。</p>
-<blockquote>
-<p>我要感谢<a href="http://dealwithjs.io/author/csaba/" target="_blank" rel="external">Csaba Hellinger</a>的支持和投入，在他的帮助下我才完成这篇文章。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="PART-1"><a href="#PART-1" class="headerlink" title="PART 1"></a>PART 1</h2><p>函数式编程由<a href="https://en.wikipedia.org/wiki/Lambda_calculus" target="_blank" rel="external">Lambda Calculus</a>演化而来，它是一个抽象数学的函数表述，我们将思考怎么把它运用在现实中。</p>
-<blockquote>
-<p>函数式编程是声明式编程的范式。</p>
-</blockquote>
-<h3 id="为什么要使用函数式编程？"><a href="#为什么要使用函数式编程？" class="headerlink" title="为什么要使用函数式编程？"></a>为什么要使用函数式编程？</h3><p>函数式编程有以下具体特性：</p>
-<ol>
-<li><p><em>避免状态改变（可变的数据）</em> - 函数式编程的特性之一就是：函数在应用中不会改变状态，它们(functions)宁愿从之前的状态之上创建一个新的状态。</p>
-</li>
-<li><p><em>函数声明 vs 函数表达式</em> - 在函数式编程中，我们定义和描述函数就像数学中的一个方法声明。</p>
-</li>
-<li><p><em>幂等性</em> - 这意味着我们用相同的参数调用一个函数(不管任何时刻)它都会返回相同的结果，这也可以避免状态的改变。</p>
-</li>
-</ol>
-<p>这三个特性咋一看似乎并没有什么意义，但如果我们更深入的分析，发现在以下三种情况下使用函数式编程能充分发挥这三个特性：</p>
-<ol>
-<li><p><em>并行的代码执行</em> - 因为函数式编程有<em>幂等性</em>和<em>避免状态改变</em>的特性，用函数方法编写代码会让并行更容易，因为不会出现同步问题。</p>
-</li>
-<li><p><em>简明、简洁的代码</em> - 因为函数式编程使用方法声明的方式，代码不会像面向过程编程一样，有额外的算法步骤。</p>
-</li>
-<li><p><em>不同的编程思想</em> - 一旦你真正使用了一门函数式编程语言，你会拥有一种新的编程思想，当你构建应用时也会有新的点子。</p>
-</li>
-</ol>
-<h3 id="f-x-J-s"><a href="#f-x-J-s" class="headerlink" title="f(x) === J(s)"></a>f(x) === J(s)</h3><p><em>javascript</em> 是一门真正的（纯粹的）函数式编程语言吗？</p>
-<blockquote>
-<p>不！JavaScript并不是一门纯粹的函数式编程语言…</p>
-</blockquote>
-<h3 id="第一型对象-函数"><a href="#第一型对象-函数" class="headerlink" title="第一型对象 - 函数"></a>第一型对象 - 函数</h3><p>它可以很好的运用在函数式编程中，因为函数是第一性对象。如果在一门编程语言中，函数和其他类型一样，那么这门语言中的函数就是第一型对象。举个例子，函数可以作为参数传递给其他函数，也可以赋值给变量。</p>
-<p>我们将检查一些函数是否是第一型对象，但是在这之前，我们先构建一个代码块，我们将像真正的函数式语言一样使用JavaScript。</p>
-<p>在大部分纯函数式编程语言中(Haskell, Clean, Erlang)，它们是没有<code>for</code>或者<code>while</code>循环的，所以循环一个列表需要用到递归函数。纯函数式编程语言有语言支持和最好的列表推导式和列表串联。</p>
-<p>这里有一个函数实现了<code>for</code>循环，我们将在接下来的代码中用到它，但是你也将看到它在JS中的局限性，因为<a href="http://www.2ality.com/2015/06/tail-call-optimization.html" target="_blank" rel="external">尾部调用优化</a>并没有被广泛的支持，但以后会好起来的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcFor</span>(<span class="params">first, last, step, callback</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">//递归inner函数</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>((step &gt; <span class="number">0</span> &amp;&amp; index &gt;= last) || (step &lt; <span class="number">0</span> &amp;&amp; index &lt; last)) &#123;</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    callback(index);</div><div class="line"></div><div class="line">    <span class="comment">//</span></div><div class="line">    <span class="comment">//接下来进行尾部调用</span></div><div class="line">    <span class="comment">//</span></div><div class="line">    inner(index + step);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//</span></div><div class="line">  <span class="comment">//开始递归</span></div><div class="line">  <span class="comment">//</span></div><div class="line">  inner(first);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>inner</code>函数包含了对停止递归的管理，它传入参数<code>index</code>去调用<code>callback</code>，再递归调用<code>inner(index + step)</code>确保循环传递到下一步。</p>
-<blockquote>
-<p>递归是函数式编程的一个重要方面。</p>
-</blockquote>
-<p>现在，让我们看看真正的函数式编程：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyIfAllNumbers</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(areNumbers(items)) &#123;</div><div class="line">    <span class="keyword">return</span> funcMap(items, fn);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> [];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>applyIfAllNumbers</code>函数的目的是调用<code>fn</code>函数，并把<code>items</code>中的每个数字作为参数传入，但前提是只有在<code>items</code>数组中都是数字的情况下才去调用。</p>
-<p>下面是验证器函数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">areNumbers</span>(<span class="params">numbers</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(numbers.length == <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> isNumber(number[<span class="number">0</span>]) &amp;&amp; areNumbers(numbers.slice(<span class="number">1</span>));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">isFinite</span>(n) &amp;&amp; +n === n;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码简单明了，如果参数是一个数字，<code>isNumber</code>函数返回<code>true</code>，否则返回<code>false</code>。<code>areNumbers</code>函数使用<code>isNumber</code>函数判断<code>numbers</code>数组中是否全是数字（再提醒一次，递归常常被用来实现这种逻辑）。</p>
-<p>另一个例子是<code>applyForNumbersOnly</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyForNumbersOnly</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> numbers = filter(items, isNumber);</div><div class="line">  <span class="keyword">return</span> funcMap(numbers, fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样写甚至更简洁：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">applyForNumbersOnly</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> funcMap(filter(items, isNumber), fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>applyForNumbersOnly</code>调用<code>fn</code>方法仅仅是为了收集<code>items</code>中的数字。</p>
-<p><code>funcMap</code>函数在函数式编程中重现了著名的<code>map</code>函数，但是这里我借助了<code>funcForEach</code>函数来创建它：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcForEach</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> funcFor(<span class="number">0</span>, items.length, <span class="number">1</span>, <span class="function"><span class="keyword">function</span>(<span class="params">idx</span>) </span>&#123;</div><div class="line">    fn(items[idx]);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funcMap</span>(<span class="params">items, fn</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> result = [];</div><div class="line">  funcForEach(items, <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">    result.push(fn(item));</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最后还剩<code>filter</code>函数，我们再一次使用递归来实现过滤的逻辑。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params">input, callback</span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params">input, callback, index, output</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (index === input.length) &#123;</div><div class="line">      <span class="keyword">return</span> output;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> inner(</div><div class="line">      input,</div><div class="line">      callback,</div><div class="line">      index + <span class="number">1</span>,</div><div class="line">      callback(input[index]) ? output.concat(input[index]) : output;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> inner(input, callback, <span class="number">0</span>, []);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="JS中的尾调用优化-TCO"><a href="#JS中的尾调用优化-TCO" class="headerlink" title="JS中的尾调用优化(TCO)"></a>JS中的尾调用优化(TCO)</h3><p>在<a href="http://www.ecma-international.org/ecma-262/6.0/#sec-tail-position-calls" target="_blank" rel="external">EcmaScript 2015 TCO</a>文档中有一些用例的定义，这门语言不久就将支持尾调用优化了。最关键的一点就是在你的代码中使用<code>use strict</code>模式，否则JS不能支持尾调用优化。</p>
-<p>由于没有内置方法来检测浏览器是否支持尾调动优化，以下代码实现了这个功能：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="string">"use static"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isTCOSupported</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> outerStackLen = <span class="keyword">new</span> <span class="built_in">Error</span>().stack.length;</div><div class="line">  <span class="comment">//inner函数的name长度一定不能超过外部函数</span></div><div class="line">  <span class="keyword">return</span> (<span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">const</span> innerStackLen = <span class="keyword">new</span> <span class="built_in">Error</span>().stack.length;</div><div class="line">    <span class="keyword">return</span> innerStackLen &lt;= outerStackLen;</div><div class="line">  &#125;());</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(isTCOSupported() ? <span class="string">"TCO Available"</span> : <span class="string">"TCO N/A"</span>);</div></pre></td></tr></table></figure>
-<p>这里有一个重现<code>Math.pow</code>函数的例子，它能从EcmaScript 2015的TCO中获益。</p>
-<blockquote>
-<p>这个pow函数的实现使用了<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters" target="_blank" rel="external">ES6默认参数</a>，让它看上去更简洁。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">powES6</span>(<span class="params">base, power, result=base</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (power === <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(power === <span class="number">1</span>) &#123;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> powES6(base, power - <span class="number">1</span>, result * base);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>首先要提醒以下，<code>powES6</code>函数有三个参数而不是两个。第三个参数是计算后的值。我们随身携带<code>return</code>是为了实现让我们的递归调用变成真正的尾调用，让JS可以使用它的尾调用优化技术。</p>
-<p>万一我们不能使用ES6的特性，那么我们不推荐使用递归去实现<code>pow</code>函数，因为这门语言还没有提出有关递归的优化，这样实现起来就很复杂了：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">recursivePow</span>(<span class="params">base, power, result</span>) </span>&#123;  </div><div class="line">    <span class="keyword">if</span> (power === <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(power === <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> recursivePow(base, power - <span class="number">1</span>, result * base);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">base, power</span>) </span>&#123;  </div><div class="line">    <span class="keyword">return</span> recursivePow(base, power, base);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们把递归计算放在了另一个<code>recursivePow</code>函数中，这个函数有三个参数，就像<code>powES6</code>函数一样。使用一个新函数并把<code>base</code>作为参数传递给它，以此实现ES6中的默认参数逻辑。</p>
-<p>在<a href="https://kangax.github.io/compat-table/es6/#test-proper_tail_calls_" target="_blank" rel="external">这个页面</a>你可以查看TCO在不同浏览器和平台的支持情况。</p>
-<p>目前只有<em>Safari 10</em>是完全支持TCO的浏览器(在写这篇文章时)，我将进行一些对于<code>pow</code>的测试，来看看它的表现。</p>
-<h3 id="测试递归调用"><a href="#测试递归调用" class="headerlink" title="测试递归调用"></a>测试递归调用</h3><p>我使用了<code>powES6</code>和<code>pow</code>函数来进行测试:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">stressPow</span>(<span class="params">n</span>) </span>&#123;  </div><div class="line">    <span class="keyword">var</span> result = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;n; ++i) &#123;</div><div class="line">        result.push(</div><div class="line">          pow(<span class="number">2</span>, <span class="number">0</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">1</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">2</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">3</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">4</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">5</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">10</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">20</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">30</span>),</div><div class="line">          pow(<span class="number">1</span>, <span class="number">10000</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">40</span>),</div><div class="line">          pow(<span class="number">3</span>, <span class="number">10</span>),</div><div class="line">          pow(<span class="number">4</span>, <span class="number">15</span>),</div><div class="line">          pow(<span class="number">1</span>, <span class="number">11000</span>),</div><div class="line">          pow(<span class="number">3.22</span>, <span class="number">125</span>),</div><div class="line">          pow(<span class="number">3.1415</span>, <span class="number">89</span>),</div><div class="line">          pow(<span class="number">7</span>, <span class="number">2500</span>),</div><div class="line">          pow(<span class="number">2</span>, <span class="number">13000</span>)</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> start = performance.now();</div><div class="line"><span class="keyword">var</span> result_standard = stressPow(<span class="number">2500</span>);  </div><div class="line"><span class="keyword">var</span> duration = performance.now() - start;  </div><div class="line"><span class="built_in">console</span>.log(result_standard);  </div><div class="line"><span class="built_in">console</span>.log(<span class="string">`Duration: <span class="subst">$&#123;duration&#125;</span> ms.`</span>);</div></pre></td></tr></table></figure>
-<p>我在Chrome v55, Firefox v50, Safari v9.2 和 Safari v10上测试了以上代码。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-5de2accbb8251a59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>根据上面的数据，我们得出Safari对递归函数的优化效率是最高的。Safari 10对尾调用的支持是最好的，速度比Chrome快了大约2.8倍。Firefox几乎和Safari 9.2 一样棒，这出乎了我的意料。</p>
-<p>如果你很喜欢这篇文章，请点个赞哦。（译者注：话说好长啊，好累啊。）</p>
-<p>让我们继续函数式!</p>
-<blockquote>
-<p>PART 2 也即将发出，关于高阶函数和例子，讲解如何编写函数式风格的代码。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://dealwithjs.io/functional-programming-in-javascript/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Read the original&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;函数式编程与我们以往的编程习惯有许多不同。这篇文章举了一些JavaScript的例子，介绍了函数式编程中重要的概念。附加的文章会让你更深入的了解JavaScript中的函数式编程。&lt;/p&gt;
-&lt;p&gt;本文源码可以在&lt;a href=&quot;https://github.com/gergob&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;上找到，放在&lt;a href=&quot;https://github.com/gergob/jsFunctionalProgramming&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jsFunctionalProgramming&lt;/a&gt;仓库中。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我要感谢&lt;a href=&quot;http://dealwithjs.io/author/csaba/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Csaba Hellinger&lt;/a&gt;的支持和投入，在他的帮助下我才完成这篇文章。&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     
