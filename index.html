@@ -411,8 +411,7 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>买了个阿里云ECS云服务器，捣鼓吧…</p>
 </blockquote>
 <p>大家知道，云服务器的默认端口是<code>22</code>，为了防止服务器端口被轻易扫描到，我在<code>sshd_config</code>中把<code>Port</code>改为<code>3999</code>（这是我随意改的一个端口号）。</p>
@@ -420,17 +419,13 @@
 <p><code>ssh: connect to host 39.108.55.** port 3999: Operation timed out</code></p>
 <p>连接服务器超时了，第一时间我想到服务器被墙了，不过我在阿里云上买的，没道理啊，先去<code>ping</code>一下再说:</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2859850-5add0d0d45d32fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>没被墙啊，去google下，又说是本地防火墙把端口禁了，打开防火墙一看：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-2e0cc9992f28dfda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>也不是防火墙的问题啊，行吧，跑到阿里云去看看，东找西找，来到了<code>安全组规则</code>栏目下，长这个样:</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-f9f3c8702e34319d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>上面有个端口范围，我发现自己随便设置的<code>3999</code>并不在配置的范围里，遂添加了一条安全组规则，把3999端口加了上去，再进行ssh连接，终于连上了…</p>
-<p>这问题弄了我一上午，菜鸟就是苦，啥都自己摸索，坚持吧！</p>
-<blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/27/2017-05-27-service-port/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

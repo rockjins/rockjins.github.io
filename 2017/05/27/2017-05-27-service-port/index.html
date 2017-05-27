@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-5add0d0d45d32fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-2e0cc9992f28dfda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-f9f3c8702e34319d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-05-27T09:42:11.000Z">
+<meta property="og:updated_time" content="2017-05-27T09:46:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" ssh连接服务器 Operation timed out ">
 <meta name="twitter:description" content="买了个阿里云ECS云服务器，捣鼓吧…  大家知道，云服务器的默认端口是22，为了防止服务器端口被轻易扫描到，我在sshd_config中把Port改为3999（这是我随意改的一个端口号）。 今天再次进行ssh连接时，登了大概一分钟，报了这样一个错: ssh: connect to host 39.108.55.** port 3999: Operation timed out 连接服务器超时了，">
@@ -420,6 +420,7 @@
 <p><code>ssh: connect to host 39.108.55.** port 3999: Operation timed out</code></p>
 <p>连接服务器超时了，第一时间我想到服务器被墙了，不过我在阿里云上买的，没道理啊，先去<code>ping</code>一下再说:</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2859850-5add0d0d45d32fb6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
 <p>没被墙啊，去google下，又说是本地防火墙把端口禁了，打开防火墙一看：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2859850-2e0cc9992f28dfda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>也不是防火墙的问题啊，行吧，跑到阿里云去看看，东找西找，来到了<code>安全组规则</code>栏目下，长这个样:</p>
