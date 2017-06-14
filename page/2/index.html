@@ -311,6 +311,169 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余震">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/" itemprop="url"> You Don't Need jQuery - Query Selector </a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-01T00:00:00+08:00">
+                2017-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/" class="leancloud_visitors" data-flag-title=" You Don't Need jQuery - Query Selector ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>GitHub地址：<a href="https://github.com/oneuijs/You-Dont-Need-jQuery" target="_blank" rel="external">https://github.com/oneuijs/You-Dont-Need-jQuery</a></p>
+</blockquote>
+<p>常用的 class、id、属性 选择器都可以使用 <code>document.querySelector</code> 或 <code>document.querySelectorAll</code> 替代。区别是</p>
+<ul>
+<li><p><code>document.querySelector</code> 返回第一个匹配的 Element</p>
+</li>
+<li><p><code>document.querySelectorAll</code> 返回所有匹配的 Element 组成的 NodeList。它可以通过 <code>[].slice.call()</code> 把它转成 Array</p>
+</li>
+<li><p>如果匹配不到任何 Element，jQuery 返回空数组 <code>[]</code>，但 <code>document.querySelector</code> 返回 <code>null</code>，注意空指针异常。当找不到时，也可以使用 <code>||</code> 设置默认的值，如 <code>document.querySelectorAll(selector) || []</code></p>
+</li>
+</ul>
+<blockquote>
+<p>注意：<code>document.querySelector</code> 和 <code>document.querySelectorAll</code> 性能很<strong>差</strong>。如果想提高性能，尽量使用 <code>document.getElementById</code>、<code>document.getElementsByClassName</code> 或 <code>document.getElementsByTagName</code>。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1405,161 +1568,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="余震">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rockjins Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/15/2017-02-15-curring-uncurring/" itemprop="url"> 简单理解JavaScript中的柯里化和反柯里化 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-15T00:00:00+08:00">
-                2017-02-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/15/2017-02-15-curring-uncurring/" class="leancloud_visitors" data-flag-title=" 简单理解JavaScript中的柯里化和反柯里化 ">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的</p>
-</blockquote>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。</p>
-<p>我们先来简单了解一下他们的作用。</p>
-<p>柯里化又称<em>部分求值</em>，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。</p>
-<p>反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/15/2017-02-15-curring-uncurring/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/2017-02-15-depp-manson/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1713,7 +1721,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/13/2017-02-13-tiny-javascript-optimizations/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="余震">
@@ -1732,7 +1740,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/13/2017-02-13-tiny-javascript-optimizations/" itemprop="url">『翻译』一些 JavaScript 优化的细节 </a></h1>
+                <a class="post-title-link" href="/2017/02/15/2017-02-15-curring-uncurring/" itemprop="url"> 简单理解JavaScript中的柯里化和反柯里化 </a></h1>
         
 
         <div class="post-meta">
@@ -1744,8 +1752,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-13T00:00:00+08:00">
-                2017-02-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-15T00:00:00+08:00">
+                2017-02-15
               </time>
             
 
@@ -1767,8 +1775,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Translation/" itemprop="url" rel="index">
-                    <span itemprop="name">Translation</span>
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
                   </a>
                 </span>
 
@@ -1784,7 +1792,7 @@
 
           
           
-             <span id="/2017/02/13/2017-02-13-tiny-javascript-optimizations/" class="leancloud_visitors" data-flag-title="『翻译』一些 JavaScript 优化的细节 ">
+             <span id="/2017/02/15/2017-02-15-curring-uncurring/" class="leancloud_visitors" data-flag-title=" 简单理解JavaScript中的柯里化和反柯里化 ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1814,17 +1822,15 @@
       
         
           <blockquote>
-<p><a href="http://manong.blog/post/tiny-javascript-optimizations/" target="_blank" rel="external">Read the original</a></p>
+<p>就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的</p>
 </blockquote>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>优化客户端JavaScript代码常常是不值得的，因为这会失去代码可读性。如果你的APP运行缓慢，你可以考虑是否能优化请求，减少对DOM的操作，尽量少的操local storage，或者牺牲其它的来换取性能。几乎没有足够的数据认为客户端需要让代码同步运行速度更快。我认为接下来的代码十分具有可读性，如果你也需要，为什么不使用它呢？</p>
-<h3 id="递归尾调用-Recursive-tail-calls"><a href="#递归尾调用-Recursive-tail-calls" class="headerlink" title="递归尾调用(Recursive tail calls)"></a>递归尾调用(Recursive tail calls)</h3><p>在下面例子中，函数每次执行都会创建一个新的栈(维持新添加的环境)。所以，如果参数<code>x:5000</code>，那就会创建5000个栈。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span> + foo(x<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x, accumulated</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (x &lt; <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> foo(x<span class="number">-1</span>, accumulated + <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。</p>
+<p>我们先来简单了解一下他们的作用。</p>
+<p>柯里化又称<em>部分求值</em>，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。</p>
+<p>反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/13/2017-02-13-tiny-javascript-optimizations/#more" rel="contents">
+            <a class="btn" href="/2017/02/15/2017-02-15-curring-uncurring/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1910,7 +1916,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
