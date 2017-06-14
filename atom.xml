@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-27T10:08:03.000Z</updated>
+  <updated>2017-06-14T06:46:39.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> live-server快速搭建服务 </title>
+    <link href="http://yoursite.com/2017/06/14/2017-06-14-live-server/"/>
+    <id>http://yoursite.com/2017/06/14/2017-06-14-live-server/</id>
+    <published>2017-06-13T16:00:00.000Z</published>
+    <updated>2017-06-14T06:46:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>争取节省大家的时间，看看有多快…</p>
+</blockquote>
+<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
+<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
+<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
+<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
+<p>你只需要全局安装<code>live-server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
+<p>在项目根目录执行这条命令，一般会把它放在<code>package.json</code>的<code>scripts</code>下的<code>server</code>中，然后执行<code>npm run server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;live-server ./ --port=9090&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。</p>
+<p>希望这篇没有任何技术可言的文章能够帮到你！</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;争取节省大家的时间，看看有多快…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本地开发常常需要搭建临时的服务，第一时间我们会想到用&lt;a href=&quot;https://github.com/indexzero/http-server/&quot; target=&quot;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
+    
+  </entry>
   
   <entry>
     <title> ssh连接服务器 Operation timed out </title>
@@ -111,7 +152,7 @@
     <link href="http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/"/>
     <id>http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/</id>
     <published>2017-05-22T16:00:00.000Z</published>
-    <updated>2017-05-25T16:36:38.000Z</updated>
+    <updated>2017-06-05T09:15:04.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>叫你不好好学英语</p>
@@ -790,6 +831,11 @@
 <td>Sustain</td>
 <td>维持</td>
 <td>相当于延音</td>
+</tr>
+<tr>
+<td>Scoop</td>
+<td>消减中音</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -2353,94 +2399,6 @@
     
     
       <category term="Picture" scheme="http://yoursite.com/tags/Picture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 『翻译』3个原因让我像躲避瘟疫一样避免使用JS匿名函数 </title>
-    <link href="http://yoursite.com/2017/02/13/2017-02-14-three-reasons-i-avoid-anonymous-js-functions-like-the-plague/"/>
-    <id>http://yoursite.com/2017/02/13/2017-02-14-three-reasons-i-avoid-anonymous-js-functions-like-the-plague/</id>
-    <published>2017-02-12T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p><a href="https://medium.com/@justindanielfuller/three-reasons-i-avoid-anonymous-js-functions-like-the-plague-7f985c27a006#.cks2rw59d" target="_blank" rel="external">Read the original</a></p>
-</blockquote>
-<hr>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>无论何时阅读代码，你一定会看到匿名函数。有时它们被称为lambdas，有时被称为匿名函数（anonymous functions），但不管怎样，我认为他们是糟糕的。</p>
-<p>如果你不知道什么是匿名函数，这里有一段引用：</p>
-<blockquote>
-<p>匿名函数是一个可以在运行时动态声明的函数。之所以称为匿名函数是因为：他们没有像普通函数一样被赋予名字(name)。 ——Helen Emerson, <a href="Helephant.com">Helephant.com</a></p>
-</blockquote>
-<p>它们看起来有点像这个：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function() &#123; ... code ... &#125;</div><div class="line"></div><div class="line">OR</div><div class="line"></div><div class="line">（args） =&gt; &#123; ... code ... &#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>下面我会举一些例子给你，实际上，只有在非用不可的情况下才会使用匿名函数。它们不是你的首选，并且你要知道为什么。一旦你这么做了，你的代码会更简洁、容易去阅读，BUG也更容易被捕获，让我们看看这3个避免使用它们的原因吧！</p>
-<h3 id="堆栈跟踪"><a href="#堆栈跟踪" class="headerlink" title="堆栈跟踪"></a>堆栈跟踪</h3><p>你终于写完了代码，无论你有多擅长编码，当你运行代码时，总会有一些报错。有些错误很容易被捕获，但有时并不是这样。</p>
-<p>如果错误很容易被捕获到，好的，那说明你知道他们错在哪！为此，我们使用所谓的<em>堆栈跟踪</em>，如果你对<em>堆栈跟踪</em>一点都不了解，<a href="https://developers.google.com/web/tools/chrome-devtools/console/track-exceptions" target="_blank" rel="external">Google给了我们很好的介绍</a>。</p>
-<p>假设我们有一个很简单的项目:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  (<span class="function"><span class="keyword">function</span> <span class="title">middle</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span> <span class="title">end</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.lg(<span class="string">'test'</span>);</div><div class="line">    &#125;)()</div><div class="line">  &#125;)()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但看起来我们做了一些愚蠢得难以置信的事，就像拼错<code>console.log</code>。在我们这个小项目中，这没什么大不了的。但也许这是一个<em>巨型</em>项目中的一个片段，有大量的模块与它相互依赖。最重要的是，让我们假装你没有烦这种愚蠢的错误。那个初级开发者在他准备离开度假的前一天，把它推到了仓库中！</p>
-<p>现在，我们将去跟踪错误。根据我们精确的命名函数，我们得到的堆栈跟踪像下面这样：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-5e7c917155cef6b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>幸好你给函数命名了，初级开发者！现在，我们能轻松的跟踪到这个BUG。</p>
-<p>但是…一旦我们修复了它，又会出现新的BUG。这时，就要请出更高级的开发者了。他们知道如何使用匿名函数，并大量的使用在他们的代码中。结果是，他们发现了一个BUG，我们去跟踪BUG。</p>
-<p>他们的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"> (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="built_in">console</span>.lg(<span class="string">'test'</span>);</div><div class="line">    &#125;)();</div><div class="line">  &#125;)();</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>多令人惊讶，这个高级开发者也忘了怎么拼写<code>console.log</code>！这是一个偶然吗？！告诉你一个悲痛的消息，他们没有给函数命名。</p>
-<p>控制台会展示什么给我们？</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/2859850-8ce8fb83de9c9dfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>没事…我们还有行号提示？ 在这个例子中，我们好像有7行代码。如果我们在处理一个巨大的代码库？如果每行有10k的代码?如果行号相差很远？如果代码被压缩了、没有map文件、行号提示几乎是没用的？</p>
-<p>我认为你可以非常容易的回答这些问题。答案是：<em>你会度过糟糕的一天</em>。</p>
-<h3 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h3><p>看吧，我知道你不服气。你仍然爱着匿名函数，而且你永远也不会有BUG。抱歉，我忘了告诉你如何写出完美的代码。让我们来看看这点！</p>
-<p>检查下面两个不同的代码示例:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function initiate (arguments) &#123;</div><div class="line">  return new Promise((resolve, reject) =&gt; &#123;</div><div class="line">    try &#123;</div><div class="line">      if (arguments) &#123;</div><div class="line">         return resolve(true);</div><div class="line">      &#125;</div><div class="line">      return resolve(false);</div><div class="line">    &#125; catch (e) &#123;</div><div class="line">      reject(e);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">initiate(true)</div><div class="line">  .then(res =&gt; &#123;</div><div class="line">        if (res) &#123;</div><div class="line">          doSomethingElse();</div><div class="line">        &#125; else &#123;</div><div class="line">          doSomething();</div><div class="line">        &#125;</div><div class="line">  ).catch(e =&gt; &#123;</div><div class="line">            logError(e.message);</div><div class="line">            restartApp();</div><div class="line">          &#125;</div><div class="line">  );</div></pre></td></tr></table></figure>
-<p>这是一个人为的例子，但我认为你能get到那个点。我们有一个方法，它返回一个Promise对象，我们用这个对象去管理可能返回的不同请求。</p>
-<p>你或许认为这个代码阅读起来不太难，但我认为它能写的更好。</p>
-<p>如果我们摆脱所有匿名函数，结果会如何？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">initiate</span> (<span class="params">arguments</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(checkForArguments);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkForArguments</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>) &#123;</div><div class="line">     <span class="keyword">return</span> resolve(<span class="literal">true</span>);   </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> resolve(<span class="literal">false</span>);</div><div class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">    reject(e);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">evaluateRes</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (res) &#123;</div><div class="line">    doSomethingElse();</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    doSomething();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleError</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">  logError(e.message);</div><div class="line">  restartApp();</div><div class="line">&#125;</div><div class="line">initiate(<span class="literal">true</span>)</div><div class="line">  .then(evaluateRes)</div><div class="line">  .catch(handleError);</div></pre></td></tr></table></figure>
-<p>好了，让我们来屡清一下思路：这段代码比之前的要长，但我认为它比之前的可读性高得多！我们使用了非常棒的命名函数而不是匿名函数。只要我们看到命名函数，它的名字就会暗示我们接下来会发生什么。它消除了我们在阅读代码时的心理障碍。</p>
-<p>这也有利于独立问题。不仅仅是创建方法，传递参数，运行逻辑，在第二个例子中，传递参数给<code>then</code>和<code>catch</code>，我们可以很清楚的知道函数中的每一处都发生了什么。</p>
-<p>时间不多了，否则我要让你信服这些代码可以更加易读。也许你任然不相信，那尝试看看第三个论据…</p>
-<h3 id="可重用性"><a href="#可重用性" class="headerlink" title="可重用性"></a>可重用性</h3><p>你有注意到最后一个例子吗？所有函数都是可以互相调用的！</p>
-<p>当你使用匿名函数时，它们很难遍布你的程序。重用代码可以降低能耗，你也不用一遍遍写重复的代码了。还有大家都知道的一点，代码越少，引入BUG的几率越小，而且用户可以加载更少的资源。共赢的局面！</p>
-<p>相反的，命名函数可以在它的整个作用域中使用，而不需要像变量一样四处传递。你写的代码会很自然的更具重用性，因为，你可以重用他们！</p>
-<h3 id="匿名函数好吗？"><a href="#匿名函数好吗？" class="headerlink" title="匿名函数好吗？"></a>匿名函数好吗？</h3><p>是的。我必须承认，有时它们也是最好的选择！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> stuff = [</div><div class="line">  &#123; <span class="attr">hide</span>: <span class="literal">true</span>, <span class="attr">name</span>: <span class="string">'justin'</span> &#125;,</div><div class="line">  &#123; <span class="attr">hide</span>: <span class="literal">false</span>, <span class="attr">name</span>: <span class="string">'lauren'</span> &#125;,</div><div class="line">  &#123; <span class="attr">hide</span>: <span class="literal">false</span>, <span class="attr">name</span>: <span class="string">'max'</span> &#125;,</div><div class="line">];</div><div class="line"><span class="keyword">const</span> filteredStuff = stuff.filter(<span class="function"><span class="params">s</span> =&gt;</span> !s.hide);</div></pre></td></tr></table></figure>
-<p>这个匿名函数<code>s =&gt; !s.hide</code>小而简洁，它不会污染其它地方，也不会用在其它地方。它会在<code>stuff.filter</code>的堆栈跟踪中显示。如果你需要重用它，最好重用整个语句：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">filterByHide</span> (<span class="params">array</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> array.filter(<span class="function"><span class="params">item</span> =&gt;</span> !item.hide);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>有时你需要包裹你所有的代码在一个匿名函数中，以保证全局作用域不被污染。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line"> ... your code here ...</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>顶级匿名函数不会影响到堆栈跟踪。代码重用是不会造成伤害的，因为代码重用的全部目的就是保持方法被包含。</p>
-<p>我相信还有其他地方适合使用匿名函数，在评论中分享一下吧！</p>
-<p>感谢阅读，离开这里后，停止写匿名函数吧！</p>
-<blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://medium.com/@justindanielfuller/three-reasons-i-avoid-anonymous-js-functions-like-the-plague-7f985c27a006#.cks2rw59d&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Read the original&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;无论何时阅读代码，你一定会看到匿名函数。有时它们被称为lambdas，有时被称为匿名函数（anonymous functions），但不管怎样，我认为他们是糟糕的。&lt;/p&gt;
-&lt;p&gt;如果你不知道什么是匿名函数，这里有一段引用：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;匿名函数是一个可以在运行时动态声明的函数。之所以称为匿名函数是因为：他们没有像普通函数一样被赋予名字(name)。 ——Helen Emerson, &lt;a href=&quot;Helephant.com&quot;&gt;Helephant.com&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;它们看起来有点像这个：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;function() &amp;#123; ... code ... &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;OR&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;（args） =&amp;gt; &amp;#123; ... code ... &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
   </entry>
   
