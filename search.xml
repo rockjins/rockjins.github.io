@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[live-server快速搭建服务]]></title>
-    <url>%2F2017%2F06%2F14%2F2017-06-14-live-server%2F</url>
-    <content type="text"><![CDATA[争取节省大家的时间，看看有多快… 本地开发常常需要搭建临时的服务，第一时间我们会想到用http-server。 但现在流行修改文件浏览器自动刷新，好像叫hot socketing（热拔插），这时候又得用到live-reload。 既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个opener。 现在只要使用live-server就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。 你只需要全局安装live-server： 1npm install -g live-server 在项目根目录执行这条命令，一般会把它放在package.json的scripts下的server中，然后执行npm run server： 123&quot;scripts&quot;: &#123; &quot;server&quot;: &quot;live-server ./ --port=9090&quot;&#125; 然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。 希望这篇没有任何技术可言的文章能够帮到你！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[阿里云配置 node.js + Nginx 反向代理]]></title>
+    <url>%2F2017%2F06%2F14%2F2017-06-15-aliyun-node-nginx%2F</url>
+    <content type="text"><![CDATA[学如逆水行舟 1.首先你得安装node.js，我是用nvm安装的，这样比较好控制版本，当然你也可以使用apt-get。 2.下一步是安装Nginx，不去管版本的话，直接sudo apt-get install nginx就行。 3.进入/etc/nginx目录，查看nginx.conf配置文件，在http块中找到这样两句： 12# include /etc/nginx/conf.d/*.conf;# include /etc/nginx/sites-enabled/*; 看看你的这两句有没有注释掉，如果注释了就把#号去掉，没有注释的话就跳过这一步。 4.进入/etc/nginx/conf.d目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：rockjins-com-8081.conf，配置文件写入以下内容： 123456789101112131415161718upstream rockjins &#123; server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上 keepalive 64;&#125;server &#123; listen 80; #这里的端口号是你要监听的端口号 server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开 location / &#123; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_set_header X-Nginx-Proxy true; proxy_set_header Connection &quot;&quot;; proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义 &#125;&#125; 5.保存文件后，输入sudo nginx -t测试我们的配置文件是否有错误，一般错误都是漏个分号，少个字母之类的，错误提示很精确，没错的话会输出下面两句: 12nginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful 6.现在我们需要重启Nginx，我们的配置文件才会生效，输入sudo service nginx reload; 7.最后一步把我坑惨了，弄了一晚上，就是安全组的问题，之前有篇文章还写到了这个问题，一转眼就忘了。(ssh连接服务器 Operation timed out) 因为服务跑在8081端口上，但是阿里云的安全组默认是拒绝4000端口以上的授权策略的，大家一定记得去添加安全组规则，如图: 8.打开浏览器，输入你的IP或域名，是不是把8081端口代理到80端口上了，哈哈。 希望这篇文章能够帮到你，有什么问题可以找我，大家一起进步！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Technology</category>
       </categories>
@@ -12,9 +12,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[阿里云配置 node.js + Nginx 反向代理]]></title>
-    <url>%2F2017%2F06%2F14%2F2017-06-15-aliyun-node-nginx%2F</url>
-    <content type="text"><![CDATA[学如逆水行舟 1.首先你得安装node.js，我是用nvm安装的，这样比较好控制版本，当然你也可以使用apt-get。 2.下一步是安装Nginx，不去管版本的话，直接sudo apt-get install nginx就行。 3.进入/etc/nginx目录，查看nginx.conf配置文件，在http块中找到这样两句： 12# include /etc/nginx/conf.d/*.conf;# include /etc/nginx/sites-enabled/*; 看看你的这两句有没有注释掉，如果注释了就把#号去掉，没有注释的话就跳过这一步。 4.进入/etc/nginx/conf.d目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：rockjins-com-8081.conf，配置文件写入以下内容： 123456789101112131415161718upstream rockjins &#123; server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上 keepalive 64;&#125;server &#123; listen 80; #这里的端口号是你要监听的端口号 server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开 location / &#123; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_set_header X-Nginx-Proxy true; proxy_set_header Connection &quot;&quot;; proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义 &#125;&#125; 5.保存文件后，输入sudo nginx -t测试我们的配置文件是否有错误，一般错误都是漏个分号，少个字母之类的，错误提示很精确，没错的话会输出下面两句: 12nginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful 6.现在我们需要重启Nginx，我们的配置文件才会生效，输入sudo service nginx reload; 7.最后一步把我坑惨了，弄了一晚上，就是安全组的问题，之前有篇文章还写到了这个问题，一转眼就忘了。(ssh连接服务器 Operation timed out) 因为服务跑在8081端口上，但是阿里云的安全组默认是拒绝4000端口以上的授权策略的，大家一定记得去添加安全组规则，如图: 8.打开浏览器，输入你的IP或域名，是不是把8081端口代理到80端口上了，哈哈。 希望这篇文章能够帮到你，有什么问题可以找我，大家一起进步！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[live-server快速搭建服务]]></title>
+    <url>%2F2017%2F06%2F14%2F2017-06-14-live-server%2F</url>
+    <content type="text"><![CDATA[争取节省大家的时间，看看有多快… 本地开发常常需要搭建临时的服务，第一时间我们会想到用http-server。 但现在流行修改文件浏览器自动刷新，好像叫hot socketing（热拔插），这时候又得用到live-reload。 既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个opener。 现在只要使用live-server就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。 你只需要全局安装live-server： 1npm install -g live-server 在项目根目录执行这条命令，一般会把它放在package.json的scripts下的server中，然后执行npm run server： 123&quot;scripts&quot;: &#123; &quot;server&quot;: &quot;live-server ./ --port=9090&quot;&#125; 然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。 希望这篇没有任何技术可言的文章能够帮到你！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Technology</category>
       </categories>
@@ -117,8 +117,8 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Translation</tag>
-        <tag>Full-Stack</tag>
         <tag>Meteor</tag>
+        <tag>Full-Stack</tag>
       </tags>
   </entry>
   <entry>
@@ -215,17 +215,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Some picture about Johnny Depp & Marilyn Manson]]></title>
-    <url>%2F2017%2F02%2F15%2F2017-02-15-depp-manson%2F</url>
-    <content type="text"><![CDATA[Two paranoid men. 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
-      <categories>
-        <category>Music</category>
-      </categories>
-      <tags>
-        <tag>Picture</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[简单理解JavaScript中的柯里化和反柯里化]]></title>
     <url>%2F2017%2F02%2F15%2F2017-02-15-curring-uncurring%2F</url>
     <content type="text"><![CDATA[就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的 前言本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。 我们先来简单了解一下他们的作用。 柯里化又称部分求值，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。 反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。 柯里化(curring)我们有这样一个场景，记录程序员一个月的加班总时间，那么好，我们首先要做的是记录程序员每天加班的时间，然后把一个月中每天的加班的时间相加，就得到了一个月的加班总时间。 但问题来了，我们有很多种方法可以实现它，比如最简单的： 123456789101112var monthTime = 0;function overtime(time) &#123; return monthTime += time;&#125;overtime(3.5); // 第一天overtime(4.5); // 第二天overtime(2.1); // 第三天//...console.log(monthTime); // 10.1 每次传入加班时间都进行累加，这样当然没问题，但你知道，如果数据量很大的情况下，这样会大大牺牲性能。 那怎么办？这就是柯里化要解决的问题。 其实我们不必每天都计算加班时间，只需要保存好每天的加班时间，在月底时计算这个月总共的加班时间，所以，其实只需要在月底计算一次就行。 下面的overtime函数还不是一个柯里化函数的完整实现，但可以帮助我们了解其核心思想： 12345678910111213141516171819202122var overtime = (function() &#123; var args = []; return function() &#123; if(arguments.length === 0) &#123; var time = 0; for (var i = 0, l = args.length; i &lt; l; i++) &#123; time += args[i]; &#125; return time; &#125;else &#123; [].push.apply(args, arguments); &#125; &#125;&#125;)();overtime(3.5); // 第一天overtime(4.5); // 第二天overtime(2.1); // 第三天//...console.log( overtime() ); // 10.1 柯里化的核心思想就是这样，看到这里你肯定已经懂了，至于真正的柯里化函数，网上有很多，大家可以去Google一下。 反柯里化(uncurring)反柯里化的的作用已经在前言说过了，这里讲下它的由来。 2011年JavaScript之父Brendan Eich发表了一篇Twitter，提出了反柯里化这个思想，下面这段代码是反柯里化的实现方式之一： 1234567Function.prototype.uncurring = function() &#123; var self = this; return function() &#123; var obj = Array.prototype.shift.call(arguments); return self.apply(obj, arguments); &#125;;&#125;; 我们先来看看上面这段代码有什么作用。 我们要把Array.prototype.push方法转换成一个通用的push函数，只需要这样做： 1234567var push = Array.prototype.push.uncurring();//测试一下(function() &#123; push(arguments, 4); console.log(arguments); //[1, 2, 3, 4]&#125;)(1, 2, 3) arguments本来是没有push方法的，通常，我们都需要用Array.prototype.push.call来实现push方法，但现在，直接调用push函数，既简洁又意图明了。 就和前言写的那样，我们不用考虑对象是否拥有这个方法，只要它适用于这个方法，那就可以使用这个方法（类似于鸭子类型）。 我们来分析一下调用Array.prototype.push.uncurring()这句代码时，发生了什么事情： 12345678910111213141516171819202122232425Function.prototype.uncurring = function() &#123; var self = this; //self此时是Array.prototype.push return function() &#123; var obj = Array.prototype.shift.call(arguments); //obj 是&#123; // "length": 1, // "0": 1 //&#125; //arguments的第一个对象被截去(也就是调用push方法的对象),剩下[2] return self.apply(obj, arguments); //相当于Array.prototype.push.apply(obj, 2); &#125;;&#125;;//测试一下var push = Array.prototype.push.uncurring();var obj = &#123; "length": 1, "0" : 1&#125;;push(obj, 2);console.log( obj ); //&#123;0: 1,1: 2, length: 2 &#125; 看到这里你应该对柯里化和反柯里化有了一个初步的认识了，但要熟练的运用在开发中，还需要我们更深入的去了解它们内在的含义。 本文参考： JavaScript设计模式与开发实践 Currying in JavaScript Curried JavaScript functions 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
@@ -235,6 +224,17 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Curring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Some picture about Johnny Depp & Marilyn Manson]]></title>
+    <url>%2F2017%2F02%2F15%2F2017-02-15-depp-manson%2F</url>
+    <content type="text"><![CDATA[Two paranoid men. 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+      <categories>
+        <category>Music</category>
+      </categories>
+      <tags>
+        <tag>Picture</tag>
       </tags>
   </entry>
   <entry>
@@ -343,8 +343,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Object</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -355,8 +355,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Object</tag>
+        <tag>JavaScript</tag>
         <tag>Polymorphism</tag>
       </tags>
   </entry>
@@ -427,8 +427,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -475,8 +475,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -510,10 +510,10 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Array</tag>
         <tag>Object</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -524,8 +524,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JSONP</tag>
         <tag>JavaScript</tag>
+        <tag>JSONP</tag>
       </tags>
   </entry>
   <entry>
