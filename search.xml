@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[阿里云配置 node.js + Nginx 反向代理]]></title>
-    <url>%2F2017%2F06%2F14%2F2017-06-15-aliyun-node-nginx%2F</url>
-    <content type="text"><![CDATA[学如逆水行舟 1.首先你得安装node.js，我是用nvm安装的，这样比较好控制版本，当然你也可以使用apt-get。 2.下一步是安装Nginx，不去管版本的话，直接sudo apt-get install nginx就行。 3.进入/etc/nginx目录，查看nginx.conf配置文件，在http块中找到这样两句： 12# include /etc/nginx/conf.d/*.conf;# include /etc/nginx/sites-enabled/*; 看看你的这两句有没有注释掉，如果注释了就把#号去掉，没有注释的话就跳过这一步。 4.进入/etc/nginx/conf.d目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：rockjins-com-8081.conf，配置文件写入以下内容： 123456789101112131415161718upstream rockjins &#123; server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上 keepalive 64;&#125;server &#123; listen 80; #这里的端口号是你要监听的端口号 server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开 location / &#123; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_set_header X-Nginx-Proxy true; proxy_set_header Connection &quot;&quot;; proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义 &#125;&#125; 5.保存文件后，输入sudo nginx -t测试我们的配置文件是否有错误，一般错误都是漏个分号，少个字母之类的，错误提示很精确，没错的话会输出下面两句: 12nginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful 6.现在我们需要重启Nginx，我们的配置文件才会生效，输入sudo service nginx reload; 7.最后一步把我坑惨了，弄了一晚上，就是安全组的问题，之前有篇文章还写到了这个问题，一转眼就忘了。(ssh连接服务器 Operation timed out) 因为服务跑在8081端口上，但是阿里云的安全组默认是拒绝4000端口以上的授权策略的，大家一定记得去添加安全组规则，如图: 8.打开浏览器，输入你的IP或域名，是不是把8081端口代理到80端口上了，哈哈。 希望这篇文章能够帮到你，有什么问题可以找我，大家一起进步！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[一个让你面试可以多要3k~5k的面试技巧]]></title>
+    <url>%2F2017%2F07%2F27%2F2017-07-27-review-skill-1%2F</url>
+    <content type="text"><![CDATA[前几天一个同事离职了，因为对公司给的薪水不满意，跳槽去了。 我只能祝福他可以找到一家中意的公司，并跟他讲了我面试的终极绝招！在这里分享给各位。 阅读这篇文章的前提是，你不是真的是一只不会动脑瓜子的菜鸟。 我们简短说说一般程序员面试的过程： 做题； 面试官拿着题，你自我介绍，接着问你些与题目有关的问题； 项目方面的介绍，发问，以及你项目中碰到过的难题； 祝你好运； 做题考的是技术，这个是硬邦邦的。如果你技术牛逼到无坚不摧，那把我当成傻比就好，大牛！ 自我介绍是个好的切入点，因为主动权在你，我去面试前，通常会在镜子前流利的介绍我自己几遍，仿佛我就应该是这样的（因为包装了），之所以流利，是因为我把台词都用笔写下来了，你可以试试看，到现场你就知道那效果了，真不是吹的。 接下来主动权到面试官手上，开始对你各种发问，知道主动权易手的滋味了吧！记住它！ 没关系，接下来还会有我们的主动权的！ 一般面试到最后，面试官会问：你项目中有碰到过哪些难题吗？ 这个问题简直太关键了！这么明显的主动权转移很多人居然都没有发现（这是我和很多朋友闲聊时得到的结果）？ 通过这个问题，面试官可以得到和你水平相等的答案！ 因为你会从你的脑海中找寻你遇到过的难题，然后你可能真的那么幸运找到了一个这样的难题，然后这个难题可以准确的代表你的水平。 但是，如果你去面试前就准备好了这个难题，而且，这个难题可能比你当前的水平要高一些，如果你胆子大也可以高得多，看看这篇文章的标题，希望你能懂。 所以为什么说机会是留给有准备的人呢，其实上面的准备花不了你多少时间，但是这点时间换来的是，相同水平的程序员，薪资的高低不齐，其实简单说就是学会总结自己，这就是总结的奖励。 我有时间就会写一些这样的文章推送给大家。 听懂了就关注呗，看把你给美的！！！ 记住物极必反，人间正道是沧桑。 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+      <categories>
+        <category>Mind</category>
+      </categories>
+      <tags>
+        <tag>Review</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[live-server快速搭建服务]]></title>
+    <url>%2F2017%2F06%2F14%2F2017-06-14-live-server%2F</url>
+    <content type="text"><![CDATA[争取节省大家的时间，看看有多快… 本地开发常常需要搭建临时的服务，第一时间我们会想到用http-server。 但现在流行修改文件浏览器自动刷新，好像叫hot socketing（热拔插），这时候又得用到live-reload。 既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个opener。 现在只要使用live-server就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。 你只需要全局安装live-server： 1npm install -g live-server 在项目根目录执行这条命令，一般会把它放在package.json的scripts下的server中，然后执行npm run server： 123&quot;scripts&quot;: &#123; &quot;server&quot;: &quot;live-server ./ --port=9090&quot;&#125; 然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。 希望这篇没有任何技术可言的文章能够帮到你！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Technology</category>
       </categories>
@@ -12,9 +23,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[live-server快速搭建服务]]></title>
-    <url>%2F2017%2F06%2F14%2F2017-06-14-live-server%2F</url>
-    <content type="text"><![CDATA[争取节省大家的时间，看看有多快… 本地开发常常需要搭建临时的服务，第一时间我们会想到用http-server。 但现在流行修改文件浏览器自动刷新，好像叫hot socketing（热拔插），这时候又得用到live-reload。 既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个opener。 现在只要使用live-server就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。 你只需要全局安装live-server： 1npm install -g live-server 在项目根目录执行这条命令，一般会把它放在package.json的scripts下的server中，然后执行npm run server： 123&quot;scripts&quot;: &#123; &quot;server&quot;: &quot;live-server ./ --port=9090&quot;&#125; 然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。 希望这篇没有任何技术可言的文章能够帮到你！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[阿里云配置 node.js + Nginx 反向代理]]></title>
+    <url>%2F2017%2F06%2F14%2F2017-06-15-aliyun-node-nginx%2F</url>
+    <content type="text"><![CDATA[学如逆水行舟 1.首先你得安装node.js，我是用nvm安装的，这样比较好控制版本，当然你也可以使用apt-get。 2.下一步是安装Nginx，不去管版本的话，直接sudo apt-get install nginx就行。 3.进入/etc/nginx目录，查看nginx.conf配置文件，在http块中找到这样两句： 12# include /etc/nginx/conf.d/*.conf;# include /etc/nginx/sites-enabled/*; 看看你的这两句有没有注释掉，如果注释了就把#号去掉，没有注释的话就跳过这一步。 4.进入/etc/nginx/conf.d目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：rockjins-com-8081.conf，配置文件写入以下内容： 123456789101112131415161718upstream rockjins &#123; server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上 keepalive 64;&#125;server &#123; listen 80; #这里的端口号是你要监听的端口号 server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开 location / &#123; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_set_header X-Nginx-Proxy true; proxy_set_header Connection &quot;&quot;; proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义 &#125;&#125; 5.保存文件后，输入sudo nginx -t测试我们的配置文件是否有错误，一般错误都是漏个分号，少个字母之类的，错误提示很精确，没错的话会输出下面两句: 12nginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful 6.现在我们需要重启Nginx，我们的配置文件才会生效，输入sudo service nginx reload; 7.最后一步把我坑惨了，弄了一晚上，就是安全组的问题，之前有篇文章还写到了这个问题，一转眼就忘了。(ssh连接服务器 Operation timed out) 因为服务跑在8081端口上，但是阿里云的安全组默认是拒绝4000端口以上的授权策略的，大家一定记得去添加安全组规则，如图: 8.打开浏览器，输入你的IP或域名，是不是把8081端口代理到80端口上了，哈哈。 希望这篇文章能够帮到你，有什么问题可以找我，大家一起进步！ 本文作者：余震（Shock）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Technology</category>
       </categories>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-14T09:52:14.000Z</updated>
+  <updated>2017-07-27T16:15:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> 一个让你面试可以多要3k~5k的面试技巧 </title>
+    <link href="http://yoursite.com/2017/07/27/2017-07-27-review-skill-1/"/>
+    <id>http://yoursite.com/2017/07/27/2017-07-27-review-skill-1/</id>
+    <published>2017-07-26T16:00:00.000Z</published>
+    <updated>2017-07-27T16:15:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天一个同事离职了，因为对公司给的薪水不满意，跳槽去了。</p>
+<p>我只能祝福他可以找到一家中意的公司，并跟他讲了我面试的终极绝招！在这里分享给各位。</p>
+<p>阅读这篇文章的前提是，你不是真的是一只不会动脑瓜子的菜鸟。</p>
+<p>我们简短说说一般程序员面试的过程：</p>
+<ol>
+<li><p>做题；</p>
+</li>
+<li><p>面试官拿着题，你自我介绍，接着问你些与题目有关的问题；</p>
+</li>
+<li><p>项目方面的介绍，发问，以及你项目中碰到过的难题；</p>
+</li>
+<li><p>祝你好运；</p>
+</li>
+</ol>
+<p>做题考的是技术，这个是硬邦邦的。如果你技术牛逼到无坚不摧，那把我当成傻比就好，大牛！</p>
+<p>自我介绍是个好的切入点，因为主动权在你，我去面试前，通常会在镜子前流利的介绍我自己几遍，仿佛我就应该是这样的（因为包装了），之所以流利，是因为我把台词都用笔写下来了，你可以试试看，到现场你就知道那效果了，真不是吹的。</p>
+<p>接下来主动权到面试官手上，开始对你各种发问，知道主动权易手的滋味了吧！记住它！</p>
+<p>没关系，接下来还会有我们的主动权的！</p>
+<p>一般面试到最后，面试官会问：你项目中有碰到过哪些难题吗？</p>
+<p>这个问题简直太关键了！这么明显的主动权转移很多人居然都没有发现（这是我和很多朋友闲聊时得到的结果）？</p>
+<p>通过这个问题，面试官可以得到和你水平相等的答案！</p>
+<p>因为你会从你的脑海中找寻你遇到过的难题，然后你可能真的那么幸运找到了一个这样的难题，然后这个难题可以准确的代表你的水平。</p>
+<p>但是，如果你去面试前就准备好了这个难题，而且，这个难题可能比你当前的水平要高一些，如果你胆子大也可以高得多，看看这篇文章的标题，希望你能懂。</p>
+<p>所以为什么说机会是留给有准备的人呢，其实上面的准备花不了你多少时间，但是这点时间换来的是，相同水平的程序员，薪资的高低不齐，其实简单说就是学会总结自己，这就是总结的奖励。</p>
+<p>我有时间就会写一些这样的文章推送给大家。</p>
+<p>听懂了就关注呗，看把你给美的！！！</p>
+<p>记住物极必反，人间正道是沧桑。</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前几天一个同事离职了，因为对公司给的薪水不满意，跳槽去了。&lt;/p&gt;
+&lt;p&gt;我只能祝福他可以找到一家中意的公司，并跟他讲了我面试的终极绝招！在这里分享给各位。&lt;/p&gt;
+&lt;p&gt;阅读这篇文章的前提是，你不是真的是一只不会动脑瓜子的菜鸟。&lt;/p&gt;
+&lt;p&gt;我们简短说说一般程序员面试的
+    
+    </summary>
+    
+      <category term="Mind" scheme="http://yoursite.com/categories/Mind/"/>
+    
+    
+      <category term="Review" scheme="http://yoursite.com/tags/Review/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> live-server快速搭建服务 </title>
+    <link href="http://yoursite.com/2017/06/14/2017-06-14-live-server/"/>
+    <id>http://yoursite.com/2017/06/14/2017-06-14-live-server/</id>
+    <published>2017-06-13T16:00:00.000Z</published>
+    <updated>2017-06-14T09:30:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>争取节省大家的时间，看看有多快…</p>
+</blockquote>
+<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
+<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
+<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
+<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
+<p>你只需要全局安装<code>live-server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>在项目根目录执行这条命令，一般会把它放在<code>package.json</code>的<code>scripts</code>下的<code>server</code>中，然后执行<code>npm run server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;live-server ./ --port=9090&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。</p>
+<p>希望这篇没有任何技术可言的文章能够帮到你！</p>
+<blockquote>
+<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;争取节省大家的时间，看看有多快…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本地开发常常需要搭建临时的服务，第一时间我们会想到用&lt;a href=&quot;https://github.com/indexzero/http-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;http-server&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;但现在流行修改文件浏览器自动刷新，好像叫&lt;code&gt;hot socketing（热拔插）&lt;/code&gt;，这时候又得用到&lt;a href=&quot;https://github.com/Raynos/live-reload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-reload&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个&lt;a href=&quot;https://github.com/domenic/opener&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;opener&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;现在只要使用&lt;a href=&quot;http://tapiov.net/live-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-server&lt;/code&gt;&lt;/a&gt;就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。&lt;/p&gt;
+&lt;p&gt;你只需要全局安装&lt;code&gt;live-server&lt;/code&gt;：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install -g live-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
+    
+  </entry>
   
   <entry>
     <title> 阿里云配置 node.js + Nginx 反向代理 </title>
@@ -58,53 +160,6 @@
 &lt;p&gt;看看你的这两句有没有注释掉，如果注释了就把&lt;code&gt;#&lt;/code&gt;号去掉，没有注释的话就跳过这一步。&lt;/p&gt;
 &lt;p&gt;4.进入&lt;code&gt;/etc/nginx/conf.d&lt;/code&gt;目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：&lt;code&gt;rockjins-com-8081.conf&lt;/code&gt;，配置文件写入以下内容：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;upstream rockjins &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	keepalive 64;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;server &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	listen 80; #这里的端口号是你要监听的端口号&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	location / &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header X-Real-IP $remote_addr;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header Host $http_host;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header X-Nginx-Proxy true;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header Connection &amp;quot;&amp;quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> live-server快速搭建服务 </title>
-    <link href="http://yoursite.com/2017/06/14/2017-06-14-live-server/"/>
-    <id>http://yoursite.com/2017/06/14/2017-06-14-live-server/</id>
-    <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2017-06-14T09:30:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>争取节省大家的时间，看看有多快…</p>
-</blockquote>
-<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
-<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
-<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
-<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
-<p>你只需要全局安装<code>live-server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>在项目根目录执行这条命令，一般会把它放在<code>package.json</code>的<code>scripts</code>下的<code>server</code>中，然后执行<code>npm run server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;live-server ./ --port=9090&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。</p>
-<p>希望这篇没有任何技术可言的文章能够帮到你！</p>
-<blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;争取节省大家的时间，看看有多快…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;本地开发常常需要搭建临时的服务，第一时间我们会想到用&lt;a href=&quot;https://github.com/indexzero/http-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;http-server&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;但现在流行修改文件浏览器自动刷新，好像叫&lt;code&gt;hot socketing（热拔插）&lt;/code&gt;，这时候又得用到&lt;a href=&quot;https://github.com/Raynos/live-reload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-reload&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个&lt;a href=&quot;https://github.com/domenic/opener&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;opener&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;现在只要使用&lt;a href=&quot;http://tapiov.net/live-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-server&lt;/code&gt;&lt;/a&gt;就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。&lt;/p&gt;
-&lt;p&gt;你只需要全局安装&lt;code&gt;live-server&lt;/code&gt;：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install -g live-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -2389,75 +2444,6 @@
     
     
       <category term="Picture" scheme="http://yoursite.com/tags/Picture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 简单理解JavaScript中的柯里化和反柯里化 </title>
-    <link href="http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/"/>
-    <id>http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/</id>
-    <published>2017-02-14T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的</p>
-</blockquote>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。</p>
-<p>我们先来简单了解一下他们的作用。</p>
-<p>柯里化又称<em>部分求值</em>，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。</p>
-<p>反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。</p>
-<a id="more"></a>
-<h3 id="柯里化-curring"><a href="#柯里化-curring" class="headerlink" title="柯里化(curring)"></a>柯里化(curring)</h3><p>我们有这样一个场景，记录程序员一个月的加班总时间，那么好，我们首先要做的是记录程序员每天加班的时间，然后把一个月中每天的加班的时间相加，就得到了一个月的加班总时间。</p>
-<p>但问题来了，我们有很多种方法可以实现它，比如最简单的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> monthTime = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">overtime</span>(<span class="params">time</span>) </span>&#123;</div><div class="line"> <span class="keyword">return</span> monthTime += time;</div><div class="line">&#125;</div><div class="line"></div><div class="line">overtime(<span class="number">3.5</span>);	<span class="comment">// 第一天</span></div><div class="line">overtime(<span class="number">4.5</span>);	<span class="comment">// 第二天</span></div><div class="line">overtime(<span class="number">2.1</span>);	<span class="comment">// 第三天</span></div><div class="line"><span class="comment">//...</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(monthTime);	<span class="comment">// 10.1</span></div></pre></td></tr></table></figure>
-<p>每次传入加班时间都进行累加，这样当然没问题，但你知道，如果数据量很大的情况下，这样会大大牺牲性能。</p>
-<p>那怎么办？这就是柯里化要解决的问题。</p>
-<p>其实我们不必每天都计算加班时间，只需要保存好每天的加班时间，在月底时计算这个月总共的加班时间，所以，其实只需要在月底计算一次就行。</p>
-<p>下面的overtime函数还不是一个柯里化函数的完整实现，但可以帮助我们了解其核心思想：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> overtime = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> args = [];</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</div><div class="line">      <span class="keyword">var</span> time = <span class="number">0</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = args.length; i &lt; l; i++) &#123;</div><div class="line">        time += args[i];</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> time;</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">      [].push.apply(args, <span class="built_in">arguments</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">overtime(<span class="number">3.5</span>);	<span class="comment">// 第一天</span></div><div class="line">overtime(<span class="number">4.5</span>);	<span class="comment">// 第二天</span></div><div class="line">overtime(<span class="number">2.1</span>);	<span class="comment">// 第三天</span></div><div class="line"><span class="comment">//...</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log( overtime() );	<span class="comment">// 10.1</span></div></pre></td></tr></table></figure>
-<p>柯里化的核心思想就是这样，看到这里你肯定已经懂了，至于真正的柯里化函数，网上有很多，大家可以去Google一下。</p>
-<h3 id="反柯里化-uncurring"><a href="#反柯里化-uncurring" class="headerlink" title="反柯里化(uncurring)"></a>反柯里化(uncurring)</h3><p>反柯里化的的作用已经在前言说过了，这里讲下它的由来。</p>
-<p>2011年JavaScript之父Brendan Eich发表了一篇Twitter，提出了反柯里化这个思想，下面这段代码是反柯里化的实现方式之一：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.uncurring = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> obj = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</div><div class="line">    <span class="keyword">return</span> self.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>我们先来看看上面这段代码有什么作用。</p>
-<p>我们要把Array.prototype.push方法转换成一个通用的push函数，只需要这样做：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> push = <span class="built_in">Array</span>.prototype.push.uncurring();</div><div class="line"></div><div class="line"><span class="comment">//测试一下</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  push(<span class="built_in">arguments</span>, <span class="number">4</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">//[1, 2, 3, 4]</span></div><div class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure>
-<p><code>arguments</code>本来是没有<code>push</code>方法的，通常，我们都需要用<code>Array.prototype.push.call</code>来实现<code>push</code>方法，但现在，直接调用<code>push</code>函数，既简洁又意图明了。</p>
-<p>就和前言写的那样，我们不用考虑对象是否拥有这个方法，只要它适用于这个方法，那就可以使用这个方法（类似于<a href="https://zh.wikipedia.org/zh-hans/%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B" target="_blank" rel="external">鸭子类型</a>）。</p>
-<p>我们来分析一下调用<code>Array.prototype.push.uncurring()</code>这句代码时，发生了什么事情：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.uncurring = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;  <span class="comment">//self此时是Array.prototype.push</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> obj = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</div><div class="line">    <span class="comment">//obj 是&#123;</span></div><div class="line">    <span class="comment">//  "length": 1,</span></div><div class="line">    <span class="comment">//  "0": 1</span></div><div class="line">    <span class="comment">//&#125;</span></div><div class="line">    <span class="comment">//arguments的第一个对象被截去(也就是调用push方法的对象),剩下[2]</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> self.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">    <span class="comment">//相当于Array.prototype.push.apply(obj, 2);</span></div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//测试一下</span></div><div class="line"><span class="keyword">var</span> push = <span class="built_in">Array</span>.prototype.push.uncurring();</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="string">"length"</span>: <span class="number">1</span>,</div><div class="line">  <span class="string">"0"</span> : <span class="number">1</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">push(obj, <span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log( obj ); <span class="comment">//&#123;0: 1,1: 2, length: 2 &#125;</span></div></pre></td></tr></table></figure>
-<p>看到这里你应该对柯里化和反柯里化有了一个初步的认识了，但要熟练的运用在开发中，还需要我们更深入的去了解它们内在的含义。</p>
-<h3 id="本文参考："><a href="#本文参考：" class="headerlink" title="本文参考："></a>本文参考：</h3><ol>
-<li><p><a href="https://book.douban.com/subject/26382780/" target="_blank" rel="external">JavaScript设计模式与开发实践</a></p>
-</li>
-<li><p><a href="https://medium.com/@kevincennis/currying-in-javascript-c66080543528#.tploy2syn" target="_blank" rel="external">Currying in JavaScript</a></p>
-</li>
-<li><p><a href="http://javascript.crockford.com/www_svendtofte_com/code/curried_javascript/" target="_blank" rel="external">Curried JavaScript functions</a></p>
-</li>
-</ol>
-<blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。&lt;/p&gt;
-&lt;p&gt;我们先来简单了解一下他们的作用。&lt;/p&gt;
-&lt;p&gt;柯里化又称&lt;em&gt;部分求值&lt;/em&gt;，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。&lt;/p&gt;
-&lt;p&gt;反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="Curring" scheme="http://yoursite.com/tags/Curring/"/>
     
   </entry>
   
