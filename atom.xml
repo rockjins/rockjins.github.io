@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-27T16:22:29.000Z</updated>
+  <updated>2017-07-28T02:23:43.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/27/2017-07-27-review-skill-1/"/>
     <id>http://yoursite.com/2017/07/27/2017-07-27-review-skill-1/</id>
     <published>2017-07-26T16:00:00.000Z</published>
-    <updated>2017-07-27T16:22:29.000Z</updated>
+    <updated>2017-07-28T02:23:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>前几天一个同事离职了，因为对公司给的薪水不满意，跳槽去了。</p>
 <p>我只能祝福他可以找到一家中意的公司，并跟他讲了我面试的终极绝招！在这里分享给各位。</p>
@@ -51,7 +51,7 @@
 <p>听懂了就关注呗，看把你给美的！！！</p>
 <p>记住物极必反，人间正道是沧桑。</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -83,11 +83,58 @@
   </entry>
   
   <entry>
+    <title> live-server快速搭建服务 </title>
+    <link href="http://yoursite.com/2017/06/14/2017-06-14-live-server/"/>
+    <id>http://yoursite.com/2017/06/14/2017-06-14-live-server/</id>
+    <published>2017-06-13T16:00:00.000Z</published>
+    <updated>2017-07-28T02:23:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>争取节省大家的时间，看看有多快…</p>
+</blockquote>
+<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
+<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
+<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
+<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
+<p>你只需要全局安装<code>live-server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>在项目根目录执行这条命令，一般会把它放在<code>package.json</code>的<code>scripts</code>下的<code>server</code>中，然后执行<code>npm run server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;live-server ./ --port=9090&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。</p>
+<p>希望这篇没有任何技术可言的文章能够帮到你！</p>
+<blockquote>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;争取节省大家的时间，看看有多快…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本地开发常常需要搭建临时的服务，第一时间我们会想到用&lt;a href=&quot;https://github.com/indexzero/http-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;http-server&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;但现在流行修改文件浏览器自动刷新，好像叫&lt;code&gt;hot socketing（热拔插）&lt;/code&gt;，这时候又得用到&lt;a href=&quot;https://github.com/Raynos/live-reload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-reload&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个&lt;a href=&quot;https://github.com/domenic/opener&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;opener&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;现在只要使用&lt;a href=&quot;http://tapiov.net/live-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-server&lt;/code&gt;&lt;/a&gt;就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。&lt;/p&gt;
+&lt;p&gt;你只需要全局安装&lt;code&gt;live-server&lt;/code&gt;：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install -g live-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
+    
+  </entry>
+  
+  <entry>
     <title> 阿里云配置 node.js + Nginx 反向代理 </title>
     <link href="http://yoursite.com/2017/06/14/2017-06-15-aliyun-node-nginx/"/>
     <id>http://yoursite.com/2017/06/14/2017-06-15-aliyun-node-nginx/</id>
     <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2017-06-14T09:52:14.000Z</updated>
+    <updated>2017-07-28T02:23:39.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>学如逆水行舟</p>
@@ -109,7 +156,7 @@
 <p>8.打开浏览器，输入你的IP或域名，是不是把<code>8081</code>端口代理到<code>80</code>端口上了，哈哈。</p>
 <p>希望这篇文章能够帮到你，有什么问题可以找我，大家一起进步！</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -136,58 +183,11 @@
   </entry>
   
   <entry>
-    <title> live-server快速搭建服务 </title>
-    <link href="http://yoursite.com/2017/06/14/2017-06-14-live-server/"/>
-    <id>http://yoursite.com/2017/06/14/2017-06-14-live-server/</id>
-    <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2017-06-14T09:30:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>争取节省大家的时间，看看有多快…</p>
-</blockquote>
-<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
-<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
-<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
-<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
-<p>你只需要全局安装<code>live-server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>在项目根目录执行这条命令，一般会把它放在<code>package.json</code>的<code>scripts</code>下的<code>server</code>中，然后执行<code>npm run server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;live-server ./ --port=9090&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。</p>
-<p>希望这篇没有任何技术可言的文章能够帮到你！</p>
-<blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;争取节省大家的时间，看看有多快…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;本地开发常常需要搭建临时的服务，第一时间我们会想到用&lt;a href=&quot;https://github.com/indexzero/http-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;http-server&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;但现在流行修改文件浏览器自动刷新，好像叫&lt;code&gt;hot socketing（热拔插）&lt;/code&gt;，这时候又得用到&lt;a href=&quot;https://github.com/Raynos/live-reload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-reload&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个&lt;a href=&quot;https://github.com/domenic/opener&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;opener&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;现在只要使用&lt;a href=&quot;http://tapiov.net/live-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-server&lt;/code&gt;&lt;/a&gt;就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。&lt;/p&gt;
-&lt;p&gt;你只需要全局安装&lt;code&gt;live-server&lt;/code&gt;：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install -g live-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
-    
-  </entry>
-  
-  <entry>
     <title> ssh连接服务器 Operation timed out </title>
     <link href="http://yoursite.com/2017/05/27/2017-05-27-service-port/"/>
     <id>http://yoursite.com/2017/05/27/2017-05-27-service-port/</id>
     <published>2017-05-26T16:00:00.000Z</published>
-    <updated>2017-05-27T10:08:03.000Z</updated>
+    <updated>2017-07-28T02:23:37.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>买了个阿里云ECS云服务器，捣鼓吧…</p>
@@ -205,7 +205,7 @@
 <p>上面有个端口范围，我发现自己随便设置的<code>3999</code>并不在配置的范围里，遂添加了一条安全组规则，把3999端口加了上去，再进行ssh连接，终于连上了…</p>
 <p>这问题弄了我一上午，菜鸟就是苦，啥都自己摸索，坚持吧！</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -236,7 +236,7 @@
     <link href="http://yoursite.com/2017/05/24/2017-05-24-diary-tree-die/"/>
     <id>http://yoursite.com/2017/05/24/2017-05-24-diary-tree-die/</id>
     <published>2017-05-23T16:00:00.000Z</published>
-    <updated>2017-05-25T08:35:37.000Z</updated>
+    <updated>2017-07-28T02:23:34.000Z</updated>
     
     <content type="html"><![CDATA[<p>还是这个熟悉的地方，一片迷雾，看不清周围的环境。</p>
 <p>在这片荒芜的土地上有一棵孤独的小树苗，大概到我腰间的高度，相比它的粗细来说已经算是高挑的了。</p>
@@ -250,7 +250,7 @@
 <p>又过了一会，树干已经和我一样粗了，要拔起来已经不可能了，我恳求它不要再长高了，我害怕死了。</p>
 <p>待续…</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -278,7 +278,7 @@
     <link href="http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/"/>
     <id>http://yoursite.com/2017/05/23/2017-05-23-music-english-chinese/</id>
     <published>2017-05-22T16:00:00.000Z</published>
-    <updated>2017-06-05T09:15:04.000Z</updated>
+    <updated>2017-07-28T02:23:41.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>叫你不好好学英语</p>
@@ -1117,7 +1117,7 @@
 </tbody>
 </table>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1233,7 +1233,7 @@
     <link href="http://yoursite.com/2017/05/19/2017-05-19-iframe-parent/"/>
     <id>http://yoursite.com/2017/05/19/2017-05-19-iframe-parent/</id>
     <published>2017-05-18T16:00:00.000Z</published>
-    <updated>2017-05-19T09:12:00.000Z</updated>
+    <updated>2017-07-28T02:23:36.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>轮回不止 生死不休</p>
@@ -1259,7 +1259,7 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/2859850-b9ddba097441693c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>相当于当你处于最顶层时，你儿子就是你自己，你也可以是自己的爷爷，当然也可以是自己的曾孙，大概就是这个意思，希望大家以后不会遇到这个坑，其实也不算坑啦，说到底还是自己知识面不够广，连轮回这么简单的道理都不明白…</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1288,7 +1288,7 @@
     <link href="http://yoursite.com/2017/05/09/2017-05-09-compatible-module/"/>
     <id>http://yoursite.com/2017/05/09/2017-05-09-compatible-module/</id>
     <published>2017-05-08T16:00:00.000Z</published>
-    <updated>2017-05-15T06:30:51.000Z</updated>
+    <updated>2017-07-28T02:23:38.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>如果你也在开发模块，并且想让你的模块同时在前后端运行，那么这篇文章会让你有收获。</p>
@@ -1298,7 +1298,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">name, definition</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">// 检测上下文环境是否为AMD、CMD</span></div><div class="line">  <span class="keyword">var</span> hasDefine = <span class="keyword">typeof</span> define === <span class="string">'function'</span>,</div><div class="line"></div><div class="line">    <span class="comment">// 检查上下文环境是否为Node</span></div><div class="line">    hasExports = <span class="keyword">typeof</span> <span class="built_in">module</span> !== <span class="string">'undefined'</span> &amp;&amp; <span class="built_in">module</span>.exports;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (hasDefine) &#123;</div><div class="line">    <span class="comment">// AMD环境、CMD环境则define(definition);</span></div><div class="line">    define(definition);</div><div class="line"></div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hasExports) &#123;</div><div class="line">    <span class="comment">// 定义为普通Node模块 module.exports = definition();</span></div><div class="line">    <span class="built_in">module</span>.exports = definition();</div><div class="line"></div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// 将模块的执行结果赋值在window变量中，在浏览器中this等于window对象，this[name] = definition();</span></div><div class="line">    <span class="keyword">this</span>[name] = definition();</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;)(<span class="string">'hello'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">  <span class="keyword">return</span> hello;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1331,7 +1331,7 @@
     <link href="http://yoursite.com/2017/05/05/2017-05-05-iframe-cross-domain-Communication/"/>
     <id>http://yoursite.com/2017/05/05/2017-05-05-iframe-cross-domain-Communication/</id>
     <published>2017-05-04T16:00:00.000Z</published>
-    <updated>2017-05-15T06:11:46.000Z</updated>
+    <updated>2017-07-28T02:23:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>这周碰到一个让人头疼的需求：要在我的web项目中嵌入另一个第三方web项目。第一时间想到的就是用<code>iframe</code>了，但问题来了，我和第三方web项目是有交互的，这就违反同源策略了，处理跨域问题是最让人头疼的事之一。</p>
 <p>需求是这样的，在我的页面点击一些按钮，要实时反馈到<code>iframe</code>子页面，子页面再进行响应。</p>
@@ -1365,7 +1365,7 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/2859850-f7c42766d4a274de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>大家可以到<a href="https://github.com/rockjins/postMessage-demo" target="_blank" rel="external">postMessage-demo</a>把代码clone下来运行试试看。</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1394,7 +1394,7 @@
     <link href="http://yoursite.com/2017/04/12/2017-04-12-meteor-unknow-package/"/>
     <id>http://yoursite.com/2017/04/12/2017-04-12-meteor-unknow-package/</id>
     <published>2017-04-11T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>Versions: 1.4.1</p>
 <p>据我在GitHub issue上了解到的，许多人都碰到这个问题。</p>
@@ -1407,7 +1407,7 @@
 </blockquote>
 <a id="more"></a>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1439,7 +1439,7 @@
     <link href="http://yoursite.com/2017/04/05/2017-04-05-meteor-react-todo-app/"/>
     <id>http://yoursite.com/2017/04/05/2017-04-05-meteor-react-todo-app/</id>
     <published>2017-04-04T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:31.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><a href="https://www.meteor.com/tutorials/react/creating-an-app" target="_blank" rel="external">Read the original</a></p>
@@ -1616,7 +1616,7 @@
 <p>同时我们需要在客户端入口导入这个配置文件：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//client/main.jsx</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; Meteor &#125; <span class="keyword">from</span> <span class="string">'meteor/meteor'</span>;</div><div class="line"><span class="keyword">import</span> &#123; render &#125; <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="comment">//...新添加的代码...</span></div><div class="line"><span class="keyword">import</span> <span class="string">'../imports/startup/accounts-config.js'</span>;</div><div class="line"><span class="comment">//...新添加的代码...</span></div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'../imports/ui/App.jsx'</span>;</div></pre></td></tr></table></figure>
 <h4 id="添加用户相关功能"><a href="#添加用户相关功能" class="headerlink" title="添加用户相关功能"></a>添加用户相关功能</h4><blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1640,9 +1640,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
-    
       <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
+    
+      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
     
   </entry>
   
@@ -1651,7 +1651,7 @@
     <link href="http://yoursite.com/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/"/>
     <id>http://yoursite.com/2017/04/01/2017-04-01-you-dont-need-jq-query-selector/</id>
     <published>2017-03-31T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:32.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>GitHub地址：<a href="https://github.com/oneuijs/You-Dont-Need-jQuery" target="_blank" rel="external">https://github.com/oneuijs/You-Dont-Need-jQuery</a></p>
@@ -1742,7 +1742,7 @@
 </li>
 </ul>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1780,12 +1780,12 @@
     <link href="http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/"/>
     <id>http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/</id>
     <published>2017-03-27T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:33.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><p><em>语法格式</em></p>
 <p><code>insert()</code> 方法的基本格式为:<br><code>&gt;db.COLLECTION_NAME.insert(document)</code></p>
 <p><em>范例1</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.insert(</div><div class="line">  &#123;</div><div class="line">    &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">    &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">    &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">    &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">    &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">    &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">    &quot;likes&quot;: &quot;100&quot;</div><div class="line">  &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.insert(</div><div class="line">  &#123;</div><div class="line">    &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">    &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">    &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">    &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">    &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">    &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">    &quot;likes&quot;: &quot;100&quot;</div><div class="line">  &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>mycol 是上一节所创建的集合的名称。如果数据库中不存在该集合，那么MongoDB会创建该集合，并向其中插入文档。</p>
 <p>在插入的文档中，如果我们没有指定<code>_id</code>参数，那么MongoDB会自动为文档指定一个唯一的 ID。<br><code>_id</code>是一个 12 字节长的 16 进制数，这 12 个字节的分配如下:</p>
@@ -1804,7 +1804,7 @@
 <p><em>语法格式</em></p>
 <p><code>&gt;db.COLLECTION_NAME.find().pretty()</code></p>
 <p><em>范例</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find().pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find().pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 <blockquote>
 <p><code>find()</code>还有一个扩展方法<code>findOne()</code>，只返回一个文档。</p>
 </blockquote>
@@ -1821,8 +1821,8 @@
 <tr>
 <td style="text-align:center">等于</td>
 <td style="text-align:center"><code>{&lt;key&gt;:&lt;value&gt;}</code></td>
-<td style="text-align:center"><code>db.mycol.find({&quot;by&quot;:&quot;Shock&quot;}).pretty()</code></td>
-<td style="text-align:center"><code>where by = &#39;Shock&#39;</code></td>
+<td style="text-align:center"><code>db.mycol.find({&quot;by&quot;:&quot;Freak&quot;}).pretty()</code></td>
+<td style="text-align:center"><code>where by = &#39;Freak&#39;</code></td>
 </tr>
 <tr>
 <td style="text-align:center">小于</td>
@@ -1860,8 +1860,8 @@
 <p>在 <code>find()</code> 方法中，如果传入多个键，并用逗号( , )分隔它们，那么 MongoDB 会把它看成是 AND 条件。AND 条件的基本语法格式为:</p>
 <p><code>&gt;db.mycol.find({key1:value1, key2:value2}).pretty()</code></p>
 <p><em>范例</em></p>
-<p>下例将展示所有由 “Shock” 发表的标题为 “MongoDB Overview” 的教程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;by&quot;:&quot;tutorials point&quot;,&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>下例将展示所有由 “Freak” 发表的标题为 “MongoDB Overview” 的教程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;by&quot;:&quot;tutorials point&quot;,&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 <p>对于上例这种情况，RDBMS 采用的 WHERE 子句将会是:</p>
 <p><code>where by=&#39;tutorials point&#39; AND title=&#39;MongoDB Overview&#39;</code></p>
 <p>你可以在 find 子句中传入任意的键值对。</p>
@@ -1869,11 +1869,11 @@
 <p>若基于OR条件来查询文档，可以使用关键字 <code>$or</code>。OR条件的基本语法格式为:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(</div><div class="line">  &#123;</div><div class="line">    $or: [</div><div class="line">      &#123;key1: value1&#125;, &#123;key2:value2&#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">).pretty()</div></pre></td></tr></table></figure>
 <p><em>范例</em></p>
-<p>下例将展示所有由 “Shock” 发表的或标题为 “MongoDB Overview” 的教程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;$or:[&#123;&quot;by&quot;:&quot;tutorials point&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>下例将展示所有由 “Freak” 发表的或标题为 “MongoDB Overview” 的教程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;$or:[&#123;&quot;by&quot;:&quot;tutorials point&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 <h4 id="结合使用AND与OR条件"><a href="#结合使用AND与OR条件" class="headerlink" title="结合使用AND与OR条件"></a>结合使用AND与OR条件</h4><p><em>范例</em></p>
-<p>下例所展示文档的条件为:喜欢数大于100，标题是“MongoDB Overview”，或者是由“Shock” 所发表的。相应的SQL WHERE子句为:<code>where likes&gt;10 AND (by = &#39;tutorials point&#39; OR title = &#39;MongoDB Overview&#39;)</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;likes&quot;: &#123;$gt:10&#125;, $or: [&#123;&quot;by&quot;: &quot;Shock&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Shock&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>下例所展示文档的条件为:喜欢数大于100，标题是“MongoDB Overview”，或者是由“Freak” 所发表的。相应的SQL WHERE子句为:<code>where likes&gt;10 AND (by = &#39;tutorials point&#39; OR title = &#39;MongoDB Overview&#39;)</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;likes&quot;: &#123;$gt:10&#125;, $or: [&#123;&quot;by&quot;: &quot;Freak&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 <h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><p>MongoDB 中的 <code>update()</code> 与 <code>save()</code> 方法都能用于更新集合中的文档。 <code>update()</code> 方法更新已有文档中的值，而 <code>save()</code> 方法则是用传入该方法的文档来替换已有文档。</p>
 <h4 id="update-方法"><a href="#update-方法" class="headerlink" title="update()方法"></a>update()方法</h4><p><code>update()</code>方法更新已有文档中的值。</p>
 <p><em>语法格式</em></p>
@@ -1910,7 +1910,7 @@
 <h4 id="删除所有文档"><a href="#删除所有文档" class="headerlink" title="删除所有文档"></a>删除所有文档</h4><p>如果没有指定删除标准，则 MongoDB 会将集合中所有文档都予以删除。这等同于 SQL 中的 truncate 命令。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.remove()</div><div class="line">&gt;db.mycol.find()</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -1919,7 +1919,7 @@
       &lt;h3 id=&quot;插入文档&quot;&gt;&lt;a href=&quot;#插入文档&quot; class=&quot;headerlink&quot; title=&quot;插入文档&quot;&gt;&lt;/a&gt;插入文档&lt;/h3&gt;&lt;h4 id=&quot;insert&quot;&gt;&lt;a href=&quot;#insert&quot; class=&quot;headerlink&quot; title=&quot;insert()&quot;&gt;&lt;/a&gt;insert()&lt;/h4&gt;&lt;p&gt;&lt;em&gt;语法格式&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;insert()&lt;/code&gt; 方法的基本格式为:&lt;br&gt;&lt;code&gt;&amp;gt;db.COLLECTION_NAME.insert(document)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;范例1&lt;/em&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt;db.mycol.insert(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;_id&amp;quot;: ObjectId(7df78ad8902c),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;title&amp;quot;: &amp;quot;MongoDB Overview&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;description&amp;quot;: &amp;quot;MongoDB is no sql database&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;by&amp;quot;: &amp;quot;Shock&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;https://rockjins.js.org&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;tags&amp;quot;: [&amp;quot;mongodb&amp;quot;, &amp;quot;database&amp;quot;, &amp;quot;NoSQL&amp;quot;],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;likes&amp;quot;: &amp;quot;100&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt;db.mycol.insert(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;_id&amp;quot;: ObjectId(7df78ad8902c),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;title&amp;quot;: &amp;quot;MongoDB Overview&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;description&amp;quot;: &amp;quot;MongoDB is no sql database&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;by&amp;quot;: &amp;quot;Freak&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;https://rockjins.js.org&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;tags&amp;quot;: [&amp;quot;mongodb&amp;quot;, &amp;quot;database&amp;quot;, &amp;quot;NoSQL&amp;quot;],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;likes&amp;quot;: &amp;quot;100&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -1937,7 +1937,7 @@
     <link href="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/"/>
     <id>http://yoursite.com/2017/03/12/2017-03-12-promise-dev/</id>
     <published>2017-03-11T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:29.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。</p>
@@ -1988,7 +1988,7 @@
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>其实你理解了Promise的运作流程，使用它十分方便和简单，它就是一个异步管理器，帮助我们更好地去进行异步处理。</p>
 <p>试想，如果Promise真的很复杂，那它出现的意义是什么？本末倒置了，哈哈。</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -2017,7 +2017,7 @@
     <link href="http://yoursite.com/2017/03/08/2017-03-08-you-might-not-need-a-build-tool/"/>
     <id>http://yoursite.com/2017/03/08/2017-03-08-you-might-not-need-a-build-tool/</id>
     <published>2017-03-07T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:25.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><a href="https://medium.com/@pakastin/you-might-not-need-a-build-tool-ac3c1a8cfaac#.ybnfasayu" target="_blank" rel="external">Read the original</a></p>
@@ -2128,7 +2128,7 @@
 <p>在浏览器地址栏输入<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></p>
 <p>搞定，没问题！</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -2159,7 +2159,7 @@
     <link href="http://yoursite.com/2017/03/06/2017-03-06-performance-optimum/"/>
     <id>http://yoursite.com/2017/03/06/2017-03-06-performance-optimum/</id>
     <published>2017-03-05T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:22.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>我向来是先实现功能再考虑优化，不然就本末倒置了。</p>
@@ -2185,7 +2185,7 @@
 <p>回过头再对比最初的函数，发现其实优化也不是那么困难，最重要的时我们要养成优化代码的习惯，看到一段代码，就要开始思考有哪些可以改进的地方，如果你想要成为一名优秀的程序员，这一点是必不可少的，量变引发质变这个道理大家都懂。</p>
 <p>如果你还没有养成这种习惯，那试着带着这种思维习惯去review自己的代码，你会发现，呵呵…</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -2216,7 +2216,7 @@
     <link href="http://yoursite.com/2017/02/22/2017-02-22-javascript-types/"/>
     <id>http://yoursite.com/2017/02/22/2017-02-22-javascript-types/</id>
     <published>2017-02-21T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:23.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><a href="https://bitsofco.de/javascript-typeof/" target="_blank" rel="external">Read the original</a></p>
@@ -2249,7 +2249,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;  </div><div class="line">    bark() &#123;</div><div class="line">        alert(<span class="string">"woof!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> snoopy = <span class="keyword">new</span> Dog();  </div><div class="line">snoopy.bark() <span class="comment">// alert("woof!")</span></div></pre></td></tr></table></figure>
 <p>然而，JavaScript的类只是一个被语法糖包裹的函数方法。实际上创建了一个同样的函数，但是作者的写法不同，只是看起来个简洁。这就是为什么<code>typeof</code>一个类，得到的仍然是”Function”。</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -2280,7 +2280,7 @@
     <link href="http://yoursite.com/2017/02/21/2017-02-21-debounce-function/"/>
     <id>http://yoursite.com/2017/02/21/2017-02-21-debounce-function/</id>
     <published>2017-02-20T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:24.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>之前<a href="https://rockjins.js.org/2017/01/26/interviews-javascript/" target="_blank" rel="external">翻译了一篇博客</a>，里面有讲到这个，今天单独拎出来聊聊。</p>
@@ -2311,7 +2311,7 @@
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这两个代码块是在开发中经常使用的，无论是为了适应需求还是优化性能，我们都没有理由不适用它们。</p>
 <p>另外在jQuery的源码中也使用了这种技巧，即便在这个框架横行的时代，还是只有底层的知识能让我感到踏实。</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -2350,7 +2350,7 @@
     <link href="http://yoursite.com/2017/02/15/2017-02-15-javascript-skill/"/>
     <id>http://yoursite.com/2017/02/15/2017-02-15-javascript-skill/</id>
     <published>2017-02-14T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:30.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p> JavaScript技巧，偶尔更新。</p>
@@ -2363,7 +2363,7 @@
 <h3 id="Array-prototype-forEach-第二个参数"><a href="#Array-prototype-forEach-第二个参数" class="headerlink" title="Array.prototype.forEach()第二个参数"></a>Array.prototype.forEach()第二个参数</h3><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external">参考：MDN</a></p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> coder = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'Shock'</span>,</div><div class="line">  <span class="attr">friends</span>: [<span class="string">'Rocky'</span>, <span class="string">'Bob'</span>],</div><div class="line">  <span class="attr">logHiToFriends</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="string">'use static'</span></div><div class="line">    <span class="keyword">this</span>.friends.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">friend</span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+ <span class="string">' say hi to '</span>+ friend);</div><div class="line">    &#125;,<span class="keyword">this</span>)<span class="comment">//注意这个this，如果不添加这个参数，你可以猜测会发生什么</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> coder = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'Freak'</span>,</div><div class="line">  <span class="attr">friends</span>: [<span class="string">'Rocky'</span>, <span class="string">'Bob'</span>],</div><div class="line">  <span class="attr">logHiToFriends</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="string">'use static'</span></div><div class="line">    <span class="keyword">this</span>.friends.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">friend</span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+ <span class="string">' say hi to '</span>+ friend);</div><div class="line">    &#125;,<span class="keyword">this</span>)<span class="comment">//注意这个this，如果不添加这个参数，你可以猜测会发生什么</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="随机生成字母和数字组合的字符串"><a href="#随机生成字母和数字组合的字符串" class="headerlink" title="随机生成字母和数字组合的字符串"></a>随机生成字母和数字组合的字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substr(<span class="number">2</span>);</div><div class="line"><span class="comment">//un80usvvsgcpi0rffskf39pb9</span></div><div class="line"><span class="comment">//02aoe605zgg5xqup6fdclnb3xr</span></div><div class="line"><span class="comment">//ydzr1swdxjg3yolkb95p14i</span></div></pre></td></tr></table></figure>
 <h3 id="使用IIFE解决循环问题"><a href="#使用IIFE解决循环问题" class="headerlink" title="使用IIFE解决循环问题"></a>使用IIFE解决循环问题</h3><p><em>unexpected:</em></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> funcs = [];</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    funcs.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(i); &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">funcs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">func</span>) </span>&#123;</div><div class="line">    func();     <span class="comment">// 输出数值 "10" 十次</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -2375,12 +2375,12 @@
 <h3 id="Math-round函数的坑"><a href="#Math-round函数的坑" class="headerlink" title="Math.round函数的坑"></a>Math.round函数的坑</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Math</span>.round(<span class="number">-3.2</span>) <span class="comment">//-3</span></div><div class="line"></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">-3.5</span>) <span class="comment">//-3(这个就奇怪了)</span></div><div class="line"></div><div class="line"><span class="built_in">Math</span>.round(<span class="number">-3.8</span>) <span class="comment">//-4</span></div><div class="line"></div><div class="line"><span class="comment">//其实，Math.round(x)等同于：</span></div><div class="line"><span class="built_in">Math</span>.floor(x + <span class="number">0.5</span>)</div></pre></td></tr></table></figure>
 <h3 id="巧用-和-amp-amp"><a href="#巧用-和-amp-amp" class="headerlink" title="巧用||和&amp;&amp;"></a>巧用||和&amp;&amp;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bar = $ || <span class="number">233</span>;</div><div class="line"><span class="comment">//如果$存在，则把$赋值给bar；如果$不存在，则把233赋值给bar</span></div><div class="line"></div><div class="line">$ === <span class="literal">undefined</span> &amp;&amp; (<span class="built_in">window</span>.$ =  jQuery);  </div><div class="line"><span class="comment">//如果$不存在,则把jQuery赋值给window.$；如果$存在，则不执行后面的表达式</span></div></pre></td></tr></table></figure>
 <h3 id="使用break-labels退出循环"><a href="#使用break-labels退出循环" class="headerlink" title="使用break + labels退出循环"></a>使用break + labels退出循环</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">findNumber</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">  loop:&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">      <span class="keyword">if</span>(arr[i]%<span class="number">2</span> == <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">break</span> loop;<span class="comment">//表示退出loop区块</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(arr);<span class="comment">//这句代码是不会执行的，如果上面只是break，for循环之后的代码还是会执行</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">findNumber([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>]);</div></pre></td></tr></table></figure>
-<h3 id="简单实现合并对象"><a href="#简单实现合并对象" class="headerlink" title="简单实现合并对象"></a>简单实现合并对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">root</span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> <span class="built_in">arguments</span>[i]) &#123;</div><div class="line">      <span class="keyword">if</span> (<span class="built_in">arguments</span>[i].hasOwnProperty(key)) &#123;</div><div class="line">        root[key] = <span class="built_in">arguments</span>[i][key];</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> root;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> merged = merge(</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'Shock'</span>&#125;,</div><div class="line">  &#123;<span class="attr">city</span>:<span class="string">'Shenzhen'</span>&#125;</div><div class="line">)<span class="comment">//&#123;name:'Shock',city:'Shenzhen'&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="简单实现合并对象"><a href="#简单实现合并对象" class="headerlink" title="简单实现合并对象"></a>简单实现合并对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">root</span>)</span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> <span class="built_in">arguments</span>[i]) &#123;</div><div class="line">      <span class="keyword">if</span> (<span class="built_in">arguments</span>[i].hasOwnProperty(key)) &#123;</div><div class="line">        root[key] = <span class="built_in">arguments</span>[i][key];</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> root;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> merged = merge(</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'Freak'</span>&#125;,</div><div class="line">  &#123;<span class="attr">city</span>:<span class="string">'Shenzhen'</span>&#125;</div><div class="line">)<span class="comment">//&#123;name:'Freak',city:'Shenzhen'&#125;</span></div></pre></td></tr></table></figure>
 <h3 id="理解map和parseInt"><a href="#理解map和parseInt" class="headerlink" title="理解map和parseInt"></a>理解map和parseInt</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="built_in">parseInt</span>);</div><div class="line"><span class="comment">//[1, NaN, NaN]</span></div><div class="line"></div><div class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">parseInt</span>(x,<span class="number">10</span>)&#125;);</div><div class="line"><span class="comment">//[1, 2, 3]</span></div></pre></td></tr></table></figure>
 <h3 id="上传图片预览功能"><a href="#上传图片预览功能" class="headerlink" title="上传图片预览功能"></a>上传图片预览功能</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">onchange</span>=<span class="string">"showPreview(this)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"portrait"</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">width</span>=<span class="string">"70"</span> <span class="attr">height</span>=<span class="string">"75"</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showPreview</span>(<span class="params">source</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> file = source.files[<span class="number">0</span>];</div><div class="line">  <span class="keyword">if</span>(<span class="built_in">window</span>.FileReader) &#123;</div><div class="line">      <span class="keyword">var</span> fr = <span class="keyword">new</span> FileReader();</div><div class="line">      fr.onloadend = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"portrait"</span>).src = e.target.result;</div><div class="line">      &#125;;</div><div class="line">      fr.readAsDataURL(file);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="微信内部修改document-title"><a href="#微信内部修改document-title" class="headerlink" title="微信内部修改document.title"></a>微信内部修改document.title</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setTitle</span>(<span class="params">title</span>) </span>&#123;</div><div class="line">  <span class="built_in">document</span>.title = title;</div><div class="line">  <span class="keyword">if</span> (<span class="regexp">/ip(hone|od|ad)/i</span>.test(navigator.userAgent)) &#123;</div><div class="line">    <span class="keyword">var</span> i = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</div><div class="line">    i.src = <span class="string">'/favicon.ico'</span>;</div><div class="line">    i.style.display = <span class="string">'none'</span>;</div><div class="line">    i.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        i.remove();</div><div class="line">      &#125;, <span class="number">9</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">document</span>.body.appendChild(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">setTitle(<span class="string">"要修改的标题"</span>);</div></pre></td></tr></table></figure>
-<h3 id="快速克隆一个对象"><a href="#快速克隆一个对象" class="headerlink" title="快速克隆一个对象"></a>快速克隆一个对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Rocker = <span class="function"><span class="keyword">function</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name,</div><div class="line">  <span class="keyword">this</span>.age = age</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> shock = <span class="keyword">new</span> Rocker(<span class="string">'Shock'</span>, <span class="number">24</span>);</div><div class="line"></div><div class="line">shock.age = <span class="number">99</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cloneShock = <span class="built_in">Object</span>.create(shock);</div><div class="line"></div><div class="line">cloneShock.name <span class="comment">// "Shock"</span></div><div class="line">cloneShock.age <span class="comment">// 99</span></div><div class="line"></div><div class="line"><span class="comment">//在不支持ES5的浏览器下，实现create方法如下：</span></div><div class="line"></div><div class="line"><span class="built_in">Object</span>.create = <span class="built_in">Object</span>.create || <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">  F.prototype = obj;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="快速克隆一个对象"><a href="#快速克隆一个对象" class="headerlink" title="快速克隆一个对象"></a>快速克隆一个对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Rocker = <span class="function"><span class="keyword">function</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name,</div><div class="line">  <span class="keyword">this</span>.age = age</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Freak = <span class="keyword">new</span> Rocker(<span class="string">'Freak'</span>, <span class="number">24</span>);</div><div class="line"></div><div class="line">Freak.age = <span class="number">99</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cloneFreak = <span class="built_in">Object</span>.create(Freak);</div><div class="line"></div><div class="line">cloneFreak.name <span class="comment">// "Freak"</span></div><div class="line">cloneFreak.age <span class="comment">// 99</span></div><div class="line"></div><div class="line"><span class="comment">//在不支持ES5的浏览器下，实现create方法如下：</span></div><div class="line"></div><div class="line"><span class="built_in">Object</span>.create = <span class="built_in">Object</span>.create || <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">  F.prototype = obj;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="判断一个值是否是对象"><a href="#判断一个值是否是对象" class="headerlink" title="判断一个值是否是对象"></a>判断一个值是否是对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> value === <span class="built_in">Object</span>(value);</div><div class="line">&#125;</div><div class="line"></div><div class="line">isObject(&#123;&#125;); <span class="comment">// true</span></div><div class="line">isObject(<span class="number">123</span>);  <span class="comment">// false</span></div></pre></td></tr></table></figure>
 <h3 id="为构造器模拟apply功能"><a href="#为构造器模拟apply功能" class="headerlink" title="为构造器模拟apply功能"></a>为构造器模拟apply功能</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(!<span class="built_in">Function</span>.prototype.construct)&#123;</div><div class="line">  <span class="built_in">Function</span>.prototype.construct = <span class="function"><span class="keyword">function</span>(<span class="params">argArray</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">Array</span>.isArray(argArray))&#123;</div><div class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Arguments must be an array"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> constr = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> nullaryFunc = <span class="built_in">Function</span>.prototype.bind.apply(</div><div class="line">      constr,[<span class="literal">null</span>].concat(argArray));</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> nullaryFunc();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//使用:</span></div><div class="line"><span class="built_in">Date</span>.construct([<span class="number">2017</span>, <span class="number">02</span>, <span class="number">14</span>]); <span class="comment">//  Tue Mar 14 2017 00:00:00 GMT+0800 (CST)</span></div></pre></td></tr></table></figure>
 <h3 id="防止高频调用的debounce函数"><a href="#防止高频调用的debounce函数" class="headerlink" title="防止高频调用的debounce函数"></a>防止高频调用的debounce函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//immediate参数判断是否立即执行</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, wait, immediate</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> timeout;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>;</div><div class="line">    <span class="keyword">var</span> later = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      timeout = <span class="literal">null</span>;</div><div class="line">      <span class="keyword">if</span>(!immediate) func.apply(context, args);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> callNow = immediate &amp;&amp; !timeout;</div><div class="line">    clearTimeout(timeout);</div><div class="line">    timeout = setTimeout(later, wait);</div><div class="line">    <span class="keyword">if</span>(callNow) func.apply(context, args);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//使用</span></div><div class="line"><span class="keyword">var</span> myEfficientFn = debounce(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//你要做的事</span></div><div class="line">&#125;, <span class="number">250</span>);</div><div class="line"></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, myEfficientFn);</div></pre></td></tr></table></figure>
@@ -2389,7 +2389,7 @@
 <h3 id="获取一个链接的绝对地址"><a href="#获取一个链接的绝对地址" class="headerlink" title="获取一个链接的绝对地址"></a>获取一个链接的绝对地址</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getAbsoluteUrl = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(!a) a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</div><div class="line">    a.href = url;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> a.href;</div><div class="line">  &#125;;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="comment">//使用</span></div><div class="line">getAbsoluteUrl(<span class="string">"/something"</span>); <span class="comment">//https://rockjins.github.io/something</span></div></pre></td></tr></table></figure>
 <h3 id="uncurring实现方法之一"><a href="#uncurring实现方法之一" class="headerlink" title="uncurring实现方法之一"></a>uncurring实现方法之一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.uncurring = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> obj = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</div><div class="line">    <span class="keyword">return</span> self.apply(obj, <span class="built_in">arguments</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//使用</span></div><div class="line"><span class="keyword">var</span> push = <span class="built_in">Array</span>.prototype.push.uncurring();</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  push(<span class="built_in">arguments</span>, <span class="number">4</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);   <span class="comment">//输出：[1, 2, 3, 4]</span></div><div class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     
@@ -2414,7 +2414,7 @@
     <link href="http://yoursite.com/2017/02/15/2017-02-15-depp-manson/"/>
     <id>http://yoursite.com/2017/02/15/2017-02-15-depp-manson/</id>
     <published>2017-02-14T16:00:00.000Z</published>
-    <updated>2017-05-12T07:51:08.000Z</updated>
+    <updated>2017-07-28T02:23:19.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p> Two paranoid men.</p>
@@ -2438,7 +2438,7 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/2859850-0fa21f8e9bcd4d81.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/2859850-135a23090bc4428a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 ]]></content>
     

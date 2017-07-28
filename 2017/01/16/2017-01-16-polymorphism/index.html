@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,Object,Polymorphism," />
+  <meta name="keywords" content="Object,JavaScript,Polymorphism," />
 
 
 
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="多态不是简单两句话可以讲清楚，但至少能让你明白它是什么。  简单解释多态拆分一下多态的英文：Polymorphism 就是 poly(复数) + morph(形态) + ism，也就是多种形态。 在JavaScript中，我们可以这样去理解多态：同一操作作用在不同的对象上，可以产生不同的解释和不同的执行结果。 更简单一些说：给不同对象发送同一消息，可能会得到不同的反馈。 举个🌰栗子Shock">
-<meta name="keywords" content="JavaScript,Object,Polymorphism">
+<meta name="description" content="多态不是简单两句话可以讲清楚，但至少能让你明白它是什么。  简单解释多态拆分一下多态的英文：Polymorphism 就是 poly(复数) + morph(形态) + ism，也就是多种形态。 在JavaScript中，我们可以这样去理解多态：同一操作作用在不同的对象上，可以产生不同的解释和不同的执行结果。 更简单一些说：给不同对象发送同一消息，可能会得到不同的反馈。 举个🌰栗子Freak">
+<meta name="keywords" content="Object,JavaScript,Polymorphism">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" 几分钟帮你理解对象的基本特性之一：多态 ">
 <meta property="og:url" content="http://yoursite.com/2017/01/16/2017-01-16-polymorphism/index.html">
 <meta property="og:site_name" content="Rockjins Blog">
-<meta property="og:description" content="多态不是简单两句话可以讲清楚，但至少能让你明白它是什么。  简单解释多态拆分一下多态的英文：Polymorphism 就是 poly(复数) + morph(形态) + ism，也就是多种形态。 在JavaScript中，我们可以这样去理解多态：同一操作作用在不同的对象上，可以产生不同的解释和不同的执行结果。 更简单一些说：给不同对象发送同一消息，可能会得到不同的反馈。 举个🌰栗子Shock">
-<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta property="og:description" content="多态不是简单两句话可以讲清楚，但至少能让你明白它是什么。  简单解释多态拆分一下多态的英文：Polymorphism 就是 poly(复数) + morph(形态) + ism，也就是多种形态。 在JavaScript中，我们可以这样去理解多态：同一操作作用在不同的对象上，可以产生不同的解释和不同的执行结果。 更简单一些说：给不同对象发送同一消息，可能会得到不同的反馈。 举个🌰栗子Freak">
+<meta property="og:updated_time" content="2017-07-28T02:23:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" 几分钟帮你理解对象的基本特性之一：多态 ">
-<meta name="twitter:description" content="多态不是简单两句话可以讲清楚，但至少能让你明白它是什么。  简单解释多态拆分一下多态的英文：Polymorphism 就是 poly(复数) + morph(形态) + ism，也就是多种形态。 在JavaScript中，我们可以这样去理解多态：同一操作作用在不同的对象上，可以产生不同的解释和不同的执行结果。 更简单一些说：给不同对象发送同一消息，可能会得到不同的反馈。 举个🌰栗子Shock">
+<meta name="twitter:description" content="多态不是简单两句话可以讲清楚，但至少能让你明白它是什么。  简单解释多态拆分一下多态的英文：Polymorphism 就是 poly(复数) + morph(形态) + ism，也就是多种形态。 在JavaScript中，我们可以这样去理解多态：同一操作作用在不同的对象上，可以产生不同的解释和不同的执行结果。 更简单一些说：给不同对象发送同一消息，可能会得到不同的反馈。 举个🌰栗子Freak">
 
 
 
@@ -414,8 +414,8 @@
 <h3 id="简单解释多态"><a href="#简单解释多态" class="headerlink" title="简单解释多态"></a>简单解释多态</h3><p>拆分一下多态的英文：Polymorphism 就是 poly(复数) + morph(形态) + ism，也就是多种形态。</p>
 <p>在JavaScript中，我们可以这样去理解多态：同一操作作用在不同的对象上，可以产生不同的解释和不同的执行结果。</p>
 <p>更简单一些说：给不同对象发送同一消息，可能会得到不同的反馈。</p>
-<h3 id="举个🌰栗子"><a href="#举个🌰栗子" class="headerlink" title="举个🌰栗子"></a>举个🌰栗子</h3><p><em>Shock是一位吉他手，Alex是一名主唱，当他们听到鼓点响起时，Shock会开始弹吉他，Alex会开始演唱。</em></p>
-<p><em>同样一个鼓点，但Shock和Alex做的事是不同的。</em></p>
+<h3 id="举个🌰栗子"><a href="#举个🌰栗子" class="headerlink" title="举个🌰栗子"></a>举个🌰栗子</h3><p><em>Freak是一位吉他手，Alex是一名主唱，当他们听到鼓点响起时，Freak会开始弹吉他，Alex会开始演唱。</em></p>
+<p><em>同样一个鼓点，但Freak和Alex做的事是不同的。</em></p>
 <a id="more"></a>
 <h3 id="代码实践"><a href="#代码实践" class="headerlink" title="代码实践"></a>代码实践</h3><p>下面几行代码简单的把上面的例子实现，说明了对象的多态特性：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> playDrum = <span class="function"><span class="keyword">function</span>(<span class="params">bandsman</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(bandsman <span class="keyword">instanceof</span> Guitarist)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'哆啦咪嗦啦'</span>);</div><div class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(bandsman <span class="keyword">instanceof</span> Singer)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'We will rock u!'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Guitarist = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Singer = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"></div><div class="line">playDrum(<span class="keyword">new</span> Guitarist());<span class="comment">//哆啦咪嗦啦</span></div><div class="line"></div><div class="line">playDrum(<span class="keyword">new</span> Singer());<span class="comment">//We will rock u!</span></div></pre></td></tr></table></figure>
@@ -430,7 +430,7 @@
 <p>以上只是最直观的多态理解方式，还有利用继承得到多态效果、如何利用多态特性进行面向对象编程、多态与设计模式等等。</p>
 <p>希望这篇文章能帮到你更好的理解JavaScript中的多态特性。</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 
       
@@ -482,9 +482,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/Object/" rel="tag"># Object</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
             <a href="/tags/Polymorphism/" rel="tag"># Polymorphism</a>
           

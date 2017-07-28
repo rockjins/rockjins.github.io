@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,Object," />
+  <meta name="keywords" content="Object,JavaScript," />
 
 
 
@@ -96,13 +96,13 @@
 
 
 <meta name="description" content="其实费尽心力探寻底层实现就是为了用来装逼 😝  闲话网上有很多帖子、文章介绍new操作符运行步骤的文章，但我感觉读者看完之后还是会很模糊，知其然，不知其所以然。 好，轮到我装逼了！ 首先，读这篇文章，你得对原型链和构造函数有个基本的认识，否则收益不会很大，反而会更懵逼。 正文我们先创建一个简单的构造函数： 1234567function Rocker(name)&amp;#123;  this.na">
-<meta name="keywords" content="JavaScript,Object">
+<meta name="keywords" content="Object,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" 带你切身体验实例被new出来的过程 ">
 <meta property="og:url" content="http://yoursite.com/2017/01/18/2017-01-18-new-object/index.html">
 <meta property="og:site_name" content="Rockjins Blog">
 <meta property="og:description" content="其实费尽心力探寻底层实现就是为了用来装逼 😝  闲话网上有很多帖子、文章介绍new操作符运行步骤的文章，但我感觉读者看完之后还是会很模糊，知其然，不知其所以然。 好，轮到我装逼了！ 首先，读这篇文章，你得对原型链和构造函数有个基本的认识，否则收益不会很大，反而会更懵逼。 正文我们先创建一个简单的构造函数： 1234567function Rocker(name)&amp;#123;  this.na">
-<meta property="og:updated_time" content="2017-05-12T07:51:08.000Z">
+<meta property="og:updated_time" content="2017-07-28T02:23:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" 带你切身体验实例被new出来的过程 ">
 <meta name="twitter:description" content="其实费尽心力探寻底层实现就是为了用来装逼 😝  闲话网上有很多帖子、文章介绍new操作符运行步骤的文章，但我感觉读者看完之后还是会很模糊，知其然，不知其所以然。 好，轮到我装逼了！ 首先，读这篇文章，你得对原型链和构造函数有个基本的认识，否则收益不会很大，反而会更懵逼。 正文我们先创建一个简单的构造函数： 1234567function Rocker(name)&amp;#123;  this.na">
@@ -434,7 +434,7 @@
 <p>没错，是这三步，但是你真的理解了吗？至少我第一次看挺懵逼的。</p>
 <p>好吧，最直观的方法就是，把创建一个对象的过程用代码体现出来，这样才能装逼嘛…</p>
 <h4 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h4><p>让我们创建一个函数，来实现上面new操作符的功能：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> createObject = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(),   <span class="comment">//(1)</span></div><div class="line">      Constructor = [].shift.call(<span class="built_in">arguments</span>);   <span class="comment">//(2)</span></div><div class="line"></div><div class="line">  obj.__proto__ = Constructor.prototype;    <span class="comment">//(3)</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>);    <span class="comment">//(4)</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">'object'</span> ? ret : obj;   <span class="comment">//(5)</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> shock = createObject(Rocker, <span class="string">'Shock'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(shock.name);  <span class="comment">//Shock</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(shock.getName());  <span class="comment">//Shock</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(shock) === Rocker.prototype); <span class="comment">//true</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> createObject = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(),   <span class="comment">//(1)</span></div><div class="line">      Constructor = [].shift.call(<span class="built_in">arguments</span>);   <span class="comment">//(2)</span></div><div class="line"></div><div class="line">  obj.__proto__ = Constructor.prototype;    <span class="comment">//(3)</span></div><div class="line"></div><div class="line">  <span class="keyword">var</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>);    <span class="comment">//(4)</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">'object'</span> ? ret : obj;   <span class="comment">//(5)</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Freak = createObject(Rocker, <span class="string">'Freak'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Freak.name);  <span class="comment">//Freak</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Freak.getName());  <span class="comment">//Freak</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(Freak) === Rocker.prototype); <span class="comment">//true</span></div></pre></td></tr></table></figure>
 <p>就是上面这几句代码，向你展现了一个实例被new出来的过程。</p>
 <h4 id="分析一下"><a href="#分析一下" class="headerlink" title="分析一下"></a>分析一下</h4><p>我们来简单分析一下吧，其实很清晰明了了。</p>
 <p>在<code>(1)</code>处，我们创建了一个空对象（准确的说是克隆了Object.prototype对象）</p>
@@ -443,11 +443,11 @@
 <p><code>(4)</code>我们用apply改变this的指向，用obj代替Constructor构造函数内部的this，并把arguments作为参数传入（在第2步时已经用shift把第一个参数去除了），此时的ret已经是一个合格的实例了！</p>
 <p>保险起见，我们<code>(5)</code>返回时判断ret是否是对象，如果不是就返回一个空对象（因为很多人真的不会按照规矩传参！！！）</p>
 <p>这时候我们再外部调用这个函数试试，实时证明确实能达到new的效果。</p>
-<p>再用getPrototypeOf方法测试一下，shock的原型链真的指向Rocker的原型！</p>
+<p>再用getPrototypeOf方法测试一下，Freak的原型链真的指向Rocker的原型！</p>
 <p>这就是实例被new出来的过程，你明了吗？</p>
 <p>其实上面代码有很多小技巧，可以细细咀嚼。</p>
 <blockquote>
-<p>本文作者：余震（Shock）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 
       
@@ -499,9 +499,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/Object/" rel="tag"># Object</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
