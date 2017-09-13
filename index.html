@@ -311,6 +311,160 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/13/2017-09-13-node-js-debugging/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余震">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/13/2017-09-13-node-js-debugging/" itemprop="url"> 『翻译』Node.js 调试 </a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T00:00:00+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/13/2017-09-13-node-js-debugging/" class="leancloud_visitors" data-flag-title=" 『翻译』Node.js 调试 ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>原文链接：<a href="https://davidwalsh.name/node-debugging" target="_blank" rel="external">Node.js Debugging</a></p>
+</blockquote>
+<p>不管在开发中还是部署后，适当的日志记录对于web应用来说非常有用。困难的是如何组织日志代码和输出日志，简单来说：知道每个日志的来源。我最近找到一种实用的组织和优化Node.js调试的方法。</p>
+<p>创建一个 <code>debug</code> 实例很简单，并且可以为每个文件创建多个 <code>logger</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Create multiple instances of debug(创建多个debug实例)</span></div><div class="line"><span class="comment">// In theory these would serve two different purposes(理论上这两个debug实例分别负责不同的日志输出)</span></div><div class="line"><span class="keyword">var</span> debuggerA = <span class="built_in">require</span>(<span class="string">'debug'</span>)(<span class="string">'worker:a'</span>),</div><div class="line">    debuggerB = <span class="built_in">require</span>(<span class="string">'debug'</span>)(<span class="string">'worker:b'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Sample usages of the debugger(演示调试器的用法)</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">work</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  debuggerA(<span class="string">'doing lots of uninteresting work'</span>);</div><div class="line">  setTimeout(work, <span class="built_in">Math</span>.random() * <span class="number">1000</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">work();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">workb</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  debuggerB(<span class="string">'doing some work'</span>);</div><div class="line">  setTimeout(workb, <span class="built_in">Math</span>.random() * <span class="number">2000</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">workb();</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/13/2017-09-13-node-js-debugging/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/31/2017-08-31-vue-js-reactivity-in-depth/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -365,8 +519,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
                   </a>
                 </span>
 
@@ -627,163 +781,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/2017-06-14-live-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="余震">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rockjins Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/14/2017-06-14-live-server/" itemprop="url"> live-server快速搭建服务 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T00:00:00+08:00">
-                2017-06-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/06/14/2017-06-14-live-server/" class="leancloud_visitors" data-flag-title=" live-server快速搭建服务 ">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>争取节省大家的时间，看看有多快…</p>
-</blockquote>
-<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
-<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
-<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
-<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
-<p>你只需要全局安装<code>live-server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/14/2017-06-14-live-server/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/2017-06-15-aliyun-node-nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -897,6 +894,163 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/14/2017-06-15-aliyun-node-nginx/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/2017-06-14-live-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余震">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/14/2017-06-14-live-server/" itemprop="url"> live-server快速搭建服务 </a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T00:00:00+08:00">
+                2017-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/14/2017-06-14-live-server/" class="leancloud_visitors" data-flag-title=" live-server快速搭建服务 ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>争取节省大家的时间，看看有多快…</p>
+</blockquote>
+<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
+<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
+<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
+<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
+<p>你只需要全局安装<code>live-server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/14/2017-06-14-live-server/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1795,158 +1949,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/2017-05-05-iframe-cross-domain-Communication/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="余震">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rockjins Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/05/2017-05-05-iframe-cross-domain-Communication/" itemprop="url"> 使用postMessage解决iframe跨域通信问题 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T00:00:00+08:00">
-                2017-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/05/2017-05-05-iframe-cross-domain-Communication/" class="leancloud_visitors" data-flag-title=" 使用postMessage解决iframe跨域通信问题 ">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这周碰到一个让人头疼的需求：要在我的web项目中嵌入另一个第三方web项目。第一时间想到的就是用<code>iframe</code>了，但问题来了，我和第三方web项目是有交互的，这就违反同源策略了，处理跨域问题是最让人头疼的事之一。</p>
-<p>需求是这样的，在我的页面点击一些按钮，要实时反馈到<code>iframe</code>子页面，子页面再进行响应。</p>
-<p>当时脑子里第一时间想到的解决方案是：用<code>NGINX</code>把两个项目代理到同一域名下。但这样似乎有点小题大做了，有没有更方便快捷的方法呢？</p>
-<p>在<code>window</code>对象下有个<code>postMessage</code>方法，是专门用来解决跨域通信问题的。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/05/2017-05-05-iframe-cross-domain-Communication/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1996,7 +1998,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

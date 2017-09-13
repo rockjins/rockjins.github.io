@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[『翻译』Node.js 调试]]></title>
+    <url>%2F2017%2F09%2F13%2F2017-09-13-node-js-debugging%2F</url>
+    <content type="text"><![CDATA[原文链接：Node.js Debugging 不管在开发中还是部署后，适当的日志记录对于web应用来说非常有用。困难的是如何组织日志代码和输出日志，简单来说：知道每个日志的来源。我最近找到一种实用的组织和优化Node.js调试的方法。 创建一个 debug 实例很简单，并且可以为每个文件创建多个 logger： 12345678910111213141516171819// Create multiple instances of debug(创建多个debug实例)// In theory these would serve two different purposes(理论上这两个debug实例分别负责不同的日志输出)var debuggerA = require('debug')('worker:a'), debuggerB = require('debug')('worker:b');// Sample usages of the debugger(演示调试器的用法)function work() &#123; debuggerA('doing lots of uninteresting work'); setTimeout(work, Math.random() * 1000);&#125;work();function workb() &#123; debuggerB('doing some work'); setTimeout(workb, Math.random() * 2000);&#125;workb(); 你必须定义环境变量，用于给调试器实例分配命名空间。当脚本运行时，日志应该输出到 STDOUT： 12// Show all debugger messages prefixed &quot;worker:_____&quot;(所有debugger的前缀都为 &quot;worker:_____&quot;)DEBUG=worker:* node app.js 当使用环境变量的方式，当你只想在开发或生产环境记录某种类型的消息，输出的日志会很清晰。命名空间的使用多么明智！ 我还可能使用 chalk 为消息加上我想要的颜色： 123var chalk = require('chalk');debuggerA(chalk.red.bold('OMG an awful error!')); 调试具有非常简单的目的，为了帮助我们更好的完成任务。当涉及到记录信息消息时不要吝啬，它会在开发过程中帮助你，并且在安全事件发生后更好的审视自身！ 本文译者：余震（Freak）译文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+      <categories>
+        <category>Translation</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[『翻译』深入理解Vue.js响应式原理]]></title>
     <url>%2F2017%2F08%2F31%2F2017-08-31-vue-js-reactivity-in-depth%2F</url>
     <content type="text"><![CDATA[作者从 Java 与 C# 中经典的 Getters/Setters 引入，讨论了 Vue.js 中从组件渲染函数、数据的 Getter、Setter 劫持、监听器的控制以及重渲染触发整个生命流程。原文链接：Understanding Vue.js Reactivity in Depth with Object.defineProperty() 引子本人是Java背景，许多年前刚接触JavaScript时有点怪怪的，因为它没有 getters 和 setters。随着时间的推移，我开始喜欢上这个缺失的特性，因为相比Java大量的 getter 和 setter，它让代码更简洁。例如，我们看看下面的Java代码： 123456789101112131415161718192021222324252627class Person&#123; String firstName; String lastName; // 这个Demo中省略了一些构造器代码 :) public void setFirstName(firstName) &#123; this.firstName = firstName; &#125; public String getFirstName() &#123; return firstName; &#125; public void setLastName(lastName) &#123; this.lastName = lastName; &#125; public String getLastName() &#123; return lastName; &#125;&#125; // Create instancePerson bradPitt = new Person();bradPitt.setFirstName("Brad");bradPitt.setLastName("Pitt"); JavaScript开发人员永远不会这样做，相反他们会这样： 123456var Person = function () &#123;&#125;; var bradPitt = new Person();bradPitt.firstName = 'Brad';bradPitt.lastName = 'Pitt'; 这要简洁的多。通常简洁更好，不是吗？ 的确如此，但有时我想获取一些可以被修改的属性，但我不用知道这些属性是什么。例如，我们在Java代码中扩展一个新的方法 getFullName()： 123456789101112131415161718192021222324252627282930313233class Person&#123; private String firstName; private String lastName; // 这个Demo中省略了一些构造器代码 :) public void setFirstName(firstName) &#123; this.firstName = firstName; &#125; public String getFirstName() &#123; return firstName; &#125; public void setLastName(lastName) &#123; this.lastName = lastName; &#125; public String getLastName() &#123; return lastName; &#125; public String getFullName() &#123; return firstName + " " + lastName; &#125;&#125; Person bradPitt = new Person();bradPitt.setFirstName("Brad");bradPitt.setLastName("Pitt"); // Prints 'Brad Pitt'System.out.println(bradPitt.getFullName()); 在上面例子中， fullName 是一个计算过的属性，它不是私有属性，但总能返回正确的结果。 C# 和隐式的 getter/setters我们来看看 C# 特性之一：隐式的 getters/setters，我真的很喜欢它。在 C# 中，如果需要，你可以定义 getters/setters，但是并不用这样做，但是如果你决定要这么做，调用者就不必调用函数。调用者只需要直接访问属性，getter/setter 会自动在钩子函数中运行： 123456public class Foo&#123; public string FirstName &#123;get; set;&#125; public string LastName &#123;get; set;&#125; public string FullName &#123;get &#123; return firstName + " " + lastName &#125;; private set;&#125;&#125; 我觉得这很酷… 现在，如果我想在JavaScript中实现类似的功能，我会浪费很多时间，比如： 12345678910111213141516var person0 = &#123; firstName: 'Bruce', lastName: 'Willis', fullName: 'Bruce Willis', setFirstName: function (firstName) &#123; this.firstName = firstName; this.fullName = `$&#123;this.firstName&#125; $&#123;this.lastName&#125;`; &#125;, setLastname: function (lastName) &#123; this.lastName = lastName; this.fullName = `$&#123;this.firstName&#125; $&#123;this.lastName&#125;`; &#125;,&#125;;console.log(person0.fullName);person0.setFirstName('Peter');console.log(person0.fullName); 它会打印出： 12&quot;Bruce Willis&quot;&quot;Peter Willis&quot; 但使用 setXXX(value) 的方式并不够’javascripty’(是个玩笑啦)。 下面的方式可以解决这个问题： 12345678var person1 = &#123; firstName: 'Brad', lastName: 'Pitt', getFullName: function () &#123; return `$&#123;this.firstName&#125; $&#123;this.lastName&#125;`; &#125;,&#125;;console.log(person1.getFullName()); // 打印 "Brad Pitt" 现在我们回到被计算过的 getter。你可以设置 first 或 last name，并简单的合并它们的值： 12person1.firstName = 'Peter'person1.getFullName(); // 返回 "Peter Pitt" 这的确更方便，但我还是不喜欢它，因为我们要定义一个叫“getxxx()”的方法，这也不够’javascripty’。许多年来，我一直在思考如何更好的使用 JavaScript。 然后 Vue 出现了在我的Youtube频道，很多和Vue教程有关的视频都讲到，我习惯响应式开发，在更早的Angular1时代，我们叫它：数据绑定(Data Binding)。它看起来很简单。你只需要在Vue实例的 data() 块中定义一些数据，并绑定到HTML： 1234567var vm = new Vue(&#123; data() &#123; return &#123; greeting: 'Hello world!', &#125;; &#125;&#125;) 1&lt;div&gt;&#123;greeting&#125;&lt;/div&gt; 显然它会在用户界面打印出 “Hello world!”。 现在，如果你改变“greeting”的值，Vue引擎会对此作出反应并相应地更新视图。 12345methods: &#123; onSomethingClicked() &#123; this.greeting = "What's up"; &#125;,&#125; 很长一段时间我都在想，它是如何工作的？当某个对象的属性发生变化时会触发某个事件？或者Vue不停的调用 setInterval 去检查是否更新？ 通过阅读Vue官方文档，我才知道，改变一个对象属性将隐式调用getter/setter,再次通知观察者，然后触发重新渲染，如下图，这个例子来自官方的vue.js文档： 但我还想知道： 怎么让数据自带getter/setters？ 这些隐式调用内部是怎样的？ 第一个问题很简单：Vue为我们准备好了一切。当你添加新数据，Vue将会通过其属性为其添加 getter/setters。但是我让 foo.bar = 3? 会发生什么？ 这个问题的答案出现在我和SVG &amp; Vue专家Sarah Drasner的Twitter对话中： Timo: foo.bar=value;是怎么做到实时响应的？Sarah: 这个问题很难在Twitter说清楚，可以看这篇文章Timo: 但这篇文章并没有解释上面提到的问题。Timo: 它们就像：分配一个值-&gt;调用setter-&gt;通知观察者，不理解为什么在不使用setInterval和Event的情况下，setter/getter就存在了。Sarah: 我的理解是：你获取的所有数据都在Vue实例data{}中被代理了。 显然，她也是参考的官方文档，之前我也读过，所以我开始阅读Vue源码，以便更好的理解发生了什么。过了一会我想起在官方文档看到一个叫 Object.defineProperty() 的方法，我找到它，如下： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758/** * 给对象定义响应的属性 */export function defineReactive ( obj: Object, key: string, val: any, customSetter?: ?Function, shallow?: boolean) &#123; const dep = new Dep() const property = Object.getOwnPropertyDescriptor(obj, key) if (property &amp;&amp; property.configurable === false) &#123; return &#125; // 预定义getter/setters const getter = property &amp;&amp; property.get const setter = property &amp;&amp; property.set let childOb = !shallow &amp;&amp; observe(val) Object.defineProperty(obj, key, &#123; enumerable: true, configurable: true, get: function reactiveGetter () &#123; const value = getter ? getter.call(obj) : val if (Dep.target) &#123; dep.depend() if (childOb) &#123; childOb.dep.depend() &#125; if (Array.isArray(value)) &#123; dependArray(value) &#125; &#125; return value &#125;, set: function reactiveSetter (newVal) &#123; const value = getter ? getter.call(obj) : val /* 禁用eslint 不进行自我比较 */ if (newVal === value || (newVal !== newVal &amp;&amp; value !== value)) &#123; return &#125; /* 开启eslint 不进行自己比较 */ if (process.env.NODE_ENV !== 'production' &amp;&amp; customSetter) &#123; customSetter() &#125; if (setter) &#123; setter.call(obj, newVal) &#125; else &#123; val = newVal &#125; childOb = !shallow &amp;&amp; observe(newVal) dep.notify() &#125; &#125;)&#125; 所以答案一直存在于文档中： 把一个普通 JavaScript 对象传给 Vue 实例的 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。Object.defineProperty 是仅 ES5 支持，且无法 shim 的特性，这也就是为什么 Vue 不支持 IE8 以及更低版本浏览器的原因。 我只想简单的了解 Object.defineProperty() 做了什么，所以我用一个例子简单的给你讲解一下： 12345678910var person2 = &#123; firstName: 'George', lastName: 'Clooney',&#125;;Object.defineProperty(person2, 'fullName', &#123; get: function () &#123; return `$&#123;this.firstName&#125; $&#123;this.lastName&#125;`; &#125;,&#125;);console.log(person2.fullName); // 打印 "George Clooney" 还记得文章开头C#的隐式 getter 吗？它们看起来很类似，但ES5才开始支持。你需要做的是使用 Object.defineProperty() 定义现有对象，以及何时获取这个属性，这个getter被称为响应式——这实际上就是Vue在你添加新数据时背后所做的事。 Object.defineProperty()能让Vue变的更简化吗？学完这一切，我一直在想，Object.defineProperty() 是否能让Vue变的更简化？现今越来越多的新术语，是不是真的有必要把事情变得过于复杂，变的让初学者难以理解（Redux也是同样）： Mutator - 或许你在说（隐式）setter Getters - 为什么不用 Object.defineProperty() 替换成（隐式）getter store.commit() - 为什么不简化成 foo = bar，而是 store.commit(&quot;setFoo&quot;, bar);？ 你是怎么认为的？Vuex必须是复杂的还是可以像 Object.defineProperty() 一样简单？ 本文译者：余震（Freak）译文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
-        <category>Technology</category>
+        <category>Translation</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
         <tag>JavaScript</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -24,9 +36,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[live-server快速搭建服务]]></title>
-    <url>%2F2017%2F06%2F14%2F2017-06-14-live-server%2F</url>
-    <content type="text"><![CDATA[争取节省大家的时间，看看有多快… 本地开发常常需要搭建临时的服务，第一时间我们会想到用http-server。 但现在流行修改文件浏览器自动刷新，好像叫hot socketing（热拔插），这时候又得用到live-reload。 既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个opener。 现在只要使用live-server就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。 你只需要全局安装live-server： 1npm install -g live-server 在项目根目录执行这条命令，一般会把它放在package.json的scripts下的server中，然后执行npm run server： 123&quot;scripts&quot;: &#123; &quot;server&quot;: &quot;live-server ./ --port=9090&quot;&#125; 然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。 希望这篇没有任何技术可言的文章能够帮到你！ 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[阿里云配置 node.js + Nginx 反向代理]]></title>
+    <url>%2F2017%2F06%2F14%2F2017-06-15-aliyun-node-nginx%2F</url>
+    <content type="text"><![CDATA[学如逆水行舟 1.首先你得安装node.js，我是用nvm安装的，这样比较好控制版本，当然你也可以使用apt-get。 2.下一步是安装Nginx，不去管版本的话，直接sudo apt-get install nginx就行。 3.进入/etc/nginx目录，查看nginx.conf配置文件，在http块中找到这样两句： 12# include /etc/nginx/conf.d/*.conf;# include /etc/nginx/sites-enabled/*; 看看你的这两句有没有注释掉，如果注释了就把#号去掉，没有注释的话就跳过这一步。 4.进入/etc/nginx/conf.d目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：rockjins-com-8081.conf，配置文件写入以下内容： 123456789101112131415161718upstream rockjins &#123; server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上 keepalive 64;&#125;server &#123; listen 80; #这里的端口号是你要监听的端口号 server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开 location / &#123; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_set_header X-Nginx-Proxy true; proxy_set_header Connection &quot;&quot;; proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义 &#125;&#125; 5.保存文件后，输入sudo nginx -t测试我们的配置文件是否有错误，一般错误都是漏个分号，少个字母之类的，错误提示很精确，没错的话会输出下面两句: 12nginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful 6.现在我们需要重启Nginx，我们的配置文件才会生效，输入sudo service nginx reload; 7.最后一步把我坑惨了，弄了一晚上，就是安全组的问题，之前有篇文章还写到了这个问题，一转眼就忘了。(ssh连接服务器 Operation timed out) 因为服务跑在8081端口上，但是阿里云的安全组默认是拒绝4000端口以上的授权策略的，大家一定记得去添加安全组规则，如图: 8.打开浏览器，输入你的IP或域名，是不是把8081端口代理到80端口上了，哈哈。 希望这篇文章能够帮到你，有什么问题可以找我，大家一起进步！ 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Technology</category>
       </categories>
@@ -35,9 +47,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[阿里云配置 node.js + Nginx 反向代理]]></title>
-    <url>%2F2017%2F06%2F14%2F2017-06-15-aliyun-node-nginx%2F</url>
-    <content type="text"><![CDATA[学如逆水行舟 1.首先你得安装node.js，我是用nvm安装的，这样比较好控制版本，当然你也可以使用apt-get。 2.下一步是安装Nginx，不去管版本的话，直接sudo apt-get install nginx就行。 3.进入/etc/nginx目录，查看nginx.conf配置文件，在http块中找到这样两句： 12# include /etc/nginx/conf.d/*.conf;# include /etc/nginx/sites-enabled/*; 看看你的这两句有没有注释掉，如果注释了就把#号去掉，没有注释的话就跳过这一步。 4.进入/etc/nginx/conf.d目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：rockjins-com-8081.conf，配置文件写入以下内容： 123456789101112131415161718upstream rockjins &#123; server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上 keepalive 64;&#125;server &#123; listen 80; #这里的端口号是你要监听的端口号 server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开 location / &#123; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header Host $http_host; proxy_set_header X-Nginx-Proxy true; proxy_set_header Connection &quot;&quot;; proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义 &#125;&#125; 5.保存文件后，输入sudo nginx -t测试我们的配置文件是否有错误，一般错误都是漏个分号，少个字母之类的，错误提示很精确，没错的话会输出下面两句: 12nginx: the configuration file /etc/nginx/nginx.conf syntax is oknginx: configuration file /etc/nginx/nginx.conf test is successful 6.现在我们需要重启Nginx，我们的配置文件才会生效，输入sudo service nginx reload; 7.最后一步把我坑惨了，弄了一晚上，就是安全组的问题，之前有篇文章还写到了这个问题，一转眼就忘了。(ssh连接服务器 Operation timed out) 因为服务跑在8081端口上，但是阿里云的安全组默认是拒绝4000端口以上的授权策略的，大家一定记得去添加安全组规则，如图: 8.打开浏览器，输入你的IP或域名，是不是把8081端口代理到80端口上了，哈哈。 希望这篇文章能够帮到你，有什么问题可以找我，大家一起进步！ 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[live-server快速搭建服务]]></title>
+    <url>%2F2017%2F06%2F14%2F2017-06-14-live-server%2F</url>
+    <content type="text"><![CDATA[争取节省大家的时间，看看有多快… 本地开发常常需要搭建临时的服务，第一时间我们会想到用http-server。 但现在流行修改文件浏览器自动刷新，好像叫hot socketing（热拔插），这时候又得用到live-reload。 既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个opener。 现在只要使用live-server就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。 你只需要全局安装live-server： 1npm install -g live-server 在项目根目录执行这条命令，一般会把它放在package.json的scripts下的server中，然后执行npm run server： 123&quot;scripts&quot;: &#123; &quot;server&quot;: &quot;live-server ./ --port=9090&quot;&#125; 然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。 希望这篇没有任何技术可言的文章能够帮到你！ 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Technology</category>
       </categories>
@@ -140,8 +152,8 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>Translation</tag>
-        <tag>Meteor</tag>
         <tag>Full-Stack</tag>
+        <tag>Meteor</tag>
       </tags>
   </entry>
   <entry>
@@ -261,9 +273,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[『翻译』一些 JavaScript 优化的细节]]></title>
-    <url>%2F2017%2F02%2F13%2F2017-02-13-tiny-javascript-optimizations%2F</url>
-    <content type="text"><![CDATA[Read the original 前言优化客户端JavaScript代码常常是不值得的，因为这会失去代码可读性。如果你的APP运行缓慢，你可以考虑是否能优化请求，减少对DOM的操作，尽量少的操local storage，或者牺牲其它的来换取性能。几乎没有足够的数据认为客户端需要让代码同步运行速度更快。我认为接下来的代码十分具有可读性，如果你也需要，为什么不使用它呢？ 递归尾调用(Recursive tail calls)在下面例子中，函数每次执行都会创建一个新的栈(维持新添加的环境)。所以，如果参数x:5000，那就会创建5000个栈。 123456function foo(x) &#123; if (x &lt; 0) &#123; return 1; &#125; return 1 + foo(x-1);&#125; 如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。 123456function foo(x, accumulated) &#123; if (x &lt; 0) &#123; return 1; &#125; return foo(x-1, accumulated + 1);&#125; 使用逻辑表达式与C语言不同，在JavaScript中逻辑表达式可以用来做操作运算，而不只是判断真假。这意味着我们可以写出像下面一样简单的代码： 123456function foo(x) &#123; if (!x) &#123; return null; &#125; return x.y;&#125; 优化后的版本： 123function foo(x) &#123; return x &amp;&amp; x.y;&#125; 散列法 &gt; 迭代switch语句可以让返回的数据在结构中重现。但通常，我们只需要查找和比较一个文件，使用散列法会比迭代快很多。 123456789101112131415function iterating(action) &#123; switch (action.type) &#123; case 'a': // do something with action.data ... return; case ... case 'z': ... return; default: return; &#125;&#125;iterating(&#123;type: 'z', data: 'asdf'&#125;); 迭代26个元素。 123456789101112const lookupTable = &#123; 'a': (data) =&gt; &#123;...&#125;, ... 'z': (data) =&gt; &#123;...&#125;&#125;function hashing(action) &#123; const handler = lookupTable[action.type]; if (handler) &#123; return handler(action.data); &#125;&#125; 一个比较和一个查找。 当然，这适用于任何可迭代的元素(arrays,strings,etc)，但switch也有它的一些优势。 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[『翻译』3个原因让我像躲避瘟疫一样避免使用JS匿名函数]]></title>
+    <url>%2F2017%2F02%2F13%2F2017-02-14-three-reasons-i-avoid-anonymous-js-functions-like-the-plague%2F</url>
+    <content type="text"><![CDATA[Read the original 前言无论何时阅读代码，你一定会看到匿名函数。有时它们被称为lambdas，有时被称为匿名函数（anonymous functions），但不管怎样，我认为他们是糟糕的。 如果你不知道什么是匿名函数，这里有一段引用： 匿名函数是一个可以在运行时动态声明的函数。之所以称为匿名函数是因为：他们没有像普通函数一样被赋予名字(name)。 ——Helen Emerson, Helephant.com 它们看起来有点像这个： 12345function() &#123; ... code ... &#125;OR（args） =&gt; &#123; ... code ... &#125; 下面我会举一些例子给你，实际上，只有在非用不可的情况下才会使用匿名函数。它们不是你的首选，并且你要知道为什么。一旦你这么做了，你的代码会更简洁、容易去阅读，BUG也更容易被捕获，让我们看看这3个避免使用它们的原因吧！ 堆栈跟踪你终于写完了代码，无论你有多擅长编码，当你运行代码时，总会有一些报错。有些错误很容易被捕获，但有时并不是这样。 如果错误很容易被捕获到，好的，那说明你知道他们错在哪！为此，我们使用所谓的堆栈跟踪，如果你对堆栈跟踪一点都不了解，Google给了我们很好的介绍。 假设我们有一个很简单的项目: 1234567function start () &#123; (function middle () &#123; (function end () &#123; console.lg('test'); &#125;)() &#125;)()&#125; 但看起来我们做了一些愚蠢得难以置信的事，就像拼错console.log。在我们这个小项目中，这没什么大不了的。但也许这是一个巨型项目中的一个片段，有大量的模块与它相互依赖。最重要的是，让我们假装你没有烦这种愚蠢的错误。那个初级开发者在他准备离开度假的前一天，把它推到了仓库中！ 现在，我们将去跟踪错误。根据我们精确的命名函数，我们得到的堆栈跟踪像下面这样： 幸好你给函数命名了，初级开发者！现在，我们能轻松的跟踪到这个BUG。 但是…一旦我们修复了它，又会出现新的BUG。这时，就要请出更高级的开发者了。他们知道如何使用匿名函数，并大量的使用在他们的代码中。结果是，他们发现了一个BUG，我们去跟踪BUG。 他们的代码： 1234567(function () &#123; (function () &#123; (function () &#123; console.lg('test'); &#125;)(); &#125;)();&#125;)(); 多令人惊讶，这个高级开发者也忘了怎么拼写console.log！这是一个偶然吗？！告诉你一个悲痛的消息，他们没有给函数命名。 控制台会展示什么给我们？ 没事…我们还有行号提示？ 在这个例子中，我们好像有7行代码。如果我们在处理一个巨大的代码库？如果每行有10k的代码?如果行号相差很远？如果代码被压缩了、没有map文件、行号提示几乎是没用的？ 我认为你可以非常容易的回答这些问题。答案是：你会度过糟糕的一天。 可读性看吧，我知道你不服气。你仍然爱着匿名函数，而且你永远也不会有BUG。抱歉，我忘了告诉你如何写出完美的代码。让我们来看看这点！ 检查下面两个不同的代码示例: 12345678910111213141516171819202122232425function initiate (arguments) &#123; return new Promise((resolve, reject) =&gt; &#123; try &#123; if (arguments) &#123; return resolve(true); &#125; return resolve(false); &#125; catch (e) &#123; reject(e); &#125; &#125;);&#125;initiate(true) .then(res =&gt; &#123; if (res) &#123; doSomethingElse(); &#125; else &#123; doSomething(); &#125; ).catch(e =&gt; &#123; logError(e.message); restartApp(); &#125; ); 这是一个人为的例子，但我认为你能get到那个点。我们有一个方法，它返回一个Promise对象，我们用这个对象去管理可能返回的不同请求。 你或许认为这个代码阅读起来不太难，但我认为它能写的更好。 如果我们摆脱所有匿名函数，结果会如何？ 123456789101112131415161718192021222324252627function initiate (arguments) &#123; return new Promise(checkForArguments);&#125;function checkForArguments (resolve, reject) &#123; try &#123; if (arguments) &#123; return resolve(true); &#125; return resolve(false); &#125; catch (e) &#123; reject(e); &#125;&#125;function evaluateRes (res) &#123; if (res) &#123; doSomethingElse(); &#125; else &#123; doSomething(); &#125;&#125;function handleError (e) &#123; logError(e.message); restartApp();&#125;initiate(true) .then(evaluateRes) .catch(handleError); 好了，让我们来屡清一下思路：这段代码比之前的要长，但我认为它比之前的可读性高得多！我们使用了非常棒的命名函数而不是匿名函数。只要我们看到命名函数，它的名字就会暗示我们接下来会发生什么。它消除了我们在阅读代码时的心理障碍。 这也有利于独立问题。不仅仅是创建方法，传递参数，运行逻辑，在第二个例子中，传递参数给then和catch，我们可以很清楚的知道函数中的每一处都发生了什么。 时间不多了，否则我要让你信服这些代码可以更加易读。也许你任然不相信，那尝试看看第三个论据… 可重用性你有注意到最后一个例子吗？所有函数都是可以互相调用的！ 当你使用匿名函数时，它们很难遍布你的程序。重用代码可以降低能耗，你也不用一遍遍写重复的代码了。还有大家都知道的一点，代码越少，引入BUG的几率越小，而且用户可以加载更少的资源。共赢的局面！ 相反的，命名函数可以在它的整个作用域中使用，而不需要像变量一样四处传递。你写的代码会很自然的更具重用性，因为，你可以重用他们！ 匿名函数好吗？是的。我必须承认，有时它们也是最好的选择！ 123456const stuff = [ &#123; hide: true, name: 'justin' &#125;, &#123; hide: false, name: 'lauren' &#125;, &#123; hide: false, name: 'max' &#125;,];const filteredStuff = stuff.filter(s =&gt; !s.hide); 这个匿名函数s =&gt; !s.hide小而简洁，它不会污染其它地方，也不会用在其它地方。它会在stuff.filter的堆栈跟踪中显示。如果你需要重用它，最好重用整个语句： 123function filterByHide (array) &#123; return array.filter(item =&gt; !item.hide);&#125; 有时你需要包裹你所有的代码在一个匿名函数中，以保证全局作用域不被污染。 123(() =&gt; &#123; ... your code here ...&#125;)(); 顶级匿名函数不会影响到堆栈跟踪。代码重用是不会造成伤害的，因为代码重用的全部目的就是保持方法被包含。 我相信还有其他地方适合使用匿名函数，在评论中分享一下吧！ 感谢阅读，离开这里后，停止写匿名函数吧！ 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Translation</category>
       </categories>
@@ -273,9 +285,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[『翻译』3个原因让我像躲避瘟疫一样避免使用JS匿名函数]]></title>
-    <url>%2F2017%2F02%2F13%2F2017-02-14-three-reasons-i-avoid-anonymous-js-functions-like-the-plague%2F</url>
-    <content type="text"><![CDATA[Read the original 前言无论何时阅读代码，你一定会看到匿名函数。有时它们被称为lambdas，有时被称为匿名函数（anonymous functions），但不管怎样，我认为他们是糟糕的。 如果你不知道什么是匿名函数，这里有一段引用： 匿名函数是一个可以在运行时动态声明的函数。之所以称为匿名函数是因为：他们没有像普通函数一样被赋予名字(name)。 ——Helen Emerson, Helephant.com 它们看起来有点像这个： 12345function() &#123; ... code ... &#125;OR（args） =&gt; &#123; ... code ... &#125; 下面我会举一些例子给你，实际上，只有在非用不可的情况下才会使用匿名函数。它们不是你的首选，并且你要知道为什么。一旦你这么做了，你的代码会更简洁、容易去阅读，BUG也更容易被捕获，让我们看看这3个避免使用它们的原因吧！ 堆栈跟踪你终于写完了代码，无论你有多擅长编码，当你运行代码时，总会有一些报错。有些错误很容易被捕获，但有时并不是这样。 如果错误很容易被捕获到，好的，那说明你知道他们错在哪！为此，我们使用所谓的堆栈跟踪，如果你对堆栈跟踪一点都不了解，Google给了我们很好的介绍。 假设我们有一个很简单的项目: 1234567function start () &#123; (function middle () &#123; (function end () &#123; console.lg('test'); &#125;)() &#125;)()&#125; 但看起来我们做了一些愚蠢得难以置信的事，就像拼错console.log。在我们这个小项目中，这没什么大不了的。但也许这是一个巨型项目中的一个片段，有大量的模块与它相互依赖。最重要的是，让我们假装你没有烦这种愚蠢的错误。那个初级开发者在他准备离开度假的前一天，把它推到了仓库中！ 现在，我们将去跟踪错误。根据我们精确的命名函数，我们得到的堆栈跟踪像下面这样： 幸好你给函数命名了，初级开发者！现在，我们能轻松的跟踪到这个BUG。 但是…一旦我们修复了它，又会出现新的BUG。这时，就要请出更高级的开发者了。他们知道如何使用匿名函数，并大量的使用在他们的代码中。结果是，他们发现了一个BUG，我们去跟踪BUG。 他们的代码： 1234567(function () &#123; (function () &#123; (function () &#123; console.lg('test'); &#125;)(); &#125;)();&#125;)(); 多令人惊讶，这个高级开发者也忘了怎么拼写console.log！这是一个偶然吗？！告诉你一个悲痛的消息，他们没有给函数命名。 控制台会展示什么给我们？ 没事…我们还有行号提示？ 在这个例子中，我们好像有7行代码。如果我们在处理一个巨大的代码库？如果每行有10k的代码?如果行号相差很远？如果代码被压缩了、没有map文件、行号提示几乎是没用的？ 我认为你可以非常容易的回答这些问题。答案是：你会度过糟糕的一天。 可读性看吧，我知道你不服气。你仍然爱着匿名函数，而且你永远也不会有BUG。抱歉，我忘了告诉你如何写出完美的代码。让我们来看看这点！ 检查下面两个不同的代码示例: 12345678910111213141516171819202122232425function initiate (arguments) &#123; return new Promise((resolve, reject) =&gt; &#123; try &#123; if (arguments) &#123; return resolve(true); &#125; return resolve(false); &#125; catch (e) &#123; reject(e); &#125; &#125;);&#125;initiate(true) .then(res =&gt; &#123; if (res) &#123; doSomethingElse(); &#125; else &#123; doSomething(); &#125; ).catch(e =&gt; &#123; logError(e.message); restartApp(); &#125; ); 这是一个人为的例子，但我认为你能get到那个点。我们有一个方法，它返回一个Promise对象，我们用这个对象去管理可能返回的不同请求。 你或许认为这个代码阅读起来不太难，但我认为它能写的更好。 如果我们摆脱所有匿名函数，结果会如何？ 123456789101112131415161718192021222324252627function initiate (arguments) &#123; return new Promise(checkForArguments);&#125;function checkForArguments (resolve, reject) &#123; try &#123; if (arguments) &#123; return resolve(true); &#125; return resolve(false); &#125; catch (e) &#123; reject(e); &#125;&#125;function evaluateRes (res) &#123; if (res) &#123; doSomethingElse(); &#125; else &#123; doSomething(); &#125;&#125;function handleError (e) &#123; logError(e.message); restartApp();&#125;initiate(true) .then(evaluateRes) .catch(handleError); 好了，让我们来屡清一下思路：这段代码比之前的要长，但我认为它比之前的可读性高得多！我们使用了非常棒的命名函数而不是匿名函数。只要我们看到命名函数，它的名字就会暗示我们接下来会发生什么。它消除了我们在阅读代码时的心理障碍。 这也有利于独立问题。不仅仅是创建方法，传递参数，运行逻辑，在第二个例子中，传递参数给then和catch，我们可以很清楚的知道函数中的每一处都发生了什么。 时间不多了，否则我要让你信服这些代码可以更加易读。也许你任然不相信，那尝试看看第三个论据… 可重用性你有注意到最后一个例子吗？所有函数都是可以互相调用的！ 当你使用匿名函数时，它们很难遍布你的程序。重用代码可以降低能耗，你也不用一遍遍写重复的代码了。还有大家都知道的一点，代码越少，引入BUG的几率越小，而且用户可以加载更少的资源。共赢的局面！ 相反的，命名函数可以在它的整个作用域中使用，而不需要像变量一样四处传递。你写的代码会很自然的更具重用性，因为，你可以重用他们！ 匿名函数好吗？是的。我必须承认，有时它们也是最好的选择！ 123456const stuff = [ &#123; hide: true, name: 'justin' &#125;, &#123; hide: false, name: 'lauren' &#125;, &#123; hide: false, name: 'max' &#125;,];const filteredStuff = stuff.filter(s =&gt; !s.hide); 这个匿名函数s =&gt; !s.hide小而简洁，它不会污染其它地方，也不会用在其它地方。它会在stuff.filter的堆栈跟踪中显示。如果你需要重用它，最好重用整个语句： 123function filterByHide (array) &#123; return array.filter(item =&gt; !item.hide);&#125; 有时你需要包裹你所有的代码在一个匿名函数中，以保证全局作用域不被污染。 123(() =&gt; &#123; ... your code here ...&#125;)(); 顶级匿名函数不会影响到堆栈跟踪。代码重用是不会造成伤害的，因为代码重用的全部目的就是保持方法被包含。 我相信还有其他地方适合使用匿名函数，在评论中分享一下吧！ 感谢阅读，离开这里后，停止写匿名函数吧！ 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
+    <title><![CDATA[『翻译』一些 JavaScript 优化的细节]]></title>
+    <url>%2F2017%2F02%2F13%2F2017-02-13-tiny-javascript-optimizations%2F</url>
+    <content type="text"><![CDATA[Read the original 前言优化客户端JavaScript代码常常是不值得的，因为这会失去代码可读性。如果你的APP运行缓慢，你可以考虑是否能优化请求，减少对DOM的操作，尽量少的操local storage，或者牺牲其它的来换取性能。几乎没有足够的数据认为客户端需要让代码同步运行速度更快。我认为接下来的代码十分具有可读性，如果你也需要，为什么不使用它呢？ 递归尾调用(Recursive tail calls)在下面例子中，函数每次执行都会创建一个新的栈(维持新添加的环境)。所以，如果参数x:5000，那就会创建5000个栈。 123456function foo(x) &#123; if (x &lt; 0) &#123; return 1; &#125; return 1 + foo(x-1);&#125; 如果使用一个累加数，就不会有新添加的环境需要被维持，所以返回的栈可以代替当前函数的栈。 123456function foo(x, accumulated) &#123; if (x &lt; 0) &#123; return 1; &#125; return foo(x-1, accumulated + 1);&#125; 使用逻辑表达式与C语言不同，在JavaScript中逻辑表达式可以用来做操作运算，而不只是判断真假。这意味着我们可以写出像下面一样简单的代码： 123456function foo(x) &#123; if (!x) &#123; return null; &#125; return x.y;&#125; 优化后的版本： 123function foo(x) &#123; return x &amp;&amp; x.y;&#125; 散列法 &gt; 迭代switch语句可以让返回的数据在结构中重现。但通常，我们只需要查找和比较一个文件，使用散列法会比迭代快很多。 123456789101112131415function iterating(action) &#123; switch (action.type) &#123; case 'a': // do something with action.data ... return; case ... case 'z': ... return; default: return; &#125;&#125;iterating(&#123;type: 'z', data: 'asdf'&#125;); 迭代26个元素。 123456789101112const lookupTable = &#123; 'a': (data) =&gt; &#123;...&#125;, ... 'z': (data) =&gt; &#123;...&#125;&#125;function hashing(action) &#123; const handler = lookupTable[action.type]; if (handler) &#123; return handler(action.data); &#125;&#125; 一个比较和一个查找。 当然，这适用于任何可迭代的元素(arrays,strings,etc)，但switch也有它的一些优势。 本文作者：余震（Freak）本文出处：Rockjins Blog版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 3.0 CN许可协议。转载请注明出处！]]></content>
       <categories>
         <category>Translation</category>
       </categories>
@@ -366,8 +378,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Object</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -378,8 +390,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Object</tag>
+        <tag>JavaScript</tag>
         <tag>Polymorphism</tag>
       </tags>
   </entry>
@@ -450,8 +462,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -486,8 +498,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
         <tag>JavaScript</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -498,8 +510,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -510,8 +522,8 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
         <tag>JavaScript</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -533,10 +545,10 @@
         <category>Technology</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
-        <tag>Function</tag>
         <tag>Array</tag>
         <tag>Object</tag>
+        <tag>Function</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
