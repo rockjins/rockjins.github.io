@@ -1877,9 +1877,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
-    
       <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
+    
+      <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
     
   </entry>
   
