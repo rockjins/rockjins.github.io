@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-13T02:55:32.000Z</updated>
+  <updated>2017-09-15T06:28:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> 『翻译』基于 Vue.js 与 Webpack 的三种代码分割范式 </title>
+    <link href="http://yoursite.com/2017/09/15/2017-09-15-three-code-splitting-patterns/"/>
+    <id>http://yoursite.com/2017/09/15/2017-09-15-three-code-splitting-patterns/</id>
+    <published>2017-09-14T16:00:00.000Z</published>
+    <updated>2017-09-15T06:28:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>原文链接：<a href="https://medium.com/js-dojo/3-code-splitting-patterns-for-vuejs-and-webpack-b8fff1ea0ba4" target="_blank" rel="external">3 Code Splitting Patterns For VueJS and Webpack</a></p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>代码分割是提升单页应用初始加载速度的重要方式之一。因为用户不用在第一次进入应用时下载所有代码，用户能更快的看到页面并与之交互。这会改善用户体验，尤其在移动端；而且这对 SEO 有很大帮助，因为 Google 会降低加载速度慢的网站权重。</p>
+<p>上周我写了一篇关于<a href="https://vuejsdevelopers.com/2017/07/03/vue-js-code-splitting-webpack/" target="_blank" rel="external">Vue.js 与 Webpack 如何分割代码</a>的文章，长话短说，每个组件都封装在单个文件中，那很容易分割代码，当你导入模块时，Webpack 可以创建一个分割点，并且 Vue 也可以很方便的加载一个异步组件。</p>
+<p>我认为代码分割最困难的部分不是如何让它工作起来，而是<em>何时</em>、<em>何地</em>让它工作。我想说，当设计你的应用时，就要将代码分割作为架构考虑进去。</p>
+<p>在这篇文章中，我将介绍目前 Vue.js 的三种代码分割方式：</p>
+<ul>
+<li><p>By page（按照页面切分）</p>
+</li>
+<li><p>By page fold（按照页面的可见区域折叠切分）</p>
+</li>
+<li><p>By condition（按条件加载）</p>
+</li>
+</ul>
+<a id="more"></a>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-b6effcd499050c26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>注：这篇文章最初于2017/07/08发表在<a href="http://vuejsdevelopers.com/2017/07/08/vue-js-3-ways-code-splitting-webpack/?jsdojo_id=medium_csp" target="_blank" rel="external">Vue.js开发博客</a>上。</p>
+<h1 id="1-By-page（按照页面切分）"><a href="#1-By-page（按照页面切分）" class="headerlink" title="1.By page（按照页面切分）"></a>1.By page（按照页面切分）</h1><p>按照页面切分是思路最清晰的。这个简单的应用有三个页面：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-425267a57716348c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我们假设每个组件都是一个单独的文件，比如：<code>Home.vue</code>, <code>About.vue</code> 和 <code>Contact.vue</code>，然后我们可以使用 Webpack 的动态 <code>import</code>(dynamic import) 功能拆分成单独的构建文件。当用户访问不同页面时，Wenpack 会异步加载并请求改页文件。</p>
+<p>如果你使用 <code>vue-router</code>，这很容易实现，因为你的页面已经在单独的组件里了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "home" */</span> <span class="string">'./Home.vue'</span>);</div><div class="line"><span class="keyword">const</span> About = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "about" */</span> <span class="string">'./About.vue'</span>);</div><div class="line"><span class="keyword">const</span> Contact = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "contact" */</span> <span class="string">'./Contact.vue'</span>);</div><div class="line"><span class="keyword">const</span> routes = [</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">name</span>: <span class="string">'home'</span>, <span class="attr">component</span>: Home &#125;,</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'/about'</span>, <span class="attr">name</span>: <span class="string">'about'</span>, <span class="attr">component</span>: About &#125;,</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'/contact'</span>, <span class="attr">name</span>: <span class="string">'contact'</span>, <span class="attr">component</span>: Contact &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>看看我们编译代码时的统计数据，每个页面都在它们自己的文件里，但要注意到有个重要的bundle文件叫 <em>build_main.js</em>，它包含了所有的公共代码以及异步加载其他文件的逻辑。无论用户访问哪个路由，都必须先加载它。</p>
+<p>现在我访问 <code>http://localhost:8080/#/contact</code> 加载 <em>Contact</em> 页面，我查看 Network 菜单，发现下列文件被加载：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-75d15e5e84d1e315.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>注意 <em>build_main.js</em> 这一栏的 <em>initiator</em> 值为 <em>(index)</em>。这意味着 <em>index.html</em> 请求了这个脚本，这正是我们所期盼的。但是 <em>build_1.js</em> 的 <em>initiator</em> 却是 <em>bootstrap_a877…</em>，这是 Webpack 脚本负责的异步加载文件。当你使用 Webpack 的动态导入功能，这个脚本会自动加入构建。最重要的一点是： <em>build_1.js</em> 不会阻塞初始页面的加载。</p>
+<h1 id="2-By-page-fold（按照页面的可见区域折叠切分）"><a href="#2-By-page-fold（按照页面的可见区域折叠切分）" class="headerlink" title="2.By page fold（按照页面的可见区域折叠切分）"></a>2.By page fold（按照页面的可见区域折叠切分）</h1><p><em>折叠</em>以下(Below the “fold”)代表页面初始时不可见的部分。你可以异步加载这些内容，因为用户通常需要一两秒钟才能阅读完折叠以上的内容，尤其是在第一次访问站点时。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-b8843a993b8e8daa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在这个实例应用中，我考虑把折叠线设在刊头下。那么让我们在页面初始化时加载导航栏和刊头，它们之下的所有内容，稍后再加载。我会创建一个名叫 <em>BelowFold</em> 的组件，提取出相关的代码如下：</p>
+<p>Home.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;div class=&quot;jumbotron&quot;&gt;</div><div class="line">        &lt;h1&gt;Jumbotron heading&lt;/h1&gt;</div><div class="line">        ...</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;below-fold&gt;&lt;/below-fold&gt;</div><div class="line">    &lt;!--All the code below here has been put into--&gt;</div><div class="line">    &lt;!--into the above component--&gt;</div><div class="line">    &lt;!--&lt;div class=&quot;row marketing&quot;&gt;</div><div class="line">      &lt;div class=&quot;col-lg-6&quot;&gt;</div><div class="line">        &lt;h4&gt;Subheading&lt;/h4&gt;</div><div class="line">        &lt;p&gt;Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.&lt;/p&gt;</div><div class="line">        ...</div><div class="line">      &lt;/div&gt;</div><div class="line">      ...</div><div class="line">    &lt;/div&gt;--&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  </div><div class="line">  const BelowFold = () =&gt; import(</div><div class="line">    /* webpackChunkName: &quot;below-fold&quot; */ &apos;./BelowFold.vue&apos;</div><div class="line">  );</div><div class="line">  export default &#123;</div><div class="line">    ...</div><div class="line">    components: &#123;</div><div class="line">        BelowFold</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>BelowFold.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;row marketing&quot;&gt;</div><div class="line">    &lt;div class=&quot;col-lg-6&quot;&gt;</div><div class="line">      &lt;h4&gt;Subheading&lt;/h4&gt;</div><div class="line">      &lt;p&gt;Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.&lt;/p&gt;</div><div class="line">      ...</div><div class="line">    &lt;/div&gt;</div><div class="line">    ...</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<p>当我们编译代码时，可以看到 <em>below-fold</em> 被打包成了单独的文件：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-f370e03d4104e877.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>提示：<em>below-fold</em> 小到只有1.36k，看起来似乎不值得把它单独分离出来。因为现在只是一个很小的演示应用。在真实的应用中，页面的大部分内容都在折叠以下，因此可能有大量的代码，它包括 <em>JS</em>、<em>CSS</em> 以及所有子组件。</p>
+</blockquote>
+<h1 id="3-By-condition（按条件加载）"><a href="#3-By-condition（按条件加载）" class="headerlink" title="3.By condition（按条件加载）"></a>3.By condition（按条件加载）</h1><p>另一个选择方案是按条件加载。比如：模态框、Tab页、菜单等。</p>
+<p>这个应用有个模态框，当你按下”Sign up today”按钮时会弹出它：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-a2193df778c14592.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>和之前一样，我们只是将模态框代码移动到它自己的单个文件组件中：</p>
+<p>Home.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;div class=&quot;jumbotron&quot;&gt;...&lt;/div&gt;</div><div class="line">    &lt;below-fold&gt;&lt;/below-fold&gt;</div><div class="line">    </div><div class="line">    &lt;home-modal v-if=&quot;show&quot; :show=&quot;show&quot;&gt;&lt;/home-modal&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  const BelowFold = () =&gt; import(</div><div class="line">    /* webpackChunkName: &quot;below-fold&quot; */ &apos;./BelowFold.vue&apos;</div><div class="line">  );</div><div class="line">  const HomeModal = () =&gt; import(</div><div class="line">    /* webpackChunkName: &quot;modal&quot; */ &apos;./HomeModal.vue&apos;</div><div class="line">  );</div><div class="line">  </div><div class="line">  export default &#123;</div><div class="line">    data() &#123;</div><div class="line">      return &#123;</div><div class="line">        show: false</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">      HomeModal,</div><div class="line">      BelowFold</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>HomeModal.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;modal v-model=&quot;show&quot; effect=&quot;fade&quot;&gt;...&lt;/modal&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  import Modal from &apos;vue-strap/src/Modal.vue&apos;;</div><div class="line">  export default &#123;</div><div class="line">    props: [&apos;show&apos;],</div><div class="line">    components: &#123;</div><div class="line">        Modal</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>注意我在模态框上加了 <code>v-if</code>。布尔值 <code>show</code> 用来开启/关闭模态框，并且它也用来判断是否渲染模态框本身。因为初始化页面时 <code>show</code> 为 <code>false</code>，只有当模态框打开时，才会下载代码。</p>
+<p>这很合适，因为如果用户没有打开模态框，那这块代码是不会下载的。唯一的缺点是：它有很小的用户体验成本，当用户按下按钮后必须等待文件下载完成。</p>
+<p>再次编译，下面是现在的输出结果：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-8d6c440d1889069b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>啊哈，我们又节省了5KB的首屏流量…</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>除了以上三种代码分割的方法，我相信一定还有其他方法去实现，只要你运用自己的想象力！</p>
+<blockquote>
+<p>本文译者：余震（Freak）<br>译文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;原文链接：&lt;a href=&quot;https://medium.com/js-dojo/3-code-splitting-patterns-for-vuejs-and-webpack-b8fff1ea0ba4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;3 Code Splitting Patterns For VueJS and Webpack&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;代码分割是提升单页应用初始加载速度的重要方式之一。因为用户不用在第一次进入应用时下载所有代码，用户能更快的看到页面并与之交互。这会改善用户体验，尤其在移动端；而且这对 SEO 有很大帮助，因为 Google 会降低加载速度慢的网站权重。&lt;/p&gt;
+&lt;p&gt;上周我写了一篇关于&lt;a href=&quot;https://vuejsdevelopers.com/2017/07/03/vue-js-code-splitting-webpack/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vue.js 与 Webpack 如何分割代码&lt;/a&gt;的文章，长话短说，每个组件都封装在单个文件中，那很容易分割代码，当你导入模块时，Webpack 可以创建一个分割点，并且 Vue 也可以很方便的加载一个异步组件。&lt;/p&gt;
+&lt;p&gt;我认为代码分割最困难的部分不是如何让它工作起来，而是&lt;em&gt;何时&lt;/em&gt;、&lt;em&gt;何地&lt;/em&gt;让它工作。我想说，当设计你的应用时，就要将代码分割作为架构考虑进去。&lt;/p&gt;
+&lt;p&gt;在这篇文章中，我将介绍目前 Vue.js 的三种代码分割方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;By page（按照页面切分）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;By page fold（按照页面的可见区域折叠切分）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;By condition（按条件加载）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
+    
+    
+      <category term="Vue.js" scheme="http://yoursite.com/tags/Vue-js/"/>
+    
+      <category term="Webpack" scheme="http://yoursite.com/tags/Webpack/"/>
+    
+  </entry>
   
   <entry>
     <title> 『翻译』Node.js 调试 </title>
@@ -66,7 +160,7 @@
     <link href="http://yoursite.com/2017/08/31/2017-08-31-vue-js-reactivity-in-depth/"/>
     <id>http://yoursite.com/2017/08/31/2017-08-31-vue-js-reactivity-in-depth/</id>
     <published>2017-08-30T16:00:00.000Z</published>
-    <updated>2017-09-13T02:43:00.000Z</updated>
+    <updated>2017-09-15T02:44:33.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>作者从 Java 与 C# 中经典的 Getters/Setters 引入，讨论了 Vue.js 中从组件渲染函数、数据的 Getter、Setter 劫持、监听器的控制以及重渲染触发整个生命流程。<br>原文链接：<a href="https://www.timo-ernst.net/blog/2017/07/26/understanding-vue-js-reactivity-depth-object-defineproperty/?utm_campaign=Revue%20newsletter&amp;utm_medium=Newsletter&amp;utm_source=Vue.js%20Feed" target="_blank" rel="external">Understanding Vue.js Reactivity in Depth with Object.defineProperty()</a></p>
@@ -154,7 +248,7 @@
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
-      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+      <category term="Vue.js" scheme="http://yoursite.com/tags/Vue-js/"/>
     
   </entry>
   
@@ -1783,9 +1877,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
-    
       <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
+    
+      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
     
   </entry>
   
@@ -2415,76 +2509,6 @@
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 函数节流、函数防抖实现原理分析 </title>
-    <link href="http://yoursite.com/2017/02/21/2017-02-21-debounce-function/"/>
-    <id>http://yoursite.com/2017/02/21/2017-02-21-debounce-function/</id>
-    <published>2017-02-20T16:00:00.000Z</published>
-    <updated>2017-07-28T02:23:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>之前<a href="https://rockjins.js.org/2017/01/26/interviews-javascript/" target="_blank" rel="external">翻译了一篇博客</a>，里面有讲到这个，今天单独拎出来聊聊。</p>
-</blockquote>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>事件的触发权很多时候都属于用户，有些情况下会产生问题：</p>
-<ul>
-<li><p>向后台发送数据，用户频繁触发，对服务器造成压力</p>
-</li>
-<li><p>一些浏览器事件:<code>window.onresize</code>、<code>mousemove</code>等，触发的频率非常高，会造成浏览器性能问题</p>
-</li>
-</ul>
-<p>如果你碰到这些问题，那就需要用到这些技术了。</p>
-<p>我们先来解释一下函数节流(Throttling)和函数防抖(Debouncing)的区别:</p>
-<blockquote>
-<p>我们上班、生活每天都需要坐电梯，用这个比喻再恰当不过了：</p>
-<p>函数防抖和我们平时坐电梯差不多，如果有人进电梯（用户触发事件），那将在10秒钟后出发（执行程序），这时如果又有人进电梯了（用户在10秒内再次触发事件），我们又得等10秒再出发（重新计时）。</p>
-<p>函数节流就比较直观了，有人进电梯，就开始计时，每10秒运送一次，如果没有人，则待机。</p>
-</blockquote>
-<p>这两种策略具体使用场景还得看你的实际需求了，但是，只要理解了这个思想，接下来的就好办了。</p>
-<a id="more"></a>
-<h3 id="函数节流-Throttling"><a href="#函数节流-Throttling" class="headerlink" title="函数节流(Throttling)"></a>函数节流(Throttling)</h3><p>函数节流的作用上面讲的很清晰了，接下来我们分析一下如何实现它：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params">fn, interval</span>) </span>&#123; <span class="comment">//fn为要执行的函数，interval为延迟时间</span></div><div class="line">  <span class="keyword">var</span> _self = fn,  <span class="comment">//保存需要被延迟执行的函数引用</span></div><div class="line">      timer,  <span class="comment">//定时器</span></div><div class="line">      firstTime = <span class="literal">true</span>;  <span class="comment">//是否第一次调用</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//返回一个函数，形成闭包，持久化变量</span></div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">arguments</span>, <span class="comment">//缓存变量</span></div><div class="line">        _me = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(firstTime) &#123; <span class="comment">//如果是第一次调用，不用延迟执行</span></div><div class="line">      _self.apply(_me, args);</div><div class="line">      <span class="keyword">return</span> firstTime = <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(timer) &#123; <span class="comment">//如果定时器还在，说明上一次延迟执行还没有完成</span></div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//延迟一段时间执行</span></div><div class="line">      clearTimeout(timer);</div><div class="line">      timer = <span class="literal">null</span>;</div><div class="line">      _self.apply(_me, args);</div><div class="line">    &#125;, interval || <span class="number">500</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//使用</span></div><div class="line"><span class="built_in">window</span>.onresize = throttle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//你要执行的代码</span></div><div class="line">&#125;, <span class="number">500</span>);</div></pre></td></tr></table></figure>
-<p>其实函数节流和函数防抖的关键就是对<code>setTimeout</code>的运用，说个题外话，当你对<code>setTimeout</code>和<code>setInterval</code>内部的运作原理彻底了解后，你就是一名JS大神了。😝</p>
-<h3 id="函数防抖-Debouncing"><a href="#函数防抖-Debouncing" class="headerlink" title="函数防抖(Debouncing)"></a>函数防抖(Debouncing)</h3><p>我个人在开发中比较喜欢使用函数防抖策略，其实也说不上谁好，适应的场景不同。</p>
-<p>我把注解也写在代码中了：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, interval, immediate</span>) </span>&#123;</div><div class="line">  <span class="comment">//fn为要执行的函数</span></div><div class="line">  <span class="comment">//interval为等待的时间</span></div><div class="line">  <span class="comment">//immediate判断是否立即执行</span></div><div class="line">  <span class="keyword">var</span> timeout;  <span class="comment">//定时器</span></div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//返回一个闭包</span></div><div class="line">    <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>; <span class="comment">//先把变量缓存</span></div><div class="line">    <span class="keyword">var</span> later = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  <span class="comment">//把稍后要执行的代码封装起来</span></div><div class="line">      timeout = <span class="literal">null</span>; <span class="comment">//成功调用后清除定时器</span></div><div class="line">      <span class="keyword">if</span>(!immediate) fn.apply(context, args); <span class="comment">//不立即执行时才可以调用</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> callNow = immediate &amp;&amp; !timeout;  <span class="comment">//判断是否立即调用，并且如果定时器存在，则不立即调用</span></div><div class="line">    clearTimeout(timeout);  <span class="comment">//不管什么情况，先清除定时器，这是最稳妥的</span></div><div class="line">    timeout = setTimeout(later, interval);  <span class="comment">//延迟执行</span></div><div class="line">    <span class="keyword">if</span>(callNow) fn.apply(context, args);  <span class="comment">//如果是第一次触发，并且immediate为true，则立即执行</span></div><div class="line">  &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//使用</span></div><div class="line"><span class="keyword">var</span> myEfficientFn = debounce(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//你要做的事</span></div><div class="line">&#125;, <span class="number">250</span>);</div><div class="line"></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>, myEfficientFn);</div></pre></td></tr></table></figure>
-<p>上面代码有一个巧妙的设计：<code>var callNow = immediate &amp;&amp; !timeout;</code>，判断了timeout，如果存在，说明有定时器在运行，那就不是第一次执行，则不执行<code>if(callNow)</code>里的代码了。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这两个代码块是在开发中经常使用的，无论是为了适应需求还是优化性能，我们都没有理由不适用它们。</p>
-<p>另外在jQuery的源码中也使用了这种技巧，即便在这个框架横行的时代，还是只有底层的知识能让我感到踏实。</p>
-<blockquote>
-<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;之前&lt;a href=&quot;https://rockjins.js.org/2017/01/26/interviews-javascript/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;翻译了一篇博客&lt;/a&gt;，里面有讲到这个，今天单独拎出来聊聊。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;事件的触发权很多时候都属于用户，有些情况下会产生问题：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;向后台发送数据，用户频繁触发，对服务器造成压力&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一些浏览器事件:&lt;code&gt;window.onresize&lt;/code&gt;、&lt;code&gt;mousemove&lt;/code&gt;等，触发的频率非常高，会造成浏览器性能问题&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;如果你碰到这些问题，那就需要用到这些技术了。&lt;/p&gt;
-&lt;p&gt;我们先来解释一下函数节流(Throttling)和函数防抖(Debouncing)的区别:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我们上班、生活每天都需要坐电梯，用这个比喻再恰当不过了：&lt;/p&gt;
-&lt;p&gt;函数防抖和我们平时坐电梯差不多，如果有人进电梯（用户触发事件），那将在10秒钟后出发（执行程序），这时如果又有人进电梯了（用户在10秒内再次触发事件），我们又得等10秒再出发（重新计时）。&lt;/p&gt;
-&lt;p&gt;函数节流就比较直观了，有人进电梯，就开始计时，每10秒运送一次，如果没有人，则待机。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这两种策略具体使用场景还得看你的实际需求了，但是，只要理解了这个思想，接下来的就好办了。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
   </entry>
   

@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,Promise," />
+  <meta name="keywords" content="Vue.js,Webpack," />
 
 
 
@@ -95,17 +95,25 @@
 
 
 
-<meta name="description" content="这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。  什么是Promise？简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。 在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this: 12345getAsync(&quot;fileA.txt">
-<meta name="keywords" content="JavaScript,Promise">
+<meta name="description" content="原文链接：3 Code Splitting Patterns For VueJS and Webpack  前言代码分割是提升单页应用初始加载速度的重要方式之一。因为用户不用在第一次进入应用时下载所有代码，用户能更快的看到页面并与之交互。这会改善用户体验，尤其在移动端；而且这对 SEO 有很大帮助，因为 Google 会降低加载速度慢的网站权重。 上周我写了一篇关于Vue.js 与 Webpac">
+<meta name="keywords" content="Vue.js,Webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" 快速将Promise运用在开发中 ">
-<meta property="og:url" content="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/index.html">
+<meta property="og:title" content=" 『翻译』基于 Vue.js 与 Webpack 的三种代码分割范式 ">
+<meta property="og:url" content="http://yoursite.com/2017/09/15/2017-09-15-three-code-splitting-patterns/index.html">
 <meta property="og:site_name" content="Rockjins Blog">
-<meta property="og:description" content="这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。  什么是Promise？简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。 在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this: 12345getAsync(&quot;fileA.txt">
-<meta property="og:updated_time" content="2017-07-28T02:23:29.000Z">
+<meta property="og:description" content="原文链接：3 Code Splitting Patterns For VueJS and Webpack  前言代码分割是提升单页应用初始加载速度的重要方式之一。因为用户不用在第一次进入应用时下载所有代码，用户能更快的看到页面并与之交互。这会改善用户体验，尤其在移动端；而且这对 SEO 有很大帮助，因为 Google 会降低加载速度慢的网站权重。 上周我写了一篇关于Vue.js 与 Webpac">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-b6effcd499050c26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-425267a57716348c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-75d15e5e84d1e315.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-b8843a993b8e8daa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-f370e03d4104e877.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-a2193df778c14592.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2859850-8d6c440d1889069b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-15T06:28:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" 快速将Promise运用在开发中 ">
-<meta name="twitter:description" content="这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。  什么是Promise？简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。 在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this: 12345getAsync(&quot;fileA.txt">
+<meta name="twitter:title" content=" 『翻译』基于 Vue.js 与 Webpack 的三种代码分割范式 ">
+<meta name="twitter:description" content="原文链接：3 Code Splitting Patterns For VueJS and Webpack  前言代码分割是提升单页应用初始加载速度的重要方式之一。因为用户不用在第一次进入应用时下载所有代码，用户能更快的看到页面并与之交互。这会改善用户体验，尤其在移动端；而且这对 SEO 有很大帮助，因为 Google 会降低加载速度慢的网站权重。 上周我写了一篇关于Vue.js 与 Webpac">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2859850-b6effcd499050c26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -133,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/15/2017-09-15-three-code-splitting-patterns/"/>
 
 
 
 
 
-  <title> 快速将Promise运用在开发中  | Rockjins Blog</title>
+  <title> 『翻译』基于 Vue.js 与 Webpack 的三种代码分割范式  | Rockjins Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +319,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/2017-09-15-three-code-splitting-patterns/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="余震">
@@ -328,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"> 快速将Promise运用在开发中 </h1>
+          <h1 class="post-title" itemprop="name headline"> 『翻译』基于 Vue.js 与 Webpack 的三种代码分割范式 </h1>
         
 
         <div class="post-meta">
@@ -340,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T00:00:00+08:00">
-                2017-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T00:00:00+08:00">
+                2017-09-15
               </time>
             
 
@@ -363,8 +371,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
                   </a>
                 </span>
 
@@ -380,7 +388,7 @@
 
           
           
-             <span id="/2017/03/12/2017-03-12-promise-dev/" class="leancloud_visitors" data-flag-title=" 快速将Promise运用在开发中 ">
+             <span id="/2017/09/15/2017-09-15-three-code-splitting-patterns/" class="leancloud_visitors" data-flag-title=" 『翻译』基于 Vue.js 与 Webpack 的三种代码分割范式 ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -409,55 +417,60 @@
 
       
         <blockquote>
-<p>这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。</p>
+<p>原文链接：<a href="https://medium.com/js-dojo/3-code-splitting-patterns-for-vuejs-and-webpack-b8fff1ea0ba4" target="_blank" rel="external">3 Code Splitting Patterns For VueJS and Webpack</a></p>
 </blockquote>
-<h3 id="什么是Promise？"><a href="#什么是Promise？" class="headerlink" title="什么是Promise？"></a>什么是Promise？</h3><p>简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。</p>
-<p>在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getAsync(<span class="string">"fileA.txt"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, result</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(error)&#123;<span class="comment">// 取得失败时的处理 throw error;</span></div><div class="line">    <span class="keyword">throw</span> error;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>上面遵循<code>Node.js</code>的规定，回调的第一个参数是<code>error</code>。如果所有的回调函数都像<code>Node.js</code>一样，统一参数使用规则的话，那写法会很明了，但也仅仅是编码规范而已，使用不同的写法也不会出错。</p>
-<p>而Promise则是把异步处理对象和处理规则进行规范化，并采用统一的接口来编写，使用规定方法之外的写法都会出错。</p>
-<p>我们可以先看一个简单的使用Promise进行异步处理的例子:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = getAsyncPromise(<span class="string">"fileA.txt"</span>);</div><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">  <span class="comment">// 获取文件内容成功时的处理</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">  <span class="comment">// 获取文件内容失败时的处理</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>看上去和回调函数有些不一样，在使用Promise进行异步处理的时候，我们必须按照接口规定的方法编写处理代码。</p>
-<p>也即是说，除了使用Promise规定的方法(上面的<code>then</code>和<code>catch</code>),其他的方法都是不能使用的，而回调函数可以自定义回调的参数。</p>
-<p>所以，Promise可以将复杂的异步处理轻松的进行模式化，没有理由让你不使用它。</p>
-<p>接下来，我们看看怎么把Promise运用到开发中，这个才是大家想了解的。</p>
-<h3 id="学习Promise"><a href="#学习Promise" class="headerlink" title="学习Promise"></a>学习Promise</h3><p>在运用到开发之前，我们有必要先学习一些Promise的基本API(暂时看的有点糊涂没关系，等会的例子实践会和大家讲清楚的)。</p>
-<p>目前大致有下面三种类型:</p>
-<h4 id="1-Constructor-构造器"><a href="#1-Constructor-构造器" class="headerlink" title="1.Constructor(构造器)"></a>1.Constructor(构造器)</h4><p>我们从构造函数<code>Promise</code>来创建一个新<code>promise</code>对象作为接口。</p>
-<p>要创建一个<code>promise</code>对象，可以使用<code>new</code>来调用<code>Promise</code>构造器来进行实例化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; <span class="comment">// 异步处理</span></div><div class="line">  <span class="comment">// 处理结束后、调用resolve 或 reject</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="2-Instance-Method-实例方法"><a href="#2-Instance-Method-实例方法" class="headerlink" title="2.Instance Method(实例方法)"></a>2.Instance Method(实例方法)</h4><p>在通过<code>new</code>生成的<code>promise</code>对象时，我们设置了在resolve(成功)和reject(失败)时调用的回调函数，我们可以使用<code>promise.then()</code>实例方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then(onFulfilled,onReject);</div></pre></td></tr></table></figure>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>代码分割是提升单页应用初始加载速度的重要方式之一。因为用户不用在第一次进入应用时下载所有代码，用户能更快的看到页面并与之交互。这会改善用户体验，尤其在移动端；而且这对 SEO 有很大帮助，因为 Google 会降低加载速度慢的网站权重。</p>
+<p>上周我写了一篇关于<a href="https://vuejsdevelopers.com/2017/07/03/vue-js-code-splitting-webpack/" target="_blank" rel="external">Vue.js 与 Webpack 如何分割代码</a>的文章，长话短说，每个组件都封装在单个文件中，那很容易分割代码，当你导入模块时，Webpack 可以创建一个分割点，并且 Vue 也可以很方便的加载一个异步组件。</p>
+<p>我认为代码分割最困难的部分不是如何让它工作起来，而是<em>何时</em>、<em>何地</em>让它工作。我想说，当设计你的应用时，就要将代码分割作为架构考虑进去。</p>
+<p>在这篇文章中，我将介绍目前 Vue.js 的三种代码分割方式：</p>
 <ul>
-<li><p>resolve(成功)时：<code>onFulfilled</code>会被调用</p>
+<li><p>By page（按照页面切分）</p>
 </li>
-<li><p>reject(失败)时：<code>onReject</code>会被调用</p>
+<li><p>By page fold（按照页面的可见区域折叠切分）</p>
+</li>
+<li><p>By condition（按条件加载）</p>
 </li>
 </ul>
-<p><code>onFulfilled</code>和<code>onReject</code>都为可选参数</p>
-<p><code>promise.then</code>成功和失败时都可以使用，另外在异常处理时，可以使用<code>promise.then(undefined, onReject)</code>这种方式，只指定<code>reject</code>时的回调函数即可。不过这种情况下，使用<code>promise.catch()</code>是个明智之选。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.catch(onReject);</div></pre></td></tr></table></figure>
-<h4 id="3-Static-Method-静态方法"><a href="#3-Static-Method-静态方法" class="headerlink" title="3.Static Method(静态方法)"></a>3.Static Method(静态方法)</h4><p>像<code>promise.all()</code>和<code>Promise.resolve()</code>等在内，主要都是一些辅助方法(可以理解为一些语法糖)，这里不作深入探讨。</p>
-<h3 id="运用在开发中"><a href="#运用在开发中" class="headerlink" title="运用在开发中"></a>运用在开发中</h3><p>我们先来看一段Promise使用流程代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFunction</span>(<span class="params"></span>) </span>&#123;  <span class="comment">//(1)</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      resolve(<span class="string">'Async Hello World'</span>);</div><div class="line">    &#125;, <span class="number">300</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">asyncFunction().then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;  <span class="comment">//(2)</span></div><div class="line">  <span class="built_in">console</span>.log(value); <span class="comment">//300ms后打印 "Async Hello World"</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;  <span class="comment">//(3)</span></div><div class="line">  <span class="built_in">console</span>.log(error);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>分析一下上面代码。</p>
-<p>执行<code>(1)</code>处函数，会返回一个Promise对象，Promise对象内部在300ms后执行<code>resolve()</code>方法，这个方法调用<code>(2)</code>处的<code>then()</code>方法，并传入参数，如果Promise对象内部出现任何错误(比如平台不支持setTimeout方法)，就会执行<code>(3)</code>处的<code>catch()</code>发放，并把错误作为参数传入。</p>
+<a id="more"></a>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-b6effcd499050c26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>注：这篇文章最初于2017/07/08发表在<a href="http://vuejsdevelopers.com/2017/07/08/vue-js-3-ways-code-splitting-webpack/?jsdojo_id=medium_csp" target="_blank" rel="external">Vue.js开发博客</a>上。</p>
+<h1 id="1-By-page（按照页面切分）"><a href="#1-By-page（按照页面切分）" class="headerlink" title="1.By page（按照页面切分）"></a>1.By page（按照页面切分）</h1><p>按照页面切分是思路最清晰的。这个简单的应用有三个页面：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-425267a57716348c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我们假设每个组件都是一个单独的文件，比如：<code>Home.vue</code>, <code>About.vue</code> 和 <code>Contact.vue</code>，然后我们可以使用 Webpack 的动态 <code>import</code>(dynamic import) 功能拆分成单独的构建文件。当用户访问不同页面时，Wenpack 会异步加载并请求改页文件。</p>
+<p>如果你使用 <code>vue-router</code>，这很容易实现，因为你的页面已经在单独的组件里了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "home" */</span> <span class="string">'./Home.vue'</span>);</div><div class="line"><span class="keyword">const</span> About = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "about" */</span> <span class="string">'./About.vue'</span>);</div><div class="line"><span class="keyword">const</span> Contact = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: "contact" */</span> <span class="string">'./Contact.vue'</span>);</div><div class="line"><span class="keyword">const</span> routes = [</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">name</span>: <span class="string">'home'</span>, <span class="attr">component</span>: Home &#125;,</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'/about'</span>, <span class="attr">name</span>: <span class="string">'about'</span>, <span class="attr">component</span>: About &#125;,</div><div class="line">  &#123; <span class="attr">path</span>: <span class="string">'/contact'</span>, <span class="attr">name</span>: <span class="string">'contact'</span>, <span class="attr">component</span>: Contact &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>看看我们编译代码时的统计数据，每个页面都在它们自己的文件里，但要注意到有个重要的bundle文件叫 <em>build_main.js</em>，它包含了所有的公共代码以及异步加载其他文件的逻辑。无论用户访问哪个路由，都必须先加载它。</p>
+<p>现在我访问 <code>http://localhost:8080/#/contact</code> 加载 <em>Contact</em> 页面，我查看 Network 菜单，发现下列文件被加载：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-75d15e5e84d1e315.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>注意 <em>build_main.js</em> 这一栏的 <em>initiator</em> 值为 <em>(index)</em>。这意味着 <em>index.html</em> 请求了这个脚本，这正是我们所期盼的。但是 <em>build_1.js</em> 的 <em>initiator</em> 却是 <em>bootstrap_a877…</em>，这是 Webpack 脚本负责的异步加载文件。当你使用 Webpack 的动态导入功能，这个脚本会自动加入构建。最重要的一点是： <em>build_1.js</em> 不会阻塞初始页面的加载。</p>
+<h1 id="2-By-page-fold（按照页面的可见区域折叠切分）"><a href="#2-By-page-fold（按照页面的可见区域折叠切分）" class="headerlink" title="2.By page fold（按照页面的可见区域折叠切分）"></a>2.By page fold（按照页面的可见区域折叠切分）</h1><p><em>折叠</em>以下(Below the “fold”)代表页面初始时不可见的部分。你可以异步加载这些内容，因为用户通常需要一两秒钟才能阅读完折叠以上的内容，尤其是在第一次访问站点时。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-b8843a993b8e8daa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在这个实例应用中，我考虑把折叠线设在刊头下。那么让我们在页面初始化时加载导航栏和刊头，它们之下的所有内容，稍后再加载。我会创建一个名叫 <em>BelowFold</em> 的组件，提取出相关的代码如下：</p>
+<p>Home.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;div class=&quot;jumbotron&quot;&gt;</div><div class="line">        &lt;h1&gt;Jumbotron heading&lt;/h1&gt;</div><div class="line">        ...</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;below-fold&gt;&lt;/below-fold&gt;</div><div class="line">    &lt;!--All the code below here has been put into--&gt;</div><div class="line">    &lt;!--into the above component--&gt;</div><div class="line">    &lt;!--&lt;div class=&quot;row marketing&quot;&gt;</div><div class="line">      &lt;div class=&quot;col-lg-6&quot;&gt;</div><div class="line">        &lt;h4&gt;Subheading&lt;/h4&gt;</div><div class="line">        &lt;p&gt;Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.&lt;/p&gt;</div><div class="line">        ...</div><div class="line">      &lt;/div&gt;</div><div class="line">      ...</div><div class="line">    &lt;/div&gt;--&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  </div><div class="line">  const BelowFold = () =&gt; import(</div><div class="line">    /* webpackChunkName: &quot;below-fold&quot; */ &apos;./BelowFold.vue&apos;</div><div class="line">  );</div><div class="line">  export default &#123;</div><div class="line">    ...</div><div class="line">    components: &#123;</div><div class="line">        BelowFold</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>BelowFold.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class=&quot;row marketing&quot;&gt;</div><div class="line">    &lt;div class=&quot;col-lg-6&quot;&gt;</div><div class="line">      &lt;h4&gt;Subheading&lt;/h4&gt;</div><div class="line">      &lt;p&gt;Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.&lt;/p&gt;</div><div class="line">      ...</div><div class="line">    &lt;/div&gt;</div><div class="line">    ...</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<p>当我们编译代码时，可以看到 <em>below-fold</em> 被打包成了单独的文件：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-f370e03d4104e877.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <blockquote>
-<p>这里提一下，我看到很多朋友把Promise理解为Ajax的一种扩展，其实并不是这样的，Ajax只是一种请求数据的方式，因为Ajax是异步的，所以我们可以用Promise去管理Ajax请求，但这并不意味这Promise只服务于Ajax，只要是异步处理，我们都可以使用Promise去处理，就比如上面的<code>setTimeout</code>。</p>
+<p>提示：<em>below-fold</em> 小到只有1.36k，看起来似乎不值得把它单独分离出来。因为现在只是一个很小的演示应用。在真实的应用中，页面的大部分内容都在折叠以下，因此可能有大量的代码，它包括 <em>JS</em>、<em>CSS</em> 以及所有子组件。</p>
 </blockquote>
-<p>看到这里大家对Promise应该有一个大概的认识了，实际开发中Promise大部分时间还是搭配Ajax使用，我们来看看应该怎么做，下面用原生的方式请求Ajax，大家也温习一下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getURL</span>(<span class="params">URL</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"></div><div class="line">    req.open(<span class="string">'GET'</span>, URL, <span class="literal">true</span>);</div><div class="line"></div><div class="line">    req.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (req.status === <span class="number">200</span>) &#123;</div><div class="line">        resolve(req.responseText);</div><div class="line">      &#125;<span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    req.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      reject.(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    req.send();</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 运行示例</span></div><div class="line"><span class="keyword">var</span> URL = <span class="string">"https://rockjins.js.org"</span>;</div><div class="line">getURL(URL).then(<span class="function"><span class="keyword">function</span> <span class="title">onFulfilled</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span> <span class="title">onRejected</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><code>getURL</code>只有在XHR取得状态为200时才会调用<code>resolve</code>，也就是数据取得成功时，而其他情况(数据取得失败)则会调用<code>reject</code>。</p>
-<p>当调用<code>resolve(req.responseText)</code>时，<code>then</code>方法也会被调用，并接收到<code>req.responseText</code>参数。</p>
-<p>熟悉Node.js的朋友在写回调时会会将<code>callback(error,response)</code>的第一个参数设为<code>error</code>对象，在Promise中，resolve(成功)/reject(失败)担当了这个职责。</p>
-<p>XHR中<code>onerror</code>触发时，就是发生错误时，理所当然要调用<code>reject</code>，我们重点来看下传给<code>reject</code>的值。</p>
-<p>发生错误时要像这样<code>reject(new Error(req.statusText))</code>，创建一个Error对象再讲具体的值传入进去。传给<code>reject</code>的值也没有什么特殊限制，一般只要是Error对象(或继承自Error对象)即可。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>其实你理解了Promise的运作流程，使用它十分方便和简单，它就是一个异步管理器，帮助我们更好地去进行异步处理。</p>
-<p>试想，如果Promise真的很复杂，那它出现的意义是什么？本末倒置了，哈哈。</p>
+<h1 id="3-By-condition（按条件加载）"><a href="#3-By-condition（按条件加载）" class="headerlink" title="3.By condition（按条件加载）"></a>3.By condition（按条件加载）</h1><p>另一个选择方案是按条件加载。比如：模态框、Tab页、菜单等。</p>
+<p>这个应用有个模态框，当你按下”Sign up today”按钮时会弹出它：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-a2193df778c14592.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>和之前一样，我们只是将模态框代码移动到它自己的单个文件组件中：</p>
+<p>Home.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;div class=&quot;jumbotron&quot;&gt;...&lt;/div&gt;</div><div class="line">    &lt;below-fold&gt;&lt;/below-fold&gt;</div><div class="line">    </div><div class="line">    &lt;home-modal v-if=&quot;show&quot; :show=&quot;show&quot;&gt;&lt;/home-modal&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  const BelowFold = () =&gt; import(</div><div class="line">    /* webpackChunkName: &quot;below-fold&quot; */ &apos;./BelowFold.vue&apos;</div><div class="line">  );</div><div class="line">  const HomeModal = () =&gt; import(</div><div class="line">    /* webpackChunkName: &quot;modal&quot; */ &apos;./HomeModal.vue&apos;</div><div class="line">  );</div><div class="line">  </div><div class="line">  export default &#123;</div><div class="line">    data() &#123;</div><div class="line">      return &#123;</div><div class="line">        show: false</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">      HomeModal,</div><div class="line">      BelowFold</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>HomeModal.vue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;modal v-model=&quot;show&quot; effect=&quot;fade&quot;&gt;...&lt;/modal&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">  import Modal from &apos;vue-strap/src/Modal.vue&apos;;</div><div class="line">  export default &#123;</div><div class="line">    props: [&apos;show&apos;],</div><div class="line">    components: &#123;</div><div class="line">        Modal</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>注意我在模态框上加了 <code>v-if</code>。布尔值 <code>show</code> 用来开启/关闭模态框，并且它也用来判断是否渲染模态框本身。因为初始化页面时 <code>show</code> 为 <code>false</code>，只有当模态框打开时，才会下载代码。</p>
+<p>这很合适，因为如果用户没有打开模态框，那这块代码是不会下载的。唯一的缺点是：它有很小的用户体验成本，当用户按下按钮后必须等待文件下载完成。</p>
+<p>再次编译，下面是现在的输出结果：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/2859850-8d6c440d1889069b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>啊哈，我们又节省了5KB的首屏流量…</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>除了以上三种代码分割的方法，我相信一定还有其他方法去实现，只要你运用自己的想象力！</p>
 <blockquote>
-<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+<p>本文译者：余震（Freak）<br>译文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
 
       
@@ -509,9 +522,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
           
-            <a href="/tags/Promise/" rel="tag"># Promise</a>
+            <a href="/tags/Webpack/" rel="tag"># Webpack</a>
           
         </div>
       
@@ -524,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/08/2017-03-08-you-might-not-need-a-build-tool/" rel="next" title="『翻译』你也许并不需要构建工具 ">
-                <i class="fa fa-chevron-left"></i> 『翻译』你也许并不需要构建工具 
+              <a href="/2017/09/13/2017-09-13-node-js-debugging/" rel="next" title=" 『翻译』Node.js 调试 ">
+                <i class="fa fa-chevron-left"></i>  『翻译』Node.js 调试 
               </a>
             
           </div>
@@ -533,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/28/2017-03-28-mongodb-document-query/" rel="prev" title=" MongoDB 文档操作 ">
-                 MongoDB 文档操作  <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -694,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Promise？"><span class="nav-number">1.</span> <span class="nav-text">什么是Promise？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习Promise"><span class="nav-number">2.</span> <span class="nav-text">学习Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Constructor-构造器"><span class="nav-number">2.1.</span> <span class="nav-text">1.Constructor(构造器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Instance-Method-实例方法"><span class="nav-number">2.2.</span> <span class="nav-text">2.Instance Method(实例方法)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Static-Method-静态方法"><span class="nav-number">2.3.</span> <span class="nav-text">3.Static Method(静态方法)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用在开发中"><span class="nav-number">3.</span> <span class="nav-text">运用在开发中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-By-page（按照页面切分）"><span class="nav-number">2.</span> <span class="nav-text">1.By page（按照页面切分）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-By-page-fold（按照页面的可见区域折叠切分）"><span class="nav-number">3.</span> <span class="nav-text">2.By page fold（按照页面的可见区域折叠切分）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-By-condition（按条件加载）"><span class="nav-number">4.</span> <span class="nav-text">3.By condition（按条件加载）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
