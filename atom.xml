@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-15T06:37:08.000Z</updated>
+  <updated>2017-09-26T02:03:40.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> 『翻译』每个程序员第一份工作前应该知道的10件事 </title>
+    <link href="http://yoursite.com/2017/09/25/2017-09-25-ten-things-for-first-job/"/>
+    <id>http://yoursite.com/2017/09/25/2017-09-25-ten-things-for-first-job/</id>
+    <published>2017-09-24T16:00:00.000Z</published>
+    <updated>2017-09-26T02:03:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>原文链接：<a href="http://www.applematters.com/article/10-things-every-programmer-should-know-for-their-first-job/" target="_blank" rel="external">10 Things Every Programmer Should Know For Their First Job</a></p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章对我来说是“事后诸葛亮”，以下是我进入编程行业以来的一些经验和教训。</p>
+<h1 id="0000-被喜欢是很容易的事"><a href="#0000-被喜欢是很容易的事" class="headerlink" title="0000 - 被喜欢是很容易的事"></a>0000 - 被喜欢是很容易的事</h1><p>如果你有时间观念，衣着得体，保持微笑，不做一些愚蠢的事情，至少会有一些人喜欢你。事实上，让你的同事喜欢你是一件很容易的事。你想拥有很多朋友吗？在你的桌上放一碗慢慢的糖果，你就会发现你有多少朋友。</p>
+<h1 id="0001-受人尊敬是很难的事"><a href="#0001-受人尊敬是很难的事" class="headerlink" title="0001 - 受人尊敬是很难的事"></a>0001 - 受人尊敬是很难的事</h1><p>不管你在这个行业有20年经验或没有经验，当你刚进入一家公司时，没有人会尊敬你。这并不意味着他们不喜欢你，或者对你没有好感。这是因为你还没有做任何事，给别人尊敬你的理由。获得尊敬最快的方法就是把工作做到最好。做到最好并不是浮夸和惊艳，而是有效和团结。当大家看到你能有效率并正确的完成工作，不用害怕赢得不了尊敬。</p>
+<a id="more"></a>
+<h1 id="0010-你在大学学到的一切都是没用的"><a href="#0010-你在大学学到的一切都是没用的" class="headerlink" title="0010 - 你在大学学到的一切都是没用的"></a>0010 - 你在大学学到的一切都是没用的</h1><p>第一份工作的前6个月，会比你整个大学学到的还多。你知道吗？工作中压力会很大。因为总有一天老板会要求你去做你简历中写的那些很棒的那些东西。你懂得，那些东西是你在学校能学到的？如果你搞砸了，在大学你会补考、留级。对不起，在这里你会被炒鱿鱼。在最近在工作中发现了这种状况。有些人因为某些技能被聘用，也因为不能解决问题而被解雇。很多有趣的事情会发生在第一份工作中。</p>
+<p>大部分公司都有新员工的试用期，一般为30~90天。基本上，如果你搞砸了项目或者老板发现你在简历上撒了谎，不用想别的了，卷铺盖走人吧。千万记住别撒谎！</p>
+<h1 id="0011-不要停止学习"><a href="#0011-不要停止学习" class="headerlink" title="0011 - 不要停止学习"></a>0011 - 不要停止学习</h1><p>作为新人，抱着“我什么都不知道，但我想学”的心态去工作会对你帮助很大。当你意识到自己多么愚蠢时，至少不会那么尴尬。你要意识到几乎所有人都比你有经验，比你懂的更多。好消息是，如果你问一些聪明的问题并关注他们做的事情，大多数人会乐意与你分享他们的知识。每个人都下意识认为自己的观点和经验是正确的，所以不要犹豫，想办法改善你的工作方式。只要你问问题，你就能从每一个和你一起工作的人身上学到东西。询问一些技巧、方法和其它同事可能精通的东西。观察他们如何使用命令行。每个人做事的方式都不一样，还有许多未知等着你去发现。技术糟糕（和/或年长的）程序员倾向于认为“他们”的方式是最好的，所以他们从不征求建议。聪明的程序员愿意接受这样一个事实：可能有更好的做事方法。这意味着你必须愿意切换编程语言、环境、操作系统或文本编辑器。</p>
+<p>“什么！？叫我放弃</p>
+<p>&lt;这里插入自己的做事方式&gt;</p>
+<p>？为什么？谁都知道这是最棒的！”你必须克服这种心态。如果你想解决新的问题，必须学会谦卑和接受挫折。这种感觉糟透了，但是克服它！编程很难，做一个优秀的程序员更难。难过就自己一个人躲着哭吧。</p>
+<h1 id="0100-你的编辑器决定你的死活，所以请明智的选择"><a href="#0100-你的编辑器决定你的死活，所以请明智的选择" class="headerlink" title="0100 - 你的编辑器决定你的死活，所以请明智的选择"></a>0100 - 你的编辑器决定你的死活，所以请明智的选择</h1><p>如果你觉得我夸大其词了，可以去网上问问哪款编辑器是最好的。得到的回复会是： Vi、Emacs 和一些其他的 IDE（通常会是Eclipse 或 Xcode）。事实上，你也许会惊奇还有多少人把 Vi 作为自己的主编辑器（我认为这些人应该清醒过来并回到80年代，虽然我也是其中一员）。问题的关键是，如果你不会使用其中的一种编辑器，你可能会碰到一些问题。去找到办公室最好的程序员，看看他用的什么编辑器。然后，点头表示认同他的答案，打印小抄，开始学习编辑器。快去！</p>
+<h1 id="0101-没有人真正关心你是哪所大学毕业的"><a href="#0101-没有人真正关心你是哪所大学毕业的" class="headerlink" title="0101 - 没有人真正关心你是哪所大学毕业的"></a>0101 - 没有人真正关心你是哪所大学毕业的</h1><p>如果有人问你哪所大学毕业的，不用担心，他们不是在评判你，这只是礼貌的谈话。如果你的编程技术很棒，没人会在乎那一纸文凭。想知道相比文凭他们更关心什么吗？你的绩效。不要跟别人说这件事，因为这会让你看起来像个蠢货。我不能再强调了，说的已经够多了。</p>
+<h1 id="0110-沉默永不过时"><a href="#0110-沉默永不过时" class="headerlink" title="0110 - 沉默永不过时"></a>0110 - 沉默永不过时</h1><p>刚工作，不知道要说什么？那就什么都别说。点头并且微笑。同事不让你加入他们的讨论吗？是挺尴尬的，大家不认识你，你也不认识大家。给彼此一点时间，他们中的大多数会主动来找你的。做朋友需要时间。是的，我知道作为新人很难受。我知道一个新的环境是个挑战，但你要振作起来，时间会帮你解决这些问题。如果你不是一个脾气古怪的人，并且做好工作，那么你终将成为团队的一员。除非你是辣妹或美男，否则很难直接融入团体。祝你好运。</p>
+<h1 id="0111-你会遇到古怪、消极的人，对付他"><a href="#0111-你会遇到古怪、消极的人，对付他" class="headerlink" title="0111 - 你会遇到古怪、消极的人，对付他"></a>0111 - 你会遇到古怪、消极的人，对付他</h1><p>有些人就是不喜欢你，有时是因为他们有严重的情感问题，他们不喜欢任何人，所以他们会下意识地讨厌你。这些人从不改变，所以你得学会和如何与他们一起工作。如果你很快的找到了一个敌人，那么你要做的就是如何与他成为朋友，因为你不知道接下来几年会发生什么。我见过几次这种事，你今天敌视的家伙明天成了你的上司。</p>
+<h1 id="1000-和计算机做朋友"><a href="#1000-和计算机做朋友" class="headerlink" title="1000 - 和计算机做朋友"></a>1000 - 和计算机做朋友</h1><p>想确保你总有最合适的闲聊话题？那就和计算机做朋友。这里有一个给新员工的小提示，大部分人都是因为需要或出问题了才会突然想起计算机技术人员。一段时间后，这些事情会使你的世界观变得恶化。所以定期去他们办公室找他们谈话。不要抱怨，不要乞求，只要问好并且询问他们生活如何。这是一项总是有利的投资。（前提是你得会修电脑…这段有点难翻译，绕口）</p>
+<h1 id="1001-你永远逃不掉办公室政治"><a href="#1001-你永远逃不掉办公室政治" class="headerlink" title="1001 - 你永远逃不掉办公室政治"></a>1001 - 你永远逃不掉办公室政治</h1><p>作为一个新人（如果你从足够低的位置开始），你不必太担心这一点。但请放心，当你的责任越来越重时，你会进入这场游戏。你逃不掉，无论你怎么努力。你可以选择不玩，但你也会尝到苦果。这对于顽固的极客来说，这是一门很难的课程，因为相比人来说，我们更喜欢计算机。也许你进入IT行业仅仅是很单纯的喜欢信息技术。如果是这样的话，很抱歉，如果你想超越某个职业水平，必须成为管理层的一员，并加入政治竞技场。</p>
+<blockquote>
+<p>本文译者：余震（Freak）<br>译文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;原文链接：&lt;a href=&quot;http://www.applematters.com/article/10-things-every-programmer-should-know-for-their-first-job/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;10 Things Every Programmer Should Know For Their First Job&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;这篇文章对我来说是“事后诸葛亮”，以下是我进入编程行业以来的一些经验和教训。&lt;/p&gt;
+&lt;h1 id=&quot;0000-被喜欢是很容易的事&quot;&gt;&lt;a href=&quot;#0000-被喜欢是很容易的事&quot; class=&quot;headerlink&quot; title=&quot;0000 - 被喜欢是很容易的事&quot;&gt;&lt;/a&gt;0000 - 被喜欢是很容易的事&lt;/h1&gt;&lt;p&gt;如果你有时间观念，衣着得体，保持微笑，不做一些愚蠢的事情，至少会有一些人喜欢你。事实上，让你的同事喜欢你是一件很容易的事。你想拥有很多朋友吗？在你的桌上放一碗慢慢的糖果，你就会发现你有多少朋友。&lt;/p&gt;
+&lt;h1 id=&quot;0001-受人尊敬是很难的事&quot;&gt;&lt;a href=&quot;#0001-受人尊敬是很难的事&quot; class=&quot;headerlink&quot; title=&quot;0001 - 受人尊敬是很难的事&quot;&gt;&lt;/a&gt;0001 - 受人尊敬是很难的事&lt;/h1&gt;&lt;p&gt;不管你在这个行业有20年经验或没有经验，当你刚进入一家公司时，没有人会尊敬你。这并不意味着他们不喜欢你，或者对你没有好感。这是因为你还没有做任何事，给别人尊敬你的理由。获得尊敬最快的方法就是把工作做到最好。做到最好并不是浮夸和惊艳，而是有效和团结。当大家看到你能有效率并正确的完成工作，不用害怕赢得不了尊敬。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
+    
+    
+      <category term="Job" scheme="http://yoursite.com/tags/Job/"/>
+    
+  </entry>
   
   <entry>
     <title> 『翻译』基于 Vue.js 与 Webpack 的三种代码分割范式 </title>
@@ -320,6 +369,53 @@
   </entry>
   
   <entry>
+    <title> live-server快速搭建服务 </title>
+    <link href="http://yoursite.com/2017/06/14/2017-06-14-live-server/"/>
+    <id>http://yoursite.com/2017/06/14/2017-06-14-live-server/</id>
+    <published>2017-06-13T16:00:00.000Z</published>
+    <updated>2017-07-28T02:23:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>争取节省大家的时间，看看有多快…</p>
+</blockquote>
+<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
+<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
+<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
+<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
+<p>你只需要全局安装<code>live-server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>在项目根目录执行这条命令，一般会把它放在<code>package.json</code>的<code>scripts</code>下的<code>server</code>中，然后执行<code>npm run server</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;live-server ./ --port=9090&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。</p>
+<p>希望这篇没有任何技术可言的文章能够帮到你！</p>
+<blockquote>
+<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;争取节省大家的时间，看看有多快…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本地开发常常需要搭建临时的服务，第一时间我们会想到用&lt;a href=&quot;https://github.com/indexzero/http-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;http-server&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;但现在流行修改文件浏览器自动刷新，好像叫&lt;code&gt;hot socketing（热拔插）&lt;/code&gt;，这时候又得用到&lt;a href=&quot;https://github.com/Raynos/live-reload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-reload&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个&lt;a href=&quot;https://github.com/domenic/opener&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;opener&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;现在只要使用&lt;a href=&quot;http://tapiov.net/live-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-server&lt;/code&gt;&lt;/a&gt;就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。&lt;/p&gt;
+&lt;p&gt;你只需要全局安装&lt;code&gt;live-server&lt;/code&gt;：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install -g live-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
+    
+  </entry>
+  
+  <entry>
     <title> 阿里云配置 node.js + Nginx 反向代理 </title>
     <link href="http://yoursite.com/2017/06/14/2017-06-15-aliyun-node-nginx/"/>
     <id>http://yoursite.com/2017/06/14/2017-06-15-aliyun-node-nginx/</id>
@@ -362,53 +458,6 @@
 &lt;p&gt;看看你的这两句有没有注释掉，如果注释了就把&lt;code&gt;#&lt;/code&gt;号去掉，没有注释的话就跳过这一步。&lt;/p&gt;
 &lt;p&gt;4.进入&lt;code&gt;/etc/nginx/conf.d&lt;/code&gt;目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：&lt;code&gt;rockjins-com-8081.conf&lt;/code&gt;，配置文件写入以下内容：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;upstream rockjins &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	keepalive 64;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;server &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	listen 80; #这里的端口号是你要监听的端口号&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	location / &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header X-Real-IP $remote_addr;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header Host $http_host;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header X-Nginx-Proxy true;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_set_header Connection &amp;quot;&amp;quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="Service" scheme="http://yoursite.com/tags/Service/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> live-server快速搭建服务 </title>
-    <link href="http://yoursite.com/2017/06/14/2017-06-14-live-server/"/>
-    <id>http://yoursite.com/2017/06/14/2017-06-14-live-server/</id>
-    <published>2017-06-13T16:00:00.000Z</published>
-    <updated>2017-07-28T02:23:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>争取节省大家的时间，看看有多快…</p>
-</blockquote>
-<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
-<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
-<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
-<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
-<p>你只需要全局安装<code>live-server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>在项目根目录执行这条命令，一般会把它放在<code>package.json</code>的<code>scripts</code>下的<code>server</code>中，然后执行<code>npm run server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;server&quot;: &quot;live-server ./ --port=9090&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后你什么也不用做，等待一会浏览器就自动打开，并且当你修改本地任何文件，浏览器都会立即同步。</p>
-<p>希望这篇没有任何技术可言的文章能够帮到你！</p>
-<blockquote>
-<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;争取节省大家的时间，看看有多快…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;本地开发常常需要搭建临时的服务，第一时间我们会想到用&lt;a href=&quot;https://github.com/indexzero/http-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;http-server&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;但现在流行修改文件浏览器自动刷新，好像叫&lt;code&gt;hot socketing（热拔插）&lt;/code&gt;，这时候又得用到&lt;a href=&quot;https://github.com/Raynos/live-reload&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-reload&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个&lt;a href=&quot;https://github.com/domenic/opener&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;opener&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;现在只要使用&lt;a href=&quot;http://tapiov.net/live-server/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;live-server&lt;/code&gt;&lt;/a&gt;就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。&lt;/p&gt;
-&lt;p&gt;你只需要全局安装&lt;code&gt;live-server&lt;/code&gt;：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install -g live-server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -1877,9 +1926,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
-    
       <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
+    
+      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
     
   </entry>
   
@@ -2445,70 +2494,6 @@
     
     
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 『翻译』&quot;typeof null是什么?&quot;以及其它让我们感到困惑的JavaScript类型</title>
-    <link href="http://yoursite.com/2017/02/22/2017-02-22-javascript-types/"/>
-    <id>http://yoursite.com/2017/02/22/2017-02-22-javascript-types/</id>
-    <published>2017-02-21T16:00:00.000Z</published>
-    <updated>2017-07-28T02:23:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p><a href="https://bitsofco.de/javascript-typeof/" target="_blank" rel="external">Read the original</a></p>
-</blockquote>
-<hr>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><code>typeof</code>运算符在JavaScript中用来判断一个数据的类型，它返回一个字符串。比如，我们想知道<code>123</code>的数据类型，我们可能这样写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">123</span></div></pre></td></tr></table></figure>
-<p>它会返回<code>123</code>的数据类型，那么应该是”number”。除了”number”，<code>typeof</code>运算符还会返回其他6种结果：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">123</span> <span class="comment">// "number"</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="string">"abc"</span> <span class="comment">// "string"  </span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span> <span class="comment">// "boolean"  </span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> &#123;<span class="attr">a</span>: <span class="number">1</span>&#125; <span class="comment">// "object"  </span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125; <span class="comment">// "function"  </span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// "undefined"  </span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> <span class="built_in">Symbol</span>(<span class="string">'foo'</span>) <span class="comment">// "symbol"</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>从上面的例子中可以看出，<code>typeof</code>运算符使用十分简单。但是，这只是很少的一部分案例，它们很容易让人误解和混淆<code>typeof</code>运算符究竟是怎样运作的。</p>
-<h3 id="typeof-typeof-123是什么类型？"><a href="#typeof-typeof-123是什么类型？" class="headerlink" title="typeof typeof 123是什么类型？"></a><code>typeof typeof 123</code>是什么类型？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="keyword">typeof</span> <span class="number">123</span> <span class="comment">//"string"</span></div></pre></td></tr></table></figure>
-<p><code>typeof</code>运算符返回的值是什么类型？好的，<code>typeof</code>操作符总是以字符串的形式返回传递给它的值的数据类型。如果去获取<code>typeof</code>计算后返回的值，比如一个数字，它将会是<code>&quot;number&quot;</code>。这意味着，无论结果是什么类型，我们去判断一个<code>typeof [any operand]</code>，永远都是返回字符串。</p>
-<h3 id="typeof-NaN是什么类型？"><a href="#typeof-NaN是什么类型？" class="headerlink" title="typeof NaN是什么类型？"></a><code>typeof NaN</code>是什么类型？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>  <span class="comment">//"number"</span></div></pre></td></tr></table></figure>
-<p><code>NaN</code>代表某个值不是一个数字，但出乎意料的是，它是”number”类型。原因是这样的，在计算机内部，<code>NaN</code>是以数字类型储存的。然而，它是一个不能用实际数字来表示的数值类型的值。所以它叫“Not a Number”，这并不意味着它不是数值类型。相反，它意味着这个值不能用数值表示。</p>
-<p>这也解释了为什么<code>NaN</code>的值都不相等。比如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> NaN1 = <span class="number">2</span> * <span class="string">"abc"</span>;  </div><div class="line"><span class="keyword">const</span> NaN2 = <span class="number">2</span> * <span class="string">"abc"</span>;</div><div class="line"></div><div class="line">NaN1 === NaN2 <span class="comment">// false</span></div></pre></td></tr></table></figure>
-<p>上面两个NaN的值不相等，因为它们不能用两个相同的数字来表示。</p>
-<h3 id="typeof-1-2-3-是什么类型？"><a href="#typeof-1-2-3-是什么类型？" class="headerlink" title="typeof [1, 2, 3]是什么类型？"></a><code>typeof [1, 2, 3]</code>是什么类型？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="comment">// "object"</span></div></pre></td></tr></table></figure>
-<p>对数组使用<code>typeof</code>会得到”object”。在JavaScript中， 数组其实是一个对象，只是拥有一些特殊的行为和能力。比如，数组拥有<code>Array.prototype.length</code>属性，它将会返回数组有多少个元素。数组也有一些特殊的方法，比如:<code>Array.prototype.push()</code>或<code>Array.prototype.unshift()</code>（可以参考<a href="https://bitsofco.de/javascript-array-methods-mutator-methods/" target="_blank" rel="external">JavaScript数组方法</a>）。</p>
-<p>区别数组和对象，我们可以使用<code>Array.isArray()</code>方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.isArray( [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] ) <span class="comment">// true  </span></div><div class="line"><span class="built_in">Array</span>.isArray( &#123; <span class="attr">a</span>: <span class="number">1</span> &#125; ) <span class="comment">// false</span></div></pre></td></tr></table></figure>
-<h3 id="typeof-null是什么类型？"><a href="#typeof-null是什么类型？" class="headerlink" title="typeof null是什么类型？"></a><code>typeof null</code>是什么类型？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// "object"</span></div></pre></td></tr></table></figure>
-<p><code>null</code>的值从技术上来说和<code>object</code>和<code>number</code>一样，都是最基本的值，按理来说，<code>null</code>的类型也应该是”null”。然而并非如此，因为JavaScript最初设计时出了一点意外。</p>
-<p>在JavaScript最初设计时，一个值有两个部分组成：它的类型标签和实际的值。有5个类型标签可以使用，而且对象类型的引用指向<code>0</code>。<code>null</code>的值始终指向<code>NULL</code>指针，它在大部分平台都是用<code>0x00</code>来表示。由于这种相似性，<code>null</code>就用过<code>0</code>类型标签来表示，所以符合对象的引用。</p>
-<h3 id="typeof-class-Foo-是什么类型？"><a href="#typeof-class-Foo-是什么类型？" class="headerlink" title="typeof class Foo {}是什么类型？"></a><code>typeof class Foo {}</code>是什么类型？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;&#125; <span class="comment">// "function"</span></div></pre></td></tr></table></figure>
-<p>最后，我们讲一下类(Classes)。类在ES6中的介绍是：一个更好的语法为原型继承服务。在将类之前，我们先创建一个可继承的对象，我们要用到函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>) </span>&#123; &#125;;</div><div class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="string">'woof!'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> snoopy = <span class="keyword">new</span> Dog();</div><div class="line">snoopy.bark(); <span class="comment">//alert('woof!');</span></div></pre></td></tr></table></figure>
-<p>使用类，我们可以用同样的方式创建一个类似的对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;  </div><div class="line">    bark() &#123;</div><div class="line">        alert(<span class="string">"woof!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> snoopy = <span class="keyword">new</span> Dog();  </div><div class="line">snoopy.bark() <span class="comment">// alert("woof!")</span></div></pre></td></tr></table></figure>
-<p>然而，JavaScript的类只是一个被语法糖包裹的函数方法。实际上创建了一个同样的函数，但是作者的写法不同，只是看起来个简洁。这就是为什么<code>typeof</code>一个类，得到的仍然是”Function”。</p>
-<blockquote>
-<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://bitsofco.de/javascript-typeof/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Read the original&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;&lt;code&gt;typeof&lt;/code&gt;运算符在JavaScript中用来判断一个数据的类型，它返回一个字符串。比如，我们想知道&lt;code&gt;123&lt;/code&gt;的数据类型，我们可能这样写：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;它会返回&lt;code&gt;123&lt;/code&gt;的数据类型，那么应该是”number”。除了”number”，&lt;code&gt;typeof&lt;/code&gt;运算符还会返回其他6种结果：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// &quot;number&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;abc&quot;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// &quot;string&quot;  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// &quot;boolean&quot;  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &amp;#123;&lt;span class=&quot;attr&quot;&gt;a&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125; &lt;span class=&quot;comment&quot;&gt;// &quot;object&quot;  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&amp;#125; &lt;span class=&quot;comment&quot;&gt;// &quot;function&quot;  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// &quot;undefined&quot;  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Symbol&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;foo&#39;&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;// &quot;symbol&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
   </entry>
   
