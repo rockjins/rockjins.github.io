@@ -311,6 +311,163 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/09/2017-02-09-spread-operator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余震">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rockjins Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/09/2017-02-09-spread-operator/" itemprop="url">『翻译』扩展运算符的6个重要用途 </a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-09T00:00:00+08:00">
+                2017-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Translation/" itemprop="url" rel="index">
+                    <span itemprop="name">Translation</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/02/09/2017-02-09-spread-operator/" class="leancloud_visitors" data-flag-title="『翻译』扩展运算符的6个重要用途 ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><a href="https://davidwalsh.name/spread-operator" target="_blank" rel="external">Read the original</a></p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由于ES6和Babel的出现，编写JavaScript代码变得难以置信的灵活，从新的语法到自定的编译器，像JSX。我变成了扩展运算符(Spread Operator)的超级粉丝，三个点就改变你编写JavaScript代码的方式。接下来的清单，列出了我在JavaScript中最喜欢怎样使用扩展运算符！</p>
+<h3 id="1-不使用Apply去调用函数"><a href="#1-不使用Apply去调用函数" class="headerlink" title="1.不使用Apply去调用函数"></a>1.不使用Apply去调用函数</h3><p>这一点我们叫它<code>Function.prototype.apply</code>，传递一个参数数组，调用一个函数，并把数组中的每一项拆分成单个参数传递给函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doStuff</span> (<span class="params">x, y, z</span>) </span>&#123; &#125;</div><div class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="comment">// 调用函数，传递参数</span></div><div class="line">doStuff.apply(<span class="literal">null</span>, args);</div></pre></td></tr></table></figure>
+<p>通过扩展运算符我们可以避免使用<code>apply</code>，只需简单的调用函数，并在参数数组前加上扩展运算符：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">doStuff(...args);</div></pre></td></tr></table></figure>
+<p>这让代码更简短、清晰，而且不需要无用的<code>null</code>！</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/09/2017-02-09-spread-operator/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/08/2017-02-08-fun-with-console-object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1884,161 +2041,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/01/2017-01-01-book-list/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="余震">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rockjins Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/01/2017-01-01-book-list/" itemprop="url"> 2016 我的书单 </a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-01T00:00:00+08:00">
-                2017-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/" itemprop="url" rel="index">
-                    <span itemprop="name">Book</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/01/01/2017-01-01-book-list/" class="leancloud_visitors" data-flag-title=" 2016 我的书单 ">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p> 2017来了，整理下过去一年的书单</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2859850-0f1aa7bfaf42bcd8.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="JavaScript语言精粹-–-Douglas-Crockford"><a href="#JavaScript语言精粹-–-Douglas-Crockford" class="headerlink" title="JavaScript语言精粹 – Douglas Crockford"></a><a href="https://book.douban.com/subject/11874748/" target="_blank" rel="external">JavaScript语言精粹 – Douglas Crockford</a></h3><p> JavaScript这门语言是伟大的，但同样也有许多让人诟病的地方，这本书告诉你哪些是JavaScript的精粹，我们应该去使用；哪些是毒瘤，尽量避开它们。从而有效保证我们的代码质量。</p>
-<h3 id="JavaScript高级程序设计-–-Nicholas-C-Zakas"><a href="#JavaScript高级程序设计-–-Nicholas-C-Zakas" class="headerlink" title="JavaScript高级程序设计 – Nicholas C.Zakas"></a><a href="https://book.douban.com/subject/10546125/" target="_blank" rel="external">JavaScript高级程序设计 – Nicholas C.Zakas</a></h3><p>这本书应该不用过多介绍了，之前断断续续的看过里面的一些章节，今年花了一个月的时间，把这本书从头到尾读完了。</p>
-<p>相比犀牛书，这本书读起来不会那么枯燥，不仅仅是工具书，里面也涉及了很多实际开发会遇到的问题，圣经级别的。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/01/2017-01-01-book-list/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2088,7 +2090,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">53</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
