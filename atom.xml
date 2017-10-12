@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-09T08:36:42.000Z</updated>
+  <updated>2017-10-12T10:05:27.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> Guitar Rig组件列表(映射现实硬件) </title>
+    <link href="http://yoursite.com/2017/10/12/2017-10-12-guitar-rig-components/"/>
+    <id>http://yoursite.com/2017/10/12/2017-10-12-guitar-rig-components/</id>
+    <published>2017-10-11T16:00:00.000Z</published>
+    <updated>2017-10-12T10:05:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Guitar Rig 组件列表，小括号为现实硬件映射</p>
+</blockquote>
+<h1 id="Amplifiers-箱头"><a href="#Amplifiers-箱头" class="headerlink" title="Amplifiers(箱头)"></a>Amplifiers(箱头)</h1><p>AC Box (Vox AC30)<br>Bass Pro (Ampeg SVT-2 Pro)<br>Citrus (Orange Overdrive OD120)<br>Cool Plex (Marshall JTM45)<br>Gratifier (Mesa/Boogie Dual Rectifier)<br>High White (Hiwatt DR-103)<br>Plex (Marshall 1959 SLP)<br>Hot Plex (Marshall Plexi 1987x)<br>Hot Solo+ (Soldano Hot Rod 100 + or SLO-100)<br>Jazz Amp (Roland Jazz Chorus-120)<br>Jump (Marshall JMP)<br>Lead 800 (Marshall JCM800 Lead)<br>Twang Reverb (Fender Twin Reverb)<br>Tweedman (Fender Bassman)<br>Tweed Delight (Fender Tweed Deluxe)<br>Ultrasonic (Bogner Überschall)<br>Van 51 (Peavey 5150 or Peavey 6505)<br>Rammfire (Mesa/Boogie Dual Rectifier Rev. C. Based on the amplifier &amp; cabinet setup of Rammstein guitarist Richard Z. Kruspe.)</p>
+<h1 id="Microphones-麦克风"><a href="#Microphones-麦克风" class="headerlink" title="Microphones(麦克风)"></a>Microphones(麦克风)</h1><p>Con 30 (Earthworks M30)<br>Con 47 (Neumann U 47)<br>Con 54 (Neumann KM 54)<br>Con 67 (Neumann U 67)<br>Con 87 (Neumann U 87)<br>Con 149 (Neumann M 149)<br>Dyn 6 (Audix D 6)<br>Dyn 20 (Electro-Voice RE 20)<br>Dyn 40 (Heil PR 40)<br>Dyn 57 (Shure SM 57)<br>Dyn 112 (AKG D 112)<br>Dyn 421 (Sennheiser MD 421)<br>Dyn 441 (Sennheiser MD 441)<br>Rib 121 (Royer R-121)<br>Rib 160 (Beyerdynamic M 160)</p>
+<h1 id="Cabinets-机柜"><a href="#Cabinets-机柜" class="headerlink" title="Cabinets(机柜)"></a>Cabinets(机柜)</h1><h2 id="Control-Room-Pro"><a href="#Control-Room-Pro" class="headerlink" title="Control Room (Pro):"></a>Control Room (Pro):</h2><p>2 x 12 AC Silver (Vox AC 30 Silver Alnico Speakers)<br>4 x 12 Modern (ENGL E412VG)<br>4 x 12 Vintage (Marshall1960 JTM50 4×12 75W cabinet)<br>2 x 12 British (Vox AC30)<br>2 x 12 American (Something like a Fender Super-Sonic 60 212)<br>1 x 15 Bass Vintage (Supro Thunderbolt Jensen Speaker)<br>4 x 10 Bass Alu (Hartke 4.5XL Aluminum 10s)<br>8 x 10 Bass Pro (Ampeg SVT 810 SVT 10s)<br>4 x 12 Van 51 (Peavey Sheffield 51501200s)<br>4 x 12 Ultra B (Bogner Uberkab Celestion Vintage 30s)<br>4 x 12 Ultra A (Bogner Uberkab Celestion G12T)<br>1 x 12 Tweed (Fender Tweed Deluxe Jensen P12R)<br>4 x 10 Tweed (Fender Bassman Jensen P10Qs)<br>2 x 15 Twang (Fender Dual Showman JBL D130s)<br>2 x 12 Twang (Fender Twin Jensen C12Ns)<br>2 x 12 Jazz (Roland JC 120 Roland 12s)<br>4 x 12 Hot Solo+ B (Soldano 412B Eminence Legend)<br>4 x 12 Hot Solo+ A (Soldano 412B Eminence S12Xs)<br>4 x 12 Modern (ENGL E412VS PRO)<br>4 x 12 UK 80s White (Marshall 1960 G12T 75s)<br>4 x 12 UK 80s Black (Marshall 1960 JBL K120s)<br>4 x 12 UK 70s White (Marshall Basketweave G12Ls)<br>4 x 12 UK 70s Black (Marshall Basketweave Vintage G12H30s “Blackbacks”)<br>4 x 12 UK 60s Green (Marshall 1960 G12Ms)<br>4 x 12 High White (75 Hiwatt SE4123 50w Fane Purple)<br>4 x 12 Gratifier (Mesa Rectifier 4x12 V30s)<br>4 x 12 Citrus (Orange PPC 412 V30s)<br>2 x 12 AC Blue (Vox AC30 Blue Bulldog)<br>DI Box (generic)</p>
+<h2 id="Cabinets-amp-Mics-Legacy"><a href="#Cabinets-amp-Mics-Legacy" class="headerlink" title="Cabinets &amp; Mics (Legacy):"></a>Cabinets &amp; Mics (Legacy):</h2><p>1 × 12 Tweed Alnico ‘(Fender Hot Rod Deluxe Tweed)’<br>1 × 12 Custom (Fender Blues Junior)<br>2 × 12 Tweed (Fender 57 Twin? (Blue/Green/Cream = No idea)<br>2 × 12 Brit 60s (Vox AC30)<br>2 × 12 Chief V-30 (PRS 2×12 Open Back or maybe a Bogner Custom Shop 2×12)<br>2 × 12 Custom (No idea (Lopoline maybe?)<br>2 × 12 Jazz (Roland JC-120 Jazz)<br>4 × 10 Tweed Alnico (Fender 59 Bassman)<br>4 × 12 UK 60s Tall (Marshall 1960 JTM45 4×12 60W cabinet)<br>4 × 12 UK 60s (Marshall 1960 JTM50 4×12 75W cabinet)<br>4 × 12 UK 80s (Marshall 1982a)<br>4 × 12 UK 70s (Orange PPC 412-C)<br>4 × 12 High White (Hiwatt SE-4123)<br>4 × 12 Gratifier (Mesa/Boogie 4×12 Rectifier Standard Slant)<br>4 × 12 Ultrasonic (Bogner 4×12 Slant)<br>1 × 15 Bass Pro (Ampeg SVT-15E or B-115E)<br>1 × 15 Bass WR (SWR WorkingPro 1×15)<br>4 × 10 Bass Pro (Ampeg SVT-410HE or B410-HE)<br>4 × 10 Bass WR (SWR WorkingPro 4×10)<br>8 × 10 Bass Pro (Ampeg SVT-810E)<br>8 × 10 Bass WR (SWR Megoliath 8×10)<br>Rotator Horns (Leslies in different cases)</p>
+<h1 id="Delay-amp-echo-延迟、回声"><a href="#Delay-amp-echo-延迟、回声" class="headerlink" title="Delay &amp; echo(延迟、回声)"></a>Delay &amp; echo(延迟、回声)</h1><p>Delay Man (Electro-Harmonix Memory Man)<br>PsycheDelay (Eventide H3000)<br>Quad Delay<br>Tape Echo (Roland RE-201 Space Echo)<br>Traktor Delay<br>Twin Delay</p>
+<h1 id="Distortion-失真"><a href="#Distortion-失真" class="headerlink" title="Distortion(失真)"></a>Distortion(失真)</h1><p>Big Fuzz (Electro-Harmonix Big Muff Pi)<br>Cat (Pro Co RAT)<br>Demon Distortion (MXR Dime Distortion DD11)<br>Distortion (Boss DS-1)<br>Fuzz (Dunlop Dallas Arbiter Fuzz Face)<br>Gain Booster<br>MeZone (Boss MT-2 Metal Zone)<br>Mulholland Drive<br>Skreamer (Ibanez TS-808 Tube Screamer)<br>Sledgehammer (Marshall Jackhammer JH-1)<br>TransAmp (Tech 21 SansAmp GT2)<br>Treble Booster (Dallas Rangemaster Treble Booster)</p>
+<h1 id="Dynamics-动态"><a href="#Dynamics-动态" class="headerlink" title="Dynamics(动态)"></a>Dynamics(动态)</h1><p>Fast Comp (Feedback Compressor, behaves similar to an UREI 1176)<br>Limiter<br>Noise Gate (Boss NS-2 Noise Supressor)<br>Noise Reduction (Boss NS-2 Noise Suppressor)<br>Stomp Compressor (Boss CS-1 Compression Sustainer)<br>Transient Master (SPL Transient Designer)<br>Tube Compressor (Electro-Harmonix Black Finger Compressor)<br>VC 160 (DBX 160 VCA Compressor/Limiter)<br>VC 2A (Teletronix LA-2A Classic Leveling Amplifier)<br>VC 76 (UREI 1176 Limiting Amplifier)<br>Volume Pedal<br>Solid Dynamics (SSL Mixing Console Compressor/Gate Module)<br>Solid Bus Comp (SSL Mixing Console Bus Compressor Module)</p>
+<h1 id="EQ-均衡"><a href="#EQ-均衡" class="headerlink" title="EQ(均衡)"></a>EQ(均衡)</h1><p>Custom EQ<br>EQ Graphic<br>EQ Parametric<br>EQ Shelving<br>Solid EQ (SSL Mixing Console EQ Module)</p>
+<h1 id="Filters-滤波器"><a href="#Filters-滤波器" class="headerlink" title="Filters(滤波器)"></a>Filters(滤波器)</h1><p>AutoFilter (Musitronics Mutron III)<br>Cry Wah (Dunlop Cry Baby)<br>Filterbank (Moog Moogerfooger MF-105M MIDI MuRF)<br>Formant Filter<br>Peak Filter<br>Pro-Filter (Sequential Circuits Prophet-5 Filter Section)<br>Real Wah (Real McCoy Custom RMC-1)<br>Talk Wah (Heil Sound Talk Box)<br>Wahwah (Vox Clyde McCoy Wah Pedal)</p>
+<h1 id="Modifier-修饰器"><a href="#Modifier-修饰器" class="headerlink" title="Modifier(修饰器)"></a>Modifier(修饰器)</h1><p>Analog Sequencer<br>Envelope<br>Input Level<br>LFO<br>Step Sequencer</p>
+<h1 id="Modulation-移调"><a href="#Modulation-移调" class="headerlink" title="Modulation(移调)"></a>Modulation(移调)</h1><p>Electric Lady (Electro-Harmonix Electric Mistress)<br>Ensemble (Boss CE-1 Chorus Ensemble)<br>Flanger (TC Electronic Stereo Chorus + Flanger)<br>Phaser Nine (MXR Phase 90)<br>Rotator<br>Stereo Tune<br>Stoned Phaser (Electro-Harmonix Small Stone)<br>Tremolo (Boss TR-2 Tremolo)</p>
+<h1 id="Pitch-变调"><a href="#Pitch-变调" class="headerlink" title="Pitch(变调)"></a>Pitch(变调)</h1><p>Harmonic Synthesizer (Electro-Harmonix Micro Synthesizer)<br>Octaver (Boss OC-2 Octave)<br>Pitch Pedal (DigiTech WH-4 Whammy)<br>Resochord<br>Transpose Stretch</p>
+<h1 id="Reverb-混响"><a href="#Reverb-混响" class="headerlink" title="Reverb(混响)"></a>Reverb(混响)</h1><p>IceVerb (Lotus Pedal ICEVERB)<br>Little Reflektor (stripped down version of NI Reflektor, IR-based)<br>Octaverb<br>Reflektor<br>Spring Reverb (Fender Spring Reverb Unit or BOSS FRV-1 Fender Reverb Pedal)<br>Studio Reverb<br>Traktor Reverb<br>Vintage Verb</p>
+<h1 id="Special-FX-特殊效果"><a href="#Special-FX-特殊效果" class="headerlink" title="Special FX(特殊效果)"></a>Special FX(特殊效果)</h1><p>Beat Slicer<br>Beatmasher<br>Gater<br>Grain Delay<br>Reverse Grain<br>Ring Modulator (moogerfooger MF-102 Ring Modulator)<br>Ringmod</p>
+<h1 id="Tools-额外效果"><a href="#Tools-额外效果" class="headerlink" title="Tools(额外效果)"></a>Tools(额外效果)</h1><p>Container<br>CrossOver<br>LoopMachine<br>MasterFX<br>Split<br>SplitMS</p>
+<p>这个列表整理出来用了半条命，希望能帮助到和我一样热爱学习的人。^_^</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Guitar Rig 组件列表，小括号为现实硬件映射&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Amplifiers-箱头&quot;&gt;&lt;a href=&quot;#Amplifiers-箱头&quot; class=&quot;headerlink&quot; title=&quot;Ampli
+    
+    </summary>
+    
+      <category term="Music" scheme="http://yoursite.com/categories/Music/"/>
+    
+    
+      <category term="GuitarRig" scheme="http://yoursite.com/tags/GuitarRig/"/>
+    
+  </entry>
   
   <entry>
     <title> 『翻译』什么是哥特？ </title>
@@ -2350,86 +2394,6 @@
       <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
     
       <category term="Database" scheme="http://yoursite.com/tags/Database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 快速将Promise运用在开发中 </title>
-    <link href="http://yoursite.com/2017/03/12/2017-03-12-promise-dev/"/>
-    <id>http://yoursite.com/2017/03/12/2017-03-12-promise-dev/</id>
-    <published>2017-03-11T16:00:00.000Z</published>
-    <updated>2017-07-28T02:23:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。</p>
-</blockquote>
-<h3 id="什么是Promise？"><a href="#什么是Promise？" class="headerlink" title="什么是Promise？"></a>什么是Promise？</h3><p>简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。</p>
-<p>在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getAsync(<span class="string">"fileA.txt"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, result</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(error)&#123;<span class="comment">// 取得失败时的处理 throw error;</span></div><div class="line">    <span class="keyword">throw</span> error;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>上面遵循<code>Node.js</code>的规定，回调的第一个参数是<code>error</code>。如果所有的回调函数都像<code>Node.js</code>一样，统一参数使用规则的话，那写法会很明了，但也仅仅是编码规范而已，使用不同的写法也不会出错。</p>
-<p>而Promise则是把异步处理对象和处理规则进行规范化，并采用统一的接口来编写，使用规定方法之外的写法都会出错。</p>
-<p>我们可以先看一个简单的使用Promise进行异步处理的例子:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = getAsyncPromise(<span class="string">"fileA.txt"</span>);</div><div class="line"></div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</div><div class="line">  <span class="comment">// 获取文件内容成功时的处理</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">  <span class="comment">// 获取文件内容失败时的处理</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>看上去和回调函数有些不一样，在使用Promise进行异步处理的时候，我们必须按照接口规定的方法编写处理代码。</p>
-<p>也即是说，除了使用Promise规定的方法(上面的<code>then</code>和<code>catch</code>),其他的方法都是不能使用的，而回调函数可以自定义回调的参数。</p>
-<p>所以，Promise可以将复杂的异步处理轻松的进行模式化，没有理由让你不使用它。</p>
-<p>接下来，我们看看怎么把Promise运用到开发中，这个才是大家想了解的。</p>
-<h3 id="学习Promise"><a href="#学习Promise" class="headerlink" title="学习Promise"></a>学习Promise</h3><p>在运用到开发之前，我们有必要先学习一些Promise的基本API(暂时看的有点糊涂没关系，等会的例子实践会和大家讲清楚的)。</p>
-<p>目前大致有下面三种类型:</p>
-<h4 id="1-Constructor-构造器"><a href="#1-Constructor-构造器" class="headerlink" title="1.Constructor(构造器)"></a>1.Constructor(构造器)</h4><p>我们从构造函数<code>Promise</code>来创建一个新<code>promise</code>对象作为接口。</p>
-<p>要创建一个<code>promise</code>对象，可以使用<code>new</code>来调用<code>Promise</code>构造器来进行实例化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; <span class="comment">// 异步处理</span></div><div class="line">  <span class="comment">// 处理结束后、调用resolve 或 reject</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="2-Instance-Method-实例方法"><a href="#2-Instance-Method-实例方法" class="headerlink" title="2.Instance Method(实例方法)"></a>2.Instance Method(实例方法)</h4><p>在通过<code>new</code>生成的<code>promise</code>对象时，我们设置了在resolve(成功)和reject(失败)时调用的回调函数，我们可以使用<code>promise.then()</code>实例方法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then(onFulfilled,onReject);</div></pre></td></tr></table></figure>
-<ul>
-<li><p>resolve(成功)时：<code>onFulfilled</code>会被调用</p>
-</li>
-<li><p>reject(失败)时：<code>onReject</code>会被调用</p>
-</li>
-</ul>
-<p><code>onFulfilled</code>和<code>onReject</code>都为可选参数</p>
-<p><code>promise.then</code>成功和失败时都可以使用，另外在异常处理时，可以使用<code>promise.then(undefined, onReject)</code>这种方式，只指定<code>reject</code>时的回调函数即可。不过这种情况下，使用<code>promise.catch()</code>是个明智之选。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.catch(onReject);</div></pre></td></tr></table></figure>
-<h4 id="3-Static-Method-静态方法"><a href="#3-Static-Method-静态方法" class="headerlink" title="3.Static Method(静态方法)"></a>3.Static Method(静态方法)</h4><p>像<code>promise.all()</code>和<code>Promise.resolve()</code>等在内，主要都是一些辅助方法(可以理解为一些语法糖)，这里不作深入探讨。</p>
-<h3 id="运用在开发中"><a href="#运用在开发中" class="headerlink" title="运用在开发中"></a>运用在开发中</h3><p>我们先来看一段Promise使用流程代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFunction</span>(<span class="params"></span>) </span>&#123;  <span class="comment">//(1)</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      resolve(<span class="string">'Async Hello World'</span>);</div><div class="line">    &#125;, <span class="number">300</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">asyncFunction().then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;  <span class="comment">//(2)</span></div><div class="line">  <span class="built_in">console</span>.log(value); <span class="comment">//300ms后打印 "Async Hello World"</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;  <span class="comment">//(3)</span></div><div class="line">  <span class="built_in">console</span>.log(error);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>分析一下上面代码。</p>
-<p>执行<code>(1)</code>处函数，会返回一个Promise对象，Promise对象内部在300ms后执行<code>resolve()</code>方法，这个方法调用<code>(2)</code>处的<code>then()</code>方法，并传入参数，如果Promise对象内部出现任何错误(比如平台不支持setTimeout方法)，就会执行<code>(3)</code>处的<code>catch()</code>发放，并把错误作为参数传入。</p>
-<blockquote>
-<p>这里提一下，我看到很多朋友把Promise理解为Ajax的一种扩展，其实并不是这样的，Ajax只是一种请求数据的方式，因为Ajax是异步的，所以我们可以用Promise去管理Ajax请求，但这并不意味这Promise只服务于Ajax，只要是异步处理，我们都可以使用Promise去处理，就比如上面的<code>setTimeout</code>。</p>
-</blockquote>
-<p>看到这里大家对Promise应该有一个大概的认识了，实际开发中Promise大部分时间还是搭配Ajax使用，我们来看看应该怎么做，下面用原生的方式请求Ajax，大家也温习一下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getURL</span>(<span class="params">URL</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"></div><div class="line">    req.open(<span class="string">'GET'</span>, URL, <span class="literal">true</span>);</div><div class="line"></div><div class="line">    req.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (req.status === <span class="number">200</span>) &#123;</div><div class="line">        resolve(req.responseText);</div><div class="line">      &#125;<span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    req.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      reject.(<span class="keyword">new</span> <span class="built_in">Error</span>(req.statusText));</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    req.send();</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 运行示例</span></div><div class="line"><span class="keyword">var</span> URL = <span class="string">"https://rockjins.js.org"</span>;</div><div class="line">getURL(URL).then(<span class="function"><span class="keyword">function</span> <span class="title">onFulfilled</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span> <span class="title">onRejected</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><code>getURL</code>只有在XHR取得状态为200时才会调用<code>resolve</code>，也就是数据取得成功时，而其他情况(数据取得失败)则会调用<code>reject</code>。</p>
-<p>当调用<code>resolve(req.responseText)</code>时，<code>then</code>方法也会被调用，并接收到<code>req.responseText</code>参数。</p>
-<p>熟悉Node.js的朋友在写回调时会会将<code>callback(error,response)</code>的第一个参数设为<code>error</code>对象，在Promise中，resolve(成功)/reject(失败)担当了这个职责。</p>
-<p>XHR中<code>onerror</code>触发时，就是发生错误时，理所当然要调用<code>reject</code>，我们重点来看下传给<code>reject</code>的值。</p>
-<p>发生错误时要像这样<code>reject(new Error(req.statusText))</code>，创建一个Error对象再讲具体的值传入进去。传给<code>reject</code>的值也没有什么特殊限制，一般只要是Error对象(或继承自Error对象)即可。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>其实你理解了Promise的运作流程，使用它十分方便和简单，它就是一个异步管理器，帮助我们更好地去进行异步处理。</p>
-<p>试想，如果Promise真的很复杂，那它出现的意义是什么？本末倒置了，哈哈。</p>
-<blockquote>
-<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;这篇文章面向对Promise不甚了解的朋友，我将告诉你如何把它快速运用在开发中。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;什么是Promise？&quot;&gt;&lt;a href=&quot;#什么是Promise？&quot; class=&quot;headerlink&quot; title=&quot;什么是Promise？&quot;&gt;&lt;/a&gt;什么是Promise？&lt;/h3&gt;&lt;p&gt;简单几句介绍一下。Promise是抽象异步处理对象以及对其进行各种操作的组件。你可以理解为：它的出现，是为了让我们更方便的进行异步处理。&lt;/p&gt;
-&lt;p&gt;在Promise出现之前，说到JavaScript的异步处理，我们都会想到回调函数,like this:&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;getAsync(&lt;span class=&quot;string&quot;&gt;&quot;fileA.txt&quot;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;error, result&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(error)&amp;#123;&lt;span class=&quot;comment&quot;&gt;// 取得失败时的处理 throw error;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; error;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="Promise" scheme="http://yoursite.com/tags/Promise/"/>
     
   </entry>
   
