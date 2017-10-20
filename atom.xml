@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-13T10:09:55.000Z</updated>
+  <updated>2017-10-20T03:07:21.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,323 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> Guitar Rig5 箱头（Amplifiers）整理与介绍 </title>
+    <link href="http://yoursite.com/2017/10/20/2017-10-20-guitar-rig-amps/"/>
+    <id>http://yoursite.com/2017/10/20/2017-10-20-guitar-rig-amps/</id>
+    <published>2017-10-19T16:00:00.000Z</published>
+    <updated>2017-10-20T03:07:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="通用参数"><a href="#通用参数" class="headerlink" title="通用参数"></a>通用参数</h1><p>所有箱头可调节的通用参数如下：</p>
+<ul>
+<li><p>POWER SUPPLY（电源设置）可以将放大器的电源在50Hz和60Hz之间进行切换，用于对放大器电源内部的DC电压进行校正，不正确的电压可以对声音产生一点微妙的调制效果。</p>
+</li>
+<li><p>VARIAC（变压器）会尽力模拟一种AC电源中的可调变压器效果，从而实现可变电压的特点（著名的‘brown sound’效果），或者是超过正常电压值（可以让声音显得更加‘凶猛’）。</p>
+</li>
+<li><p>SAG（电压暂降）用于模拟电子管放大器中突然接收到过大信号的一种反应，这种反应会在接近1秒中的时间内电压急速下降而导致无法供应放大器的正常运行，这会对声音产生一种压缩的感觉，尤其是在电子管放大器电路中，减小这个参数可以调节压缩的程度，就像一个二极管整流电路那样。</p>
+</li>
+<li><p>RESPONSE（响应速度）可改变电源中的电容储存能力，减小这个参数会增大电容容量，声音会具有更慢的动态起伏，增大这个参数会加剧电压的反复传送响应速度，从而得到松散的声音感觉。</p>
+</li>
+<li><p>BIAS（偏压）用于调整虚拟输出电子管的偏压程度，这会添加一点额外的转向失真效果，也是放大器经典而特有的声音质感，顺时针调节参数会逐渐增大这种效果，从而得到更加真实的放大器效果。</p>
+</li>
+<li><p>STEREO（立体声）可激活模块的真实立体声处理功能，这会占用更多的CPU资源，这个功能应该只在您确实需要的时候再使用。</p>
+</li>
+</ul>
+<h1 id="1-AC-Box-Vox-AC30"><a href="#1-AC-Box-Vox-AC30" class="headerlink" title="1. AC Box(Vox AC30)"></a>1. AC Box(Vox AC30)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-7156ee5f3ec3e782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>Ac Box模块的声音最适合用于英式摇滚或流行摇滚的风格，在原始的高质量放大器模块中有很多不同的版本，每个都有自己不同的特色，我们挑选了一个具有独一无二特色的放大器模块，并且包含经典的‘Top Boost’通道！Normal（正常通道）具有高频剪切功能，Brilliant（高音通道）提供了高频增益和低频增益的控制功能。</p>
+<ul>
+<li><p>NORMAL VOLUME（正常通道音量）用于控制正常通道的音量大小，Treble（高频增益）和Bass（低频增益）控制对这个通道的声音不会造成影响。</p>
+</li>
+<li><p>BRILLIANT VOLUME（高音通道）用于调节高音通道的音量。</p>
+</li>
+<li><p>两个通道可以通过不同的音量混合来得到各种不同的音色质感。</p>
+</li>
+<li><p>TREBLE（高频增益）旋钮可以调整高音通道的高频响应程度。</p>
+</li>
+<li><p>BASS（低频增益）旋钮可以调节高音通道的低频响应程度。</p>
+</li>
+<li><p>TONE-CUT（高频剪切）相当于一个低通滤波器，顺时针旋转这个旋钮可以让正常通道中的声音减少高频信号。</p>
+</li>
+<li><p>TREMOLO SPEED（颤音速度）用于设置颤音的颤动比率。</p>
+</li>
+<li><p>TREMOLO DEPTH（颤音深度）用于调整颤音的音高变化程度，当调节到最小时相当于完全关闭这个功能。</p>
+</li>
+</ul>
+<h1 id="2-Bass-Pro-Ampeg-SVT-2-Pro"><a href="#2-Bass-Pro-Ampeg-SVT-2-Pro" class="headerlink" title="2. Bass Pro (Ampeg SVT-2 Pro)"></a>2. Bass Pro (Ampeg SVT-2 Pro)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-13a6a5402975c76d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这是一个贝斯放大器，可以产生强硬、咆哮般的声音，可以让您的贝斯声部在整体歌曲中凸显出来，放大器中还提供了一个图形均衡，可以让您对声音进行更加精确地频率塑形。</p>
+<ul>
+<li><p>VOLUME（音量）用于调整放大器的音量。</p>
+</li>
+<li><p>GANI（前置增益）用于控制前置放大器的音量。顺时针旋转会增大失真度。</p>
+</li>
+<li><p>DRIVE（过载）用于对经过前置增益后的中频部分进行提升，同时也将影响声音的质感。</p>
+</li>
+<li><p>BASS（低频增益）旋钮用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）旋钮用于调整中频部分的响应程度，中频的中心频点所在位置可以由MID-FREQ（中频频点）旋钮来控制。</p>
+</li>
+<li><p>MID-FREQ（中频频点）用于调整中频的中心频点所在位置，然后受到MID（中频增益）旋钮的调整而提升或衰减。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>激活ULTRA HI（高频过激）按钮可以对高频进行提升，但频率覆盖范围相对比BRIGHT（高频增益）所能够控制的频率范围还要宽，因此会有更加明显的效果。</p>
+</li>
+<li><p>激活ULTRA LO（低频过激）按钮会衰减一些中频范围，并对低频范围进行提升。</p>
+</li>
+<li><p>GRAPH EQ（图形均衡）开关用于激活或屏蔽图形均衡处理功能。</p>
+</li>
+<li><p>激活BRIGHT（高频）按钮可以让图形均衡对非常高的频率进行特别强调。</p>
+</li>
+<li><p>GRAPH EQ VOLUME（图形均衡音量）用于调整整体的图形均衡处理后的输出音量，向上调节是增大音量，向下调节是减小音量。如果您对某些频段进行了提升，那么可能需要适当的减小均衡输出音量。</p>
+</li>
+<li><p>GRAPH EQ（图形均衡）提供了9个固定的频段可以让您对其进行提升或者衰减，包括40Hz、90Hz、180Hz、300Hz、500Hz、1kHz、2kHz、4kHz、以及10kHz。当一个滑块的位置在中间时，代表没有提升也没有衰减，每个频段的可调范围是正负12分贝。</p>
+</li>
+</ul>
+<h1 id="3-Citrus-Orange-Overdrive-OD120"><a href="#3-Citrus-Orange-Overdrive-OD120" class="headerlink" title="3. Citrus (Orange Overdrive OD120)"></a>3. Citrus (Orange Overdrive OD120)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-a1b4324f2ddae7c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如果您想得到70年代英式摇滚的声音，那么Citrus放大器正式您所需要的！它的声音可以是很干净且锋利的感觉，也可以在调节了增益控制以后变得沙哑而失真。</p>
+<ul>
+<li><p>MASTER（总音量）用于调整放大器的总输出音量。</p>
+</li>
+<li><p>GAIN（增益）旋钮用于提升前置放大器的增益值，顺时针旋转会对声音增加一些是真效果。</p>
+</li>
+<li><p>LO CUT（低频剪切）旋钮相当于一个高通滤波器，较低的数值会允许更多的低频通过，顺时针旋转会逐渐减少低频信号，会让声音更加明亮，声音更靠前。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用来调节高频部分的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于控制中高频的提升程度。</p>
+</li>
+</ul>
+<h1 id="4-Cool-Plex-Marshall-JTM45"><a href="#4-Cool-Plex-Marshall-JTM45" class="headerlink" title="4. Cool Plex (Marshall JTM45)"></a>4. Cool Plex (Marshall JTM45)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-bb7f87fd8103d3b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如果您想要一种温暖的、复古的清音音色，声音活泼且具有浓厚的饱和味道，那么这个放大器就是您所需要的。Cool Plex可以为声音添加更加丰富的色彩与感情，让您的声音具有灵魂。</p>
+<ul>
+<li><p>Volume I（音量1）用于调整明亮音色通道的前置放大器音量。</p>
+</li>
+<li><p>Volume II（音量2）用于调整温暖音色通道的前置放大器音量。</p>
+</li>
+<li><p>您可以通过这两个音量控制来将两个通道的声音组成不同的混合程度。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调整中高频部分的响应程度。</p>
+</li>
+</ul>
+<h1 id="5-Gratifier-Mesa-Boogie-Dual-Rectifier"><a href="#5-Gratifier-Mesa-Boogie-Dual-Rectifier" class="headerlink" title="5. Gratifier (Mesa/Boogie Dual Rectifier)"></a>5. Gratifier (Mesa/Boogie Dual Rectifier)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-ca5ca591eaf9651e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>Grtifier模拟了一个著名的美国多通道独奏箱头，为了调节出从清音到失真的各种音色，声音将按照音色特性被分为4个通道，您可以点击Clean（清音）、Raw（自然）、Vintage（复古）、以及Modern（现代）这四个LED指示灯来进行切换选择。</p>
+<ul>
+<li><p>MASTER（总音量）用于调整这个放大器的总输出音量，更高的音量可以得到过载效果。</p>
+</li>
+<li><p>GAIN（增益）用于设置前置放大器的增益值，使用这个参数可以为声音增添更加颗粒的质感。</p>
+</li>
+<li><p>BASS（低频增益）用于调节低频范围的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调节中频范围的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调节高频范围的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调节中高频范围的响应程度。</p>
+</li>
+</ul>
+<h1 id="6-High-White-Hiwatt-DR-103"><a href="#6-High-White-Hiwatt-DR-103" class="headerlink" title="6. High White (Hiwatt DR-103)"></a>6. High White (Hiwatt DR-103)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-a07b25e83a15b0c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>您是否在寻找像David Gilmour和Pete Townsend那样的英式声音？那么您应该花一点时间试试High White放大器！这个放大器特点是具有一个NORMAL（正常音区）输入通道和一个BRILLIANT（明亮音区）输入通道，您可以使用各自的音量控制旋钮来调节两个通道的混合程度。</p>
+<ul>
+<li><p>MASTER（总音量）用于调整这个放大器的总输出音量。</p>
+</li>
+<li><p>NORMAL（正常音区）旋钮用来设置正常音区通道的音量，这个通道具有平滑而干净的声音。</p>
+</li>
+<li><p>BRILLIANCE（明亮音区）旋钮用来设置明亮音区通道的声音，这个通道具有侵略性特征。</p>
+</li>
+<li><p>BASS（低频增益）用于调节低频范围的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调节中频范围的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调节高频范围的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调节中高频范围的响应程度。</p>
+</li>
+</ul>
+<h1 id="7-Hot-Plex-Marshall-Plexi-1987x"><a href="#7-Hot-Plex-Marshall-Plexi-1987x" class="headerlink" title="7. Hot Plex (Marshall Plexi 1987x)"></a>7. Hot Plex (Marshall Plexi 1987x)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-8b7b3a370e82dc01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>我们都很热爱Plex那经典的声音，但知道您听过现在的Hot Plex声音以后您会有新的发现！这个放大器可以从温和转变到失真，将您复古的声音提升到前卫的质感。</p>
+<ul>
+<li><p>Volume I（音量1）用于调整明亮音色通道的前置放大器音量。</p>
+</li>
+<li><p>Volume II（音量2）用于调整温暖音色通道的前置放大器音量。</p>
+</li>
+<li><p>您可以通过这两个音量控制来将两个通道的声音组成不同的混合程度。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调整中高频部分的响应程度。</p>
+</li>
+</ul>
+<h1 id="8-Hot-Solo-Soldano-Hot-Rod-100-or-SLO-100"><a href="#8-Hot-Solo-Soldano-Hot-Rod-100-or-SLO-100" class="headerlink" title="8. Hot Solo+ (Soldano Hot Rod 100 + or SLO-100)"></a>8. Hot Solo+ (Soldano Hot Rod 100 + or SLO-100)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-8b5bbd1b29d0b426.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这是一个真正的现代经典！Hot Solo+拥有两个独立的前置放大器通道，可以产生现代的摇滚音色。</p>
+<ul>
+<li><p>NORMAL（低增益通道音量）用于调整低增益通道的前置放大器音量。</p>
+</li>
+<li><p>OVERDRIVE（过载）用于调整高增益通道的前置放大器音量。</p>
+</li>
+<li><p>两个参数之间的开关用来切换使用哪个通道中的声音，当开关下方的灯亮起时代表正在使用OVERDRIVE（过载）通道中的声音。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>MASTER（总音量）用于调整放大器输出的总音量。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调整中高频部分的响应程度。</p>
+</li>
+<li><p>DEPTH（深度）用于控制低频部分的频率可调范围宽度。</p>
+</li>
+</ul>
+<h1 id="9-Jazz-Amp-Roland-Jazz-Chorus-120"><a href="#9-Jazz-Amp-Roland-Jazz-Chorus-120" class="headerlink" title="9. Jazz Amp (Roland Jazz Chorus-120)"></a>9. Jazz Amp (Roland Jazz Chorus-120)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-7deaacabd234be1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这个放大器模拟了一个受人尊敬的合成器制造厂商的产品，Jazz Amp可以提供温暖而干净的音色。与这个模块相配合的一个必不可少的部分是Ensemble效果模块，在这个放大器中还提供了合唱和颤音效果，如果您想通过使用Jazz Amp放大器来得到真实的立体声颤音或合唱效果，您应该在Cabinet（箱体模块）的后面再插入一个Ensemble模块（在Modulation（调制）模块分类中）。</p>
+<ul>
+<li><p>BRIGHT（明亮）开关可以用来强调高频，让声音更明亮。</p>
+</li>
+<li><p>VOLUME（音量）用于调整放大器输出的总音量。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>VIB（颤音）/OFF（关闭）/CHORUS（合唱）切换开关用来选择是否启用颤音效果和合唱效果，放在中间位置代表两种效果都关闭。</p>
+</li>
+<li><p>RATE（速率）用于调整颤音效果的颤动速度。</p>
+</li>
+<li><p>DEPTH（深度）用于调整颤音和合唱效果的效果深度。</p>
+</li>
+</ul>
+<h1 id="10-Jump-Marshall-JMP"><a href="#10-Jump-Marshall-JMP" class="headerlink" title="10. Jump (Marshall JMP)"></a>10. Jump (Marshall JMP)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-2506539636a73aaf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>Jump放大器类似于进化版的Lead 800放大器，但会减少一点增益感，却增加了一些平滑度。对于单复音的旋律音色，我们更喜爱去听这种来自英式放大器的声音。</p>
+<ul>
+<li><p>GAIN（增益提升）用于提高前置放大器的信号增益的可调范围。</p>
+</li>
+<li><p>MASTER（总音量）用于调整放大器输出的总音量。</p>
+</li>
+<li><p>PRE-AMP（前置放大器）用于设置前置放大器的增益，顺时针调节会增大过载、失真、以及锋利的效果。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调整中高频部分的响应程度。</p>
+</li>
+</ul>
+<h1 id="11-Lead-800-Marshall-JCM800-Lead"><a href="#11-Lead-800-Marshall-JCM800-Lead" class="headerlink" title="11. Lead 800 (Marshall JCM800 Lead)"></a>11. Lead 800 (Marshall JCM800 Lead)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-4c6758b8b48bf428.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这个放大器可以提供平滑而锋利的声音，就像尖刀刺骨一样，并且很富有弹性。无论是演奏节奏声部还是旋律声部，Lead 800都将带给您明亮且富有侵略性的声音。</p>
+<ul>
+<li><p>BOOST（增益提升）用于提高前置放大器的信号增益的可调范围。</p>
+</li>
+<li><p>MASTER（总音量）用于调整放大器输出的总音量。</p>
+</li>
+<li><p>PRE-AMP（前置放大器）用于设置前置放大器的增益，顺时针调节会增大过载、失真、以及锋利的效果。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调整中高频部分的响应程度。</p>
+</li>
+</ul>
+<h1 id="12-Plex-Marshall-1959-SLP"><a href="#12-Plex-Marshall-1959-SLP" class="headerlink" title="12. Plex (Marshall 1959 SLP)"></a>12. Plex (Marshall 1959 SLP)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-785dd7b68365203f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>经典的Plex声音或许不需要做过多的介绍了，复古的放大器声音，出现在大量的唱片中。</p>
+<ul>
+<li><p>Volume I（音量1）用于调整明亮音色通道的前置放大器音量。</p>
+</li>
+<li><p>Volume II（音量2）用于调整温暖音色通道的前置放大器音量。</p>
+</li>
+<li><p>您可以通过这两个音量控制来将两个通道的声音组成不同的混合程度。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>PRESENCE（中高频增益）用于调整中高频部分的响应程度。</p>
+</li>
+</ul>
+<h1 id="13-Twang-Reverb-Fender-Twin-Reverb"><a href="#13-Twang-Reverb-Fender-Twin-Reverb" class="headerlink" title="13. Twang Reverb (Fender Twin Reverb)"></a>13. Twang Reverb (Fender Twin Reverb)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-ae69252415072a1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>Twang Reverb放大器模拟了1960年的一个昂贵的经典电子管放大器的声音。主要用于亮丽的节奏声部，产生富有个性的干净声音。要想添加过载的效果，最好的方法是在放大器之前添加一个音量踏板模块。</p>
+<ul>
+<li><p>VOLUME（总音量）用于调整这个放大器输出的总体音量。</p>
+</li>
+<li><p>TREBLE（高频增益）用于调整高频部分的响应程度。</p>
+</li>
+<li><p>MID（中频增益）用于调整中频部分的响应程度。</p>
+</li>
+<li><p>BASS（低频增益）用于调整低频部分的响应程度。</p>
+</li>
+<li><p>BRIGHT（明亮）开关可以着重强调高频让声音更明亮。</p>
+</li>
+<li><p>REVERB（混响）可以控制为音色添加的弹簧混响效果量。</p>
+</li>
+<li><p>REVERB ON（混响开关）用来打开或关闭混响效果。</p>
+</li>
+<li><p>SPEED（速度）用于控制颤音的速度（在放大器中称作Vibrato）。</p>
+</li>
+<li><p>INTENSITY（深度）用于控制颤音调制的深度。可以是温柔的颤动或剧烈的颤动。</p>
+</li>
+<li><p>VIBRATO ON（颤音效果开关）用于打开或关闭颤音效果。</p>
+</li>
+</ul>
+<p>额外控制功能</p>
+<ul>
+<li><p>REV TIME（混响时间）用于设置混响尾部衰减的持续时间。</p>
+</li>
+<li><p>REV SIZE（空间大小）用于调整混响所处空间的大小。这个参数会与混响时间参数相互作用，巨大的空间会有更长的混响衰减期，空间大小调节更趋向于对声音特征的控制。</p>
+</li>
+</ul>
+<h1 id="14-Tweed-Delight"><a href="#14-Tweed-Delight" class="headerlink" title="14. Tweed Delight"></a>14. Tweed Delight</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-1b4a295ce9d670bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>没有任何一个放大器会像这个一样富有魅力了！这个放大器就像一个传奇，它的声音厚重且干净，适合演奏布鲁斯风格的音乐，且只有3个旋钮！两个通道可以混合在一起获得更有力的过载效果。</p>
+<ul>
+<li><p>VOL BRIGHT（明亮音区音量）旋钮可以对前置放大器中的明亮音区通道进行增益调节，当增益值调节较大时会得到更加躁动的失真效果。</p>
+</li>
+<li><p>VOL NORMAL（正常音区音量）旋钮可以对前置放大器的正常音乐通道进行增益调节，这是为了得到平滑的声音而设计的，过量的提升也会得到失真效果。</p>
+</li>
+<li><p>TONE（音色）旋钮只会在这个放大器上出现，减小这个参数可以衰减高频，从而得到温暖的声音效果，但声音会变得模糊。增大这个参数会对音量有所提升，并且会增加清晰度。</p>
+</li>
+</ul>
+<h1 id="15-Tweedman-Fender-Bassman"><a href="#15-Tweedman-Fender-Bassman" class="headerlink" title="15. Tweedman (Fender Bassman)"></a>15. Tweedman (Fender Bassman)</h1><p><img src="https://upload-images.jianshu.io/upload_images/2859850-0bb61c1011e33179.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在1950年，Tweedman曾被设计为贝斯放大器，后来转变为吉他放大器，当然，它依然可以用于贝斯乐器。当作为贝斯放大器来使用时，会得到更加自然和复古的声音。</p>
+<blockquote>
+<p>收集整理：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;通用参数&quot;&gt;&lt;a href=&quot;#通用参数&quot; class=&quot;headerlink&quot; title=&quot;通用参数&quot;&gt;&lt;/a&gt;通用参数&lt;/h1&gt;&lt;p&gt;所有箱头可调节的通用参数如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;POWER SUPPLY（电源设置）可以将放大器的电源在50
+    
+    </summary>
+    
+      <category term="Music" scheme="http://yoursite.com/categories/Music/"/>
+    
+    
+      <category term="GuitarRig" scheme="http://yoursite.com/tags/GuitarRig/"/>
+    
+  </entry>
   
   <entry>
     <title> Guitar Rig组件列表(映射现实硬件) </title>
@@ -57,73 +374,6 @@
     
     
       <category term="GuitarRig" scheme="http://yoursite.com/tags/GuitarRig/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 『翻译』什么是哥特？ </title>
-    <link href="http://yoursite.com/2017/10/09/2017-10-09-what-is-goth/"/>
-    <id>http://yoursite.com/2017/10/09/2017-10-09-what-is-goth/</id>
-    <published>2017-10-08T16:00:00.000Z</published>
-    <updated>2017-10-09T08:36:42.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>原文链接：<a href="http://goth.net/goth" target="_blank" rel="external">What is Goth?</a></p>
-</blockquote>
-<p><em>原文来自<code>goth.net</code>，大概是我读过最透彻的一篇介绍哥特文化的文章了，希望你不喜欢。</em></p>
-<p>This is probably the hardest question any goth could try and answer, one may as well ask ‘what is society?’ as it has so many facets it defies any definitive explanation.</p>
-<p>这可能是哥特人可以尝试回答的最难的问题了，就像问“什么是社会？”一个道理，因为它有那么多方面，任何解释都不可能面面俱到。</p>
-<p>Goth in its simplest form, is a subculture. A group of people who feel comfortable within each others company. There is no specific thing that defines what you need to do or be to fit into the goth scene (except of course the implied black clothing). People in the goth scene all have different musical tastes, follow different religions, have different occupations, hobbies, and fashion sense.</p>
-<p>哥特是最简单的形式，它是一种亚文化。他们是一群在一起感到舒适的人组成的团体。没有什么具体的事物可以定义你需要做什么或者适应哥特式的场景（当然，黑衣服不能少！）。哥特人都会有自己独特的音乐品味，遵循不同的信仰，有着不同的职业、兴趣和时尚感。</p>
-<a id="more"></a>
-<h1 id="Why-do-people-become-goths"><a href="#Why-do-people-become-goths" class="headerlink" title="Why do people become goths?"></a>Why do people become goths?</h1><h1 id="为什么会变成哥特人"><a href="#为什么会变成哥特人" class="headerlink" title="为什么会变成哥特人?"></a>为什么会变成哥特人?</h1><p>Most goths become goths because they have been spurned by ‘normal’ society because the way they want to live their lives does not fit in with how most people are told to live theirs. Goths are free thinkers, people who do not accept the moral rules of society because they’re told ‘This is just how it is’ or ‘This is what God says!’. Rather goths tend to listen to what you have to say, and make up their own mind. This kind of free thinking and rejection of dogma earns only rejection in todays society.</p>
-<p>大多数人成为哥特人是因为被“正常”社会所唾弃，因为他们的生活方式与这个社会告诉我们的不一样。哥特人是自由的思想者，他们不能接受社会的道德规则，因为人们会说：“这就应该是这样的”或者“这是上帝说的！”。而哥特人会倾听你的世界，并且思考。这种自由思想和对教条的排斥让当今社会也开始排斥他们。</p>
-<p>However because of this rejection from ‘normal’ society, goths have banded together to associate with other free thinkers. This has a beneficial effect on both the individual and society as a whole. For the individual they have a sense of belonging, and friends they can associate with. For society it removes one more misfit filled with rage from society’s streets.</p>
-<p>然而，由于“正常”社会的这种拒绝，哥特人已经团结在一起，与其他自由思想者联手。这对个人和整个社会都是有益的。对于个人，他们有归属感和可以联系的朋友。对于社会，它消除了那些充斥在街头的愤怒与格格不入（这句不是很懂怎么翻）。</p>
-<p>This of course is not the case for all goths. Many goths today are goths for a variety of other reasons. They like the music, or the clubs are better, they have goth friends and joined in with them, or they just like staying up late nights and goths are the only ones awake to talk to.</p>
-<p>当然，并不是所有哥特人都是这种情况。如今很多哥特人都是因为各种原因才变成哥特人。他们喜欢音乐，或者更喜欢俱乐部，他们有哥特朋友，并加入了他们，或者他们仅仅是呆在深夜里，哥特人是唯一能在深夜保持清醒对话的人。</p>
-<h1 id="The-gothic-stereotype"><a href="#The-gothic-stereotype" class="headerlink" title="The gothic stereotype"></a>The gothic stereotype</h1><h1 id="对哥特刻板的印象"><a href="#对哥特刻板的印象" class="headerlink" title="对哥特刻板的印象"></a>对哥特刻板的印象</h1><p>Many stereotypes of goths exist these days. It seems everyone has their own way to define ‘what is goth’. From the stereotypes based on clothing to music right up to the stereotypes of all goths being satanists or part of some kind of cult. Categorically, all of these are false.</p>
-<p>当今社会对哥特有一些刻板的印象。但似乎每个人都有自己的方式来定义“什么是哥特”，从基于服装到音乐的刻板印象，更严重到认为所有哥特人都是撒旦的信徒或是某个邪教组织成员。直截了当的告诉你，这些印象都是假的。</p>
-<p>The goth scene is just as widely varied as society in general. There are many different professions represented in the scene, from highly skilled professionals like doctors and lawyers, to tradesman, to technically minded people to clerical workers. Many different musical tastes exist (and not all of them goth, there is a HUGE 80’s following in the goth scene for some reason). The fashion varies vastly from goth to goth from the traditional flowing victorian style garments to the buckled and studded style regalia (also called industrial style, which is often closely related with goths, and have come to an understanding of co-existance, if uneasily at times).</p>
-<p>普遍来说，哥特式的场景和这个社会一样广泛而多变。在这个场景中有很多不同专业的人，从医生、律师这种高技能的专业人士，到商人或志同道合的文职人员。哥特人有许多不同的音乐品味存在（并不全是哥特音乐，因为某些原因，有一大批80年代的崇拜者出现在哥特式场景中）（前面括号中的句子翻译的不是很恰当，尽力了…）。哥特的时尚变化极大，从传统流行的维多利亚风格的服装到紧扣、褶皱和佩戴chfen(这个鬼词是什么我真的不知道！)式的勋章（这也被称为工业风格，这些往往与哥特紧密相关，如果你倍感不适，可以尝试重新理解有限存在是什么意思）。</p>
-<h1 id="How-do-I-get-into-goth"><a href="#How-do-I-get-into-goth" class="headerlink" title="How do I get into goth?"></a>How do I get into goth?</h1><h1 id="我是怎么变成哥特人的？"><a href="#我是怎么变成哥特人的？" class="headerlink" title="我是怎么变成哥特人的？"></a>我是怎么变成哥特人的？</h1><p>The gothic sense of humour is highly developed, and often leans toward the satirical. Quietly laughing at the more idiotic and less tolerant factions of society that seem to think yelling out of cars at us makes them cooler. Goths have learned to laugh at themselves and see society in a much different light. They have had to, and it is a trait most would not give up.</p>
-<p>哥特式的幽默感是高度发达的，往往倾向于讽刺。在这个更多白痴、更少宽容的社会，我们安静的笑，似乎他们朝我们大喊大叫会让他们觉得自己更酷一样。哥特人已经学会了自我嘲笑，用不同的眼光去看待这个社会。这是我们不得不，而且最不愿放弃的特质。</p>
-<p>Goths have for the most part (not unanimously of course, but mostly) dropped all forms of prejudice. Noone is afraid within the goth scene to come out as being gay, and noone has to hide their religion for fear of scorn from their peers or zealots wanting to convert them from the arms of Satan. In fact because of these facts (and the general lack of prejudice) the goth scene has a large proportion of gays/bisexuals, and followers of non-mainstream religions and views. This of course is the most important aspect of gothdom, and why most goths became goths in the first place, tolerance.</p>
-<p>大部分哥特人（并不是全是这样，但几乎是）放弃了所有形式的偏见。在哥特场景下，没有人害怕公布自己是同性恋的事实，也没有人会隐藏自己的宗教信仰，因为不必担心同龄人或狂热分子的嘲笑，没有人硬要把你从撒旦的怀抱中拯救出来。事实上，就是由于这些事实（并且普遍缺乏偏见），哥特场景下有很多同性恋/双性恋，以及非主流宗教的观点和追随者。这当然是哥特最重要的方面，为什么会成为哥特人，第一点：宽容。</p>
-<p>But they think weird!</p>
-<p>但他们觉得很怪诞！</p>
-<p>Ah, but this is the beauty of goths. Most subjects that are taboo in ‘normal’ society are freely discussed and debated about. Death, religion, magick, mysticism, and many other topics that are only roached carefully outside of the gothic community. Most goths have realised that fear is only a reaction instilled in us by dogmatic propaganda, and once you realise there is nothing to fear from the topic, whats to stop you discussing it?</p>
-<p>啊，但这正是哥特的美所在。大多数在“正常”社会中的禁忌话题，在这里都可以自由讨论和辩论。死亡、宗教、魔法、神秘主义，和许多其他仅在哥特社区之外精心狩猎的话题。大多数哥特人都意识到，恐惧只是在教条宣传、灌输下的一种反应，一旦你意识到没有什么可怕的话题，还有什么能阻止你讨论？</p>
-<p>Goths often revel in the fear given to them by society as a whole. Often the behavior exhibited by society to them based on society’s perception of them from stereotypes, rumour, etc are a constant source of entertainment. Of course, most of the rumours are totally unfounded, goths are people like everyone else, however when you already have a reputation, going for the shock factor is often far too tempting to see how much society at large is willing to believe (or deduce) with only a little encouragement.</p>
-<p>哥特人常常以整个社会对他们的恐惧为乐。通常，社会对他们的态度是基于刻板印象的感知和谣言等，这对哥特人来说是源源不断的娱乐来源。当然，大部分谣言是根本没有根据的，哥特人和其他人一样都是人，无论如何，当你拥有了声誉，都会面临巨大的诱惑，全社会没有多少人愿意去相信（或推测）并伴随着一点鼓励。（这句真的不会翻了，我果然是渣男，渣渣…）</p>
-<p>This does not totally fall away once you get inside the scene unfortunately, and goths are all too often tempted to try for the shock factor within the scene (which turns out more tacky than shocking). Goths when you get down to it can be a rather pretentious bunch, trying for those extra ‘goth points’ on the gothier than thou scale, but it adds to the enjoyment.</p>
-<p>这并没有完全结束，一旦你进入不幸的场景，哥特人会怂恿你去做一些刺激的事（结果往往比你想象的更令人震惊）。当哥特人下定决心做时，他们是一群相当自命不凡的人，他们会做超出哥特范畴的事（又是一句bullshit translate），但这也增添了乐趣。</p>
-<h1 id="History-of-Goth"><a href="#History-of-Goth" class="headerlink" title="History of Goth"></a>History of Goth</h1><h1 id="哥特的历史"><a href="#哥特的历史" class="headerlink" title="哥特的历史"></a>哥特的历史</h1><p>Modern goth (ignoring where the name itself originally comes from) started in the early 80’s as part of the punk subculture (which is itself was a rejection of most societal values, and anything considered part of the ‘norm’). The phrase was coined by the band manager of Joy Division, Anthony H. Wilson, who described the band as ‘Gothic compared with the pop mainstream’. The term stuck, and as punk eventually died, Goth survived and became its own subculture. The punk clothing and hairstyles mellowed, and the core ‘rejection of society’ attitude alone lived on in the gothic subculture. Over time this itself has been modified to be more of a ‘no more blind acceptance of society’s values’ as opposed to rejection because it was there to be rejected (and because you could get away with it!).</p>
-<p>现代哥特（忽略其名字本身的出处）早在80年代就成为朋克文化的一部分（这本身就是一种排斥社会的价值观，以及被定义为“规范”的事物）。现代哥特这个短语是由 Joy Division 乐队的经理 Anthony H. Wilson 杜撰出来的，他把乐队描述为“与流行主流音乐相比较的哥特式音乐”。朋克的服装和发型风格，以及核心的“排斥社会”态度，孤独的生活在社会的亚文化中。随着时间的推移，这种态度本身已经被改进成“不再盲目的接受社会的价值观”，而不是去拒绝，因为它在那儿被拒绝（因为你可以摆脱它）。</p>
-<p>Movies such as The Crow, and bands such as the Bauhaus helped establish the gothic image as dark, depressing, and even evil. As more and more ‘dark’ movies came out, numbers in the gothic subculture expanded, and there is now a gothic community in almost every major city around the world, and quite a number of towns have their own representative contingent. Nowdays there are more goth bands around than ever, and it has turned from an 80’s phenomenon into a 90’s way of life for many people. Unlike the punk subculture that it spawned from, there even exists a class of mature goths, still following the scene around even past their 20’s and into their 30’s and beyond.</p>
-<p>像<a href="https://movie.douban.com/subject/1292474/" target="_blank" rel="external">乌鸦</a>这类电影，以及<a href="http://www.xiami.com/artist/10025" target="_blank" rel="external">Bauhaus</a>这类乐队，有助于建立哥特式的形象，如黑暗、压抑、沮丧、甚至是邪恶。伴随着越来越多“黑暗”题材电影的出现，哥特亚文化的影响不断扩大，世界上几乎每一个主要城市都有一个哥特社区，相当多的城镇都有自己的代表团。当今的哥特乐队比以往任何时代都多，它已经从80年代的非凡到90年代融入大多数人的生活。它的产生不同于朋克亚文化，甚至存在一类成熟的哥特人，哥特伴随他们度过20岁，迈入30岁以及更久远的岁月。</p>
-<blockquote>
-<p>本文译者：余震（Freak）<br>译文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;原文链接：&lt;a href=&quot;http://goth.net/goth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;What is Goth?&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;原文来自&lt;code&gt;goth.net&lt;/code&gt;，大概是我读过最透彻的一篇介绍哥特文化的文章了，希望你不喜欢。&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This is probably the hardest question any goth could try and answer, one may as well ask ‘what is society?’ as it has so many facets it defies any definitive explanation.&lt;/p&gt;
-&lt;p&gt;这可能是哥特人可以尝试回答的最难的问题了，就像问“什么是社会？”一个道理，因为它有那么多方面，任何解释都不可能面面俱到。&lt;/p&gt;
-&lt;p&gt;Goth in its simplest form, is a subculture. A group of people who feel comfortable within each others company. There is no specific thing that defines what you need to do or be to fit into the goth scene (except of course the implied black clothing). People in the goth scene all have different musical tastes, follow different religions, have different occupations, hobbies, and fashion sense.&lt;/p&gt;
-&lt;p&gt;哥特是最简单的形式，它是一种亚文化。他们是一群在一起感到舒适的人组成的团体。没有什么具体的事物可以定义你需要做什么或者适应哥特式的场景（当然，黑衣服不能少！）。哥特人都会有自己独特的音乐品味，遵循不同的信仰，有着不同的职业、兴趣和时尚感。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
-    
-    
-      <category term="Gothic" scheme="http://yoursite.com/tags/Gothic/"/>
     
   </entry>
   
@@ -189,6 +439,73 @@
     </summary>
     
       <category term="Book" scheme="http://yoursite.com/categories/Book/"/>
+    
+    
+      <category term="Gothic" scheme="http://yoursite.com/tags/Gothic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 『翻译』什么是哥特？ </title>
+    <link href="http://yoursite.com/2017/10/09/2017-10-09-what-is-goth/"/>
+    <id>http://yoursite.com/2017/10/09/2017-10-09-what-is-goth/</id>
+    <published>2017-10-08T16:00:00.000Z</published>
+    <updated>2017-10-09T08:36:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>原文链接：<a href="http://goth.net/goth" target="_blank" rel="external">What is Goth?</a></p>
+</blockquote>
+<p><em>原文来自<code>goth.net</code>，大概是我读过最透彻的一篇介绍哥特文化的文章了，希望你不喜欢。</em></p>
+<p>This is probably the hardest question any goth could try and answer, one may as well ask ‘what is society?’ as it has so many facets it defies any definitive explanation.</p>
+<p>这可能是哥特人可以尝试回答的最难的问题了，就像问“什么是社会？”一个道理，因为它有那么多方面，任何解释都不可能面面俱到。</p>
+<p>Goth in its simplest form, is a subculture. A group of people who feel comfortable within each others company. There is no specific thing that defines what you need to do or be to fit into the goth scene (except of course the implied black clothing). People in the goth scene all have different musical tastes, follow different religions, have different occupations, hobbies, and fashion sense.</p>
+<p>哥特是最简单的形式，它是一种亚文化。他们是一群在一起感到舒适的人组成的团体。没有什么具体的事物可以定义你需要做什么或者适应哥特式的场景（当然，黑衣服不能少！）。哥特人都会有自己独特的音乐品味，遵循不同的信仰，有着不同的职业、兴趣和时尚感。</p>
+<a id="more"></a>
+<h1 id="Why-do-people-become-goths"><a href="#Why-do-people-become-goths" class="headerlink" title="Why do people become goths?"></a>Why do people become goths?</h1><h1 id="为什么会变成哥特人"><a href="#为什么会变成哥特人" class="headerlink" title="为什么会变成哥特人?"></a>为什么会变成哥特人?</h1><p>Most goths become goths because they have been spurned by ‘normal’ society because the way they want to live their lives does not fit in with how most people are told to live theirs. Goths are free thinkers, people who do not accept the moral rules of society because they’re told ‘This is just how it is’ or ‘This is what God says!’. Rather goths tend to listen to what you have to say, and make up their own mind. This kind of free thinking and rejection of dogma earns only rejection in todays society.</p>
+<p>大多数人成为哥特人是因为被“正常”社会所唾弃，因为他们的生活方式与这个社会告诉我们的不一样。哥特人是自由的思想者，他们不能接受社会的道德规则，因为人们会说：“这就应该是这样的”或者“这是上帝说的！”。而哥特人会倾听你的世界，并且思考。这种自由思想和对教条的排斥让当今社会也开始排斥他们。</p>
+<p>However because of this rejection from ‘normal’ society, goths have banded together to associate with other free thinkers. This has a beneficial effect on both the individual and society as a whole. For the individual they have a sense of belonging, and friends they can associate with. For society it removes one more misfit filled with rage from society’s streets.</p>
+<p>然而，由于“正常”社会的这种拒绝，哥特人已经团结在一起，与其他自由思想者联手。这对个人和整个社会都是有益的。对于个人，他们有归属感和可以联系的朋友。对于社会，它消除了那些充斥在街头的愤怒与格格不入（这句不是很懂怎么翻）。</p>
+<p>This of course is not the case for all goths. Many goths today are goths for a variety of other reasons. They like the music, or the clubs are better, they have goth friends and joined in with them, or they just like staying up late nights and goths are the only ones awake to talk to.</p>
+<p>当然，并不是所有哥特人都是这种情况。如今很多哥特人都是因为各种原因才变成哥特人。他们喜欢音乐，或者更喜欢俱乐部，他们有哥特朋友，并加入了他们，或者他们仅仅是呆在深夜里，哥特人是唯一能在深夜保持清醒对话的人。</p>
+<h1 id="The-gothic-stereotype"><a href="#The-gothic-stereotype" class="headerlink" title="The gothic stereotype"></a>The gothic stereotype</h1><h1 id="对哥特刻板的印象"><a href="#对哥特刻板的印象" class="headerlink" title="对哥特刻板的印象"></a>对哥特刻板的印象</h1><p>Many stereotypes of goths exist these days. It seems everyone has their own way to define ‘what is goth’. From the stereotypes based on clothing to music right up to the stereotypes of all goths being satanists or part of some kind of cult. Categorically, all of these are false.</p>
+<p>当今社会对哥特有一些刻板的印象。但似乎每个人都有自己的方式来定义“什么是哥特”，从基于服装到音乐的刻板印象，更严重到认为所有哥特人都是撒旦的信徒或是某个邪教组织成员。直截了当的告诉你，这些印象都是假的。</p>
+<p>The goth scene is just as widely varied as society in general. There are many different professions represented in the scene, from highly skilled professionals like doctors and lawyers, to tradesman, to technically minded people to clerical workers. Many different musical tastes exist (and not all of them goth, there is a HUGE 80’s following in the goth scene for some reason). The fashion varies vastly from goth to goth from the traditional flowing victorian style garments to the buckled and studded style regalia (also called industrial style, which is often closely related with goths, and have come to an understanding of co-existance, if uneasily at times).</p>
+<p>普遍来说，哥特式的场景和这个社会一样广泛而多变。在这个场景中有很多不同专业的人，从医生、律师这种高技能的专业人士，到商人或志同道合的文职人员。哥特人有许多不同的音乐品味存在（并不全是哥特音乐，因为某些原因，有一大批80年代的崇拜者出现在哥特式场景中）（前面括号中的句子翻译的不是很恰当，尽力了…）。哥特的时尚变化极大，从传统流行的维多利亚风格的服装到紧扣、褶皱和佩戴chfen(这个鬼词是什么我真的不知道！)式的勋章（这也被称为工业风格，这些往往与哥特紧密相关，如果你倍感不适，可以尝试重新理解有限存在是什么意思）。</p>
+<h1 id="How-do-I-get-into-goth"><a href="#How-do-I-get-into-goth" class="headerlink" title="How do I get into goth?"></a>How do I get into goth?</h1><h1 id="我是怎么变成哥特人的？"><a href="#我是怎么变成哥特人的？" class="headerlink" title="我是怎么变成哥特人的？"></a>我是怎么变成哥特人的？</h1><p>The gothic sense of humour is highly developed, and often leans toward the satirical. Quietly laughing at the more idiotic and less tolerant factions of society that seem to think yelling out of cars at us makes them cooler. Goths have learned to laugh at themselves and see society in a much different light. They have had to, and it is a trait most would not give up.</p>
+<p>哥特式的幽默感是高度发达的，往往倾向于讽刺。在这个更多白痴、更少宽容的社会，我们安静的笑，似乎他们朝我们大喊大叫会让他们觉得自己更酷一样。哥特人已经学会了自我嘲笑，用不同的眼光去看待这个社会。这是我们不得不，而且最不愿放弃的特质。</p>
+<p>Goths have for the most part (not unanimously of course, but mostly) dropped all forms of prejudice. Noone is afraid within the goth scene to come out as being gay, and noone has to hide their religion for fear of scorn from their peers or zealots wanting to convert them from the arms of Satan. In fact because of these facts (and the general lack of prejudice) the goth scene has a large proportion of gays/bisexuals, and followers of non-mainstream religions and views. This of course is the most important aspect of gothdom, and why most goths became goths in the first place, tolerance.</p>
+<p>大部分哥特人（并不是全是这样，但几乎是）放弃了所有形式的偏见。在哥特场景下，没有人害怕公布自己是同性恋的事实，也没有人会隐藏自己的宗教信仰，因为不必担心同龄人或狂热分子的嘲笑，没有人硬要把你从撒旦的怀抱中拯救出来。事实上，就是由于这些事实（并且普遍缺乏偏见），哥特场景下有很多同性恋/双性恋，以及非主流宗教的观点和追随者。这当然是哥特最重要的方面，为什么会成为哥特人，第一点：宽容。</p>
+<p>But they think weird!</p>
+<p>但他们觉得很怪诞！</p>
+<p>Ah, but this is the beauty of goths. Most subjects that are taboo in ‘normal’ society are freely discussed and debated about. Death, religion, magick, mysticism, and many other topics that are only roached carefully outside of the gothic community. Most goths have realised that fear is only a reaction instilled in us by dogmatic propaganda, and once you realise there is nothing to fear from the topic, whats to stop you discussing it?</p>
+<p>啊，但这正是哥特的美所在。大多数在“正常”社会中的禁忌话题，在这里都可以自由讨论和辩论。死亡、宗教、魔法、神秘主义，和许多其他仅在哥特社区之外精心狩猎的话题。大多数哥特人都意识到，恐惧只是在教条宣传、灌输下的一种反应，一旦你意识到没有什么可怕的话题，还有什么能阻止你讨论？</p>
+<p>Goths often revel in the fear given to them by society as a whole. Often the behavior exhibited by society to them based on society’s perception of them from stereotypes, rumour, etc are a constant source of entertainment. Of course, most of the rumours are totally unfounded, goths are people like everyone else, however when you already have a reputation, going for the shock factor is often far too tempting to see how much society at large is willing to believe (or deduce) with only a little encouragement.</p>
+<p>哥特人常常以整个社会对他们的恐惧为乐。通常，社会对他们的态度是基于刻板印象的感知和谣言等，这对哥特人来说是源源不断的娱乐来源。当然，大部分谣言是根本没有根据的，哥特人和其他人一样都是人，无论如何，当你拥有了声誉，都会面临巨大的诱惑，全社会没有多少人愿意去相信（或推测）并伴随着一点鼓励。（这句真的不会翻了，我果然是渣男，渣渣…）</p>
+<p>This does not totally fall away once you get inside the scene unfortunately, and goths are all too often tempted to try for the shock factor within the scene (which turns out more tacky than shocking). Goths when you get down to it can be a rather pretentious bunch, trying for those extra ‘goth points’ on the gothier than thou scale, but it adds to the enjoyment.</p>
+<p>这并没有完全结束，一旦你进入不幸的场景，哥特人会怂恿你去做一些刺激的事（结果往往比你想象的更令人震惊）。当哥特人下定决心做时，他们是一群相当自命不凡的人，他们会做超出哥特范畴的事（又是一句bullshit translate），但这也增添了乐趣。</p>
+<h1 id="History-of-Goth"><a href="#History-of-Goth" class="headerlink" title="History of Goth"></a>History of Goth</h1><h1 id="哥特的历史"><a href="#哥特的历史" class="headerlink" title="哥特的历史"></a>哥特的历史</h1><p>Modern goth (ignoring where the name itself originally comes from) started in the early 80’s as part of the punk subculture (which is itself was a rejection of most societal values, and anything considered part of the ‘norm’). The phrase was coined by the band manager of Joy Division, Anthony H. Wilson, who described the band as ‘Gothic compared with the pop mainstream’. The term stuck, and as punk eventually died, Goth survived and became its own subculture. The punk clothing and hairstyles mellowed, and the core ‘rejection of society’ attitude alone lived on in the gothic subculture. Over time this itself has been modified to be more of a ‘no more blind acceptance of society’s values’ as opposed to rejection because it was there to be rejected (and because you could get away with it!).</p>
+<p>现代哥特（忽略其名字本身的出处）早在80年代就成为朋克文化的一部分（这本身就是一种排斥社会的价值观，以及被定义为“规范”的事物）。现代哥特这个短语是由 Joy Division 乐队的经理 Anthony H. Wilson 杜撰出来的，他把乐队描述为“与流行主流音乐相比较的哥特式音乐”。朋克的服装和发型风格，以及核心的“排斥社会”态度，孤独的生活在社会的亚文化中。随着时间的推移，这种态度本身已经被改进成“不再盲目的接受社会的价值观”，而不是去拒绝，因为它在那儿被拒绝（因为你可以摆脱它）。</p>
+<p>Movies such as The Crow, and bands such as the Bauhaus helped establish the gothic image as dark, depressing, and even evil. As more and more ‘dark’ movies came out, numbers in the gothic subculture expanded, and there is now a gothic community in almost every major city around the world, and quite a number of towns have their own representative contingent. Nowdays there are more goth bands around than ever, and it has turned from an 80’s phenomenon into a 90’s way of life for many people. Unlike the punk subculture that it spawned from, there even exists a class of mature goths, still following the scene around even past their 20’s and into their 30’s and beyond.</p>
+<p>像<a href="https://movie.douban.com/subject/1292474/" target="_blank" rel="external">乌鸦</a>这类电影，以及<a href="http://www.xiami.com/artist/10025" target="_blank" rel="external">Bauhaus</a>这类乐队，有助于建立哥特式的形象，如黑暗、压抑、沮丧、甚至是邪恶。伴随着越来越多“黑暗”题材电影的出现，哥特亚文化的影响不断扩大，世界上几乎每一个主要城市都有一个哥特社区，相当多的城镇都有自己的代表团。当今的哥特乐队比以往任何时代都多，它已经从80年代的非凡到90年代融入大多数人的生活。它的产生不同于朋克亚文化，甚至存在一类成熟的哥特人，哥特伴随他们度过20岁，迈入30岁以及更久远的岁月。</p>
+<blockquote>
+<p>本文译者：余震（Freak）<br>译文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;原文链接：&lt;a href=&quot;http://goth.net/goth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;What is Goth?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;原文来自&lt;code&gt;goth.net&lt;/code&gt;，大概是我读过最透彻的一篇介绍哥特文化的文章了，希望你不喜欢。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This is probably the hardest question any goth could try and answer, one may as well ask ‘what is society?’ as it has so many facets it defies any definitive explanation.&lt;/p&gt;
+&lt;p&gt;这可能是哥特人可以尝试回答的最难的问题了，就像问“什么是社会？”一个道理，因为它有那么多方面，任何解释都不可能面面俱到。&lt;/p&gt;
+&lt;p&gt;Goth in its simplest form, is a subculture. A group of people who feel comfortable within each others company. There is no specific thing that defines what you need to do or be to fit into the goth scene (except of course the implied black clothing). People in the goth scene all have different musical tastes, follow different religions, have different occupations, hobbies, and fashion sense.&lt;/p&gt;
+&lt;p&gt;哥特是最简单的形式，它是一种亚文化。他们是一群在一起感到舒适的人组成的团体。没有什么具体的事物可以定义你需要做什么或者适应哥特式的场景（当然，黑衣服不能少！）。哥特人都会有自己独特的音乐品味，遵循不同的信仰，有着不同的职业、兴趣和时尚感。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Translation" scheme="http://yoursite.com/categories/Translation/"/>
     
     
       <category term="Gothic" scheme="http://yoursite.com/tags/Gothic/"/>
@@ -2106,9 +2423,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
-    
       <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
+    
+      <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
     
   </entry>
   
@@ -2238,163 +2555,6 @@
       <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
     
       <category term="jQuery" scheme="http://yoursite.com/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> MongoDB 文档操作 </title>
-    <link href="http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/"/>
-    <id>http://yoursite.com/2017/03/28/2017-03-28-mongodb-document-query/</id>
-    <published>2017-03-27T16:00:00.000Z</published>
-    <updated>2017-07-28T02:23:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><p><em>语法格式</em></p>
-<p><code>insert()</code> 方法的基本格式为:<br><code>&gt;db.COLLECTION_NAME.insert(document)</code></p>
-<p><em>范例1</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.insert(</div><div class="line">  &#123;</div><div class="line">    &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">    &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">    &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">    &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">    &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">    &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">    &quot;likes&quot;: &quot;100&quot;</div><div class="line">  &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>mycol 是上一节所创建的集合的名称。如果数据库中不存在该集合，那么MongoDB会创建该集合，并向其中插入文档。</p>
-<p>在插入的文档中，如果我们没有指定<code>_id</code>参数，那么MongoDB会自动为文档指定一个唯一的 ID。<br><code>_id</code>是一个 12 字节长的 16 进制数，这 12 个字节的分配如下:</p>
-<p><code>_id: ObjectId(4 bytes timestamp, 3 bytes machine id, 2 bytes process id, 3 bytes incrementer)</code></p>
-<p>你还可以将用 <code>insert()</code> 方法传入一个文档数组，范例如下:</p>
-<p><em>范例2</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt;db.post.insert([</div><div class="line">  &#123;</div><div class="line">    title: &apos;MongoDB Overview&apos;,</div><div class="line">    description: &apos;MongoDB is no sql database&apos;,</div><div class="line">    by: &apos;tutorials point&apos;,</div><div class="line">    url: &apos;http://www.tutorialspoint.com&apos;,</div><div class="line">    tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</div><div class="line">    likes: 100</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    title: &apos;NoSQL Database&apos;,</div><div class="line">    description: &apos;NoSQL database doesn&apos;t have tables&apos;,</div><div class="line">    by: &apos;tutorials point&apos;,</div><div class="line">    url: &apos;http://www.tutorialspoint.com&apos;,</div><div class="line">    tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</div><div class="line">    likes: 20,</div><div class="line">    comments: [</div><div class="line">      &#123;</div><div class="line">        user:&apos;user1&apos;,</div><div class="line">        message: &apos;My first comment&apos;,</div><div class="line">        dateCreated: new Date(2013,11,10,2,35),</div><div class="line">        like: 0</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">])</div></pre></td></tr></table></figure>
-<h4 id="save"><a href="#save" class="headerlink" title="save()"></a>save()</h4><p>如果没有指定文档的_id，那么<code>save()</code>和<code>insert()</code>完全一样。</p>
-<p>如果指定了_id，那么它就会覆盖掉<code>save()</code>方法中指定_id的文档的全部数据。</p>
-<h3 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h3><h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p>查询 MongoDB 集合中的数据，使用 <code>find()</code> 方法。</p>
-<p><em>语法格式</em></p>
-<p><code>find()</code> 方法基本格式为：</p>
-<p><code>&gt;db.COLLECTION_NAME.find()</code></p>
-<p><code>find()</code> 会以非结构化的方式来显示所有文档</p>
-<h4 id="pretty"><a href="#pretty" class="headerlink" title="pretty()"></a>pretty()</h4><p>以结构化方式显示结果，使用 <code>pretty()</code>方法。</p>
-<p><em>语法格式</em></p>
-<p><code>&gt;db.COLLECTION_NAME.find().pretty()</code></p>
-<p><em>范例</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find().pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p><code>find()</code>还有一个扩展方法<code>findOne()</code>，只返回一个文档。</p>
-</blockquote>
-<h4 id="MongoDB-中类似WHERE子句的语句"><a href="#MongoDB-中类似WHERE子句的语句" class="headerlink" title="MongoDB 中类似WHERE子句的语句"></a>MongoDB 中类似WHERE子句的语句</h4><table>
-<thead>
-<tr>
-<th style="text-align:center">操作</th>
-<th style="text-align:center">格式</th>
-<th style="text-align:center">范例</th>
-<th style="text-align:center">RDBMS中的类似语句</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">等于</td>
-<td style="text-align:center"><code>{&lt;key&gt;:&lt;value&gt;}</code></td>
-<td style="text-align:center"><code>db.mycol.find({&quot;by&quot;:&quot;Freak&quot;}).pretty()</code></td>
-<td style="text-align:center"><code>where by = &#39;Freak&#39;</code></td>
-</tr>
-<tr>
-<td style="text-align:center">小于</td>
-<td style="text-align:center"><code>{&lt;key&gt;:{$lt:&lt;value&gt;}}</code></td>
-<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$lt:50}}).pretty()</code></td>
-<td style="text-align:center"><code>where likes &lt; 50</code></td>
-</tr>
-<tr>
-<td style="text-align:center">小于或等于</td>
-<td style="text-align:center"><code>{&lt;key&gt;:{$lte:&lt;value&gt;}}</code></td>
-<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$lte:50}}).pretty()</code></td>
-<td style="text-align:center"><code>where likes &lt;= 50</code></td>
-</tr>
-<tr>
-<td style="text-align:center">大于</td>
-<td style="text-align:center"><code>{&lt;key&gt;:{$gt:&lt;value&gt;}}</code></td>
-<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$gt:50}}).pretty()</code></td>
-<td style="text-align:center"><code>where likes &gt; 50</code></td>
-</tr>
-<tr>
-<td style="text-align:center">大于或等于</td>
-<td style="text-align:center"><code>{&lt;key&gt;:{$gte:&lt;value&gt;}}</code></td>
-<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$gte:50}}).pretty()</code></td>
-<td style="text-align:center"><code>where likes &gt;= 50</code></td>
-</tr>
-<tr>
-<td style="text-align:center">不等于</td>
-<td style="text-align:center"><code>{&lt;key&gt;:{$ne:&lt;value&gt;}}</code></td>
-<td style="text-align:center"><code>db.mycol.find({&quot;likes&quot;:{$ne:50}}).pretty()</code></td>
-<td style="text-align:center"><code>where likes != 50</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="MongoDB中的AND条件"><a href="#MongoDB中的AND条件" class="headerlink" title="MongoDB中的AND条件"></a>MongoDB中的AND条件</h4><p><em>语法格式</em></p>
-<p>在 <code>find()</code> 方法中，如果传入多个键，并用逗号( , )分隔它们，那么 MongoDB 会把它看成是 AND 条件。AND 条件的基本语法格式为:</p>
-<p><code>&gt;db.mycol.find({key1:value1, key2:value2}).pretty()</code></p>
-<p><em>范例</em></p>
-<p>下例将展示所有由 “Freak” 发表的标题为 “MongoDB Overview” 的教程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;by&quot;:&quot;tutorials point&quot;,&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<p>对于上例这种情况，RDBMS 采用的 WHERE 子句将会是:</p>
-<p><code>where by=&#39;tutorials point&#39; AND title=&#39;MongoDB Overview&#39;</code></p>
-<p>你可以在 find 子句中传入任意的键值对。</p>
-<h4 id="MongoDB中的OR条件"><a href="#MongoDB中的OR条件" class="headerlink" title="MongoDB中的OR条件"></a>MongoDB中的OR条件</h4><p><em>语法格式</em></p>
-<p>若基于OR条件来查询文档，可以使用关键字 <code>$or</code>。OR条件的基本语法格式为:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(</div><div class="line">  &#123;</div><div class="line">    $or: [</div><div class="line">      &#123;key1: value1&#125;, &#123;key2:value2&#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">).pretty()</div></pre></td></tr></table></figure>
-<p><em>范例</em></p>
-<p>下例将展示所有由 “Freak” 发表的或标题为 “MongoDB Overview” 的教程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;$or:[&#123;&quot;by&quot;:&quot;tutorials point&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<h4 id="结合使用AND与OR条件"><a href="#结合使用AND与OR条件" class="headerlink" title="结合使用AND与OR条件"></a>结合使用AND与OR条件</h4><p><em>范例</em></p>
-<p>下例所展示文档的条件为:喜欢数大于100，标题是“MongoDB Overview”，或者是由“Freak” 所发表的。相应的SQL WHERE子句为:<code>where likes&gt;10 AND (by = &#39;tutorials point&#39; OR title = &#39;MongoDB Overview&#39;)</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.find(&#123;&quot;likes&quot;: &#123;$gt:10&#125;, $or: [&#123;&quot;by&quot;: &quot;Freak&quot;&#125;,&#123;&quot;title&quot;: &quot;MongoDB Overview&quot;&#125;]&#125;).pretty()</div><div class="line">&#123;</div><div class="line">  &quot;_id&quot;: ObjectId(7df78ad8902c),</div><div class="line">  &quot;title&quot;: &quot;MongoDB Overview&quot;,</div><div class="line">  &quot;description&quot;: &quot;MongoDB is no sql database&quot;,</div><div class="line">  &quot;by&quot;: &quot;Freak&quot;,</div><div class="line">  &quot;url&quot;: &quot;https://rockjins.js.org&quot;,</div><div class="line">  &quot;tags&quot;: [&quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot;],</div><div class="line">  &quot;likes&quot;: &quot;100&quot;</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><p>MongoDB 中的 <code>update()</code> 与 <code>save()</code> 方法都能用于更新集合中的文档。 <code>update()</code> 方法更新已有文档中的值，而 <code>save()</code> 方法则是用传入该方法的文档来替换已有文档。</p>
-<h4 id="update-方法"><a href="#update-方法" class="headerlink" title="update()方法"></a>update()方法</h4><p><code>update()</code>方法更新已有文档中的值。</p>
-<p><em>语法格式</em></p>
-<p><code>update()</code> 方法基本格式如下:</p>
-<p><code>&gt;db.COLLECTION_NAME.update(SELECTIOIN_CRITERIA, UPDATED_DATA)</code></p>
-<p><em>范例</em></p>
-<p>假如mycol集合中有下列数据:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;MongoDB Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div></pre></td></tr></table></figure>
-<p>下面的例子将把文档原标题 ‘MongoDB Overview’ 替换为新的标题 ‘New MongoDB Tutorial’。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.update(&#123;&apos;title&apos;:&apos;MongoDB Overview&apos;&#125;,&#123;$set:&#123;&apos;title&apos;:&apos;New MongoDB Tutorial&apos;&#125;&#125;)</div><div class="line">&gt;db.mycol.find()</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;New MongoDB Tutorial&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<p>MongoDB默认只更新单个文档，要想更新多个文档，需要把参数<code>multi</code>设为<code>true</code>。</p>
-<p><code>&gt;db.mycol.update({&#39;title&#39;:&#39;MongoDB Overview&#39;},{$set:{&#39;title&#39;:&#39;New MongoDB Tutorial&#39;}},{multi:true})</code></p>
-<h4 id="save-方法"><a href="#save-方法" class="headerlink" title="save()方法"></a>save()方法</h4><p><code>save()</code> 方法利用传入该方法的文档来替换已有文档。</p>
-<p><em>语法格式</em></p>
-<p><code>save()</code> 方法基本语法格式如下:</p>
-<p><code>&gt;db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})</code></p>
-<p><em>范例</em></p>
-<p>下例用_id为’5983548781331adf45ec5’的文档代替原有文档。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.save(</div><div class="line">  &#123;</div><div class="line">    &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;Tutorials Point New Topic&quot;, &quot;by&quot;:&quot;Tutorials Point&quot;</div><div class="line">  &#125;</div><div class="line">)</div><div class="line">&gt;db.mycol.find()</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;Tutorials Point New Topic&quot;, &quot;by&quot;:&quot;Tutorials Point&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><h4 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove()方法"></a>remove()方法</h4><p>MongoDB利用 <code>remove()</code> 方法 清除集合中的文档。它有2个可选参数:</p>
-<ul>
-<li>deletion criteria:(可选)删除文档的标准。</li>
-<li>justOne:(可选)如果设为true或1，则只删除一个文档。</li>
-</ul>
-<p><em>语法格式</em></p>
-<p><code>remove()</code> 方法的基本语法格式如下所示:<br><code>&gt;db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)</code></p>
-<p><em>范例</em></p>
-<p>假如 mycol 集合中包含下列数据:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec5), &quot;title&quot;:&quot;MongoDB Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div></pre></td></tr></table></figure>
-<p>下面我们将删除其中所有标题为 ‘MongoDB Overview’ 的文档。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.remove(&#123;&apos;title&apos;:&apos;MongoDB Overview&apos;&#125;)</div><div class="line">&gt;db.mycol.find()</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec6), &quot;title&quot;:&quot;NoSQL Overview&quot;&#125;</div><div class="line">&#123; &quot;_id&quot; : ObjectId(5983548781331adf45ec7), &quot;title&quot;:&quot;Tutorials Point Overview&quot;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<h4 id="只删除一个文档"><a href="#只删除一个文档" class="headerlink" title="只删除一个文档"></a>只删除一个文档</h4><p>如果有多个记录，而你只想删除第一条记录，那么就设置<code>remove()</code>方法中的<code>justOne</code>参数：</p>
-<p><code>&gt;db.COLLECTION_NAME.remove(DELETION_CRITERIA,1)</code></p>
-<h4 id="删除所有文档"><a href="#删除所有文档" class="headerlink" title="删除所有文档"></a>删除所有文档</h4><p>如果没有指定删除标准，则 MongoDB 会将集合中所有文档都予以删除。这等同于 SQL 中的 truncate 命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;db.mycol.remove()</div><div class="line">&gt;db.mycol.find()</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>本文作者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;插入文档&quot;&gt;&lt;a href=&quot;#插入文档&quot; class=&quot;headerlink&quot; title=&quot;插入文档&quot;&gt;&lt;/a&gt;插入文档&lt;/h3&gt;&lt;h4 id=&quot;insert&quot;&gt;&lt;a href=&quot;#insert&quot; class=&quot;headerlink&quot; title=&quot;insert()&quot;&gt;&lt;/a&gt;insert()&lt;/h4&gt;&lt;p&gt;&lt;em&gt;语法格式&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;insert()&lt;/code&gt; 方法的基本格式为:&lt;br&gt;&lt;code&gt;&amp;gt;db.COLLECTION_NAME.insert(document)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;范例1&lt;/em&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt;db.mycol.insert(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;_id&amp;quot;: ObjectId(7df78ad8902c),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;title&amp;quot;: &amp;quot;MongoDB Overview&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;description&amp;quot;: &amp;quot;MongoDB is no sql database&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;by&amp;quot;: &amp;quot;Freak&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;url&amp;quot;: &amp;quot;https://rockjins.js.org&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;tags&amp;quot;: [&amp;quot;mongodb&amp;quot;, &amp;quot;database&amp;quot;, &amp;quot;NoSQL&amp;quot;],&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;quot;likes&amp;quot;: &amp;quot;100&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="MongoDB" scheme="http://yoursite.com/tags/MongoDB/"/>
-    
-      <category term="Database" scheme="http://yoursite.com/tags/Database/"/>
     
   </entry>
   
