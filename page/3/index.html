@@ -1253,7 +1253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/2017-02-15-javascript-skill/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="余震">
@@ -1272,7 +1272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/15/2017-02-15-javascript-skill/" itemprop="url"> 不定期更新 JavaScript技巧 </a></h1>
+                <a class="post-title-link" href="/2017/02/15/2017-02-15-curring-uncurring/" itemprop="url"> 简单理解JavaScript中的柯里化和反柯里化 </a></h1>
         
 
         <div class="post-meta">
@@ -1324,7 +1324,7 @@
 
           
           
-             <span id="/2017/02/15/2017-02-15-javascript-skill/" class="leancloud_visitors" data-flag-title=" 不定期更新 JavaScript技巧 ">
+             <span id="/2017/02/15/2017-02-15-curring-uncurring/" class="leancloud_visitors" data-flag-title=" 简单理解JavaScript中的柯里化和反柯里化 ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1354,12 +1354,15 @@
       
         
           <blockquote>
-<p> JavaScript技巧，偶尔更新。</p>
+<p>就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的</p>
 </blockquote>
-<h3 id="计算数组的极值"><a href="#计算数组的极值" class="headerlink" title="计算数组的极值"></a>计算数组的极值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">smallest</span>(<span class="params">array</span>)</span>&#123;                         </div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, array);             </div><div class="line">&#125;                                                 </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">largest</span>(<span class="params">array</span>)</span>&#123;                          </div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, array);             </div><div class="line">&#125;  </div><div class="line"></div><div class="line">smallest([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>]); <span class="comment">// 0</span></div><div class="line"></div><div class="line">largest([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>]); <span class="comment">// 3.3</span></div></pre></td></tr></table></figure>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。</p>
+<p>我们先来简单了解一下他们的作用。</p>
+<p>柯里化又称<em>部分求值</em>，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。</p>
+<p>反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/15/2017-02-15-javascript-skill/#more" rel="contents">
+            <a class="btn" href="/2017/02/15/2017-02-15-curring-uncurring/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1558,7 +1561,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/2017-02-15-curring-uncurring/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/15/2017-02-15-javascript-skill/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="余震">
@@ -1577,7 +1580,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/15/2017-02-15-curring-uncurring/" itemprop="url"> 简单理解JavaScript中的柯里化和反柯里化 </a></h1>
+                <a class="post-title-link" href="/2017/02/15/2017-02-15-javascript-skill/" itemprop="url"> 不定期更新 JavaScript技巧 </a></h1>
         
 
         <div class="post-meta">
@@ -1629,7 +1632,7 @@
 
           
           
-             <span id="/2017/02/15/2017-02-15-curring-uncurring/" class="leancloud_visitors" data-flag-title=" 简单理解JavaScript中的柯里化和反柯里化 ">
+             <span id="/2017/02/15/2017-02-15-javascript-skill/" class="leancloud_visitors" data-flag-title=" 不定期更新 JavaScript技巧 ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1659,15 +1662,12 @@
       
         
           <blockquote>
-<p>就像最早听到斐波拉切数列一样，第一次听到柯里化我也是懵逼的</p>
+<p> JavaScript技巧，偶尔更新。</p>
 </blockquote>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本文旨在让大家简单理解柯里化和反柯里化，这里不做深入探究，只求能带大家装逼就好，看完还不懂你砍我。</p>
-<p>我们先来简单了解一下他们的作用。</p>
-<p>柯里化又称<em>部分求值</em>，字面意思就是不会立刻求值，而是到了需要的时候再去求值。如果看的懵逼，没事，看完整篇文章再回过头来看这里你就会豁然开朗。</p>
-<p>反柯里化的作用是，当我们调用某个方法，不用考虑这个对象在被设计时，是否拥有这个方法，只要这个方法适用于它，我们就可以对这个对象使用它。</p>
+<h3 id="计算数组的极值"><a href="#计算数组的极值" class="headerlink" title="计算数组的极值"></a>计算数组的极值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">smallest</span>(<span class="params">array</span>)</span>&#123;                         </div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, array);             </div><div class="line">&#125;                                                 </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">largest</span>(<span class="params">array</span>)</span>&#123;                          </div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, array);             </div><div class="line">&#125;  </div><div class="line"></div><div class="line">smallest([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>]); <span class="comment">// 0</span></div><div class="line"></div><div class="line">largest([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>]); <span class="comment">// 3.3</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/15/2017-02-15-curring-uncurring/#more" rel="contents">
+            <a class="btn" href="/2017/02/15/2017-02-15-javascript-skill/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

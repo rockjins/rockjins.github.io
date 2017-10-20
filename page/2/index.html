@@ -311,7 +311,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/2017-06-14-live-server/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/2017-06-15-aliyun-node-nginx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="余震">
@@ -330,7 +330,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/14/2017-06-14-live-server/" itemprop="url"> live-server快速搭建服务 </a></h1>
+                <a class="post-title-link" href="/2017/06/14/2017-06-15-aliyun-node-nginx/" itemprop="url"> 阿里云配置 node.js + Nginx 反向代理 </a></h1>
         
 
         <div class="post-meta">
@@ -382,7 +382,7 @@
 
           
           
-             <span id="/2017/06/14/2017-06-14-live-server/" class="leancloud_visitors" data-flag-title=" live-server快速搭建服务 ">
+             <span id="/2017/06/14/2017-06-15-aliyun-node-nginx/" class="leancloud_visitors" data-flag-title=" 阿里云配置 node.js + Nginx 反向代理 ">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -412,17 +412,18 @@
       
         
           <blockquote>
-<p>争取节省大家的时间，看看有多快…</p>
+<p>学如逆水行舟</p>
 </blockquote>
-<p>本地开发常常需要搭建临时的服务，第一时间我们会想到用<a href="https://github.com/indexzero/http-server/" target="_blank" rel="external"><code>http-server</code></a>。</p>
-<p>但现在流行修改文件浏览器自动刷新，好像叫<code>hot socketing（热拔插）</code>，这时候又得用到<a href="https://github.com/Raynos/live-reload" target="_blank" rel="external"><code>live-reload</code></a>。</p>
-<p>既然装逼就要装到底，服务启动了，我想浏览器自动打开我的项目，再用个<a href="https://github.com/domenic/opener" target="_blank" rel="external"><code>opener</code></a>。</p>
-<p>现在只要使用<a href="http://tapiov.net/live-server/" target="_blank" rel="external"><code>live-server</code></a>就能实现这三个插件的所有功能，而且很简单就能启动一个看起来很专业的本地服务。</p>
-<p>你只需要全局安装<code>live-server</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g live-server</div></pre></td></tr></table></figure>
+<p>1.首先你得安装<code>node.js</code>，我是用<code>nvm</code>安装的，这样比较好控制版本，当然你也可以使用<code>apt-get</code>。</p>
+<p>2.下一步是安装<code>Nginx</code>，不去管版本的话，直接<code>sudo apt-get install nginx</code>就行。</p>
+<p>3.进入<code>/etc/nginx</code>目录，查看<code>nginx.conf</code>配置文件，在<code>http</code>块中找到这样两句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># include /etc/nginx/conf.d/*.conf;</div><div class="line"># include /etc/nginx/sites-enabled/*;</div></pre></td></tr></table></figure>
+<p>看看你的这两句有没有注释掉，如果注释了就把<code>#</code>号去掉，没有注释的话就跳过这一步。</p>
+<p>4.进入<code>/etc/nginx/conf.d</code>目录，创建我们自己的配置文件，去名规则最好是域名加端口，这样以后方便找，比如我的：<code>rockjins-com-8081.conf</code>，配置文件写入以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">upstream rockjins &#123;</div><div class="line">	server 127.0.0.1:8081; # 这里的端口号写你node.js运行的端口号，也就是要代理的端口号，我的项目跑在8081端口上</div><div class="line">	keepalive 64;</div><div class="line">&#125;</div><div class="line"></div><div class="line">server &#123;</div><div class="line">	listen 80; #这里的端口号是你要监听的端口号</div><div class="line">	server_name 39.108.55.xxx www.rockjins.com rockjins.com; # 这里是你的服务器名称，也就是别人访问你服务的ip地址或域名，可以写多个，用空格隔开</div><div class="line"></div><div class="line">	location / &#123;</div><div class="line">		proxy_set_header X-Real-IP $remote_addr;</div><div class="line">		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">		proxy_set_header Host $http_host;</div><div class="line">		proxy_set_header X-Nginx-Proxy true;</div><div class="line">		proxy_set_header Connection &quot;&quot;;</div><div class="line">		proxy_pass http://rockjins; # 这里要和最上面upstream后的应用名一致，可以自定义</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/14/2017-06-14-live-server/#more" rel="contents">
+            <a class="btn" href="/2017/06/14/2017-06-15-aliyun-node-nginx/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
