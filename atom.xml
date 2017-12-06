@@ -507,10 +507,10 @@
     <link href="http://yoursite.com/2017/10/09/2017-10-09-po-summary/"/>
     <id>http://yoursite.com/2017/10/09/2017-10-09-po-summary/</id>
     <published>2017-10-08T16:00:00.000Z</published>
-    <updated>2017-10-09T08:06:18.000Z</updated>
+    <updated>2017-12-06T01:44:56.592Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>本文摘录爱伦·坡小说里我最喜欢的一些片段。</p>
+<p>本文摘录爱伦·坡小说里我最喜欢的一些片段。（曹明伦[译]版本）</p>
 </blockquote>
 <h1 id="黑猫"><a href="#黑猫" class="headerlink" title="黑猫"></a>黑猫</h1><ol>
 <li>我的病情日渐严重——有什么病比得上酗酒！</li>
@@ -542,6 +542,10 @@
 <p> “妙！“他说。</p>
 </li>
 </ol>
+<h1 id="瓶中手稿"><a href="#瓶中手稿" class="headerlink" title="瓶中手稿"></a>瓶中手稿</h1><ol>
+<li>现在的人总习惯于认为任何偶发事件都与哪门科学的原理有关，甚至包括那些与之风马牛不相及的事件。</li>
+<li>我们时而被抛上比飞翔的信天翁还高的浪尖，吓得透不过气来；时而又被急速扔进深渊似的波谷，摔得头晕目眩，波谷里空气凝滞，没有声音惊扰海怪的美梦。</li>
+</ol>
 <blockquote>
 <p>本文译者：余震（Freak）<br>本文出处：<a href="https://rockjins.js.org" target="_blank" rel="external">Rockjins Blog</a><br>版权声明：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">CC BY-NC-SA 3.0 CN</a>许可协议。转载请注明出处！</p>
 </blockquote>
@@ -550,7 +554,7 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;本文摘录爱伦·坡小说里我最喜欢的一些片段。&lt;/p&gt;
+&lt;p&gt;本文摘录爱伦·坡小说里我最喜欢的一些片段。（曹明伦[译]版本）&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;黑猫&quot;&gt;&lt;a href=&quot;#黑猫&quot; class=&quot;headerlink&quot; title=&quot;黑猫&quot;&gt;&lt;/a&gt;黑猫&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;我的病情日渐严重——有什么病比得上酗酒！&lt;/li&gt;
@@ -2548,9 +2552,9 @@
     
       <category term="Translation" scheme="http://yoursite.com/tags/Translation/"/>
     
-      <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
-    
       <category term="Full-Stack" scheme="http://yoursite.com/tags/Full-Stack/"/>
+    
+      <category term="Meteor" scheme="http://yoursite.com/tags/Meteor/"/>
     
   </entry>
   
